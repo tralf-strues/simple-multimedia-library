@@ -13,7 +13,7 @@
 
 #include <SDL.h>
 #include "color.h"
-#include "../math/_core_math.h"
+#include "../sml_math.h"
 
 class Renderer;
 

@@ -5,7 +5,7 @@ LittleWarnings = -Wall
 NoWarnings     = 
 # -----------------------------------Constants----------------------------------
 
-Mode = DEBUG_MODE
+Mode = RELEASE_MODE
 # ----------------------------------Debug-mode----------------------------------
 ifeq ($(Mode), DEBUG_MODE)
 	ModeLinkerOptions   = -g -fsanitize=address -fno-optimize-sibling-calls
@@ -53,7 +53,7 @@ install: init build
 	mkdir -p $(OutputPrefix)/$(OutputDir)
 	mkdir -p $(OutputPrefix)/$(OutputDir)
 	cp $(BinDir)/$(OutputFile) $(OutputPrefix)/$(OutputDir)
-	cp $(Deps) $(OutputPrefix)/$(OutputDir)
+	cp -a $(IncludeDir)/. $(OutputPrefix)/$(OutputDir)
 else
 install:
 	@echo "[ERROR] Output directory not specified!"
@@ -63,9 +63,9 @@ endif
 build: $(Objs) $(Deps)
 	ar ru $(BinDir)/$(OutputFile) $(Objs)
 
-vpath %.cpp $(wildcard $(SrcDir)/**/)
+vpath %.cpp $(SrcDir) $(wildcard $(SrcDir)/**/)
 $(IntDir)/%.o: %.cpp $(Deps)
-	$(CXX) -I include -c $< $(CXXFLAGS) -o $@
+	$(CXX) -I $(IncludeDir) -c $< $(CXXFLAGS) -o $@
 
 .PHONY: init
 init:

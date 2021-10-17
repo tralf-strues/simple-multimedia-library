@@ -9,7 +9,7 @@
 #ifndef LISTENER_NOTIFIER_H
 #define LISTENER_NOTIFIER_H
 
-#include "../containers/_core_containers.h"
+#include "../sml_containers.h"
 #include "event.h"
 
 static const size_t MAX_LISTENED_EVENTS = 3;

@@ -1,16 +1,16 @@
 //------------------------------------------------------------------------------
 //! @author Nikita Mochalov (github.com/tralf-strues)
-//! @file _core_containers.h
-//! @date 2021-10-01
+//! @file sml_events.h
+//! @date 2021-10-17
 //! 
 //! @copyright Copyright (c) 2021
 //------------------------------------------------------------------------------
 
-#ifndef CORE_CONTAINERS_H
-#define CORE_CONTAINERS_H
+#ifndef SML_EVENTS_H
+#define SML_EVENTS_H
 
-#include "array.h"
-#include "dynamic_array.h"
-#include "list.h"
+#include "events/event.h"
+#include "events/scancode.h"
+#include "events/system_event_manager.h"
 
-#endif // CORE_CONTAINERS_H
+#endif // SML_EVENTS_H

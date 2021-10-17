@@ -9,7 +9,7 @@
 #ifndef VIEWPORT_H
 #define VIEWPORT_H
 
-#include "../graphics_wrapper/_core_graphics_wrapper.h"
+#include "../sml_graphics_wrapper.h"
 
 struct Viewport
 {
