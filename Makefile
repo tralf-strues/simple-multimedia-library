@@ -42,18 +42,18 @@ CppSrc = $(notdir $(wildcard $(SrcDir)/*.cpp) $(wildcard $(SrcDir)/**/*.cpp))
 
 Objs = $(addprefix $(IntDir)/, $(CppSrc:.cpp=.o))
 
-OutputDir  = simple-multimedia-library
-OutputFile = simple_multimedia_library.a
+OutputDir  = sml
+OutputFile = sml.a
 # -------------------------------------Files------------------------------------
 
 # ----------------------------------Make rules----------------------------------
 .PHONY: install
 ifneq ($(OutputPrefix),)
 install: init build
-	mkdir -p $(OutputPrefix)/$(OutputDir)/lib
-	mkdir -p $(OutputPrefix)/$(OutputDir)/include
-	cp $(BinDir)/$(OutputFile) $(OutputPrefix)/$(OutputDir)/lib
-	cp $(Deps) $(OutputPrefix)/$(OutputDir)/include
+	mkdir -p $(OutputPrefix)/$(OutputDir)
+	mkdir -p $(OutputPrefix)/$(OutputDir)
+	cp $(BinDir)/$(OutputFile) $(OutputPrefix)/$(OutputDir)
+	cp $(Deps) $(OutputPrefix)/$(OutputDir)
 else
 install:
 	@echo "[ERROR] Output directory not specified!"

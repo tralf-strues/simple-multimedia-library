@@ -6,7 +6,7 @@ The library provides with the following functionality:
 4. Event system.
 
 ## Installation
-The `install` script will create a directory `simple-multimedia-library/` with two subdirectories `include/` (this one will contain all header files) and `lib/` (this one will contain the static library `simple-multimedia-library.a`) in the directory specified by `OutputPrefix`.
+The `install` script will create a directory `sml/`, which will contain all header files and the static library `sml.a`, in the directory specified by `OutputPrefix`.
 ```Shell
 $ git clone https://github.com/tralf-strues/simple-multimedia-library.git
 $ cd simple-multimedia-library
