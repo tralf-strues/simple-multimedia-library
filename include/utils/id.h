@@ -14,12 +14,15 @@
 
 #define SID(str) getStringId128(str)
 
+typedef uint64_t id64_t;
+
 struct id128_t
 {
     uint64_t low  = 0;
     uint64_t high = 0;
 };
 
-id128_t getStringId128(const char* str);
+id64_t  getStringId64  (const char* str);
+id128_t getStringId128 (const char* str);
 
 #endif // ID_H
