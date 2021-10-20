@@ -9,24 +9,39 @@
 #include "graphics_wrapper/texture.h"
 #include "graphics_wrapper/renderer.h"
 
-Texture::Texture() : m_Width(0), m_Height(0), m_Pixels(nullptr), m_NativeTexture(nullptr) {}
+//------------------------------------------------------------------------------
+// Texture
+//------------------------------------------------------------------------------
+Texture::Texture()
+    : m_Width(0),
+      m_Height(0),
+      m_NativeRenderer(nullptr),
+      m_NativeTexture(nullptr)
+{
+}
+
 
 Texture::Texture(Renderer& renderer, size_t width, size_t height)
-    : m_Width(width), m_Height(height) 
+    : m_Width(width),
+      m_Height(height),
+      m_NativeRenderer(renderer.getNativeRenderer()),
+      m_NativeTexture(nullptr) 
 {
     assert(m_Width);
     assert(m_Height);
 
-    m_Pixels = new Color[m_Width * m_Height];
-    m_NativeTexture = SDL_CreateTexture(renderer.getNativeRenderer(),
+    m_NativeTexture = SDL_CreateTexture(m_NativeRenderer,
                                         SDL_PIXELFORMAT_RGBA8888, 
-                                        SDL_TEXTUREACCESS_STREAMING,
+                                        SDL_TEXTUREACCESS_STATIC,
                                         m_Width, m_Height);
 }
 
 Texture::~Texture()
 {
-    delete[] m_Pixels;
+    if (m_NativeTexture != nullptr)
+    {
+        SDL_DestroyTexture(m_NativeTexture);
+    }
 }
 
 size_t Texture::getWidth() const
@@ -39,68 +54,63 @@ size_t Texture::getHeight() const
     return m_Height;
 }
 
-Color* Texture::getPixels() const
-{
-    return m_Pixels;
-}
-
 SDL_Texture* Texture::getNativeTexture() const
 {
     return m_NativeTexture;
 }
 
-Color* Texture::operator[](size_t row)
+void Texture::readPixels(Color* dst) const
 {
-    assert(row < m_Height);
+    assert(dst);
 
-    return &m_Pixels[row * m_Width];    
-}
+    SDL_Texture* prevTarget = SDL_GetRenderTarget(m_NativeRenderer);
 
-const Color* Texture::operator[](size_t row) const
-{
-    assert(row < m_Height);
-
-    return &m_Pixels[row * m_Width];     
-}
-
-void Texture::clear(Color color)
-{
-    size_t pixelsCount = m_Height * m_Width;
-
-    for (size_t i = 0; i < pixelsCount; i++)
-    {
-        m_Pixels[i] = color;
-    }
-}
-
-void Texture::update()
-{
-    SDL_UpdateTexture(m_NativeTexture, nullptr, (void*) m_Pixels, m_Width * sizeof(Color));
+    SDL_SetRenderTarget(m_NativeRenderer, m_NativeTexture);
+    SDL_RenderReadPixels(m_NativeRenderer, NULL, 0, dst, m_Width * sizeof(Color));
+    SDL_SetRenderTarget(m_NativeRenderer, prevTarget);
 }
 
 bool Texture::writeToBMP(const char* filename) const
 {
     assert(filename);
 
-    SDL_Surface* surface = SDL_CreateRGBSurface(0, m_Width, m_Height, 32, 0, 0, 0, 0);
-    for (size_t i = 0; i < m_Width * m_Height; i++)
-    {
-        ((uint8_t*)surface->pixels)[i * sizeof(Color) + 0] = colorGetB(m_Pixels[i]);
-        ((uint8_t*)surface->pixels)[i * sizeof(Color) + 1] = colorGetG(m_Pixels[i]);
-        ((uint8_t*)surface->pixels)[i * sizeof(Color) + 2] = colorGetR(m_Pixels[i]);
-    }
+    // uint32_t textureFormat = 0;
+    // int32_t textureWidth = 0;
+    // int32_t textureHeight = 0;
 
-    if (SDL_SaveBMP(surface, filename) != 0)
-    {
-        return false;
-    }
+    // if (SDL_QueryTexture(m_NativeTexture, &textureFormat, nullptr, &textureWidth, &textureHeight) != 0)
+    // {
+    //     return false;
+    // }
 
-    SDL_FreeSurface(surface);
+    // // FIXME: Use format!
+    // SDL_Surface* surface = SDL_CreateRGBSurface(0, m_Width, m_Height, 32, 0, 0, 0, 0);
+
+    // Color* pixels = new Color[m_Width * m_Height * sizeof(Color)];
+
+    // SDL_SetRenderTarget(renderer.getNativeRenderer(), m_NativeTexture);
+    // SDL_RenderReadPixels(renderer.getNativeRenderer(), NULL, 0, pixels, m_Width * sizeof(Color));
+
+    // SDL_Surface* surface = SDL_CreateRGBSurface(0, m_Width, m_Height, 32, 0, 0, 0, 0);
+    // for (size_t i = 0; i < m_Width * m_Height; i++)
+    // {
+    //     ((uint8_t*)surface->pixels)[i * sizeof(Color) + 0] = colorGetB(pixels[i]);
+    //     ((uint8_t*)surface->pixels)[i * sizeof(Color) + 1] = colorGetG(pixels[i]);
+    //     ((uint8_t*)surface->pixels)[i * sizeof(Color) + 2] = colorGetR(pixels[i]);
+    // }
+
+    // if (SDL_SaveBMP(surface, filename) != 0)
+    // {
+    //     return false;
+    // }
+
+    // SDL_FreeSurface(surface);
+    // delete[] pixels;
 
     return true;
 }
 
-bool Texture::loadFromBMP(Renderer& renderer, const char* filename)
+bool Texture::loadFromBMP(const char* filename)
 {
     assert(filename);
 
@@ -110,30 +120,94 @@ bool Texture::loadFromBMP(Renderer& renderer, const char* filename)
         return false;
     }
 
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer.getNativeRenderer(), surface);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(m_NativeRenderer, surface);
     if (texture == nullptr)
     {
+        SDL_FreeSurface(surface);
         return false;
     }
 
-    if (m_Pixels != nullptr)
+    if (m_NativeTexture != nullptr)
     {
-        delete[] m_Pixels;
+        SDL_DestroyTexture(m_NativeTexture);
     }
 
     m_Width         = surface->w;
     m_Height        = surface->h;
     m_NativeTexture = texture;
 
-    m_Pixels = new Color[m_Width * m_Height];
-
-    for (size_t i = 0; i < m_Width * m_Height; i++)
-    {
-        m_Pixels[i] = rgbaColor(((uint8_t*)surface->pixels)[i * 3 + 2],
-                                ((uint8_t*)surface->pixels)[i * 3 + 1],
-                                ((uint8_t*)surface->pixels)[i * 3 + 0],
-                                0xFF);
-    }
+    SDL_FreeSurface(surface);
 
     return true;
+}
+
+//------------------------------------------------------------------------------
+// BufferedTexture
+//------------------------------------------------------------------------------
+BufferedTexture::BufferedTexture(Renderer& renderer, size_t width, size_t height)
+    : m_Texture(renderer, width, height),
+      m_Buffer(new Color[width * height])
+{
+}
+
+BufferedTexture::BufferedTexture(Texture& texture)
+    : m_Texture(texture),
+      m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])
+{
+    m_Texture.readPixels(m_Buffer);
+}
+
+BufferedTexture::~BufferedTexture()
+{
+    if (m_Buffer != nullptr)
+    {
+        delete[] m_Buffer;
+    }
+}
+
+Color* BufferedTexture::getBuffer()
+{
+    return m_Buffer;
+}
+
+Texture& BufferedTexture::getTexture()
+{
+    return m_Texture;
+}
+
+Color* BufferedTexture::operator[](size_t row)
+{
+    assert(row < m_Texture.getHeight());
+
+    return &m_Buffer[row * m_Texture.getWidth()];    
+}
+
+const Color* BufferedTexture::operator[](size_t row) const
+{
+    assert(row < m_Texture.getHeight());
+
+    return &m_Buffer[row * m_Texture.getWidth()];     
+}
+
+void BufferedTexture::clearBuffer(Color color)
+{
+    size_t pixelsCount = m_Texture.getHeight() * m_Texture.getWidth();
+
+    for (size_t i = 0; i < pixelsCount; i++)
+    {
+        m_Buffer[i] = color;
+    }
+}
+
+void BufferedTexture::updateTexture()
+{
+    SDL_UpdateTexture(m_Texture.getNativeTexture(),
+                      nullptr,
+                      static_cast<void*>(m_Buffer),
+                      m_Texture.getWidth() * sizeof(Color));
+}
+
+void BufferedTexture::updateBuffer()
+{
+    m_Texture.readPixels(m_Buffer);
 }

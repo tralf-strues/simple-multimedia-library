@@ -85,6 +85,21 @@ public:
     //--------------------------------------------------------------------------
     void clear();
 
+    //------------------------------------------------------------------------------
+    //! @brief Set rendering target.
+    //! 
+    //! @param targetTexture If nullptr, then set render target back to window.
+    //------------------------------------------------------------------------------
+    void setTarget(Texture* targetTexture);
+
+    //------------------------------------------------------------------------------
+    //! @brief Get rendering target.
+    //! 
+    //! @return Texture being the current rendering target, or nullptr, if the
+    //!         current rendering target is window.
+    //------------------------------------------------------------------------------
+    Texture* getTarget();
+
     //--------------------------------------------------------------------------
     //! @brief Set rectangular clip region for the rendering target. Outside 
     //!        this region nothing will be rendered.
@@ -121,7 +136,7 @@ public:
     void renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end);
 
     //--------------------------------------------------------------------------
-    //! @brief Render texture to target window at position pos.
+    //! @brief Render texture to the current rendering target at position pos.
     //! 
     //! @param texture 
     //! @param pos 
@@ -130,6 +145,7 @@ public:
 
 private:
     Window&       m_Window;
+    Texture*      m_TargetTexture;
     Color         m_Color;
     uint32_t      m_ErrorStatus;
 

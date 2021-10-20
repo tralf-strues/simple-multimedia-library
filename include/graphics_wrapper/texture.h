@@ -20,30 +20,57 @@ class Renderer;
 class Texture
 {
 public:
+    friend class BufferedTexture;
+
     Texture();
     Texture(Renderer& renderer, size_t width, size_t height);
     ~Texture();
 
-    size_t       getWidth()         const;
-    size_t       getHeight()        const;
-    Color*       getPixels()        const;
-    SDL_Texture* getNativeTexture() const;
+    size_t       getWidth()             const;
+    size_t       getHeight()            const;
+    SDL_Texture* getNativeTexture()     const;
+    void         readPixels(Color* dst) const;
+
+    // TODO: implement
+    bool writeToBMP(const char* filename) const;
+    bool loadFromBMP(const char* filename);
+
+private:
+    size_t        m_Width;
+    size_t        m_Height;
+
+    SDL_Renderer* m_NativeRenderer;
+    SDL_Texture*  m_NativeTexture;
+};
+
+class BufferedTexture
+{
+public:
+    BufferedTexture(Renderer& renderer, size_t width, size_t height);
+    BufferedTexture(Texture& texture);
+    ~BufferedTexture();
+
+    Color* getBuffer();
+    Texture& getTexture();
 
     Color* operator[](size_t row);
     const Color* operator[](size_t row) const;
 
-    void clear(Color color);
-    void update();
+    void clearBuffer(Color color);
+    
+    //--------------------------------------------------------------------------
+    //! @brief Reflect buffer's changes on the texture.
+    //--------------------------------------------------------------------------
+    void updateTexture();
 
-    bool writeToBMP(const char* filename) const;
-    bool loadFromBMP(Renderer& renderer, const char* filename);
+    //--------------------------------------------------------------------------
+    //! @brief Reflect texture's changes (e.g. via Renderer) on the buffer.
+    //--------------------------------------------------------------------------
+    void updateBuffer();
 
 private:
-    size_t       m_Width;
-    size_t       m_Height;
-    Color*       m_Pixels;
-
-    SDL_Texture* m_NativeTexture;
+    Texture m_Texture;
+    Color*  m_Buffer;
 };
 
 #endif // TEXTURE_H

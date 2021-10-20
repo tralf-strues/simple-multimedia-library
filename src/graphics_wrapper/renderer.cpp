@@ -68,6 +68,19 @@ void Renderer::clear()
     SDL_RenderClear(m_NativeRenderer);
 }
 
+void Renderer::setTarget(Texture* targetTexture)
+{
+    assert(targetTexture);
+
+    m_TargetTexture = targetTexture;
+    SDL_SetRenderTarget(m_NativeRenderer, targetTexture->getNativeTexture());
+}
+
+Texture* Renderer::getTarget()
+{
+    return m_TargetTexture;
+}
+
 void Renderer::setClipRegion(const Rectangle& clipRegion) const
 {
     SDL_Rect rect = {clipRegion.pos.x, clipRegion.pos.y, clipRegion.width, clipRegion.height};
