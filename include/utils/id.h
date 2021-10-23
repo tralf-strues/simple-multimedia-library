@@ -26,12 +26,6 @@ struct id128_t
     id128_t(id64_t high, id64_t low) : low(low), high(high) {}
 };
 
-template <typename T>
-struct ID
-{
-    uint8_t 
-};
-
 id64_t  getStringId64  (const char* str);
 id128_t getStringId128 (const char* str);
 
