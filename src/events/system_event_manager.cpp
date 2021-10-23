@@ -18,26 +18,26 @@ void SystemEventManager::proccessEvents()
         {
             case SDL_QUIT: 
             { 
-                Event event{Event::WINDOW_CLOSE};
+                WindowCloseEvent event;
                 notify(event);
                 break; 
             }
 
             case SDL_KEYDOWN:
             {
-                EventKeyboardPressed event{(Scancode) nativeEvent.key.keysym.scancode};
+                KeyPressedEvent event{(Scancode) nativeEvent.key.keysym.scancode};
                 notify(event);
                 break;
             }
 
-            case SDL_MOUSEBUTTONDOWN:
+            case SDL_MOUSEMOTION:
             {
                 int32_t mouseX = 0;
                 int32_t mouseY = 0;
 
                 SDL_GetMouseState(&mouseX, &mouseY);
 
-                EventMouseButton event{mouseX, mouseY};
+                MouseMovedEvent event{mouseX, mouseY};
                 notify(event);
 
                 break;

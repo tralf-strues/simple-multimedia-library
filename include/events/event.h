@@ -12,47 +12,31 @@
 #include <inttypes.h>
 #include "scancode.h"
 
+using EventType     = uint32_t;
+using EventCategory = uint64_t; ///< Supposed to be used as a bit-mask.
+
+const EventType     INVALID_EVENT_TYPE = 0;
+const EventCategory EVENT_CATEGORY_ANY = 0;
+
+#define DEFINE_STATIC_EVENT_TYPE(type)         static EventType     getStaticType()     { return type; }
+#define DEFINE_STATIC_EVENT_CATEGORY(category) static EventCategory getStaticCategory() { return category; }
+
 struct Event
 {
-    enum Type
+    EventType     type     = INVALID_EVENT_TYPE;
+    EventCategory category = 0;
+    bool          consumed = false;
+
+    Event(EventType type = INVALID_EVENT_TYPE, EventCategory category = 0)
+        : type(type),
+          category(category)
     {
-        INVALID,
+    }
 
-        /* Window events */
-        WINDOW_CLOSE,
-
-        /* Mouse events */
-        MOUSE_BUTTON_PRESSED,
-
-        /* Keyboard events */
-        KEYBOARD_PRESSED,
-
-        /* GUI */
-        GUI_BUTTON_PRESSED,
-
-        TOTAL_TYPES
-    };
-
-    const Type type;
-
-    Event(Type type = INVALID) : type(type) {}
-};
-
-struct EventMouseButton : public Event
-{
-    int32_t clickX;
-    int32_t clickY;
-
-    EventMouseButton(int32_t clickX = 0, int32_t clickY = 0, Type type = MOUSE_BUTTON_PRESSED) : 
-                     Event(type), clickX(clickX), clickY(clickY) {}
-};
-
-struct EventKeyboardPressed : public Event
-{
-    Scancode scancode;
-
-    EventKeyboardPressed(Scancode scancode = SCANCODE_INVALID, Type type = KEYBOARD_PRESSED) : 
-                         Event(type), scancode(scancode) {}
+    bool isInCategory(EventCategory category)
+    {
+        return category == (category && this->category);
+    }
 };
 
 #endif // EVENT_H

@@ -14,7 +14,7 @@
 
 static const size_t MAX_LISTENED_EVENTS = 3;
 
-class IListener
+class Listener
 {
 public:
     virtual void onEvent(const Event& event) = 0;
@@ -23,34 +23,33 @@ public:
 class Notifier
 {
 public:
-    virtual void attachListener(const std::initializer_list<Event::Type>& events, 
-                                IListener* listener);
-    virtual void detachListener(IListener* listener);
+    virtual void attachListener(const std::initializer_list<EventType>& types, Listener* listener);
+    virtual void detachListener(Listener* listener);
 
 protected:
     struct ListenerInfo
     {
-        Event::Type events[MAX_LISTENED_EVENTS];
-        IListener*  listener;
+        EventType types[MAX_LISTENED_EVENTS];
+        Listener* listener;
 
-        ListenerInfo(IListener* listener = nullptr) : listener(listener)
+        ListenerInfo(Listener* listener = nullptr) : listener(listener)
         {
             for (size_t i = 0; i < MAX_LISTENED_EVENTS; ++i)
             {
-                this->events[i] = Event::INVALID;
+                this->types[i] = INVALID_EVENT_TYPE;
             }
         }
 
-        ListenerInfo(const std::initializer_list<Event::Type>& events, 
-                     IListener* listener = nullptr)
+        ListenerInfo(const std::initializer_list<EventType>& types, 
+                     Listener* listener = nullptr)
             : ListenerInfo(listener) 
         {
-            assert(events.size() <= MAX_LISTENED_EVENTS);
+            assert(types.size() <= MAX_LISTENED_EVENTS);
 
-            auto initIt = events.begin();
-            for (size_t i = 0; initIt != events.end(); ++initIt, ++i)
+            auto initIt = types.begin();
+            for (size_t i = 0; initIt != types.end(); ++initIt, ++i)
             {
-                this->events[i] = *initIt;
+                this->types[i] = *initIt;
             }
         }
     };

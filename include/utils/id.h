@@ -20,6 +20,16 @@ struct id128_t
 {
     uint64_t low  = 0;
     uint64_t high = 0;
+
+    id128_t() = default;
+    id128_t(id64_t low) : low(low) {}
+    id128_t(id64_t high, id64_t low) : low(low), high(high) {}
+};
+
+template <typename T>
+struct ID
+{
+    uint8_t 
 };
 
 id64_t  getStringId64  (const char* str);

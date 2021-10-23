@@ -10,6 +10,7 @@
 #define SYSTEM_EVENT_MANAGER_H
 
 #include "listener_notifier.h"
+#include "system_events.h"
 
 class SystemEventManager : public Notifier
 {
