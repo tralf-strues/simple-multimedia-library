@@ -31,8 +31,10 @@ class Text
 public:
     ~Text();
 
-    void load(Renderer& renderer, const char* str, const Font& font, Color color);
+    void load(Renderer& renderer);
     void destroy();
+
+    void render(Renderer& renderer, const Vec2<int32_t>& pos) const;
 
     const Font& getFont() const;
     Color getColor() const;
@@ -41,7 +43,9 @@ public:
     size_t getWidth() const;
     size_t getHeight() const;
 
-    void render(Renderer& renderer, const Vec2<int32_t>& pos) const;
+    void setFont(const Font& font);
+    void setColor(Color color);
+    void setString(const char* str);
 
 private:
     Font         m_Font    = {nullptr, 0};

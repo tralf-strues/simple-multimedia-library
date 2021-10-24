@@ -30,7 +30,7 @@ public:
     //!  
     //! @return The return event or nullptr if the event has been consumed. 
     //--------------------------------------------------------------------------
-    virtual Event* dispatchEvent(Event* event, EventDispatchChain* chain);
+    virtual Event* dispatchEvent(Event* event, EventDispatchChain* chain) = 0;
 };
 
 class EventDispatchChain
@@ -40,14 +40,9 @@ public:
     //! @brief Prepends the dispatcher to the chain, i.e. adds the dispatcher to
     //!        the front of the chain (before the chain's current head).
     //! 
-    //! @attention The caller shouldn't assume that this @ref EventDispatchChain
-    //!            remains unchanged nor that the returned chain will point to a
-    //!            different chain after the call. The call look like this:
-    //!            @code chain = chain.prependDispatcher(dispatcher); @endcode
-    //! 
     //! @param dispatcher
     //--------------------------------------------------------------------------
-    virtual void prependDispatcher(EventDispatcher* dispatcher);
+    virtual void prependDispatcher(EventDispatcher* dispatcher) = 0;
 
     //--------------------------------------------------------------------------
     //! @brief Send the event through this chain.
@@ -62,7 +57,7 @@ public:
     //!
     //! @return The proccessed event or nullptr if the event has been consumed.
     //--------------------------------------------------------------------------
-    virtual Event* sendThroughChain(Event* event);
+    virtual Event* sendThroughChain(Event* event) = 0;
 };
 
 class EventTarget
@@ -80,7 +75,7 @@ public:
     //!
     //! @return The resulting event dispatch chain for this target.
     //--------------------------------------------------------------------------
-    virtual EventDispatchChain* buildEventDispatchChain(EventDispatchChain* chain);
+    virtual EventDispatchChain* buildEventDispatchChain(EventDispatchChain* chain) = 0;
 };
 
 #endif // EVENT_DISPATCHING_H

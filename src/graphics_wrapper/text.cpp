@@ -40,16 +40,17 @@ Color       Text::getColor()  const { return m_Color;  }
 size_t      Text::getWidth()  const { return m_Width;  }
 size_t      Text::getHeight() const { return m_Height; }
 
-void Text::load(Renderer& renderer, const char* str, const Font& font, Color color)
+void Text::setFont(const Font& font)  { m_Font  = font;  }
+void Text::setColor(Color color)      { m_Color = color; }
+void Text::setString(const char* str) { m_Str   = str;   }
+
+void Text::load(Renderer& renderer)
 {
-    assert(str);
+    assert(m_Font.getNativeFont());
+    assert(m_Font.getSize() > 0);
+    assert(m_Str);
 
     destroy();
-
-    m_Font  = font;
-    m_Color = color;
-    m_Str   = str;
-    SDL_Color sysColor = getSystemColor(m_Color);
 
     SDL_Surface* loadedSurface = TTF_RenderText_Blended(m_Font.getNativeFont(), 
                                                         m_Str, 
