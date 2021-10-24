@@ -70,10 +70,16 @@ void Renderer::clear()
 
 void Renderer::setTarget(Texture* targetTexture)
 {
-    assert(targetTexture);
-
     m_TargetTexture = targetTexture;
-    SDL_SetRenderTarget(m_NativeRenderer, targetTexture->getNativeTexture());
+
+    if (targetTexture == nullptr)
+    {
+        SDL_SetRenderTarget(m_NativeRenderer, nullptr);
+    }
+    else
+    {
+        SDL_SetRenderTarget(m_NativeRenderer, targetTexture->getNativeTexture());
+    }
 }
 
 Texture* Renderer::getTarget()

@@ -154,11 +154,11 @@ public:
 
 private:
     Window&       m_Window;
-    Texture*      m_TargetTexture;
-    Color         m_Color;
-    uint32_t      m_ErrorStatus;
+    Texture*      m_TargetTexture  = nullptr;
+    Color         m_Color          = COLOR_BLACK;
+    uint32_t      m_ErrorStatus    = 0;
 
-    SDL_Renderer* m_NativeRenderer;
+    SDL_Renderer* m_NativeRenderer = nullptr;
 
     //--------------------------------------------------------------------------
     //! @brief Set the error.
