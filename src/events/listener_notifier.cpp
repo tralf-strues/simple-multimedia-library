@@ -29,13 +29,13 @@ void Notifier::detachListener(Listener* listener)
     }
 }
 
-void Notifier::notify(const Event& event)
+void Notifier::notify(Event* event)
 {
     for (auto listenerInfo : m_Listeners)
     {
         for (auto eventType : listenerInfo.types)
         {
-            if (eventType == event.type)
+            if (eventType == event->type)
             {
                 listenerInfo.listener->onEvent(event);
             }

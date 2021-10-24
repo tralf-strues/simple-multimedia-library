@@ -17,7 +17,7 @@ static const size_t MAX_LISTENED_EVENTS = 3;
 class Listener
 {
 public:
-    virtual void onEvent(const Event& event) = 0;
+    virtual void onEvent(Event* event) = 0;
 };
 
 class Notifier
@@ -25,6 +25,7 @@ class Notifier
 public:
     virtual void attachListener(const std::initializer_list<EventType>& types, Listener* listener);
     virtual void detachListener(Listener* listener);
+    virtual void notify(Event* event);
 
 protected:
     struct ListenerInfo
@@ -55,8 +56,6 @@ protected:
     };
 
     List<ListenerInfo> m_Listeners;
-
-    virtual void notify(const Event& event);
 };
 
 #endif // LISTENER_NOTIFIER_H
