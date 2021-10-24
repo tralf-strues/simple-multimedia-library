@@ -11,6 +11,7 @@ var class_renderer =
     [ "present", "class_renderer.html#a36e813b2cfb1f4cf6c9685d230543036", null ],
     [ "renderLine", "class_renderer.html#aca0b280d57007a4c657cb7901e621675", null ],
     [ "renderPoint", "class_renderer.html#adbb94a8f7695d177820e42af4b7636ef", null ],
+    [ "renderTexture", "class_renderer.html#a3ca03fd31c37115c63f820708c17c81e", null ],
     [ "renderTexture", "class_renderer.html#ad7160ae4d399114dd90f9d52d8443030", null ],
     [ "resetClipRegion", "class_renderer.html#af5c589134882400db307081764e20f20", null ],
     [ "setClipRegion", "class_renderer.html#af926aabddd6651915c9eec662e5842c8", null ],

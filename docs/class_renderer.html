@@ -143,6 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aca0b280d57007a4c657cb7901e621675"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#aca0b280d57007a4c657cb7901e621675">renderLine</a> (const <a class="el" href="struct_vec2.html">Vec2</a>&lt; int32_t &gt; &amp;start, const <a class="el" href="struct_vec2.html">Vec2</a>&lt; int32_t &gt; &amp;end)</td></tr>
 <tr class="memdesc:aca0b280d57007a4c657cb7901e621675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render a line from start to end.  <a href="class_renderer.html#aca0b280d57007a4c657cb7901e621675">More...</a><br /></td></tr>
 <tr class="separator:aca0b280d57007a4c657cb7901e621675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ca03fd31c37115c63f820708c17c81e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a3ca03fd31c37115c63f820708c17c81e">renderTexture</a> (const <a class="el" href="class_texture.html">Texture</a> &amp;texture, const <a class="el" href="struct_rectangle.html">Rectangle</a> &amp;region)</td></tr>
+<tr class="memdesc:a3ca03fd31c37115c63f820708c17c81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render texture to the current rendering target in the region. Scales the texture if necessary.  <a href="class_renderer.html#a3ca03fd31c37115c63f820708c17c81e">More...</a><br /></td></tr>
+<tr class="separator:a3ca03fd31c37115c63f820708c17c81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7160ae4d399114dd90f9d52d8443030"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ad7160ae4d399114dd90f9d52d8443030">renderTexture</a> (const <a class="el" href="class_texture.html">Texture</a> &amp;texture, const <a class="el" href="struct_vec2.html">Vec2</a>&lt; int32_t &gt; &amp;pos)</td></tr>
 <tr class="memdesc:ad7160ae4d399114dd90f9d52d8443030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render texture to the current rendering target at position pos.  <a href="class_renderer.html#ad7160ae4d399114dd90f9d52d8443030">More...</a><br /></td></tr>
 <tr class="separator:ad7160ae4d399114dd90f9d52d8443030"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -348,10 +351,10 @@ Public Member Functions</h2></td></tr>
 <p>Get rendering target. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_texture.html">Texture</a> being the current rendering target, or nullptr, if the current rendering target is window. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00079">79</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>{</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">return</span> m_TargetTexture;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00085">85</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">return</span> m_TargetTexture;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -438,10 +441,10 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00101">101</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    SDL_RenderDrawLine(m_NativeRenderer, start.x, start.y, end.x, end.y);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00107">107</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    SDL_RenderDrawLine(m_NativeRenderer, start.x, start.y, end.x, end.y);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -470,15 +473,59 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00096">96</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    SDL_RenderDrawPoint(m_NativeRenderer, pos.x, pos.y);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00102">102</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    SDL_RenderDrawPoint(m_NativeRenderer, pos.x, pos.y);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3ca03fd31c37115c63f820708c17c81e" name="a3ca03fd31c37115c63f820708c17c81e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca03fd31c37115c63f820708c17c81e">&#9670;&nbsp;</a></span>renderTexture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::renderTexture </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_texture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_rectangle.html">Rectangle</a> &amp;&#160;</td>
+          <td class="paramname"><em>region</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Render texture to the current rendering target in the region. Scales the texture if necessary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td></td></tr>
+    <tr><td class="paramname">region</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00112">112</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>{</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    SDL_Rect destRect = {region.pos.x, region.pos.y, region.width, region.height};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), &amp;destRect, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
 <a id="ad7160ae4d399114dd90f9d52d8443030" name="ad7160ae4d399114dd90f9d52d8443030"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7160ae4d399114dd90f9d52d8443030">&#9670;&nbsp;</a></span>renderTexture()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7160ae4d399114dd90f9d52d8443030">&#9670;&nbsp;</a></span>renderTexture() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -513,11 +560,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00106">106</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>{</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    SDL_Rect destRect = {pos.x, pos.y, (int) texture.getWidth(), (int) texture.getHeight()}; </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), &amp;destRect, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00118">118</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>{</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_function" href="class_renderer.html#a3ca03fd31c37115c63f820708c17c81e">renderTexture</a>(texture, <a class="code hl_struct" href="struct_rectangle.html">Rectangle</a>{pos, <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(texture.getWidth()),</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                                          <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(texture.getHeight())});</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+<div class="ttc" id="aclass_renderer_html_a3ca03fd31c37115c63f820708c17c81e"><div class="ttname"><a href="class_renderer.html#a3ca03fd31c37115c63f820708c17c81e">Renderer::renderTexture</a></div><div class="ttdeci">void renderTexture(const Texture &amp;texture, const Rectangle &amp;region)</div><div class="ttdoc">Render texture to the current rendering target in the region. Scales the texture if necessary.</div><div class="ttdef"><b>Definition:</b> <a href="renderer_8cpp_source.html#l00112">renderer.cpp:112</a></div></div>
+<div class="ttc" id="astruct_rectangle_html"><div class="ttname"><a href="struct_rectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> <a href="renderer_8h_source.html#l00018">renderer.h:19</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -538,10 +587,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Disable the current clip region, if any was set using setClipRegion. </p>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00091">91</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    SDL_RenderSetClipRect(m_NativeRenderer, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00097">97</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    SDL_RenderSetClipRect(m_NativeRenderer, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -569,12 +618,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00084">84</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    SDL_Rect rect = {clipRegion.pos.x, clipRegion.pos.y, clipRegion.width, clipRegion.height};</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    SDL_RenderSetClipRect(m_NativeRenderer, &amp;rect);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00090">90</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    SDL_Rect rect = {clipRegion.pos.x, clipRegion.pos.y, clipRegion.width, clipRegion.height};</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    SDL_RenderSetClipRect(m_NativeRenderer, &amp;rect);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -644,11 +693,17 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00071">71</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    assert(targetTexture);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    m_TargetTexture = targetTexture;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    m_TargetTexture = targetTexture;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    SDL_SetRenderTarget(m_NativeRenderer, targetTexture-&gt;getNativeTexture());</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">if</span> (targetTexture == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        SDL_SetRenderTarget(m_NativeRenderer, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        SDL_SetRenderTarget(m_NativeRenderer, targetTexture-&gt;getNativeTexture());</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
