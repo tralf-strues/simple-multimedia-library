@@ -32,7 +32,7 @@ Texture::Texture(Renderer& renderer, size_t width, size_t height)
 
     m_NativeTexture = SDL_CreateTexture(m_NativeRenderer,
                                         SDL_PIXELFORMAT_RGBA8888, 
-                                        SDL_TEXTUREACCESS_STATIC,
+                                        SDL_TEXTUREACCESS_TARGET,
                                         m_Width, m_Height);
 }
 

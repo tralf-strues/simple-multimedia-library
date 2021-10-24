@@ -14,12 +14,13 @@
 
 typedef uint32_t Color;
 
-static const Color COLOR_WHITE  = 0xFF'FF'FF'FF;
-static const Color COLOR_BLACK  = 0x00'00'00'FF;
-static const Color COLOR_RED    = 0xFF'00'00'FF;
-static const Color COLOR_GREEN  = 0x00'FF'00'FF;
-static const Color COLOR_BLUE   = 0x00'00'FF'FF;
-static const Color COLOR_YELLOW = 0xFF'FF'00'FF;
+static const Color COLOR_TRANSPARENT = 0x00'00'00'00;
+static const Color COLOR_WHITE       = 0xFF'FF'FF'FF;
+static const Color COLOR_BLACK       = 0x00'00'00'FF;
+static const Color COLOR_RED         = 0xFF'00'00'FF;
+static const Color COLOR_GREEN       = 0x00'FF'00'FF;
+static const Color COLOR_BLUE        = 0x00'00'FF'FF;
+static const Color COLOR_YELLOW      = 0xFF'FF'00'FF;
 
 //------------------------------------------------------------------------------
 //! @brief Creates Color from separate color chanels - rgba.

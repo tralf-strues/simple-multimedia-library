@@ -11,7 +11,8 @@
 
 Renderer::Renderer(Window& window) : m_Window(window)
 {
-    m_NativeRenderer = SDL_CreateRenderer(m_Window.getNativeWindow(), -1, SDL_RENDERER_ACCELERATED);
+    m_NativeRenderer = SDL_CreateRenderer(m_Window.getNativeWindow(), -1, 
+                                          SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
     if (m_NativeRenderer == nullptr)
     {
         setError(Renderer::CREATE_ERROR);
@@ -112,7 +113,7 @@ void Renderer::renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end)
 void Renderer::renderTexture(const Texture& texture, const Rectangle& region)
 {
     SDL_Rect destRect = {region.pos.x, region.pos.y, region.width, region.height};
-    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), &destRect, nullptr);
+    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), nullptr, &destRect);
 }
 
 void Renderer::renderTexture(const Texture& texture, const Vec2<int32_t>& pos)
