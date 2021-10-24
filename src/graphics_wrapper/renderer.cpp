@@ -103,10 +103,16 @@ void Renderer::renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end)
     SDL_RenderDrawLine(m_NativeRenderer, start.x, start.y, end.x, end.y);
 }
 
+void Renderer::renderTexture(const Texture& texture, const Rectangle& region)
+{
+    SDL_Rect destRect = {region.pos.x, region.pos.y, region.width, region.height};
+    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), &destRect, nullptr);
+}
+
 void Renderer::renderTexture(const Texture& texture, const Vec2<int32_t>& pos)
 {
-    SDL_Rect destRect = {pos.x, pos.y, (int) texture.getWidth(), (int) texture.getHeight()}; 
-    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), &destRect, nullptr);
+    renderTexture(texture, Rectangle{pos, static_cast<int32_t>(texture.getWidth()),
+                                          static_cast<int32_t>(texture.getHeight())});
 }
 
 void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos)
@@ -117,6 +123,11 @@ void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos)
 void renderLine(Renderer& renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end)
 {
     renderer.renderLine(start, end);
+}
+
+void renderTexture(Renderer& renderer, const Texture& texture, const Rectangle& region)
+{
+    renderer.renderTexture(texture, region);
 }
 
 void renderTexture(Renderer& renderer, const Texture& texture, const Vec2<int32_t>& pos)

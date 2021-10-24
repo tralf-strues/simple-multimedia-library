@@ -85,19 +85,19 @@ public:
     //--------------------------------------------------------------------------
     void clear();
 
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     //! @brief Set rendering target.
     //! 
     //! @param targetTexture If nullptr, then set render target back to window.
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     void setTarget(Texture* targetTexture);
 
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     //! @brief Get rendering target.
     //! 
     //! @return Texture being the current rendering target, or nullptr, if the
     //!         current rendering target is window.
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     Texture* getTarget();
 
     //--------------------------------------------------------------------------
@@ -134,6 +134,15 @@ public:
     //! @param end   Position of line's end point.
     //--------------------------------------------------------------------------
     void renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end);
+
+    //--------------------------------------------------------------------------
+    //! @brief Render texture to the current rendering target in the region.
+    //!        Scales the texture if necessary.
+    //! 
+    //! @param texture
+    //! @param region 
+    //--------------------------------------------------------------------------
+    void renderTexture(const Texture& texture, const Rectangle& region);
 
     //--------------------------------------------------------------------------
     //! @brief Render texture to the current rendering target at position pos.
@@ -179,8 +188,19 @@ void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos);
 void renderLine(Renderer& renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end);
 
 //------------------------------------------------------------------------------
-//! @brief See @ref Renderer::renderTexture().
+//! @brief Render texture to the current rendering target in the region.
+//!        Scales the texture if necessary.
 //! 
+//! @param renderer 
+//! @param texture
+//! @param region 
+//------------------------------------------------------------------------------
+void renderTexture(Renderer& renderer, const Texture& texture, const Rectangle& region);
+
+//------------------------------------------------------------------------------
+//! @brief See @ref Renderer::renderTexture().
+//!
+//! @param renderer 
 //! @param texture 
 //! @param pos 
 //------------------------------------------------------------------------------
