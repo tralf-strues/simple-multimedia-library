@@ -91,27 +91,29 @@ $(document).ready(function(){initNavTree('system__events_8h.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="event_8h_source.html">event.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="bit_8h_source.html">utils/bit.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bit_8h_source.html">../utils/bit.h</a>&quot;</code><br />
 </div>
 <p><a href="system__events_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_window_close_event.html">WindowCloseEvent</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window_close_event.html">WindowCloseEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mouse_moved_event.html">MouseMovedEvent</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_event.html">MouseEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_key_event.html">KeyEvent</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_moved_event.html">MouseMovedEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_key_pressed_event.html">KeyPressedEvent</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_event.html">KeyEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_key_released_event.html">KeyReleasedEvent</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_pressed_event.html">KeyPressedEvent</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_released_event.html">KeyReleasedEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a6bfdb1615d8ae1352938978d7df9aa90"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>SystemEventType</b> { <br />
-&#160;&#160;<b>WINDOW_CLOSE</b>
+&#160;&#160;<b>WINDOW_CLOSE</b> = 1
 , <b>MOUSE_MOVED</b>
 , <b>MOUSE_BUTTON_PRESSED</b>
 , <b>KEY_PRESSED</b>
@@ -180,7 +182,7 @@ Enumerations</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00015">15</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 <div class="fragment"><div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">/* Window events */</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    WINDOW_CLOSE,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    WINDOW_CLOSE = 1,</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">/* Mouse events */</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    MOUSE_MOVED,</div>

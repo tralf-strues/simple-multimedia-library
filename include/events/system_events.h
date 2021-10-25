@@ -10,12 +10,12 @@
 #define SYSTEM_EVENTS_H
 
 #include "event.h"
-#include "utils/bit.h"
+#include "../utils/bit.h"
 
 enum SystemEventType
 {
     /* Window events */
-    WINDOW_CLOSE,
+    WINDOW_CLOSE = 1,
 
     /* Mouse events */
     MOUSE_MOVED,
@@ -45,8 +45,9 @@ enum SystemEventCategory
 // Event category [WINDOW]
 //------------------------------------------------------------------------------
 
-struct WindowCloseEvent : public Event
+class WindowCloseEvent : public Event
 {
+public:
     WindowCloseEvent() : Event(getStaticType(), getStaticCategory()) {}
 
     DEFINE_STATIC_EVENT_TYPE(WINDOW_CLOSE)
@@ -57,13 +58,34 @@ struct WindowCloseEvent : public Event
 // Event category [MOUSE]
 //------------------------------------------------------------------------------
 
-struct MouseMovedEvent : public Event
+class MouseEvent : public Event
 {
-    int32_t x;
-    int32_t y;
+public:
+    MouseEvent(int32_t x = 0, int32_t y = 0)
+        : Event(getStaticType(), getStaticCategory()), m_X(x), m_Y(y) {}
 
-    MouseMovedEvent(int32_t x = 0, int32_t y = 0) : Event(getStaticType(), getStaticCategory()), x(x), y(y)
+    void setX(int32_t x) { m_X = x; }
+    void setY(int32_t y) { m_Y = y; }
+
+    int32_t getX() const { return m_X; }
+    int32_t getY() const { return m_Y; }
+
+    DEFINE_STATIC_EVENT_TYPE(INVALID_EVENT_TYPE)
+    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_MOUSE)
+
+protected:
+    int32_t m_X;
+    int32_t m_Y;
+};
+
+class MouseMovedEvent : public MouseEvent
+{
+public:
+    MouseMovedEvent(int32_t x = 0, int32_t y = 0)
+        : MouseEvent(x, y)
     {
+        m_Type = getStaticType();
+        m_Category = getStaticCategory();
     }
 
     DEFINE_STATIC_EVENT_TYPE(MOUSE_MOVED)
@@ -74,33 +96,42 @@ struct MouseMovedEvent : public Event
 // Event category [KEYBOARD]
 //------------------------------------------------------------------------------
 
-struct KeyEvent : public Event
+class KeyEvent : public Event
 {
-    Scancode scancode;
-
+public:
     KeyEvent(Scancode scancode = SCANCODE_INVALID)
-        : Event(getStaticType(), getStaticCategory()), scancode(scancode)
-    {
-    }
+        : Event(getStaticType(), getStaticCategory()), m_Scancode(scancode) {}
+
+    void setScancode(Scancode scancode) { m_Scancode = scancode; }
+    Scancode getScancode() const { return m_Scancode; }
 
     DEFINE_STATIC_EVENT_TYPE(INVALID_EVENT_TYPE)
     DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_KEYBOARD)
+
+protected:
+    Scancode m_Scancode;
 };
 
-struct KeyPressedEvent : public KeyEvent
+class KeyPressedEvent : public KeyEvent
 {
+public:
     KeyPressedEvent(Scancode scancode = SCANCODE_INVALID) : KeyEvent(scancode)
     {
+        m_Type = getStaticType();
+        m_Category = getStaticCategory();
     }
 
     DEFINE_STATIC_EVENT_TYPE(KEY_PRESSED)
     DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_KEYBOARD)
 };
 
-struct KeyReleasedEvent : public KeyEvent
+class KeyReleasedEvent : public KeyEvent
 {
+public:
     KeyReleasedEvent(Scancode scancode = SCANCODE_INVALID) : KeyEvent(scancode)
     {
+        m_Type = getStaticType();
+        m_Category = getStaticCategory();
     }
 
     DEFINE_STATIC_EVENT_TYPE(KEY_RELEASED)

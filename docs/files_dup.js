@@ -18,7 +18,7 @@ var files_dup =
     [ "listener_notifier.h", "listener__notifier_8h.html", "listener__notifier_8h" ],
     [ "scancode.h", "scancode_8h.html", null ],
     [ "system_event_manager.h", "system__event__manager_8h.html", [
-      [ "SystemEventManager", "class_system_event_manager.html", null ]
+      [ "SystemEventManager", "class_system_event_manager.html", "class_system_event_manager" ]
     ] ],
     [ "system_events.h", "system__events_8h.html", "system__events_8h" ],
     [ "color.h", "color_8h.html", "color_8h" ],

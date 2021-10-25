@@ -35,7 +35,7 @@ void Notifier::notify(Event* event)
     {
         for (auto eventType : listenerInfo.types)
         {
-            if (eventType == event->type)
+            if (eventType == event->getType())
             {
                 listenerInfo.listener->onEvent(event);
             }

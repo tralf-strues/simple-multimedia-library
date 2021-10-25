@@ -6,13 +6,15 @@ var hierarchy =
     [ "BufferedTexture", "class_buffered_texture.html", null ],
     [ "Circle", "struct_circle.html", null ],
     [ "DynamicArray< T >", "class_dynamic_array.html", null ],
-    [ "Event", "struct_event.html", [
-      [ "KeyEvent", "struct_key_event.html", [
-        [ "KeyPressedEvent", "struct_key_pressed_event.html", null ],
-        [ "KeyReleasedEvent", "struct_key_released_event.html", null ]
+    [ "Event", "class_event.html", [
+      [ "KeyEvent", "class_key_event.html", [
+        [ "KeyPressedEvent", "class_key_pressed_event.html", null ],
+        [ "KeyReleasedEvent", "class_key_released_event.html", null ]
       ] ],
-      [ "MouseMovedEvent", "struct_mouse_moved_event.html", null ],
-      [ "WindowCloseEvent", "struct_window_close_event.html", null ]
+      [ "MouseEvent", "class_mouse_event.html", [
+        [ "MouseMovedEvent", "class_mouse_moved_event.html", null ]
+      ] ],
+      [ "WindowCloseEvent", "class_window_close_event.html", null ]
     ] ],
     [ "EventDispatchChain", "class_event_dispatch_chain.html", null ],
     [ "EventDispatcher", "class_event_dispatcher.html", null ],

@@ -9,41 +9,66 @@
 #include <SDL.h>
 #include "events/system_event_manager.h"
 
+Event* convertNativeEvent(SDL_Event* nativeEvent)
+{
+    assert(nativeEvent);
+
+    switch (nativeEvent->type)
+    {
+        case SDL_QUIT: 
+        { 
+            return new WindowCloseEvent{};
+        }
+
+        case SDL_KEYDOWN:
+        {
+            return new KeyPressedEvent{static_cast<Scancode>(nativeEvent->key.keysym.scancode)};
+        }
+
+        case SDL_MOUSEMOTION:
+        {
+            int32_t mouseX = 0;
+            int32_t mouseY = 0;
+
+            SDL_GetMouseState(&mouseX, &mouseY);
+
+            return new MouseMovedEvent{mouseX, mouseY};
+        }
+
+        default: { break; }
+    }
+
+    return nullptr;
+}
+
 void SystemEventManager::proccessEvents()
 {
-    SDL_Event nativeEvent = {};
-    while (SDL_PollEvent(&nativeEvent))
+    Event* nextEvent = nullptr;
+
+    while ((nextEvent = pollEvent(true)) != nullptr)
     {
-        switch (nativeEvent.type)
+        delete nextEvent;
+    }
+}
+
+Event* SystemEventManager::pollEvent(bool notifyListeners)
+{
+    static SDL_Event nativeEvent = {};
+    Event* event = nullptr;
+
+    if (SDL_PollEvent(&nativeEvent))
+    {
+        event = convertNativeEvent(&nativeEvent);
+
+        if (event == nullptr)
         {
-            case SDL_QUIT: 
-            { 
-                WindowCloseEvent event;
-                notify(&event);
-                break; 
-            }
-
-            case SDL_KEYDOWN:
-            {
-                KeyPressedEvent event{(Scancode) nativeEvent.key.keysym.scancode};
-                notify(&event);
-                break;
-            }
-
-            case SDL_MOUSEMOTION:
-            {
-                int32_t mouseX = 0;
-                int32_t mouseY = 0;
-
-                SDL_GetMouseState(&mouseX, &mouseY);
-
-                MouseMovedEvent event{mouseX, mouseY};
-                notify(&event);
-
-                break;
-            }
-
-            default: { break; }
+            event = new Event();
+        }
+        else if (notifyListeners)
+        {
+            notify(event);
         }
     }
+
+    return event;
 }
