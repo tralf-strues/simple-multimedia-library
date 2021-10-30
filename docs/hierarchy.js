@@ -12,6 +12,7 @@ var hierarchy =
         [ "KeyReleasedEvent", "class_key_released_event.html", null ]
       ] ],
       [ "MouseEvent", "class_mouse_event.html", [
+        [ "MouseButtonPressedEvent", "class_mouse_button_pressed_event.html", null ],
         [ "MouseMovedEvent", "class_mouse_moved_event.html", null ]
       ] ],
       [ "WindowCloseEvent", "class_window_close_event.html", null ]

@@ -85,7 +85,8 @@ $(document).ready(function(){initNavTree('rectangle_8h.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">rectangle.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -96,6 +97,12 @@ $(document).ready(function(){initNavTree('rectangle_8h.html',''); initResizable(
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_rectangle.html">Rectangle&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac711d85fae2c5c4febbd4b8cb4f2dfec"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac711d85fae2c5c4febbd4b8cb4f2dfec"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="rectangle_8h.html#ac711d85fae2c5c4febbd4b8cb4f2dfec">centerRegion</a> (const <a class="el" href="struct_rectangle.html">Rectangle</a>&lt; T &gt; &amp;region, const <a class="el" href="struct_rectangle.html">Rectangle</a>&lt; T &gt; &amp;innerRegion)</td></tr>
+<tr class="separator:ac711d85fae2c5c4febbd4b8cb4f2dfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Nikita Mochalov (github.com/tralf-strues)</dd></dl>
@@ -103,7 +110,48 @@ Classes</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="rectangle_8h_source.html">rectangle.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac711d85fae2c5c4febbd4b8cb4f2dfec" name="ac711d85fae2c5c4febbd4b8cb4f2dfec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac711d85fae2c5c4febbd4b8cb4f2dfec">&#9670;&nbsp;</a></span>centerRegion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_rectangle.html">Rectangle</a>&lt; T &gt; centerRegion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_rectangle.html">Rectangle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_rectangle.html">Rectangle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>innerRegion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rectangle_8h_source.html#l00022">22</a> of file <a class="el" href="rectangle_8h_source.html">rectangle.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    T offsetX = (region.width  - innerRegion.width)  / 2;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    T offsetY = (region.height - innerRegion.height) / 2;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_rectangle.html">Rectangle&lt;T&gt;</a>{<a class="code hl_struct" href="struct_vec2.html">Vec2&lt;T&gt;</a>{offsetX, offsetY}, innerRegion.width, innerRegion.height};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+<div class="ttc" id="astruct_rectangle_html"><div class="ttname"><a href="struct_rectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> <a href="rectangle_8h_source.html#l00013">rectangle.h:14</a></div></div>
+<div class="ttc" id="astruct_vec2_html"><div class="ttname"><a href="struct_vec2.html">Vec2</a></div><div class="ttdef"><b>Definition:</b> <a href="vec2_8h_source.html#l00018">vec2.h:19</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

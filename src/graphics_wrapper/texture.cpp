@@ -15,25 +15,25 @@
 Texture::Texture()
     : m_Width(0),
       m_Height(0),
-      m_NativeRenderer(nullptr),
+      m_Renderer(nullptr),
       m_NativeTexture(nullptr)
 {
 }
 
-
-Texture::Texture(Renderer& renderer, size_t width, size_t height)
+Texture::Texture(Renderer* renderer, size_t width, size_t height)
     : m_Width(width),
       m_Height(height),
-      m_NativeRenderer(renderer.getNativeRenderer()),
+      m_Renderer(renderer),
       m_NativeTexture(nullptr) 
 {
     assert(m_Width);
     assert(m_Height);
 
-    m_NativeTexture = SDL_CreateTexture(m_NativeRenderer,
+    m_NativeTexture = SDL_CreateTexture(m_Renderer->getNativeRenderer(),
                                         SDL_PIXELFORMAT_RGBA8888, 
                                         SDL_TEXTUREACCESS_TARGET,
                                         m_Width, m_Height);
+    SDL_SetTextureBlendMode(m_NativeTexture, SDL_BLENDMODE_BLEND);
 }
 
 Texture::~Texture()
@@ -54,6 +54,11 @@ size_t Texture::getHeight() const
     return m_Height;
 }
 
+Renderer* Texture::getRenderer() const
+{
+    return m_Renderer;
+}
+
 SDL_Texture* Texture::getNativeTexture() const
 {
     return m_NativeTexture;
@@ -63,11 +68,11 @@ void Texture::readPixels(Color* dst) const
 {
     assert(dst);
 
-    SDL_Texture* prevTarget = SDL_GetRenderTarget(m_NativeRenderer);
+    SDL_Texture* prevTarget = SDL_GetRenderTarget(m_Renderer->getNativeRenderer());
 
-    SDL_SetRenderTarget(m_NativeRenderer, m_NativeTexture);
-    SDL_RenderReadPixels(m_NativeRenderer, NULL, 0, dst, m_Width * sizeof(Color));
-    SDL_SetRenderTarget(m_NativeRenderer, prevTarget);
+    SDL_SetRenderTarget(m_Renderer->getNativeRenderer(), m_NativeTexture);
+    SDL_RenderReadPixels(m_Renderer->getNativeRenderer(), NULL, 0, dst, m_Width * sizeof(Color));
+    SDL_SetRenderTarget(m_Renderer->getNativeRenderer(), prevTarget);
 }
 
 void Texture::copyTo(Texture* target,
@@ -91,7 +96,7 @@ void Texture::copyTo(Texture* target,
         sourceRegionFinal = *sourceRegion;
     }
 
-    
+    renderTexture(m_Renderer, *this, &targetRegionFinal, &sourceRegionFinal);
 }
 
 bool Texture::writeToBMP(const char* filename) const
@@ -144,7 +149,7 @@ bool Texture::loadFromBMP(const char* filename)
         return false;
     }
 
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(m_NativeRenderer, surface);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(m_Renderer->getNativeRenderer(), surface);
     if (texture == nullptr)
     {
         SDL_FreeSurface(surface);
@@ -168,7 +173,7 @@ bool Texture::loadFromBMP(const char* filename)
 //------------------------------------------------------------------------------
 // BufferedTexture
 //------------------------------------------------------------------------------
-BufferedTexture::BufferedTexture(Renderer& renderer, size_t width, size_t height)
+BufferedTexture::BufferedTexture(Renderer* renderer, size_t width, size_t height)
     : m_Texture(renderer, width, height),
       m_Buffer(new Color[width * height])
 {

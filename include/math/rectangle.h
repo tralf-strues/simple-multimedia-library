@@ -18,4 +18,13 @@ struct Rectangle
     T height;
 };
 
+template<typename T>
+Rectangle<T> centerRegion(const Rectangle<T>& region, const Rectangle<T>& innerRegion)
+{
+    T offsetX = (region.width  - innerRegion.width)  / 2;
+    T offsetY = (region.height - innerRegion.height) / 2;
+
+    return Rectangle<T>{Vec2<T>{offsetX, offsetY}, innerRegion.width, innerRegion.height};
+}
+
 #endif // RECTANGLE_H

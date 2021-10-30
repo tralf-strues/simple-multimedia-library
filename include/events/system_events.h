@@ -92,6 +92,20 @@ public:
     DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_MOUSE)
 };
 
+class MouseButtonPressedEvent : public MouseEvent
+{
+public:
+    MouseButtonPressedEvent(int32_t x = 0, int32_t y = 0)
+        : MouseEvent(x, y)
+    {
+        m_Type = getStaticType();
+        m_Category = getStaticCategory();
+    }
+
+    DEFINE_STATIC_EVENT_TYPE(MOUSE_BUTTON_PRESSED)
+    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_MOUSE)
+};
+
 //------------------------------------------------------------------------------
 // Event category [KEYBOARD]
 //------------------------------------------------------------------------------

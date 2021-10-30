@@ -39,9 +39,7 @@ var files_dup =
     [ "ray.h", "ray_8h.html", [
       [ "Ray", "struct_ray.html", null ]
     ] ],
-    [ "rectangle.h", "rectangle_8h.html", [
-      [ "Rectangle< T >", "struct_rectangle.html", null ]
-    ] ],
+    [ "rectangle.h", "rectangle_8h.html", "rectangle_8h" ],
     [ "solve_equation.h", "solve__equation_8h.html", null ],
     [ "vec2.h", "vec2_8h.html", "vec2_8h" ],
     [ "vec3.h", "vec3_8h.html", "vec3_8h" ],

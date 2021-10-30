@@ -23,12 +23,14 @@ public:
     friend class BufferedTexture;
 
     Texture();
-    Texture(Renderer& renderer, size_t width, size_t height);
+    Texture(Renderer* renderer, size_t width, size_t height);
     ~Texture();
 
     size_t       getWidth()             const;
     size_t       getHeight()            const;
+    Renderer*    getRenderer()          const;
     SDL_Texture* getNativeTexture()     const;
+    
     void         readPixels(Color* dst) const;
 
     //--------------------------------------------------------------------------
@@ -51,14 +53,14 @@ private:
     size_t        m_Width;
     size_t        m_Height;
 
-    SDL_Renderer* m_NativeRenderer;
+    Renderer*     m_Renderer;
     SDL_Texture*  m_NativeTexture;
 };
 
 class BufferedTexture
 {
 public:
-    BufferedTexture(Renderer& renderer, size_t width, size_t height);
+    BufferedTexture(Renderer* renderer, size_t width, size_t height);
     BufferedTexture(Texture& texture);
     ~BufferedTexture();
 

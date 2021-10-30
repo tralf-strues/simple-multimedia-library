@@ -8,7 +8,7 @@
 
 #include "graphics_wrapper/primitives.h"
 
-void renderRect(Renderer& renderer, const Rectangle<int32_t>& rect)
+void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect)
 {
     Vec2<int32_t> upperLeftCorner(rect.pos.x, rect.pos.y);
     Vec2<int32_t> upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
@@ -29,7 +29,7 @@ void renderRect(Renderer& renderer, const Rectangle<int32_t>& rect)
     renderLine(renderer, upperRightCorner, bottomRightCorner);
 }
 
-void renderFilledRect(Renderer& renderer, const Rectangle<int32_t>& rect)
+void renderFilledRect(Renderer* renderer, const Rectangle<int32_t>& rect)
 {
     for (int32_t row = 0; row < rect.height; ++row)
     {
@@ -38,7 +38,7 @@ void renderFilledRect(Renderer& renderer, const Rectangle<int32_t>& rect)
     }
 }
 
-void renderCircle(Renderer& renderer, const Circle& circle)
+void renderCircle(Renderer* renderer, const Circle& circle)
 {
     int32_t diameter = 2 * circle.radius;
 
@@ -75,7 +75,7 @@ void renderCircle(Renderer& renderer, const Circle& circle)
     }
 }
 
-void renderFilledCircle(Renderer& renderer, const Circle& circle)
+void renderFilledCircle(Renderer* renderer, const Circle& circle)
 {
     for (int w = 0; w < 2 * circle.radius; w++)
     {
@@ -116,10 +116,10 @@ bool intersectInfLines(const InfLine& line1, const InfLine& line2, Vec2<float>* 
     return true;
 }
 
-void renderInfLine(Renderer& renderer, const InfLine& infLine)
+void renderInfLine(Renderer* renderer, const InfLine& infLine)
 {
-    float width  = renderer.getWindow().getWidth();
-    float height = renderer.getWindow().getHeight();
+    float width  = renderer->getWindow().getWidth();
+    float height = renderer->getWindow().getHeight();
 
     InfLine topLine    = {Vec2<float>{0,     0     }, Vec2<float>{1, 0}};
     InfLine bottomLine = {Vec2<float>{0,     height}, Vec2<float>{1, 0}};

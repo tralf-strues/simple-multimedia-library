@@ -171,7 +171,7 @@ private:
 //! @param renderer 
 //! @param pos 
 //------------------------------------------------------------------------------
-void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos);
+void renderPoint(Renderer* renderer, const Vec2<int32_t>& pos);
 
 //------------------------------------------------------------------------------
 //! @brief See @ref Renderer::renderLine().
@@ -180,7 +180,7 @@ void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos);
 //! @param start 
 //! @param end 
 //------------------------------------------------------------------------------
-void renderLine(Renderer& renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end);
+void renderLine(Renderer* renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end);
 
 //------------------------------------------------------------------------------
 //! @brief Render texture to the current rendering target in the region. Scales
@@ -190,7 +190,7 @@ void renderLine(Renderer& renderer, const Vec2<int32_t>& start, const Vec2<int32
 //! @param targetRegion
 //! @param sourceRegion
 //------------------------------------------------------------------------------
-void renderTexture(Renderer& renderer,
+void renderTexture(Renderer* renderer,
                    const Texture& source,
                    const Rectangle<int32_t>* targetRegion,
                    const Rectangle<int32_t>* sourceRegion);
@@ -202,6 +202,6 @@ void renderTexture(Renderer& renderer,
 //! @param texture 
 //! @param pos 
 //------------------------------------------------------------------------------
-void renderTexture(Renderer& renderer, const Texture& texture, const Vec2<int32_t>& pos);
+void renderTexture(Renderer* renderer, const Texture& texture, const Vec2<int32_t>& pos);
 
 #endif // RENDERER_H

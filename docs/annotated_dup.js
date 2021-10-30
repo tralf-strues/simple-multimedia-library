@@ -20,6 +20,7 @@ var annotated_dup =
     [ "Listener", "class_listener.html", null ],
     [ "ListIterator", "class_list_iterator.html", null ],
     [ "Mat4", "struct_mat4.html", null ],
+    [ "MouseButtonPressedEvent", "class_mouse_button_pressed_event.html", null ],
     [ "MouseEvent", "class_mouse_event.html", null ],
     [ "MouseMovedEvent", "class_mouse_moved_event.html", null ],
     [ "Notifier", "class_notifier.html", "class_notifier" ],

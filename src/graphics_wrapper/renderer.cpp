@@ -30,6 +30,8 @@ Renderer::Renderer(Window& window) : m_Window(window)
         setError(Renderer::CREATE_ERROR);
         return;
     }
+
+    SDL_SetRenderDrawBlendMode(m_NativeRenderer, SDL_BLENDMODE_BLEND);
 }
 
 Renderer::~Renderer()
@@ -155,25 +157,25 @@ void Renderer::renderTexture(const Texture& texture, const Vec2<int32_t>& pos)
     renderTexture(texture, &targetRegion, nullptr);
 }
 
-void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos)
+void renderPoint(Renderer* renderer, const Vec2<int32_t>& pos)
 {
-    renderer.renderPoint(pos);
+    renderer->renderPoint(pos);
 }
 
-void renderLine(Renderer& renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end)
+void renderLine(Renderer* renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end)
 {
-    renderer.renderLine(start, end);
+    renderer->renderLine(start, end);
 }
 
-void renderTexture(Renderer& renderer,
+void renderTexture(Renderer* renderer,
                    const Texture& source,
                    const Rectangle<int32_t>* targetRegion,
                    const Rectangle<int32_t>* sourceRegion)
 {
-    renderer.renderTexture(source, targetRegion, sourceRegion);
+    renderer->renderTexture(source, targetRegion, sourceRegion);
 }
 
-void renderTexture(Renderer& renderer, const Texture& texture, const Vec2<int32_t>& pos)
+void renderTexture(Renderer* renderer, const Texture& texture, const Vec2<int32_t>& pos)
 {
-    renderer.renderTexture(texture, pos);
+    renderer->renderTexture(texture, pos);
 }
