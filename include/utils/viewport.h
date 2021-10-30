@@ -13,12 +13,12 @@
 
 struct Viewport
 {
-    Viewport(const Vec2<float>& axesMin, const Vec2<float>& axesMax, const Rectangle& windowArea);
+    Viewport(const Vec2<float>& axesMin, const Vec2<float>& axesMax, const Rectangle<int32_t>& windowArea);
 
     Vec2<float> axesMin;
     Vec2<float> axesMax;
 
-    Rectangle   windowArea;
+    Rectangle<int32_t> windowArea;
 
     float getRelativeWidth()  const;
     float getRelativeHeight() const;

@@ -31,7 +31,7 @@ var hierarchy =
       [ "SystemEventManager", "class_system_event_manager.html", null ]
     ] ],
     [ "Ray", "struct_ray.html", null ],
-    [ "Rectangle", "struct_rectangle.html", null ],
+    [ "Rectangle< T >", "struct_rectangle.html", null ],
     [ "Renderer", "class_renderer.html", null ],
     [ "Text", "class_text.html", null ],
     [ "Texture", "class_texture.html", null ],

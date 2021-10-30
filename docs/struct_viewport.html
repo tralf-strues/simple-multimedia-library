@@ -94,8 +94,8 @@ $(document).ready(function(){initNavTree('struct_viewport.html',''); initResizab
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6e54a5896cd17c963f81119b20fb2332"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_viewport.html#a6e54a5896cd17c963f81119b20fb2332">Viewport</a> (const <a class="el" href="struct_vec2.html">Vec2</a>&lt; float &gt; &amp;axesMin, const <a class="el" href="struct_vec2.html">Vec2</a>&lt; float &gt; &amp;axesMax, const <a class="el" href="struct_rectangle.html">Rectangle</a> &amp;windowArea)</td></tr>
-<tr class="separator:a6e54a5896cd17c963f81119b20fb2332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0601f62544d4dfe575e62d06cb399473"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_viewport.html#a0601f62544d4dfe575e62d06cb399473">Viewport</a> (const <a class="el" href="struct_vec2.html">Vec2</a>&lt; float &gt; &amp;axesMin, const <a class="el" href="struct_vec2.html">Vec2</a>&lt; float &gt; &amp;axesMax, const <a class="el" href="struct_rectangle.html">Rectangle</a>&lt; int32_t &gt; &amp;windowArea)</td></tr>
+<tr class="separator:a0601f62544d4dfe575e62d06cb399473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80538b00dac26b9d46ba682be208aa35"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_viewport.html#a80538b00dac26b9d46ba682be208aa35">getRelativeWidth</a> () const</td></tr>
 <tr class="separator:a80538b00dac26b9d46ba682be208aa35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9f816206cee5b96c0de97b9d5c854c1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_viewport.html#af9f816206cee5b96c0de97b9d5c854c1">getRelativeHeight</a> () const</td></tr>
@@ -111,15 +111,15 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac246bbfb27c86ced8d1e48da52c2353e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bd9a1bdcd7a6cd17976e0d5b1b55201"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_vec2.html">Vec2</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_viewport.html#a1bd9a1bdcd7a6cd17976e0d5b1b55201">axesMax</a></td></tr>
 <tr class="separator:a1bd9a1bdcd7a6cd17976e0d5b1b55201"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa9deec48bd906414c021a9be3b6dc83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_rectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_viewport.html#aaa9deec48bd906414c021a9be3b6dc83">windowArea</a></td></tr>
-<tr class="separator:aaa9deec48bd906414c021a9be3b6dc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe369bbcbc97070b3a88cdeb46dc3b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_rectangle.html">Rectangle</a>&lt; int32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_viewport.html#aefe369bbcbc97070b3a88cdeb46dc3b0">windowArea</a></td></tr>
+<tr class="separator:aefe369bbcbc97070b3a88cdeb46dc3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="viewport_8h_source.html#l00014">14</a> of file <a class="el" href="viewport_8h_source.html">viewport.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6e54a5896cd17c963f81119b20fb2332" name="a6e54a5896cd17c963f81119b20fb2332"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e54a5896cd17c963f81119b20fb2332">&#9670;&nbsp;</a></span>Viewport()</h2>
+<a id="a0601f62544d4dfe575e62d06cb399473" name="a0601f62544d4dfe575e62d06cb399473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0601f62544d4dfe575e62d06cb399473">&#9670;&nbsp;</a></span>Viewport()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,7 +139,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="struct_rectangle.html">Rectangle</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_rectangle.html">Rectangle</a>&lt; int32_t &gt; &amp;&#160;</td>
           <td class="paramname"><em>windowArea</em>&#160;</td>
         </tr>
         <tr>
@@ -151,11 +151,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00011">11</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                                                :</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>                   axesMin(axesMin),</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                   axesMax(axesMax),</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                   windowArea(windowArea)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{}</div>
+<div class="fragment"><div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    : axesMin(axesMin), axesMax(axesMax), windowArea(windowArea) {}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -175,10 +171,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00024">24</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">return</span> axesMax.y - axesMin.y;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00020">20</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> axesMax.y - axesMin.y;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,10 +193,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00019">19</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">return</span> axesMax.x - axesMin.x;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00015">15</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> axesMax.x - axesMin.x;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -220,17 +216,17 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00029">29</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">float</span> relWidth  = getRelativeWidth();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">float</span> relHeight = getRelativeHeight();</div>
+<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00025">25</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">float</span> relWidth  = getRelativeWidth();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">float</span> relHeight = getRelativeHeight();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">float</span> x = windowArea.pos.x + ((windowArea.width - 1) / relWidth)  * (point.x - axesMin.x); </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">float</span> y = windowArea.pos.y + </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>              ((windowArea.height - 1) / relHeight) * (axesMax.y - point.y); </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">float</span> x = windowArea.pos.x + ((windowArea.width - 1) / relWidth)  * (point.x - axesMin.x); </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">float</span> y = windowArea.pos.y + </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>              ((windowArea.height - 1) / relHeight) * (axesMax.y - point.y); </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> {x, y};</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> {x, y};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -250,10 +246,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00041">41</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">return</span> (<span class="keywordtype">float</span>) windowArea.width * distance / getRelativeWidth();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+<p class="definition">Definition at line <a class="el" href="viewport_8cpp_source.html#l00037">37</a> of file <a class="el" href="viewport_8cpp_source.html">viewport.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span> (<span class="keywordtype">float</span>) windowArea.width * distance / getRelativeWidth();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -290,14 +286,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa9deec48bd906414c021a9be3b6dc83" name="aaa9deec48bd906414c021a9be3b6dc83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa9deec48bd906414c021a9be3b6dc83">&#9670;&nbsp;</a></span>windowArea</h2>
+<a id="aefe369bbcbc97070b3a88cdeb46dc3b0" name="aefe369bbcbc97070b3a88cdeb46dc3b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe369bbcbc97070b3a88cdeb46dc3b0">&#9670;&nbsp;</a></span>windowArea</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_rectangle.html">Rectangle</a> Viewport::windowArea</td>
+          <td class="memname"><a class="el" href="struct_rectangle.html">Rectangle</a>&lt;int32_t&gt; Viewport::windowArea</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -29,7 +29,7 @@ var files_dup =
       [ "Text", "class_text.html", null ]
     ] ],
     [ "texture.h", "texture_8h.html", [
-      [ "Texture", "class_texture.html", null ],
+      [ "Texture", "class_texture.html", "class_texture" ],
       [ "BufferedTexture", "class_buffered_texture.html", "class_buffered_texture" ]
     ] ],
     [ "window.h", "window_8h.html", "window_8h" ],
@@ -38,6 +38,9 @@ var files_dup =
     [ "mat4.h", "mat4_8h.html", "mat4_8h" ],
     [ "ray.h", "ray_8h.html", [
       [ "Ray", "struct_ray.html", null ]
+    ] ],
+    [ "rectangle.h", "rectangle_8h.html", [
+      [ "Rectangle< T >", "struct_rectangle.html", null ]
     ] ],
     [ "solve_equation.h", "solve__equation_8h.html", null ],
     [ "vec2.h", "vec2_8h.html", "vec2_8h" ],

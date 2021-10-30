@@ -31,6 +31,18 @@ public:
     SDL_Texture* getNativeTexture()     const;
     void         readPixels(Color* dst) const;
 
+    //--------------------------------------------------------------------------
+    //! @brief Copies the sourceRegion of this Texture to the targetRegion of
+    //!        the target.
+    //! 
+    //! @param target 
+    //! @param targetRegion 
+    //! @param sourceRegion 
+    //--------------------------------------------------------------------------
+    void copyTo(Texture* target,
+                const Rectangle<int32_t>* targetRegion,
+                const Rectangle<int32_t>* sourceRegion);
+
     // TODO: implement
     bool writeToBMP(const char* filename) const;
     bool loadFromBMP(const char* filename);

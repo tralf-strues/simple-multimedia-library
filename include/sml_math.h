@@ -15,6 +15,7 @@
 #include "math/geometry.h"
 #include "math/mat4.h"
 #include "math/ray.h"
+#include "math/rectangle.h"
 #include "math/solve_equation.h"
 #include "math/vec2.h"
 #include "math/vec3.h"

@@ -8,13 +8,9 @@
 
 #include "utils/viewport.h"
 
-Viewport::Viewport(const Vec2<float>& axesMin, 
-                   const Vec2<float>& axesMax,
-                   const Rectangle& windowArea) :
-                   axesMin(axesMin),
-                   axesMax(axesMax),
-                   windowArea(windowArea)
-{}
+Viewport::Viewport(const Vec2<float>& axesMin, const Vec2<float>& axesMax,
+                   const Rectangle<int32_t>& windowArea)
+    : axesMin(axesMin), axesMax(axesMax), windowArea(windowArea) {}
 
 float Viewport::getRelativeWidth() const
 {

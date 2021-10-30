@@ -15,14 +15,6 @@
 #include "color.h"
 #include "../sml_math.h"
 
-struct Rectangle
-{
-    Vec2<int32_t> pos;
-    
-    int32_t width;
-    int32_t height;
-};
-
 class Renderer
 {
 public:
@@ -106,7 +98,7 @@ public:
     //! 
     //! @param clipRegion
     //--------------------------------------------------------------------------
-    void setClipRegion(const Rectangle& clipRegion) const;
+    void setClipRegion(const Rectangle<int32_t>& clipRegion) const;
 
     //--------------------------------------------------------------------------
     //! @brief Disable the current clip region, if any was set using 
@@ -140,9 +132,12 @@ public:
     //!        Scales the texture if necessary.
     //! 
     //! @param texture
-    //! @param region 
+    //! @param targetRegion
+    //! @param sourceRegion
     //--------------------------------------------------------------------------
-    void renderTexture(const Texture& texture, const Rectangle& region);
+    void renderTexture(const Texture& source,
+                       const Rectangle<int32_t>* targetRegion,
+                       const Rectangle<int32_t>* sourceRegion);
 
     //--------------------------------------------------------------------------
     //! @brief Render texture to the current rendering target at position pos.
@@ -188,14 +183,17 @@ void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos);
 void renderLine(Renderer& renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end);
 
 //------------------------------------------------------------------------------
-//! @brief Render texture to the current rendering target in the region.
-//!        Scales the texture if necessary.
+//! @brief Render texture to the current rendering target in the region. Scales
+//!        the texture if necessary.
 //! 
-//! @param renderer 
 //! @param texture
-//! @param region 
+//! @param targetRegion
+//! @param sourceRegion
 //------------------------------------------------------------------------------
-void renderTexture(Renderer& renderer, const Texture& texture, const Rectangle& region);
+void renderTexture(Renderer& renderer,
+                   const Texture& source,
+                   const Rectangle<int32_t>* targetRegion,
+                   const Rectangle<int32_t>* sourceRegion);
 
 //------------------------------------------------------------------------------
 //! @brief See @ref Renderer::renderTexture().

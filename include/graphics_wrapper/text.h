@@ -31,7 +31,7 @@ class Text
 public:
     ~Text();
 
-    void load(Renderer& renderer);
+    void load(Renderer& renderer, int32_t wrapWidth = 0);
     void destroy();
 
     void render(Renderer& renderer, const Vec2<int32_t>& pos) const;

@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('text_8cpp_source.html',''); initResiza
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> Text::setColor(Color color)      { m_Color = color; }</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">void</span> Text::setString(<span class="keyword">const</span> <span class="keywordtype">char</span>* str) { m_Str   = str;   }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> Text::load(<a class="code hl_class" href="class_renderer.html">Renderer</a>&amp; renderer)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> Text::load(<a class="code hl_class" href="class_renderer.html">Renderer</a>&amp; renderer, int32_t wrapWidth)</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    assert(m_Font.getNativeFont());</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    assert(m_Font.getSize() &gt; 0);</div>
@@ -141,38 +141,50 @@ $(document).ready(function(){initNavTree('text_8cpp_source.html',''); initResiza
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    destroy();</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    SDL_Surface* loadedSurface = TTF_RenderText_Blended(m_Font.getNativeFont(), </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                                                        m_Str, </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                                                        <a class="code hl_function" href="color_8h.html#a40d793cabfdbe97893b3aea106029241">getSystemColor</a>(m_Color));</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    assert(loadedSurface);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    m_Texture = SDL_CreateTextureFromSurface(renderer.<a class="code hl_function" href="class_renderer.html#af675ae22ab5da3fa1b72e9e44bd36487">getNativeRenderer</a>(), loadedSurface);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    assert(m_Texture);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    m_Width  = loadedSurface-&gt;w;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    m_Height = loadedSurface-&gt;h;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    SDL_FreeSurface(loadedSurface);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> Text::destroy()</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">if</span> (m_Texture != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        SDL_DestroyTexture(m_Texture);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">void</span> Text::render(<a class="code hl_class" href="class_renderer.html">Renderer</a>&amp; renderer, <span class="keyword">const</span> <a class="code hl_struct" href="struct_vec2.html">Vec2&lt;int32_t&gt;</a>&amp; pos)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    SDL_Rect renderQuad = {pos.x, pos.y, </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                           <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(m_Width), <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(m_Height)};</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    SDL_RenderCopy(renderer.<a class="code hl_function" href="class_renderer.html#af675ae22ab5da3fa1b72e9e44bd36487">getNativeRenderer</a>(), m_Texture, <span class="keyword">nullptr</span>, &amp;renderQuad); </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    SDL_Surface* loadedSurface = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span> (wrapWidth != 0)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        loadedSurface = TTF_RenderText_Blended_Wrapped(m_Font.getNativeFont(),</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                                       m_Str,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                                                       <a class="code hl_function" href="color_8h.html#a40d793cabfdbe97893b3aea106029241">getSystemColor</a>(m_Color),</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                                                       wrapWidth);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        loadedSurface = TTF_RenderText_Blended(m_Font.getNativeFont(),</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                                               m_Str,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                                               <a class="code hl_function" href="color_8h.html#a40d793cabfdbe97893b3aea106029241">getSystemColor</a>(m_Color));</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    assert(loadedSurface);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    m_Texture = SDL_CreateTextureFromSurface(renderer.<a class="code hl_function" href="class_renderer.html#af675ae22ab5da3fa1b72e9e44bd36487">getNativeRenderer</a>(), loadedSurface);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    assert(m_Texture);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    m_Width  = loadedSurface-&gt;w;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    m_Height = loadedSurface-&gt;h;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    SDL_FreeSurface(loadedSurface);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> Text::destroy()</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>{</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">if</span> (m_Texture != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        SDL_DestroyTexture(m_Texture);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keywordtype">void</span> Text::render(<a class="code hl_class" href="class_renderer.html">Renderer</a>&amp; renderer, <span class="keyword">const</span> <a class="code hl_struct" href="struct_vec2.html">Vec2&lt;int32_t&gt;</a>&amp; pos)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    SDL_Rect renderQuad = {pos.x, pos.y, </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                           <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(m_Width), <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(m_Height)};</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    SDL_RenderCopy(renderer.<a class="code hl_function" href="class_renderer.html#af675ae22ab5da3fa1b72e9e44bd36487">getNativeRenderer</a>(), m_Texture, <span class="keyword">nullptr</span>, &amp;renderQuad); </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
 <div class="ttc" id="aclass_font_html"><div class="ttname"><a href="class_font.html">Font</a></div><div class="ttdef"><b>Definition:</b> <a href="text_8h_source.html#l00015">text.h:16</a></div></div>
-<div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> <a href="renderer_8h_source.html#l00026">renderer.h:27</a></div></div>
-<div class="ttc" id="aclass_renderer_html_af675ae22ab5da3fa1b72e9e44bd36487"><div class="ttname"><a href="class_renderer.html#af675ae22ab5da3fa1b72e9e44bd36487">Renderer::getNativeRenderer</a></div><div class="ttdeci">SDL_Renderer * getNativeRenderer() const</div><div class="ttdef"><b>Definition:</b> <a href="renderer_8cpp_source.html#l00052">renderer.cpp:52</a></div></div>
+<div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> <a href="renderer_8h_source.html#l00018">renderer.h:19</a></div></div>
+<div class="ttc" id="aclass_renderer_html_af675ae22ab5da3fa1b72e9e44bd36487"><div class="ttname"><a href="class_renderer.html#af675ae22ab5da3fa1b72e9e44bd36487">Renderer::getNativeRenderer</a></div><div class="ttdeci">SDL_Renderer * getNativeRenderer() const</div><div class="ttdef"><b>Definition:</b> <a href="renderer_8cpp_source.html#l00064">renderer.cpp:64</a></div></div>
 <div class="ttc" id="acolor_8h_html_a40d793cabfdbe97893b3aea106029241"><div class="ttname"><a href="color_8h.html#a40d793cabfdbe97893b3aea106029241">getSystemColor</a></div><div class="ttdeci">SDL_Color getSystemColor(Color color)</div><div class="ttdoc">Get the system level color object.</div><div class="ttdef"><b>Definition:</b> <a href="color_8cpp_source.html#l00022">color.cpp:22</a></div></div>
 <div class="ttc" id="astruct_vec2_html"><div class="ttname"><a href="struct_vec2.html">Vec2</a></div><div class="ttdef"><b>Definition:</b> <a href="vec2_8h_source.html#l00018">vec2.h:19</a></div></div>
 <div class="ttc" id="atext_8h_html"><div class="ttname"><a href="text_8h.html">text.h</a></div></div>

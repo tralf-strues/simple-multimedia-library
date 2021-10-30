@@ -70,6 +70,30 @@ void Texture::readPixels(Color* dst) const
     SDL_SetRenderTarget(m_NativeRenderer, prevTarget);
 }
 
+void Texture::copyTo(Texture* target,
+                     const Rectangle<int32_t>* targetRegion,
+                     const Rectangle<int32_t>* sourceRegion)
+{
+    assert(target);
+
+    Rectangle<int32_t> targetRegionFinal{Vec2<int32_t>{0, 0}, static_cast<int32_t>(target->getWidth()), 
+                                                              static_cast<int32_t>(target->getHeight())};
+    Rectangle<int32_t> sourceRegionFinal{Vec2<int32_t>{0, 0}, static_cast<int32_t>(this->getWidth()), 
+                                                              static_cast<int32_t>(this->getHeight())};
+
+    if (targetRegion != nullptr)
+    {
+        targetRegionFinal = *targetRegion;
+    }
+
+    if (sourceRegion != nullptr)
+    {
+        sourceRegionFinal = *sourceRegion;
+    }
+
+    
+}
+
 bool Texture::writeToBMP(const char* filename) const
 {
     assert(filename);

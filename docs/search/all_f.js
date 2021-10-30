@@ -2,7 +2,7 @@ var searchData=
 [
   ['scancode_2eh_0',['scancode.h',['../scancode_8h.html',1,'']]],
   ['sendthroughchain_1',['sendThroughChain',['../class_event_dispatch_chain.html#a333ba8a6842895c46275ac5ba3482fd1',1,'EventDispatchChain']]],
-  ['setclipregion_2',['setClipRegion',['../class_renderer.html#af926aabddd6651915c9eec662e5842c8',1,'Renderer']]],
+  ['setclipregion_2',['setClipRegion',['../class_renderer.html#aec14aa61b2a9aacbb8a2b2aa44ea332b',1,'Renderer']]],
   ['setcolor_3',['setColor',['../class_renderer.html#a766c142bfc840e69e274c48107714c1c',1,'Renderer']]],
   ['settarget_4',['setTarget',['../class_renderer.html#af886d546066ae4dcfea6c627698915e5',1,'Renderer']]],
   ['simple_2dmultimedia_2dlibrary_5',['simple-multimedia-library',['../index.html',1,'']]],

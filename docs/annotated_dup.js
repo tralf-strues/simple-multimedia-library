@@ -28,7 +28,7 @@ var annotated_dup =
     [ "Renderer", "class_renderer.html", "class_renderer" ],
     [ "SystemEventManager", "class_system_event_manager.html", "class_system_event_manager" ],
     [ "Text", "class_text.html", null ],
-    [ "Texture", "class_texture.html", null ],
+    [ "Texture", "class_texture.html", "class_texture" ],
     [ "Vec2", "struct_vec2.html", null ],
     [ "Vec3", "struct_vec3.html", null ],
     [ "Viewport", "struct_viewport.html", null ],

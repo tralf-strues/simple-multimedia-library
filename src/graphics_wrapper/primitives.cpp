@@ -8,7 +8,7 @@
 
 #include "graphics_wrapper/primitives.h"
 
-void renderRect(Renderer& renderer, const Rectangle& rect)
+void renderRect(Renderer& renderer, const Rectangle<int32_t>& rect)
 {
     Vec2<int32_t> upperLeftCorner(rect.pos.x, rect.pos.y);
     Vec2<int32_t> upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
@@ -29,7 +29,7 @@ void renderRect(Renderer& renderer, const Rectangle& rect)
     renderLine(renderer, upperRightCorner, bottomRightCorner);
 }
 
-void renderFilledRect(Renderer& renderer, const Rectangle& rect)
+void renderFilledRect(Renderer& renderer, const Rectangle<int32_t>& rect)
 {
     for (int32_t row = 0; row < rect.height; ++row)
     {

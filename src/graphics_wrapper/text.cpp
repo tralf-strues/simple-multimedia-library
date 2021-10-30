@@ -44,7 +44,7 @@ void Text::setFont(const Font& font)  { m_Font  = font;  }
 void Text::setColor(Color color)      { m_Color = color; }
 void Text::setString(const char* str) { m_Str   = str;   }
 
-void Text::load(Renderer& renderer)
+void Text::load(Renderer& renderer, int32_t wrapWidth)
 {
     assert(m_Font.getNativeFont());
     assert(m_Font.getSize() > 0);
@@ -52,9 +52,21 @@ void Text::load(Renderer& renderer)
 
     destroy();
 
-    SDL_Surface* loadedSurface = TTF_RenderText_Blended(m_Font.getNativeFont(), 
-                                                        m_Str, 
-                                                        getSystemColor(m_Color));
+    SDL_Surface* loadedSurface = nullptr;
+    if (wrapWidth != 0)
+    {
+        loadedSurface = TTF_RenderText_Blended_Wrapped(m_Font.getNativeFont(),
+                                                       m_Str,
+                                                       getSystemColor(m_Color),
+                                                       wrapWidth);
+    }
+    else
+    {
+        loadedSurface = TTF_RenderText_Blended(m_Font.getNativeFont(),
+                                               m_Str,
+                                               getSystemColor(m_Color));
+    }
+
     assert(loadedSurface);
 
     m_Texture = SDL_CreateTextureFromSurface(renderer.getNativeRenderer(), loadedSurface);

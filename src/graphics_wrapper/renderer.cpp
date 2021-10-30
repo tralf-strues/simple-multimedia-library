@@ -9,6 +9,18 @@
 #include <assert.h>
 #include "graphics_wrapper/renderer.h"
 
+SDL_Rect toNativeRectangle(const Rectangle<int32_t>& rectangle)
+{
+    SDL_Rect nativeRectangle;
+
+    nativeRectangle.x = rectangle.pos.x;
+    nativeRectangle.y = rectangle.pos.y;
+    nativeRectangle.w = rectangle.width;
+    nativeRectangle.h = rectangle.height;
+
+    return nativeRectangle;
+}
+
 Renderer::Renderer(Window& window) : m_Window(window)
 {
     m_NativeRenderer = SDL_CreateRenderer(m_Window.getNativeWindow(), -1, 
@@ -88,7 +100,7 @@ Texture* Renderer::getTarget()
     return m_TargetTexture;
 }
 
-void Renderer::setClipRegion(const Rectangle& clipRegion) const
+void Renderer::setClipRegion(const Rectangle<int32_t>& clipRegion) const
 {
     SDL_Rect rect = {clipRegion.pos.x, clipRegion.pos.y, clipRegion.width, clipRegion.height};
 
@@ -110,16 +122,37 @@ void Renderer::renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end)
     SDL_RenderDrawLine(m_NativeRenderer, start.x, start.y, end.x, end.y);
 }
 
-void Renderer::renderTexture(const Texture& texture, const Rectangle& region)
+void Renderer::renderTexture(const Texture& texture,
+                             const Rectangle<int32_t>* targetRegion,
+                             const Rectangle<int32_t>* sourceRegion)
 {
-    SDL_Rect destRect = {region.pos.x, region.pos.y, region.width, region.height};
-    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), nullptr, &destRect);
+    SDL_Rect targetRect;
+    SDL_Rect sourceRect;
+
+    SDL_Rect* pTargetRect = nullptr;
+    SDL_Rect* pSourceRect = nullptr;
+
+    if (targetRegion != nullptr)
+    {
+        targetRect = toNativeRectangle(*targetRegion);
+        pTargetRect = &targetRect;
+    }
+
+    if (sourceRegion != nullptr)
+    {
+        sourceRect = toNativeRectangle(*sourceRegion);
+        pSourceRect = &sourceRect;
+    }
+
+    SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), pSourceRect, pTargetRect);
 }
 
 void Renderer::renderTexture(const Texture& texture, const Vec2<int32_t>& pos)
 {
-    renderTexture(texture, Rectangle{pos, static_cast<int32_t>(texture.getWidth()),
-                                          static_cast<int32_t>(texture.getHeight())});
+    Rectangle<int32_t> targetRegion{pos, static_cast<int32_t>(texture.getWidth()),
+                                         static_cast<int32_t>(texture.getHeight())};
+
+    renderTexture(texture, &targetRegion, nullptr);
 }
 
 void renderPoint(Renderer& renderer, const Vec2<int32_t>& pos)
@@ -132,9 +165,12 @@ void renderLine(Renderer& renderer, const Vec2<int32_t>& start, const Vec2<int32
     renderer.renderLine(start, end);
 }
 
-void renderTexture(Renderer& renderer, const Texture& texture, const Rectangle& region)
+void renderTexture(Renderer& renderer,
+                   const Texture& source,
+                   const Rectangle<int32_t>* targetRegion,
+                   const Rectangle<int32_t>* sourceRegion)
 {
-    renderer.renderTexture(texture, region);
+    renderer.renderTexture(source, targetRegion, sourceRegion);
 }
 
 void renderTexture(Renderer& renderer, const Texture& texture, const Vec2<int32_t>& pos)
