@@ -110,8 +110,8 @@ $(document).ready(function(){initNavTree('rectangle_8h_source.html',''); initRes
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><a class="code hl_struct" href="struct_rectangle.html">Rectangle&lt;T&gt;</a> centerRegion(<span class="keyword">const</span> <a class="code hl_struct" href="struct_rectangle.html">Rectangle&lt;T&gt;</a>&amp; region, <span class="keyword">const</span> <a class="code hl_struct" href="struct_rectangle.html">Rectangle&lt;T&gt;</a>&amp; innerRegion)</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    T offsetX = (region.width  - innerRegion.width)  / 2;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    T offsetY = (region.height - innerRegion.height) / 2;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    T offsetX = region.pos.x + (region.width  - innerRegion.width)  / 2;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    T offsetY = region.pos.y + (region.height - innerRegion.height) / 2;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_rectangle.html">Rectangle&lt;T&gt;</a>{<a class="code hl_struct" href="struct_vec2.html">Vec2&lt;T&gt;</a>{offsetX, offsetY}, innerRegion.width, innerRegion.height};</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>

@@ -21,8 +21,8 @@ struct Rectangle
 template<typename T>
 Rectangle<T> centerRegion(const Rectangle<T>& region, const Rectangle<T>& innerRegion)
 {
-    T offsetX = (region.width  - innerRegion.width)  / 2;
-    T offsetY = (region.height - innerRegion.height) / 2;
+    T offsetX = region.pos.x + (region.width  - innerRegion.width)  / 2;
+    T offsetY = region.pos.y + (region.height - innerRegion.height) / 2;
 
     return Rectangle<T>{Vec2<T>{offsetX, offsetY}, innerRegion.width, innerRegion.height};
 }
