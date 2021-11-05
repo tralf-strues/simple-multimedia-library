@@ -1,12 +1,10 @@
-//------------------------------------------------------------------------------
-//! @brief Contains all header files in the math directory.
-//! 
-//! @author Nikita Mochalov (github.com/tralf-strues)
-//! @file sml_math.h
-//! @date 2021-09-16
-//! 
-//! @copyright Copyright (c) 2021
-//------------------------------------------------------------------------------
+/**
+ * @author Nikita Mochalov (github.com/tralf-strues)
+ * @file sml_math.h
+ * @date 2021-09-16
+ * 
+ * @copyright Copyright (c) 2021
+ */
 
 #ifndef SML_MATH_H
 #define SML_MATH_H

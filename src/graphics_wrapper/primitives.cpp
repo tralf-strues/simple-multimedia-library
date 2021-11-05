@@ -1,169 +1,167 @@
-//------------------------------------------------------------------------------
-//! @author Nikita Mochalov (github.com/tralf-strues)
-//! @file primitives.cpp
-//! @date 2021-09-05
-//! 
-//! @copyright Copyright (c) 2021
-//------------------------------------------------------------------------------
+/**
+ * @author Nikita Mochalov (github.com/tralf-strues)
+ * @file primitives.cpp
+ * @date 2021-09-05
+ * 
+ * @copyright Copyright (c) 2021
+ */
 
 #include "graphics_wrapper/primitives.h"
 
 namespace Sml
 {
-
-void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect, uint8_t thickness)
-{
-    Vec2<int32_t> upperLeftCorner(rect.pos.x, rect.pos.y);
-    Vec2<int32_t> upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
-    
-    Vec2<int32_t> bottomLeftCorner(rect.pos.x, rect.pos.y + rect.height - 1);
-    Vec2<int32_t> bottomRightCorner(rect.pos.x + rect.width - 1, rect.pos.y + rect.height - 1);
-
-    for (int32_t step = 0; static_cast<uint8_t>(step) < thickness; ++step)
+    void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect, uint8_t thickness)
     {
-        // Top line
-        renderLine(renderer, upperLeftCorner, upperRightCorner);
+        Vec2<int32_t> upperLeftCorner(rect.pos.x, rect.pos.y);
+        Vec2<int32_t> upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
+        
+        Vec2<int32_t> bottomLeftCorner(rect.pos.x, rect.pos.y + rect.height - 1);
+        Vec2<int32_t> bottomRightCorner(rect.pos.x + rect.width - 1, rect.pos.y + rect.height - 1);
 
-        // Bottom line
-        renderLine(renderer, bottomLeftCorner, bottomRightCorner);
-
-        // Left line
-        renderLine(renderer, upperLeftCorner, bottomLeftCorner);
-
-        // Right line
-        renderLine(renderer, upperRightCorner, bottomRightCorner);
-
-        upperLeftCorner   += Vec2<int32_t>{  1,  1 };
-        upperRightCorner  += Vec2<int32_t>{ -1,  1 };
-        bottomLeftCorner  += Vec2<int32_t>{  1, -1 };
-        bottomRightCorner += Vec2<int32_t>{ -1, -1 };
-    }
-}
-
-void renderFilledRect(Renderer* renderer, const Rectangle<int32_t>& rect)
-{
-    for (int32_t row = 0; row < rect.height; ++row)
-    {
-        renderLine(renderer, Vec2<int32_t>{rect.pos.x, rect.pos.y + row}, 
-                             Vec2<int32_t>{rect.pos.x + rect.width - 1, rect.pos.y + row});
-    }
-}
-
-void renderCircle(Renderer* renderer, const Circle& circle)
-{
-    int32_t diameter = 2 * circle.radius;
-
-    int32_t x     = (circle.radius - 1);
-    int32_t y     = 0;
-    int32_t tx    = 1;
-    int32_t ty    = 1;
-    int32_t error = (tx - diameter);
-
-    while (x >= y)
-    {
-        renderPoint(renderer, {circle.center.x + x, circle.center.y - y});
-        renderPoint(renderer, {circle.center.x + x, circle.center.y + y});
-        renderPoint(renderer, {circle.center.x - x, circle.center.y - y});
-        renderPoint(renderer, {circle.center.x - x, circle.center.y + y});
-        renderPoint(renderer, {circle.center.x + y, circle.center.y - x});
-        renderPoint(renderer, {circle.center.x + y, circle.center.y + x});
-        renderPoint(renderer, {circle.center.x - y, circle.center.y - x});
-        renderPoint(renderer, {circle.center.x - y, circle.center.y + x});
-
-        if (error <= 0)
+        for (int32_t step = 0; static_cast<uint8_t>(step) < thickness; ++step)
         {
-            ++y;
-            error += ty;
-            ty    += 2;
-        }
+            // Top line
+            renderLine(renderer, upperLeftCorner, upperRightCorner);
 
-        if (error > 0)
-        {
-            --x;
-            tx    += 2;
-            error += (tx - diameter);
+            // Bottom line
+            renderLine(renderer, bottomLeftCorner, bottomRightCorner);
+
+            // Left line
+            renderLine(renderer, upperLeftCorner, bottomLeftCorner);
+
+            // Right line
+            renderLine(renderer, upperRightCorner, bottomRightCorner);
+
+            upperLeftCorner   += Vec2<int32_t>{  1,  1 };
+            upperRightCorner  += Vec2<int32_t>{ -1,  1 };
+            bottomLeftCorner  += Vec2<int32_t>{  1, -1 };
+            bottomRightCorner += Vec2<int32_t>{ -1, -1 };
         }
     }
-}
 
-void renderFilledCircle(Renderer* renderer, const Circle& circle)
-{
-    for (int w = 0; w < 2 * circle.radius; w++)
+    void renderFilledRect(Renderer* renderer, const Rectangle<int32_t>& rect)
     {
-        for (int h = 0; h < 2 * circle.radius; h++)
+        for (int32_t row = 0; row < rect.height; ++row)
         {
-            int dx = circle.radius - w;
-            int dy = circle.radius - h;
+            renderLine(renderer, Vec2<int32_t>{rect.pos.x, rect.pos.y + row}, 
+                                Vec2<int32_t>{rect.pos.x + rect.width - 1, rect.pos.y + row});
+        }
+    }
 
-            if ((dx * dx + dy * dy) <= (circle.radius * circle.radius))
+    void renderCircle(Renderer* renderer, const Circle& circle)
+    {
+        int32_t diameter = 2 * circle.radius;
+
+        int32_t x     = (circle.radius - 1);
+        int32_t y     = 0;
+        int32_t tx    = 1;
+        int32_t ty    = 1;
+        int32_t error = (tx - diameter);
+
+        while (x >= y)
+        {
+            renderPoint(renderer, {circle.center.x + x, circle.center.y - y});
+            renderPoint(renderer, {circle.center.x + x, circle.center.y + y});
+            renderPoint(renderer, {circle.center.x - x, circle.center.y - y});
+            renderPoint(renderer, {circle.center.x - x, circle.center.y + y});
+            renderPoint(renderer, {circle.center.x + y, circle.center.y - x});
+            renderPoint(renderer, {circle.center.x + y, circle.center.y + x});
+            renderPoint(renderer, {circle.center.x - y, circle.center.y - x});
+            renderPoint(renderer, {circle.center.x - y, circle.center.y + x});
+
+            if (error <= 0)
             {
-                renderPoint(renderer, Vec2<int32_t>{circle.center.x + dx, circle.center.y + dy});
+                ++y;
+                error += ty;
+                ty    += 2;
+            }
+
+            if (error > 0)
+            {
+                --x;
+                tx    += 2;
+                error += (tx - diameter);
             }
         }
     }
-}
 
-bool intersectInfLines(const InfLine& line1, const InfLine& line2, Vec2<float>* intersection)
-{
-    assert(intersection);
-
-    const Vec2<float>& firstFrom       = line1.from;
-    const Vec2<float>& secondFrom      = line2.from;
-    const Vec2<float>& firstDirection  = line1.direction;
-    const Vec2<float>& secondDirection = line2.direction;
-
-    float det = firstDirection.y * secondDirection.x - firstDirection.x * secondDirection.y;
-    if (cmpFloat(det, 0) == 0)
+    void renderFilledCircle(Renderer* renderer, const Circle& circle)
     {
-        return false;
+        for (int w = 0; w < 2 * circle.radius; w++)
+        {
+            for (int h = 0; h < 2 * circle.radius; h++)
+            {
+                int dx = circle.radius - w;
+                int dy = circle.radius - h;
+
+                if ((dx * dx + dy * dy) <= (circle.radius * circle.radius))
+                {
+                    renderPoint(renderer, Vec2<int32_t>{circle.center.x + dx, circle.center.y + dy});
+                }
+            }
+        }
     }
 
-    float t = secondDirection.x * (secondFrom.y - firstFrom.y) - 
-              secondDirection.y * (secondFrom.x - firstFrom.x);
-
-    t /= det;
-    *intersection = firstFrom + t * firstDirection;
-
-    return true;
-}
-
-void renderInfLine(Renderer* renderer, const InfLine& infLine)
-{
-    float width  = renderer->getWindow().getWidth();
-    float height = renderer->getWindow().getHeight();
-
-    InfLine topLine    = {Vec2<float>{0,     0     }, Vec2<float>{1, 0}};
-    InfLine bottomLine = {Vec2<float>{0,     height}, Vec2<float>{1, 0}};
-    InfLine rightLine  = {Vec2<float>{width, 0     }, Vec2<float>{0, 1}};
-    InfLine leftLine   = {Vec2<float>{0,     0     }, Vec2<float>{0, 1}};
-
-    Vec2<float> intersections[4] = {};
-    int32_t intersectionsCount = 0;
-
-    if (intersectInfLines(infLine, topLine, &intersections[intersectionsCount]))
+    bool intersectInfLines(const InfLine& line1, const InfLine& line2, Vec2<float>* intersection)
     {
-        ++intersectionsCount;
+        assert(intersection);
+
+        const Vec2<float>& firstFrom       = line1.from;
+        const Vec2<float>& secondFrom      = line2.from;
+        const Vec2<float>& firstDirection  = line1.direction;
+        const Vec2<float>& secondDirection = line2.direction;
+
+        float det = firstDirection.y * secondDirection.x - firstDirection.x * secondDirection.y;
+        if (cmpFloat(det, 0) == 0)
+        {
+            return false;
+        }
+
+        float t = secondDirection.x * (secondFrom.y - firstFrom.y) - 
+                secondDirection.y * (secondFrom.x - firstFrom.x);
+
+        t /= det;
+        *intersection = firstFrom + t * firstDirection;
+
+        return true;
     }
 
-    if (intersectInfLines(infLine, bottomLine, &intersections[intersectionsCount]))
+    void renderInfLine(Renderer* renderer, const InfLine& infLine)
     {
-        ++intersectionsCount;
-    }
+        float width  = renderer->getWindow().getWidth();
+        float height = renderer->getWindow().getHeight();
 
-    if (intersectInfLines(infLine, rightLine, &intersections[intersectionsCount]))
-    {
-        ++intersectionsCount;
-    }
+        InfLine topLine    = {Vec2<float>{0,     0     }, Vec2<float>{1, 0}};
+        InfLine bottomLine = {Vec2<float>{0,     height}, Vec2<float>{1, 0}};
+        InfLine rightLine  = {Vec2<float>{width, 0     }, Vec2<float>{0, 1}};
+        InfLine leftLine   = {Vec2<float>{0,     0     }, Vec2<float>{0, 1}};
 
-    if (intersectInfLines(infLine, leftLine, &intersections[intersectionsCount]))
-    {
-        ++intersectionsCount;
-    }
+        Vec2<float> intersections[4] = {};
+        int32_t intersectionsCount = 0;
 
-    if (intersectionsCount > 1)
-    {
-        renderLine(renderer, intersections[0], intersections[1]);
-    }
-}
+        if (intersectInfLines(infLine, topLine, &intersections[intersectionsCount]))
+        {
+            ++intersectionsCount;
+        }
 
+        if (intersectInfLines(infLine, bottomLine, &intersections[intersectionsCount]))
+        {
+            ++intersectionsCount;
+        }
+
+        if (intersectInfLines(infLine, rightLine, &intersections[intersectionsCount]))
+        {
+            ++intersectionsCount;
+        }
+
+        if (intersectInfLines(infLine, leftLine, &intersections[intersectionsCount]))
+        {
+            ++intersectionsCount;
+        }
+
+        if (intersectionsCount > 1)
+        {
+            renderLine(renderer, intersections[0], intersections[1]);
+        }
+    }
 }

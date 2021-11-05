@@ -116,24 +116,24 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ac6abad372e55f6e98d8252ac7b983a41"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>SystemEventType</b> { <br />
+<tr class="memitem:ac6abad372e55f6e98d8252ac7b983a41"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41">Sml::SystemEventType</a> { <br />
 &#160;&#160;<b>WINDOW_CLOSE</b> = 1
 , <b>MOUSE_MOVED</b>
 , <b>MOUSE_BUTTON_PRESSED</b>
 , <b>KEY_PRESSED</b>
 , <br />
 &#160;&#160;<b>KEY_RELEASED</b>
-, <b>SML_EVENT_TYPE_FIRST_UNSPECIFIED</b> = 4096
+, <a class="el" href="system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984">Sml::SML_EVENT_TYPE_FIRST_UNSPECIFIED</a> = 4096
 <br />
  }</td></tr>
 <tr class="separator:ac6abad372e55f6e98d8252ac7b983a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabdafb7dc899144e2c73caf83fab91cd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>SystemEventCategory</b> { <br />
+<tr class="memitem:aabdafb7dc899144e2c73caf83fab91cd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cd">Sml::SystemEventCategory</a> { <br />
 &#160;&#160;<b>EVENT_CATEGORY_WINDOW</b> = BIT(0)
 , <b>EVENT_CATEGORY_INPUT</b> = BIT(1)
 , <b>EVENT_CATEGORY_MOUSE</b> = BIT(2)
 , <b>EVENT_CATEGORY_KEYBOARD</b> = BIT(3)
 , <br />
-&#160;&#160;<b>SML_EVENT_CATEGORY_FIRST_UNSPECIFIED</b> = BIT(8)
+&#160;&#160;<a class="el" href="system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cdad45ba3593c6df878f6d51289ceed0f5b">Sml::SML_EVENT_CATEGORY_FIRST_UNSPECIFIED</a> = BIT(8)
 <br />
  }</td></tr>
 <tr class="separator:aabdafb7dc899144e2c73caf83fab91cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,22 +152,27 @@ Enumerations</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum Sml::SystemEventCategory</td>
+          <td class="memname">enum <a class="el" href="system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cd">Sml::SystemEventCategory</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aabdafb7dc899144e2c73caf83fab91cdad45ba3593c6df878f6d51289ceed0f5b" name="aabdafb7dc899144e2c73caf83fab91cdad45ba3593c6df878f6d51289ceed0f5b"></a>SML_EVENT_CATEGORY_FIRST_UNSPECIFIED&#160;</td><td class="fielddoc"><p >Custom event categories must not be less than this. </p>
+</td></tr>
+</table>
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00035">35</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    EVENT_CATEGORY_WINDOW   = BIT(0),</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    EVENT_CATEGORY_INPUT    = BIT(1),</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    EVENT_CATEGORY_MOUSE    = BIT(2),</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    EVENT_CATEGORY_KEYBOARD = BIT(3),</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">/* Custom event categories must not be less than this. */</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    SML_EVENT_CATEGORY_FIRST_UNSPECIFIED = BIT(8)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00034">34</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        EVENT_CATEGORY_WINDOW   = BIT(0),</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        EVENT_CATEGORY_INPUT    = BIT(1),</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        EVENT_CATEGORY_MOUSE    = BIT(2),</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        EVENT_CATEGORY_KEYBOARD = BIT(3),</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">        /** Custom event categories must not be less than this. */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_enumvalue" href="system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cdad45ba3593c6df878f6d51289ceed0f5b">SML_EVENT_CATEGORY_FIRST_UNSPECIFIED</a> = BIT(8)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
+<div class="ttc" id="asystem__events_8h_html_aabdafb7dc899144e2c73caf83fab91cdad45ba3593c6df878f6d51289ceed0f5b"><div class="ttname"><a href="system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cdad45ba3593c6df878f6d51289ceed0f5b">Sml::SML_EVENT_CATEGORY_FIRST_UNSPECIFIED</a></div><div class="ttdeci">@ SML_EVENT_CATEGORY_FIRST_UNSPECIFIED</div><div class="ttdef"><b>Definition:</b> <a href="system__events_8h_source.html#l00044">system_events.h:43</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -178,27 +183,32 @@ Enumerations</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum Sml::SystemEventType</td>
+          <td class="memname">enum <a class="el" href="system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41">Sml::SystemEventType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984" name="ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984"></a>SML_EVENT_TYPE_FIRST_UNSPECIFIED&#160;</td><td class="fielddoc"><p >Custom event types must not be less than this. </p>
+</td></tr>
+</table>
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00018">18</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">/* Window events */</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    WINDOW_CLOSE = 1,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">/* Mouse events */</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    MOUSE_MOVED,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    MOUSE_BUTTON_PRESSED,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">/* Keyboard events */</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    KEY_PRESSED,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    KEY_RELEASED,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">/* Custom event types must not be less than this. */</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    SML_EVENT_TYPE_FIRST_UNSPECIFIED = 4096</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00017">17</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="comment">/* Window events */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        WINDOW_CLOSE = 1,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">/* Mouse events */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        MOUSE_MOVED,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        MOUSE_BUTTON_PRESSED,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">/* Keyboard events */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        KEY_PRESSED,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        KEY_RELEASED,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">        /** Custom event types must not be less than this. */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_enumvalue" href="system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984">SML_EVENT_TYPE_FIRST_UNSPECIFIED</a> = 4096</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    };</div>
+<div class="ttc" id="asystem__events_8h_html_ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984"><div class="ttname"><a href="system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984">Sml::SML_EVENT_TYPE_FIRST_UNSPECIFIED</a></div><div class="ttdeci">@ SML_EVENT_TYPE_FIRST_UNSPECIFIED</div><div class="ttdef"><b>Definition:</b> <a href="system__events_8h_source.html#l00032">system_events.h:31</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

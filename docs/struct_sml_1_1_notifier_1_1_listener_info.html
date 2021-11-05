@@ -108,7 +108,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00039">39</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00038">38</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8dc56d3f4dd053255533b1d4b95ea855" name="a8dc56d3f4dd053255533b1d4b95ea855"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8dc56d3f4dd053255533b1d4b95ea855">&#9670;&nbsp;</a></span>ListenerInfo() <span class="overload">[1/2]</span></h2>
@@ -134,14 +134,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00044">44</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                                                   : listener(listener)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; MAX_LISTENED_EVENTS; ++i)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                this-&gt;types[i] = INVALID_EVENT_TYPE;</div>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00043">43</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                                                       : listener(listener)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; MAX_LISTENED_EVENTS; ++i)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    this-&gt;types[i] = INVALID_EVENT_TYPE;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -179,17 +179,17 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00052">52</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            : ListenerInfo(listener) </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            assert(types.size() &lt;= MAX_LISTENED_EVENTS);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keyword">auto</span> initIt = types.begin();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; initIt != types.end(); ++initIt, ++i)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                this-&gt;types[i] = *initIt;</div>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00051">51</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                : ListenerInfo(listener) </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                assert(types.size() &lt;= MAX_LISTENED_EVENTS);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keyword">auto</span> initIt = types.begin();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; initIt != types.end(); ++initIt, ++i)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                    this-&gt;types[i] = *initIt;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -206,7 +206,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00042">42</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00041">41</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00041">41</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00040">40</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
 
 </div>
 </div>

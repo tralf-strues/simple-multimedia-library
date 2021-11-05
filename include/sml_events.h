@@ -1,10 +1,10 @@
-//------------------------------------------------------------------------------
-//! @author Nikita Mochalov (github.com/tralf-strues)
-//! @file sml_events.h
-//! @date 2021-10-17
-//! 
-//! @copyright Copyright (c) 2021
-//------------------------------------------------------------------------------
+/**
+ * @author Nikita Mochalov (github.com/tralf-strues)
+ * @file sml_events.h
+ * @date 2021-10-17
+ * 
+ * @copyright Copyright (c) 2021
+ */
 
 #ifndef SML_EVENTS_H
 #define SML_EVENTS_H
