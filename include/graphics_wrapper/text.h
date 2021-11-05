@@ -31,12 +31,13 @@ namespace Sml
     class Text
     {
     public:
+        Text(const Font& font, const char* str, Color color = COLOR_BLACK);
         ~Text();
 
-        void load(Renderer& renderer, int32_t wrapWidth = 0);
+        void load(Renderer* renderer);
         void destroy();
 
-        void render(Renderer& renderer, const Vec2<int32_t>& pos) const;
+        void render(Renderer* renderer, const Vec2<int32_t>& pos) const;
 
         const Font& getFont() const;
         Color getColor() const;
@@ -44,20 +45,23 @@ namespace Sml
         const char* getStr() const;
         size_t getWidth() const;
         size_t getHeight() const;
+        size_t getWrapWidth() const;
 
         void setFont(const Font& font);
         void setColor(Color color);
         void setString(const char* str);
+        void setWrapWidth(size_t wrapWidth);
 
     private:
-        Font         m_Font    = {nullptr, 0};
-        const char*  m_Str     = nullptr;
-        Color        m_Color   = COLOR_BLACK;
+        Font         m_Font      = {nullptr, 0};
+        const char*  m_Str       = nullptr;
+        Color        m_Color     = COLOR_BLACK;
 
-        size_t       m_Width   = 0;
-        size_t       m_Height  = 0;
+        size_t       m_Width     = 0;
+        size_t       m_Height    = 0;
+        size_t       m_WrapWidth = 0;
 
-        SDL_Texture* m_Texture = nullptr;
+        SDL_Texture* m_Texture   = nullptr;
     };
 }
 

@@ -31,23 +31,29 @@ namespace Sml
         return m_FontSize;
     }
 
+    Text::Text(const Font& font, const char* str, Color color)
+        : m_Font(font), m_Str(str), m_Color(color) {}
+
     Text::~Text()
     {
         destroy();
     }
 
-    const Font& Text::getFont()   const { return m_Font;   }
-    const char* Text::getStr()    const { return m_Str;    }
-    Color       Text::getColor()  const { return m_Color;  }
-    size_t      Text::getWidth()  const { return m_Width;  }
-    size_t      Text::getHeight() const { return m_Height; }
+    const Font& Text::getFont()      const { return m_Font;      }
+    const char* Text::getStr()       const { return m_Str;       }
+    Color       Text::getColor()     const { return m_Color;     }
+    size_t      Text::getWidth()     const { return m_Width;     }
+    size_t      Text::getHeight()    const { return m_Height;    }
+    size_t      Text::getWrapWidth() const { return m_WrapWidth; }
 
-    void Text::setFont(const Font& font)  { m_Font  = font;  }
-    void Text::setColor(Color color)      { m_Color = color; }
-    void Text::setString(const char* str) { m_Str   = str;   }
+    void Text::setFont(const Font& font)      { m_Font      = font;      }
+    void Text::setColor(Color color)          { m_Color     = color;     }
+    void Text::setString(const char* str)     { m_Str       = str;       }
+    void Text::setWrapWidth(size_t wrapWidth) { m_WrapWidth = wrapWidth; }
 
-    void Text::load(Renderer& renderer, int32_t wrapWidth)
+    void Text::load(Renderer* renderer)
     {
+        assert(renderer);
         assert(m_Font.getNativeFont());
         assert(m_Font.getSize() > 0);
         assert(m_Str);
@@ -55,23 +61,23 @@ namespace Sml
         destroy();
 
         SDL_Surface* loadedSurface = nullptr;
-        if (wrapWidth != 0)
+        if (m_WrapWidth != 0)
         {
             loadedSurface = TTF_RenderText_Blended_Wrapped(m_Font.getNativeFont(),
-                                                        m_Str,
-                                                        getSystemColor(m_Color),
-                                                        wrapWidth);
+                                                           m_Str,
+                                                           getSystemColor(m_Color),
+                                                           m_WrapWidth);
         }
         else
         {
             loadedSurface = TTF_RenderText_Blended(m_Font.getNativeFont(),
-                                                m_Str,
-                                                getSystemColor(m_Color));
+                                                   m_Str,
+                                                   getSystemColor(m_Color));
         }
 
         assert(loadedSurface);
 
-        m_Texture = SDL_CreateTextureFromSurface(renderer.getNativeRenderer(), loadedSurface);
+        m_Texture = SDL_CreateTextureFromSurface(renderer->getNativeRenderer(), loadedSurface);
         assert(m_Texture);
         
         m_Width  = loadedSurface->w;
@@ -88,11 +94,13 @@ namespace Sml
         }
     }
 
-    void Text::render(Renderer& renderer, const Vec2<int32_t>& pos) const
+    void Text::render(Renderer* renderer, const Vec2<int32_t>& pos) const
     {
+        assert(renderer);
+
         SDL_Rect renderQuad = {pos.x, pos.y, 
                             static_cast<int32_t>(m_Width), static_cast<int32_t>(m_Height)};
 
-        SDL_RenderCopy(renderer.getNativeRenderer(), m_Texture, nullptr, &renderQuad); 
+        SDL_RenderCopy(renderer->getNativeRenderer(), m_Texture, nullptr, &renderQuad); 
     }
 }
