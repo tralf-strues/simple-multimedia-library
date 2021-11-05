@@ -12,6 +12,9 @@
 #include <stdint.h>
 #include <SDL.h>
 
+namespace Sml
+{
+
 typedef uint32_t Color;
 
 static const Color COLOR_TRANSPARENT = 0x00'00'00'00;
@@ -69,5 +72,7 @@ uint8_t colorGetB(Color color);
 //! @return color's alpha chanel.
 //------------------------------------------------------------------------------
 uint8_t colorGetA(Color color);
+
+}
 
 #endif // COLOR_H

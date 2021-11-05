@@ -11,6 +11,9 @@
 
 #include "vec3.h"
 
+namespace Sml
+{
+
 const size_t MAT4_SIZE = 4;
 
 template <typename T>
@@ -233,5 +236,7 @@ Mat4<float> createTranslationMatrix(Vec3<float> translation);
 //! @return View matrix.
 //------------------------------------------------------------------------------
 Mat4<float> lookAt(const Vec3<float>& from, const Vec3<float>& direction);
+
+}
 
 #endif // MAT4_H

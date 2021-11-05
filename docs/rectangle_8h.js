@@ -1,4 +1,4 @@
 var rectangle_8h =
 [
-    [ "Rectangle< T >", "struct_rectangle.html", null ]
+    [ "Sml::Rectangle< T >", "struct_sml_1_1_rectangle.html", null ]
 ];

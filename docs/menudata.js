@@ -52,23 +52,4 @@ var menudata={children:[
 {text:"w",url:"functions_func.html#index_w"},
 {text:"~",url:"functions_func.html#index__7E"}]}]}]},
 {text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"},
-{text:"File Members",url:"globals.html",children:[
-{text:"All",url:"globals.html",children:[
-{text:"c",url:"globals.html#index_c"},
-{text:"d",url:"globals.html#index_d"},
-{text:"e",url:"globals.html#index_e"},
-{text:"g",url:"globals.html#index_g"},
-{text:"i",url:"globals.html#index_i"},
-{text:"l",url:"globals.html#index_l"},
-{text:"q",url:"globals.html#index_q"},
-{text:"r",url:"globals.html#index_r"}]},
-{text:"Functions",url:"globals_func.html",children:[
-{text:"c",url:"globals_func.html#index_c"},
-{text:"d",url:"globals_func.html#index_d"},
-{text:"g",url:"globals_func.html#index_g"},
-{text:"i",url:"globals_func.html#index_i"},
-{text:"l",url:"globals_func.html#index_l"},
-{text:"q",url:"globals_func.html#index_q"},
-{text:"r",url:"globals_func.html#index_r"}]},
-{text:"Typedefs",url:"globals_type.html"}]}]}]}
+{text:"File List",url:"files.html"}]}]}

@@ -101,17 +101,17 @@ $(document).ready(function(){initNavTree('window_8h.html',''); initResizable(); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html">Window</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_window.html">Sml::Window</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a190194ce539dba99e8221c6cd996b03f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a190194ce539dba99e8221c6cd996b03f">initGraphics</a> ()</td></tr>
-<tr class="memdesc:a190194ce539dba99e8221c6cd996b03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize graphics.  <a href="window_8h.html#a190194ce539dba99e8221c6cd996b03f">More...</a><br /></td></tr>
-<tr class="separator:a190194ce539dba99e8221c6cd996b03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b0418645fe9dc1d3fd763044a7397e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a1b0418645fe9dc1d3fd763044a7397e3">quitGraphics</a> ()</td></tr>
-<tr class="memdesc:a1b0418645fe9dc1d3fd763044a7397e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quit graphics.  <a href="window_8h.html#a1b0418645fe9dc1d3fd763044a7397e3">More...</a><br /></td></tr>
-<tr class="separator:a1b0418645fe9dc1d3fd763044a7397e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade3dd968e0e6c22344557bdf05b3c0c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">Sml::initGraphics</a> ()</td></tr>
+<tr class="memdesc:ade3dd968e0e6c22344557bdf05b3c0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize graphics.  <a href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">More...</a><br /></td></tr>
+<tr class="separator:ade3dd968e0e6c22344557bdf05b3c0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac542862487210cb21a6897d4d7406f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">Sml::quitGraphics</a> ()</td></tr>
+<tr class="memdesc:ac542862487210cb21a6897d4d7406f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quit graphics.  <a href="window_8h.html#ac542862487210cb21a6897d4d7406f02">More...</a><br /></td></tr>
+<tr class="separator:ac542862487210cb21a6897d4d7406f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Basic window management. </p>
@@ -121,14 +121,14 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a190194ce539dba99e8221c6cd996b03f" name="a190194ce539dba99e8221c6cd996b03f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a190194ce539dba99e8221c6cd996b03f">&#9670;&nbsp;</a></span>initGraphics()</h2>
+<a id="ade3dd968e0e6c22344557bdf05b3c0c0" name="ade3dd968e0e6c22344557bdf05b3c0c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade3dd968e0e6c22344557bdf05b3c0c0">&#9670;&nbsp;</a></span>initGraphics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool initGraphics </td>
+          <td class="memname">bool Sml::initGraphics </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -142,31 +142,31 @@ Functions</h2></td></tr>
 <dd>
 false Failed to initialize. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00083">83</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) == -1)</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (TTF_Init() == -1)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00091">91</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) == -1)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">if</span> (TTF_Init() == -1)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a1b0418645fe9dc1d3fd763044a7397e3" name="a1b0418645fe9dc1d3fd763044a7397e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b0418645fe9dc1d3fd763044a7397e3">&#9670;&nbsp;</a></span>quitGraphics()</h2>
+<a id="ac542862487210cb21a6897d4d7406f02" name="ac542862487210cb21a6897d4d7406f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac542862487210cb21a6897d4d7406f02">&#9670;&nbsp;</a></span>quitGraphics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void quitGraphics </td>
+          <td class="memname">void Sml::quitGraphics </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -177,10 +177,10 @@ false Failed to initialize. </dd></dl>
 <p>Quit graphics. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Supposed to be called only once after using graphics functionality. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00098">98</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    SDL_Quit();</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00106">106</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    SDL_Quit();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

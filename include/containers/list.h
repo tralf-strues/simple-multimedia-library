@@ -134,13 +134,14 @@ public:
     }
 
     Iterator begin       ()       { return Iterator{this, m_Head}; }
+    Iterator back        ()       { return Iterator{this, m_Tail}; }
     Iterator end         ()       { return Iterator{this, 0};      }
-    size_t   getSize     () const { return m_Size;                    }
-    size_t   getCapacity () const { return m_Capacity;                }
+    size_t   getSize     () const { return m_Size;                 }
+    size_t   getCapacity () const { return m_Capacity;             }
 
     Iterator insert(Iterator it, const T& value)
     {
-        return Iterator{this, insertAfter(m_Nodes[it.id].prev, value)};
+        return Iterator{this, insertAfter(m_Nodes[it.getId()].prev, value)};
     }
 
     Iterator pushBack(const T& value)

@@ -12,6 +12,9 @@
 #include <SDL_ttf.h>
 #include "renderer.h"
 
+namespace Sml
+{
+
 class Font
 {
 public:
@@ -57,5 +60,7 @@ private:
 
     SDL_Texture* m_Texture = nullptr;
 };
+
+}
 
 #endif // TEXT_H

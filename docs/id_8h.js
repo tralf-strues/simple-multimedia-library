@@ -1,4 +1,4 @@
 var id_8h =
 [
-    [ "id128_t", "structid128__t.html", null ]
+    [ "Sml::id128_t", "struct_sml_1_1id128__t.html", null ]
 ];

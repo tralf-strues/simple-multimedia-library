@@ -9,7 +9,12 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
+namespace Sml
+{
+
 float calculateSphereVolume(float radius);
 float calculateSphereRadiusFromVolume(float volume);
+
+}
 
 #endif // GEOMETRY_H

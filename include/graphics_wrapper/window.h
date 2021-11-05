@@ -15,6 +15,9 @@
 #include <stdio.h>
 #include <SDL.h>
 
+namespace Sml
+{
+
 static const char* WINDOW_DEFAULT_TITLE = "Untitled";
 
 class Window
@@ -77,6 +80,13 @@ public:
     //--------------------------------------------------------------------------
     void updateTitle(const char* title);
 
+    //------------------------------------------------------------------------------
+    //! @brief Add or remove Window's borders.
+    //! 
+    //! @param borderless
+    //------------------------------------------------------------------------------
+    void setBorderless(bool borderless = true);
+
     //--------------------------------------------------------------------------
     //! @brief Resize Window.
     //! 
@@ -120,5 +130,7 @@ bool initGraphics();
 //! @warning Supposed to be called only once after using graphics functionality.
 //------------------------------------------------------------------------------
 void quitGraphics();
+
+}
 
 #endif // WINDOW_H

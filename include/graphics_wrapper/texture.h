@@ -15,6 +15,9 @@
 #include "color.h"
 #include "../sml_math.h"
 
+namespace Sml
+{
+
 class Renderer;
 
 class Texture
@@ -22,7 +25,8 @@ class Texture
 public:
     friend class BufferedTexture;
 
-    Texture();
+    Texture() = default;
+    Texture(Renderer* renderer);
     Texture(Renderer* renderer, size_t width, size_t height);
     ~Texture();
 
@@ -47,14 +51,14 @@ public:
 
     // TODO: implement
     bool writeToBMP(const char* filename) const;
-    bool loadFromBMP(const char* filename);
+    bool loadFromImage(const char* filename);
 
 private:
-    size_t        m_Width;
-    size_t        m_Height;
+    size_t        m_Width         = 0;
+    size_t        m_Height        = 0;
 
-    Renderer*     m_Renderer;
-    SDL_Texture*  m_NativeTexture;
+    Renderer*     m_Renderer      = 0;
+    SDL_Texture*  m_NativeTexture = 0;
 };
 
 class BufferedTexture
@@ -86,5 +90,7 @@ private:
     Texture m_Texture;
     Color*  m_Buffer;
 };
+
+}
 
 #endif // TEXTURE_H

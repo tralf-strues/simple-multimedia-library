@@ -1,7 +1,7 @@
 var files_dup =
 [
     [ "app.h", "app_8h.html", [
-      [ "Application", "class_application.html", null ]
+      [ "Sml::Application", "class_sml_1_1_application.html", null ]
     ] ],
     [ "array.h", "array_8h.html", [
       [ "ArrayIterator< T >", "class_array_iterator.html", null ],
@@ -11,33 +11,33 @@ var files_dup =
     [ "list.h", "list_8h.html", "list_8h" ],
     [ "event.h", "event_8h.html", "event_8h" ],
     [ "event_dispatching.h", "event__dispatching_8h.html", [
-      [ "EventDispatcher", "class_event_dispatcher.html", "class_event_dispatcher" ],
-      [ "EventDispatchChain", "class_event_dispatch_chain.html", "class_event_dispatch_chain" ],
-      [ "EventTarget", "class_event_target.html", "class_event_target" ]
+      [ "Sml::EventDispatcher", "class_sml_1_1_event_dispatcher.html", "class_sml_1_1_event_dispatcher" ],
+      [ "Sml::EventDispatchChain", "class_sml_1_1_event_dispatch_chain.html", "class_sml_1_1_event_dispatch_chain" ],
+      [ "Sml::EventTarget", "class_sml_1_1_event_target.html", "class_sml_1_1_event_target" ]
     ] ],
     [ "listener_notifier.h", "listener__notifier_8h.html", "listener__notifier_8h" ],
     [ "scancode.h", "scancode_8h.html", null ],
     [ "system_event_manager.h", "system__event__manager_8h.html", [
-      [ "SystemEventManager", "class_system_event_manager.html", "class_system_event_manager" ]
+      [ "Sml::SystemEventManager", "class_sml_1_1_system_event_manager.html", "class_sml_1_1_system_event_manager" ]
     ] ],
     [ "system_events.h", "system__events_8h.html", "system__events_8h" ],
     [ "color.h", "color_8h.html", "color_8h" ],
     [ "primitives.h", "primitives_8h.html", "primitives_8h" ],
     [ "renderer.h", "renderer_8h.html", "renderer_8h" ],
     [ "text.h", "text_8h.html", [
-      [ "Font", "class_font.html", null ],
-      [ "Text", "class_text.html", null ]
+      [ "Sml::Font", "class_sml_1_1_font.html", null ],
+      [ "Sml::Text", "class_sml_1_1_text.html", null ]
     ] ],
     [ "texture.h", "texture_8h.html", [
-      [ "Texture", "class_texture.html", "class_texture" ],
-      [ "BufferedTexture", "class_buffered_texture.html", "class_buffered_texture" ]
+      [ "Sml::Texture", "class_sml_1_1_texture.html", "class_sml_1_1_texture" ],
+      [ "Sml::BufferedTexture", "class_sml_1_1_buffered_texture.html", "class_sml_1_1_buffered_texture" ]
     ] ],
     [ "window.h", "window_8h.html", "window_8h" ],
     [ "float_compare.h", "float__compare_8h.html", null ],
     [ "geometry.h", "geometry_8h.html", null ],
     [ "mat4.h", "mat4_8h.html", "mat4_8h" ],
     [ "ray.h", "ray_8h.html", [
-      [ "Ray", "struct_ray.html", null ]
+      [ "Sml::Ray", "struct_sml_1_1_ray.html", null ]
     ] ],
     [ "rectangle.h", "rectangle_8h.html", "rectangle_8h" ],
     [ "solve_equation.h", "solve__equation_8h.html", null ],
@@ -52,7 +52,7 @@ var files_dup =
     [ "id.h", "id_8h.html", "id_8h" ],
     [ "random.h", "random_8h.html", null ],
     [ "viewport.h", "viewport_8h.html", [
-      [ "Viewport", "struct_viewport.html", null ]
+      [ "Sml::Viewport", "struct_sml_1_1_viewport.html", null ]
     ] ],
     [ "listener_notifier.cpp", "listener__notifier_8cpp.html", null ],
     [ "system_event_manager.cpp", "system__event__manager_8cpp.html", null ],

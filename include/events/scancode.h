@@ -9,6 +9,9 @@
 #ifndef SCANCODE_HEADER
 #define SCANCODE_HEADER
 
+namespace Sml
+{
+
 enum Scancode
 {
     SCANCODE_INVALID = 0,
@@ -284,5 +287,7 @@ enum Scancode
 
     TOTAL_SCANCODES = 512
 };
+
+}
 
 #endif // SCANCODE_HEADER

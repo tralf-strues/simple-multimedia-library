@@ -8,6 +8,9 @@
 
 #include "graphics_wrapper/text.h"
 
+namespace Sml
+{
+
 Font::Font(const char* filename, size_t size) : m_FontSize(size)
 {
     if (filename != nullptr)
@@ -92,4 +95,6 @@ void Text::render(Renderer& renderer, const Vec2<int32_t>& pos) const
                            static_cast<int32_t>(m_Width), static_cast<int32_t>(m_Height)};
 
 	SDL_RenderCopy(renderer.getNativeRenderer(), m_Texture, nullptr, &renderQuad); 
+}
+
 }

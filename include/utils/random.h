@@ -11,6 +11,9 @@
 
 #include <math.h>
 
+namespace Sml
+{
+
 template <typename T>
 T randomFromInterval(T from, T to)
 {
@@ -18,5 +21,7 @@ T randomFromInterval(T from, T to)
 }
 
 bool randomTry(float probability);
+
+}
 
 #endif

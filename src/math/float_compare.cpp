@@ -9,6 +9,9 @@
 #include <math.h>
 #include "math/float_compare.h"
 
+namespace Sml
+{
+
 int32_t cmpFloat(float first, float second, float epsilon)
 {
     if (fabsf(first - second) < epsilon)
@@ -17,4 +20,6 @@ int32_t cmpFloat(float first, float second, float epsilon)
     }
 
     return (first < second) ? -1 : 1;
+}
+
 }

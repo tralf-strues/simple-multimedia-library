@@ -12,6 +12,9 @@
 #include "math/solve_equation.h"
 #include "math/float_compare.h"
 
+namespace Sml
+{
+
 int32_t solveLinearEquation(float a, float b, float *solution)
 {
     assert(isfinite(a));
@@ -59,4 +62,6 @@ int32_t solveQuadraticEquation(float a, float b, float c, float *solution1, floa
     *solution2 = (-b + sqrtDiscriminant) / (2 * a);
 
     return 2;
+}
+
 }

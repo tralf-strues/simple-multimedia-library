@@ -96,8 +96,8 @@ $(document).ready(function(){initNavTree('float__compare_8h.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad532fe47ac8446909f38c13343562bb3"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="float__compare_8h.html#ad532fe47ac8446909f38c13343562bb3">cmpFloat</a> (float first, float second, float epsilon=FLT_EPSILON)</td></tr>
-<tr class="separator:ad532fe47ac8446909f38c13343562bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46dd36d50803f741c05beeec8caa99b"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="float__compare_8h.html#ad46dd36d50803f741c05beeec8caa99b">Sml::cmpFloat</a> (float first, float second, float epsilon=FLT_EPSILON)</td></tr>
+<tr class="separator:ad46dd36d50803f741c05beeec8caa99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Nikita Mochalov (github.com/tralf-strues)</dd></dl>
@@ -106,14 +106,14 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="float__compare_8h_source.html">float_compare.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ad532fe47ac8446909f38c13343562bb3" name="ad532fe47ac8446909f38c13343562bb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad532fe47ac8446909f38c13343562bb3">&#9670;&nbsp;</a></span>cmpFloat()</h2>
+<a id="ad46dd36d50803f741c05beeec8caa99b" name="ad46dd36d50803f741c05beeec8caa99b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad46dd36d50803f741c05beeec8caa99b">&#9670;&nbsp;</a></span>cmpFloat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t cmpFloat </td>
+          <td class="memname">int32_t Sml::cmpFloat </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>first</em>, </td>
@@ -138,15 +138,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="float__compare_8cpp_source.html#l00012">12</a> of file <a class="el" href="float__compare_8cpp_source.html">float_compare.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">if</span> (fabsf(first - second) &lt; epsilon)</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    }</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> (first &lt; second) ? -1 : 1;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+<p class="definition">Definition at line <a class="el" href="float__compare_8cpp_source.html#l00015">15</a> of file <a class="el" href="float__compare_8cpp_source.html">float_compare.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">if</span> (fabsf(first - second) &lt; epsilon)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> (first &lt; second) ? -1 : 1;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

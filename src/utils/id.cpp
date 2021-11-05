@@ -8,6 +8,9 @@
 
 #include "utils/id.h"
 
+namespace Sml
+{
+
 id64_t getStringId64(const char* str)
 {
     assert(str);
@@ -49,4 +52,6 @@ id128_t getStringId128(const char* str)
     }
 
     return id;
+}
+
 }

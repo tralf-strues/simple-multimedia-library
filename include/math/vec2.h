@@ -14,6 +14,9 @@
 #include <math.h>
 #include "float_compare.h"
 
+namespace Sml
+{
+
 template <typename T>
 struct Vec2
 {
@@ -164,6 +167,8 @@ T dotProduct(const Vec2<T>& first, const Vec2<T>& second)
 {
     return first.x * second.x + 
            first.y * second.y;
+}
+
 }
 
 #endif // VEC2_H

@@ -95,11 +95,11 @@ $(document).ready(function(){initNavTree('random_8h.html',''); initResizable(); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac74eec136e3b44ea9b744375363d4d89"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac74eec136e3b44ea9b744375363d4d89"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="random_8h.html#ac74eec136e3b44ea9b744375363d4d89">randomFromInterval</a> (T from, T to)</td></tr>
-<tr class="separator:ac74eec136e3b44ea9b744375363d4d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88972d0188303b8d49a0e7569ae9fbb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#a88972d0188303b8d49a0e7569ae9fbb6">randomTry</a> (float probability)</td></tr>
-<tr class="separator:a88972d0188303b8d49a0e7569ae9fbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c422743faa3ae96a831d88057424d86"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4c422743faa3ae96a831d88057424d86"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="random_8h.html#a4c422743faa3ae96a831d88057424d86">Sml::randomFromInterval</a> (T from, T to)</td></tr>
+<tr class="separator:a4c422743faa3ae96a831d88057424d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a092e2d69887a069fbc2fb974b350ff5f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#a092e2d69887a069fbc2fb974b350ff5f">Sml::randomTry</a> (float probability)</td></tr>
+<tr class="separator:a092e2d69887a069fbc2fb974b350ff5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Nikita Mochalov (github.com/tralf-strues)</dd></dl>
@@ -108,8 +108,8 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="random_8h_source.html">random.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ac74eec136e3b44ea9b744375363d4d89" name="ac74eec136e3b44ea9b744375363d4d89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac74eec136e3b44ea9b744375363d4d89">&#9670;&nbsp;</a></span>randomFromInterval()</h2>
+<a id="a4c422743faa3ae96a831d88057424d86" name="a4c422743faa3ae96a831d88057424d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c422743faa3ae96a831d88057424d86">&#9670;&nbsp;</a></span>randomFromInterval()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,7 +117,7 @@ Functions</h2></td></tr>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T randomFromInterval </td>
+          <td class="memname">T Sml::randomFromInterval </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>from</em>, </td>
@@ -136,21 +136,21 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="random_8h_source.html#l00015">15</a> of file <a class="el" href="random_8h_source.html">random.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> from + (to - from) * ((rand() % (uint32_t) 1e6) / 1e6);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<p class="definition">Definition at line <a class="el" href="random_8h_source.html#l00018">18</a> of file <a class="el" href="random_8h_source.html">random.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> from + (to - from) * ((rand() % (uint32_t) 1e6) / 1e6);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a88972d0188303b8d49a0e7569ae9fbb6" name="a88972d0188303b8d49a0e7569ae9fbb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88972d0188303b8d49a0e7569ae9fbb6">&#9670;&nbsp;</a></span>randomTry()</h2>
+<a id="a092e2d69887a069fbc2fb974b350ff5f" name="a092e2d69887a069fbc2fb974b350ff5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a092e2d69887a069fbc2fb974b350ff5f">&#9670;&nbsp;</a></span>randomTry()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool randomTry </td>
+          <td class="memname">bool Sml::randomTry </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>probability</em></td><td>)</td>
@@ -159,10 +159,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="random_8cpp_source.html#l00011">11</a> of file <a class="el" href="random_8cpp_source.html">random.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">return</span> ((rand() % (uint32_t) 1e6) / 1e6) &lt;= probability;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
+<p class="definition">Definition at line <a class="el" href="random_8cpp_source.html#l00014">14</a> of file <a class="el" href="random_8cpp_source.html">random.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">return</span> ((rand() % (uint32_t) 1e6) / 1e6) &lt;= probability;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

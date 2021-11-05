@@ -8,6 +8,9 @@
 
 #include "utils/viewport.h"
 
+namespace Sml
+{
+
 Viewport::Viewport(const Vec2<float>& axesMin, const Vec2<float>& axesMax,
                    const Rectangle<int32_t>& windowArea)
     : axesMin(axesMin), axesMax(axesMax), windowArea(windowArea) {}
@@ -37,4 +40,6 @@ Vec2<float> Viewport::toPixels(const Vec2<float>& point) const
 float Viewport::toPixels(float distance) const
 {
     return (float) windowArea.width * distance / getRelativeWidth();
+}
+
 }

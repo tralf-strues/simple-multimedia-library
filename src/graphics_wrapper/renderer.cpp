@@ -9,6 +9,9 @@
 #include <assert.h>
 #include "graphics_wrapper/renderer.h"
 
+namespace Sml
+{
+
 SDL_Rect toNativeRectangle(const Rectangle<int32_t>& rectangle)
 {
     SDL_Rect nativeRectangle;
@@ -178,4 +181,6 @@ void renderTexture(Renderer* renderer,
 void renderTexture(Renderer* renderer, const Texture& texture, const Vec2<int32_t>& pos)
 {
     renderer->renderTexture(texture, pos);
+}
+
 }

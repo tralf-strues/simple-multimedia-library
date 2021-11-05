@@ -12,6 +12,11 @@
 #include "inttypes.h"
 #include <float.h>
 
+namespace Sml
+{
+
 int32_t cmpFloat(float first, float second, float epsilon = FLT_EPSILON);
+
+}
 
 #endif // FLOAT_COMPARE_H

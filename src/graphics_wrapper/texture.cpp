@@ -6,19 +6,18 @@
 //! @copyright Copyright (c) 2021
 //------------------------------------------------------------------------------
 
+#include <SDL_image.h>
 #include "graphics_wrapper/texture.h"
 #include "graphics_wrapper/renderer.h"
+
+namespace Sml
+{
 
 //------------------------------------------------------------------------------
 // Texture
 //------------------------------------------------------------------------------
-Texture::Texture()
-    : m_Width(0),
-      m_Height(0),
-      m_Renderer(nullptr),
-      m_NativeTexture(nullptr)
-{
-}
+Texture::Texture(Renderer* renderer)
+    : m_Renderer(renderer) {}
 
 Texture::Texture(Renderer* renderer, size_t width, size_t height)
     : m_Width(width),
@@ -139,11 +138,11 @@ bool Texture::writeToBMP(const char* filename) const
     return true;
 }
 
-bool Texture::loadFromBMP(const char* filename)
+bool Texture::loadFromImage(const char* filename)
 {
     assert(filename);
 
-    SDL_Surface* surface = SDL_LoadBMP(filename);
+    SDL_Surface* surface = IMG_Load(filename);
     if (surface == nullptr)
     {
         return false;
@@ -168,8 +167,8 @@ bool Texture::loadFromBMP(const char* filename)
     SDL_FreeSurface(surface);
 
     return true;
-}
 
+}
 //------------------------------------------------------------------------------
 // BufferedTexture
 //------------------------------------------------------------------------------
@@ -239,4 +238,6 @@ void BufferedTexture::updateTexture()
 void BufferedTexture::updateBuffer()
 {
     m_Texture.readPixels(m_Buffer);
+}
+
 }

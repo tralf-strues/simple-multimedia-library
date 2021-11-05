@@ -9,6 +9,9 @@
 #include <SDL.h>
 #include "events/system_event_manager.h"
 
+namespace Sml
+{
+
 Event* convertNativeEvent(SDL_Event* nativeEvent)
 {
     assert(nativeEvent);
@@ -81,4 +84,6 @@ Event* SystemEventManager::pollEvent(bool notifyListeners)
     }
 
     return event;
+}
+
 }

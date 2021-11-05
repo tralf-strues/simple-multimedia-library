@@ -94,10 +94,10 @@ $(document).ready(function(){initNavTree('geometry_8h.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac5f1d196ac28f02125429b76292bb1f7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="geometry_8h.html#ac5f1d196ac28f02125429b76292bb1f7">calculateSphereVolume</a> (float radius)</td></tr>
-<tr class="separator:ac5f1d196ac28f02125429b76292bb1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73037bf8066026725c625eaf91f3d307"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="geometry_8h.html#a73037bf8066026725c625eaf91f3d307">calculateSphereRadiusFromVolume</a> (float volume)</td></tr>
-<tr class="separator:a73037bf8066026725c625eaf91f3d307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad53c52f530113ddc8c11ed023772a566"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="geometry_8h.html#ad53c52f530113ddc8c11ed023772a566">Sml::calculateSphereVolume</a> (float radius)</td></tr>
+<tr class="separator:ad53c52f530113ddc8c11ed023772a566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95d4005504c4c94b147641bfaffb47f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="geometry_8h.html#af95d4005504c4c94b147641bfaffb47f">Sml::calculateSphereRadiusFromVolume</a> (float volume)</td></tr>
+<tr class="separator:af95d4005504c4c94b147641bfaffb47f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Nikita Mochalov (github.com/tralf-strues)</dd></dl>
@@ -106,14 +106,14 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="geometry_8h_source.html">geometry.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a73037bf8066026725c625eaf91f3d307" name="a73037bf8066026725c625eaf91f3d307"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73037bf8066026725c625eaf91f3d307">&#9670;&nbsp;</a></span>calculateSphereRadiusFromVolume()</h2>
+<a id="af95d4005504c4c94b147641bfaffb47f" name="af95d4005504c4c94b147641bfaffb47f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95d4005504c4c94b147641bfaffb47f">&#9670;&nbsp;</a></span>calculateSphereRadiusFromVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float calculateSphereRadiusFromVolume </td>
+          <td class="memname">float Sml::calculateSphereRadiusFromVolume </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>volume</em></td><td>)</td>
@@ -122,21 +122,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="geometry_8cpp_source.html#l00017">17</a> of file <a class="el" href="geometry_8cpp_source.html">geometry.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> powf(3 * volume / (4 * M_PI), 1.0f / 3.0f);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+<p class="definition">Definition at line <a class="el" href="geometry_8cpp_source.html#l00020">20</a> of file <a class="el" href="geometry_8cpp_source.html">geometry.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> powf(3 * volume / (4 * M_PI), 1.0f / 3.0f);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ac5f1d196ac28f02125429b76292bb1f7" name="ac5f1d196ac28f02125429b76292bb1f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5f1d196ac28f02125429b76292bb1f7">&#9670;&nbsp;</a></span>calculateSphereVolume()</h2>
+<a id="ad53c52f530113ddc8c11ed023772a566" name="ad53c52f530113ddc8c11ed023772a566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad53c52f530113ddc8c11ed023772a566">&#9670;&nbsp;</a></span>calculateSphereVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float calculateSphereVolume </td>
+          <td class="memname">float Sml::calculateSphereVolume </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>radius</em></td><td>)</td>
@@ -145,10 +145,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="geometry_8cpp_source.html#l00012">12</a> of file <a class="el" href="geometry_8cpp_source.html">geometry.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">return</span> 4.0f / 3.0f * M_PI * radius * radius * radius;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
+<p class="definition">Definition at line <a class="el" href="geometry_8cpp_source.html#l00015">15</a> of file <a class="el" href="geometry_8cpp_source.html">geometry.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> 4.0f / 3.0f * M_PI * radius * radius * radius;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

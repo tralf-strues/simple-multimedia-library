@@ -12,6 +12,9 @@
 #include <inttypes.h>
 #include "scancode.h"
 
+namespace Sml
+{
+
 using EventType     = uint32_t;
 using EventCategory = uint64_t; ///< Supposed to be used as a bit-mask.
 
@@ -57,5 +60,7 @@ protected:
     EventTarget*  m_Target   = nullptr;
     bool          m_Consumed = false;
 };
+
+}
 
 #endif // EVENT_H

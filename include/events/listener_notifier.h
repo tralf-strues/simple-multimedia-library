@@ -9,20 +9,28 @@
 #ifndef LISTENER_NOTIFIER_H
 #define LISTENER_NOTIFIER_H
 
-#include "../sml_containers.h"
+#include <assert.h>
+#include <initializer_list>
+#include <list>
 #include "event.h"
+
+namespace Sml
+{
 
 static const size_t MAX_LISTENED_EVENTS = 3;
 
 class Listener
 {
 public:
+    virtual ~Listener() = default;
     virtual void onEvent(Event* event) = 0;
 };
 
 class Notifier
 {
 public:
+    ~Notifier(); ///< FIXME: Manage memory smarter!
+
     virtual void attachListener(const std::initializer_list<EventType>& types, Listener* listener);
     virtual void detachListener(Listener* listener);
     virtual void notify(Event* event);
@@ -55,7 +63,9 @@ protected:
         }
     };
 
-    List<ListenerInfo> m_Listeners;
+    std::list<ListenerInfo> m_Listeners;
 };
+
+}
 
 #endif // LISTENER_NOTIFIER_H

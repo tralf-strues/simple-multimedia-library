@@ -9,6 +9,9 @@
 #ifndef APP_H
 #define APP_H
 
+namespace Sml
+{
+
 #include "../containers/array.h"
 
 class Application
@@ -27,5 +30,7 @@ public:
 private:
     Array<char*> m_Arguments;
 };
+
+}
 
 #endif // APP_H

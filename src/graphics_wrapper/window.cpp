@@ -10,6 +10,9 @@
 #include <SDL_ttf.h>
 #include "graphics_wrapper/window.h"
 
+namespace Sml
+{
+
 Window::Window(size_t width, size_t height, const char* title)
     : m_Width(width), m_Height(height), m_Title(title) 
 {
@@ -64,6 +67,11 @@ void Window::updateTitle(const char* title)
     SDL_SetWindowTitle(m_NativeWindow, m_Title);
 }
 
+void Window::setBorderless(bool borderless)
+{
+    SDL_SetWindowBordered(m_NativeWindow, static_cast<SDL_bool>(!borderless));
+}
+
 void Window::resizeWindow(size_t width, size_t height)
 {
     assert(width);
@@ -98,4 +106,6 @@ bool initGraphics()
 void quitGraphics()
 {
     SDL_Quit();
+}
+
 }

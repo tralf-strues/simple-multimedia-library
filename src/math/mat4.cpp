@@ -8,6 +8,9 @@
 
 #include "math/mat4.h"
 
+namespace Sml
+{
+
 float determinant3x3(const Mat4<float>& matrix)
 {
     return matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) -
@@ -83,4 +86,6 @@ Mat4<float> lookAt(const Vec3<float>& from, const Vec3<float>& direction)
              up.x,      up.y,      up.z,      -dotProduct(up,      from),
              forward.x, forward.y, forward.z, -dotProduct(forward, from),
              0,         0,         0,         1                         }};
+}
+
 }

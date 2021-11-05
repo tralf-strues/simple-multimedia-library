@@ -8,7 +8,10 @@
 
 #include "graphics_wrapper/primitives.h"
 
-void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect)
+namespace Sml
+{
+
+void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect, uint8_t thickness)
 {
     Vec2<int32_t> upperLeftCorner(rect.pos.x, rect.pos.y);
     Vec2<int32_t> upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
@@ -16,17 +19,25 @@ void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect)
     Vec2<int32_t> bottomLeftCorner(rect.pos.x, rect.pos.y + rect.height - 1);
     Vec2<int32_t> bottomRightCorner(rect.pos.x + rect.width - 1, rect.pos.y + rect.height - 1);
 
-    // Top line
-    renderLine(renderer, upperLeftCorner, upperRightCorner);
+    for (int32_t step = 0; static_cast<uint8_t>(step) < thickness; ++step)
+    {
+        // Top line
+        renderLine(renderer, upperLeftCorner, upperRightCorner);
 
-    // Bottom line
-    renderLine(renderer, bottomLeftCorner, bottomRightCorner);
+        // Bottom line
+        renderLine(renderer, bottomLeftCorner, bottomRightCorner);
 
-    // Left line
-    renderLine(renderer, upperLeftCorner, bottomLeftCorner);
+        // Left line
+        renderLine(renderer, upperLeftCorner, bottomLeftCorner);
 
-    // Right line
-    renderLine(renderer, upperRightCorner, bottomRightCorner);
+        // Right line
+        renderLine(renderer, upperRightCorner, bottomRightCorner);
+
+        upperLeftCorner   += Vec2<int32_t>{  1,  1 };
+        upperRightCorner  += Vec2<int32_t>{ -1,  1 };
+        bottomLeftCorner  += Vec2<int32_t>{  1, -1 };
+        bottomRightCorner += Vec2<int32_t>{ -1, -1 };
+    }
 }
 
 void renderFilledRect(Renderer* renderer, const Rectangle<int32_t>& rect)
@@ -153,4 +164,6 @@ void renderInfLine(Renderer* renderer, const InfLine& infLine)
     {
         renderLine(renderer, intersections[0], intersections[1]);
     }
+}
+
 }

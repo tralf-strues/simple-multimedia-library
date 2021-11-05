@@ -8,7 +8,12 @@
 
 #include "math/ray.h"
 
+namespace Sml
+{
+
 Vec3<float> Ray::at(float rayParameter) const
 {
     return from + direction * rayParameter;
+}
+
 }

@@ -12,6 +12,9 @@
 #include "event.h"
 #include "../utils/bit.h"
 
+namespace Sml
+{
+
 enum SystemEventType
 {
     /* Window events */
@@ -45,13 +48,26 @@ enum SystemEventCategory
 // Event category [WINDOW]
 //------------------------------------------------------------------------------
 
-class WindowCloseEvent : public Event
+class WindowEvent : public Event
 {
 public:
-    WindowCloseEvent() : Event(getStaticType(), getStaticCategory()) {}
+    WindowEvent() : Event(getStaticType(), getStaticCategory()) {}
+
+    DEFINE_STATIC_EVENT_TYPE(INVALID_EVENT_TYPE)
+    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_WINDOW)
+};
+
+class WindowCloseEvent : public WindowEvent
+{
+public:
+    WindowCloseEvent() : WindowEvent()
+    {
+        m_Type = getStaticType();
+        m_Category = getStaticCategory();
+    }
 
     DEFINE_STATIC_EVENT_TYPE(WINDOW_CLOSE)
-    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_WINDOW)
+    DEFINE_STATIC_EVENT_CATEGORY(WindowEvent::getStaticCategory())
 };
 
 //------------------------------------------------------------------------------
@@ -89,7 +105,7 @@ public:
     }
 
     DEFINE_STATIC_EVENT_TYPE(MOUSE_MOVED)
-    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_MOUSE)
+    DEFINE_STATIC_EVENT_CATEGORY(MouseEvent::getStaticCategory())
 };
 
 class MouseButtonPressedEvent : public MouseEvent
@@ -103,7 +119,7 @@ public:
     }
 
     DEFINE_STATIC_EVENT_TYPE(MOUSE_BUTTON_PRESSED)
-    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_MOUSE)
+    DEFINE_STATIC_EVENT_CATEGORY(MouseEvent::getStaticCategory())
 };
 
 //------------------------------------------------------------------------------
@@ -136,7 +152,7 @@ public:
     }
 
     DEFINE_STATIC_EVENT_TYPE(KEY_PRESSED)
-    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_KEYBOARD)
+    DEFINE_STATIC_EVENT_CATEGORY(KeyEvent::getStaticCategory())
 };
 
 class KeyReleasedEvent : public KeyEvent
@@ -149,7 +165,9 @@ public:
     }
 
     DEFINE_STATIC_EVENT_TYPE(KEY_RELEASED)
-    DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_KEYBOARD)
+    DEFINE_STATIC_EVENT_CATEGORY(KeyEvent::getStaticCategory())
 };
+
+}
 
 #endif // SYSTEM_EVENTS_H

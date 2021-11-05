@@ -8,7 +8,12 @@
 
 #include "utils/random.h"
 
+namespace Sml
+{
+
 bool randomTry(float probability)
 {
     return ((rand() % (uint32_t) 1e6) / 1e6) <= probability;
+}
+
 }

@@ -11,6 +11,9 @@
 
 #include "vec3.h"
 
+namespace Sml
+{
+
 struct Ray
 {
     Vec3<float> from;
@@ -18,5 +21,7 @@ struct Ray
 
     Vec3<float> at(float rayParameter) const;
 };
+
+}
 
 #endif // RAY_H

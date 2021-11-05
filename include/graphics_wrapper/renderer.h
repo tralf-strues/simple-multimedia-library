@@ -15,6 +15,9 @@
 #include "color.h"
 #include "../sml_math.h"
 
+namespace Sml
+{
+
 class Renderer
 {
 public:
@@ -203,5 +206,7 @@ void renderTexture(Renderer* renderer,
 //! @param pos 
 //------------------------------------------------------------------------------
 void renderTexture(Renderer* renderer, const Texture& texture, const Vec2<int32_t>& pos);
+
+}
 
 #endif // RENDERER_H

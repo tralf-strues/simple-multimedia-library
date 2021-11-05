@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initgraphics_0',['initGraphics',['../window_8h.html#a190194ce539dba99e8221c6cd996b03f',1,'initGraphics():&#160;window.cpp'],['../window_8cpp.html#a190194ce539dba99e8221c6cd996b03f',1,'initGraphics():&#160;window.cpp']]]
+  ['initgraphics_0',['initGraphics',['../window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0',1,'Sml']]]
 ];

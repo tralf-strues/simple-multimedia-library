@@ -8,22 +8,33 @@
 
 #include "events/listener_notifier.h"
 
+namespace Sml
+{
+
+Notifier::~Notifier()
+{
+    for (auto listenerInfo : m_Listeners)
+    {
+        delete listenerInfo.listener;
+    }
+}
+
 void Notifier::attachListener(const std::initializer_list<EventType>& events, Listener* listener)
 {
     assert(listener);
 
-    m_Listeners.pushBack(ListenerInfo(events, listener));
+    m_Listeners.emplace_back(events, listener);
 }
 
 void Notifier::detachListener(Listener* listener)
 {
     assert(listener);
 
-    for (ListIterator it = m_Listeners.begin(); it != m_Listeners.end(); ++it)
+    for (auto it = m_Listeners.begin(); it != m_Listeners.end(); ++it)
     {
         if (it->listener == listener)
         {
-            m_Listeners.remove(it);
+            m_Listeners.erase(it);
             return;
         }
     }
@@ -41,4 +52,6 @@ void Notifier::notify(Event* event)
             }
         }
     }
+}
+
 }

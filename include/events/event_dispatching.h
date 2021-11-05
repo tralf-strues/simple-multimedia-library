@@ -11,6 +11,9 @@
 
 #include "event.h"
 
+namespace Sml
+{
+
 class EventDispatchChain;
 
 class EventDispatcher
@@ -77,5 +80,7 @@ public:
     //--------------------------------------------------------------------------
     virtual EventDispatchChain* buildEventDispatchChain(EventDispatchChain* chain) = 0;
 };
+
+}
 
 #endif // EVENT_DISPATCHING_H

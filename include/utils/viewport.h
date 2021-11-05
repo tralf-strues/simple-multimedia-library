@@ -11,6 +11,9 @@
 
 #include "../sml_graphics_wrapper.h"
 
+namespace Sml
+{
+
 struct Viewport
 {
     Viewport(const Vec2<float>& axesMin, const Vec2<float>& axesMax, const Rectangle<int32_t>& windowArea);
@@ -26,5 +29,7 @@ struct Viewport
     Vec2<float> toPixels(const Vec2<float>& point) const;
     float       toPixels(float distance) const;
 };
+
+}
 
 #endif // VIEWPORT_H

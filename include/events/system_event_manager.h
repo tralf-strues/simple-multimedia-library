@@ -12,6 +12,9 @@
 #include "listener_notifier.h"
 #include "system_events.h"
 
+namespace Sml
+{
+
 class SystemEventManager : public Notifier
 {
 public:
@@ -36,5 +39,7 @@ public:
     //--------------------------------------------------------------------------
     Event* pollEvent(bool notifyListeners = false);
 };
+
+}
 
 #endif // SYSTEM_EVENT_MANAGER_H

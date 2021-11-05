@@ -9,6 +9,9 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
+namespace Sml
+{
+
 template<typename T>
 struct Rectangle
 {
@@ -25,6 +28,8 @@ Rectangle<T> centerRegion(const Rectangle<T>& region, const Rectangle<T>& innerR
     T offsetY = region.pos.y + (region.height - innerRegion.height) / 2;
 
     return Rectangle<T>{Vec2<T>{offsetX, offsetY}, innerRegion.width, innerRegion.height};
+}
+
 }
 
 #endif // RECTANGLE_H

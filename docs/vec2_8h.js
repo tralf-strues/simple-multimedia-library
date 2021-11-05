@@ -1,4 +1,4 @@
 var vec2_8h =
 [
-    [ "Vec2< T >", "struct_vec2.html", null ]
+    [ "Sml::Vec2< T >", "struct_sml_1_1_vec2.html", null ]
 ];

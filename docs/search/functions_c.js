@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7erenderer_0',['~Renderer',['../class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd',1,'Renderer']]],
-  ['_7ewindow_1',['~Window',['../class_window.html#a245d821e6016fa1f6970ccbbedd635f6',1,'Window']]]
+  ['_7enotifier_0',['~Notifier',['../class_sml_1_1_notifier.html#a195131e93f95360a35c38f7f6300428d',1,'Sml::Notifier']]],
+  ['_7erenderer_1',['~Renderer',['../class_sml_1_1_renderer.html#ad43e3819fc7b9850c86c418a2320d986',1,'Sml::Renderer']]],
+  ['_7ewindow_2',['~Window',['../class_sml_1_1_window.html#ae030e1e5d20ebe46d76f5ac3dc44f537',1,'Sml::Window']]]
 ];
