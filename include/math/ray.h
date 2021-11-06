@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef RAY_H
-#define RAY_H
+#pragma once
 
 #include "vec3.h"
 
@@ -21,5 +20,3 @@ namespace Sml
         Vec3<float> at(float rayParameter) const;
     };
 }
-
-#endif // RAY_H

@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef PRIMITIVES_H
-#define PRIMITIVES_H
+#pragma once
 
 #include "renderer.h"
 
@@ -31,5 +30,3 @@ namespace Sml
     void renderFilledCircle(Renderer* renderer, const Circle& circle);
     void renderInfLine(Renderer* renderer, const InfLine& infLine);
 }
-
-#endif // PRIMITIVES_H

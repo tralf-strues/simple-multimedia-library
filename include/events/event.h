@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef EVENT_H
-#define EVENT_H
+#pragma once
 
 #include <inttypes.h>
 #include "scancode.h"
@@ -63,5 +62,3 @@ namespace Sml
         bool          m_Consumed = false;
     };
 }
-
-#endif // EVENT_H

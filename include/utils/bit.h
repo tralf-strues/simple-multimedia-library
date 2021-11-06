@@ -6,9 +6,6 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef BIT_H
-#define BIT_H
+#pragma once
 
-#define BIT(x) (1 << x) 
-
-#endif // BIT_H
+#define BIT(x) (1 << x)

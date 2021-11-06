@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef SCANCODE_HEADER
-#define SCANCODE_HEADER
+#pragma once
 
 namespace Sml
 {
@@ -287,5 +286,3 @@ namespace Sml
         TOTAL_SCANCODES = 512
     };
 }
-
-#endif // SCANCODE_HEADER

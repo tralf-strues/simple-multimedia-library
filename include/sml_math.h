@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef SML_MATH_H
-#define SML_MATH_H
+#pragma once
 
 #include "math/float_compare.h"
 #include "math/geometry.h"
@@ -17,5 +16,3 @@
 #include "math/solve_equation.h"
 #include "math/vec2.h"
 #include "math/vec3.h"
-
-#endif // SML_MATH_H

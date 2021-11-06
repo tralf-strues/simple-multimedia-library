@@ -8,8 +8,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef TEXTURE_H
-#define TEXTURE_H
+#pragma once
 
 #include <SDL.h>
 #include "color.h"
@@ -89,5 +88,3 @@ namespace Sml
         Color*  m_Buffer;
     };
 }
-
-#endif // TEXTURE_H

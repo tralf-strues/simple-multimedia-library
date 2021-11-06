@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+#pragma once
 
 namespace Sml
 {
@@ -29,5 +28,3 @@ namespace Sml
         return Rectangle<T>{Vec2<T>{offsetX, offsetY}, innerRegion.width, innerRegion.height};
     }
 }
-
-#endif // RECTANGLE_H

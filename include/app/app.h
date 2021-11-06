@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef APP_H
-#define APP_H
+#pragma once
 
 #include "../containers/array.h"
 
@@ -30,5 +29,3 @@ namespace Sml
         Array<char*> m_Arguments;
     };
 }
-
-#endif // APP_H

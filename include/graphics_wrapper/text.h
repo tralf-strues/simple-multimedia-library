@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef TEXT_H
-#define TEXT_H
+#pragma once
 
 #include <SDL_ttf.h>
 #include "renderer.h"
@@ -64,5 +63,3 @@ namespace Sml
         SDL_Texture* m_Texture   = nullptr;
     };
 }
-
-#endif // TEXT_H

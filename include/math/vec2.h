@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef VEC2_H
-#define VEC2_H
+#pragma once
 
 #include <assert.h>
 #include <inttypes.h>
@@ -168,5 +167,3 @@ namespace Sml
             first.y * second.y;
     }
 }
-
-#endif // VEC2_H

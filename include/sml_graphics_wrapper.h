@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef SML_GRAPHICS_WRAPPER_H
-#define SML_GRAPHICS_WRAPPER_H
+#pragma once
 
 #include "graphics_wrapper/color.h"
 #include "graphics_wrapper/primitives.h"
@@ -15,5 +14,3 @@
 #include "graphics_wrapper/text.h"
 #include "graphics_wrapper/texture.h"
 #include "graphics_wrapper/window.h"
-
-#endif // SML_GRAPHICS_WRAPPER_H

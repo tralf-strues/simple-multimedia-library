@@ -6,12 +6,9 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef SML_UTILS_H
-#define SML_UTILS_H
+#pragma once
 
 #include "utils/bit.h"
 #include "utils/id.h"
 #include "utils/random.h"
 #include "utils/viewport.h"
-
-#endif // SML_UTILS_H

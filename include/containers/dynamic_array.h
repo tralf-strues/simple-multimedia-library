@@ -8,8 +8,7 @@
 //! @copyright Copyright (c) 2021
 //------------------------------------------------------------------------------
 
-#ifndef DYNAMIC_ARRAY_H
-#define DYNAMIC_ARRAY_H
+#pragma once
 
 #include <assert.h>
 #include <stdlib.h>
@@ -128,5 +127,3 @@ private:
         m_Capacity = newCapacity;
     }
 };
-
-#endif // DYNAMIC_ARRAY_H

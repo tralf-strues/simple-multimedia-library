@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef COLOR_H
-#define COLOR_H
+#pragma once
 
 #include <stdint.h>
 #include <SDL.h>
@@ -68,5 +67,3 @@ namespace Sml
      */
     uint8_t colorGetA(Color color);
 }
-
-#endif // COLOR_H

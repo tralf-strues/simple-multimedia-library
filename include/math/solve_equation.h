@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef SOLVE_EQUATION_H
-#define SOLVE_EQUATION_H
+#pragma once
 
 #include "inttypes.h"
 
@@ -18,5 +17,3 @@ namespace Sml
     int32_t solveLinearEquation(float a, float b, float *solution);
     int32_t solveQuadraticEquation(float a, float b, float c, float *solution1, float* solution2);
 }
-
-#endif // SOLVE_EQUATION_H

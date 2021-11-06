@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef LISTENER_NOTIFIER_H
-#define LISTENER_NOTIFIER_H
+#pragma once
 
 #include <assert.h>
 #include <initializer_list>
@@ -65,5 +64,3 @@ namespace Sml
         std::list<ListenerInfo> m_Listeners;
     };
 }
-
-#endif // LISTENER_NOTIFIER_H

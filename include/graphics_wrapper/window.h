@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
 #include <assert.h>
 #include <stdio.h>
@@ -126,5 +125,3 @@ namespace Sml
      */
     void quitGraphics();
 }
-
-#endif // WINDOW_H

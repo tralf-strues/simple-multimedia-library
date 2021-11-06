@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef SYSTEM_EVENTS_H
-#define SYSTEM_EVENTS_H
+#pragma once
 
 #include "event.h"
 #include "../utils/bit.h"
@@ -167,5 +166,3 @@ namespace Sml
         DEFINE_STATIC_EVENT_CATEGORY(KeyEvent::getStaticCategory())
     };
 }
-
-#endif // SYSTEM_EVENTS_H

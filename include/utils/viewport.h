@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef VIEWPORT_H
-#define VIEWPORT_H
+#pragma once
 
 #include "../sml_graphics_wrapper.h"
 
@@ -29,5 +28,3 @@ namespace Sml
         float       toPixels(float distance) const;
     };
 }
-
-#endif // VIEWPORT_H

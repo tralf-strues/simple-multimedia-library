@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef ID_H
-#define ID_H
+#pragma once
 
 #include <assert.h>
 #include <stdint.h>
@@ -31,5 +30,3 @@ namespace Sml
     id64_t  getStringId64  (const char* str);
     id128_t getStringId128 (const char* str);
 }
-
-#endif // ID_H

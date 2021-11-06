@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef EVENT_DISPATCHING_H
-#define EVENT_DISPATCHING_H
+#pragma once
 
 #include "event.h"
 
@@ -77,5 +76,3 @@ namespace Sml
     };
 
 }
-
-#endif // EVENT_DISPATCHING_H

@@ -6,8 +6,7 @@
 //! @copyright Copyright (c) 2021
 //------------------------------------------------------------------------------
 
-#ifndef LIST_H
-#define LIST_H
+#pragma once
 
 #include <assert.h>
 #include <stdlib.h>
@@ -321,5 +320,3 @@ private:
         m_Size--;
     }
 };
-
-#endif // LIST_H

@@ -6,13 +6,10 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef GEOMETRY_H
-#define GEOMETRY_H
+#pragma once
 
 namespace Sml
 {
     float calculateSphereVolume(float radius);
     float calculateSphereRadiusFromVolume(float volume);
 }
-
-#endif // GEOMETRY_H

@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef RANDOM_H
-#define RANDOM_H
+#pragma once
 
 #include <math.h>
 
@@ -21,5 +20,3 @@ namespace Sml
 
     bool randomTry(float probability);
 }
-
-#endif

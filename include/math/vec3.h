@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef VEC3_H
-#define VEC3_H
+#pragma once
 
 #include <assert.h>
 #include <math.h>
@@ -187,5 +186,3 @@ namespace Sml
         return product;
     }
 }
-
-#endif // VEC3_H

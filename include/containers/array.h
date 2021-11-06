@@ -6,8 +6,7 @@
 //! @copyright Copyright (c) 2021
 //------------------------------------------------------------------------------
 
-#ifndef ARRAY_H
-#define ARRAY_H
+#pragma once
 
 #include <assert.h>
 #include <stdlib.h>
@@ -136,5 +135,3 @@ private:
     T*     m_Data;
     size_t m_Size;
 };
-
-#endif // ARRAY_H

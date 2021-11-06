@@ -6,11 +6,8 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef SML_CONTAINERS_H
-#define SML_CONTAINERS_H
+#pragma once
 
 #include "containers/array.h"
 #include "containers/dynamic_array.h"
 #include "containers/list.h"
-
-#endif // SML_CONTAINERS_H

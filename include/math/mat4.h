@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef MAT4_H
-#define MAT4_H
+#pragma once
 
 #include "vec3.h"
 
@@ -237,5 +236,3 @@ namespace Sml
      */
     Mat4<float> lookAt(const Vec3<float>& from, const Vec3<float>& direction);
 }
-
-#endif // MAT4_H

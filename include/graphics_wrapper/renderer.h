@@ -6,8 +6,7 @@
  * @copyright Copyright (c) 2021
  */
 
-#ifndef RENDERER_H
-#define RENDERER_H
+#pragma once
 
 #include <stdint.h>
 #include "window.h"
@@ -204,5 +203,3 @@ namespace Sml
      */
     void renderTexture(Renderer* renderer, const Texture& texture, const Vec2<int32_t>& pos);
 }
-
-#endif // RENDERER_H
