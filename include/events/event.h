@@ -20,10 +20,10 @@ namespace Sml
     const EventCategory EVENT_CATEGORY_ANY = 0;
 
     #define DEFINE_STATIC_EVENT_TYPE(type) \
-        static constexpr EventType getStaticType() { return type; }
+        static constexpr Sml::EventType getStaticType() { return type; }
     
     #define DEFINE_STATIC_EVENT_CATEGORY(category) \
-        static constexpr EventCategory getStaticCategory() { return category; }
+        static constexpr Sml::EventCategory getStaticCategory() { return category; }
 
     class EventTarget;
 
