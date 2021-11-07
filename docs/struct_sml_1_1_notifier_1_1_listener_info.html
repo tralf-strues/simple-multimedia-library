@@ -135,14 +135,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00042">42</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                                                       : listener(listener)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; MAX_LISTENED_EVENTS; ++i)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                    this-&gt;types[i] = INVALID_EVENT_TYPE;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a01a4b61baf0bf3e4c844af62747d29f1" name="a01a4b61baf0bf3e4c844af62747d29f1"></a>
@@ -180,17 +173,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00050">50</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                : ListenerInfo(listener) </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                assert(types.size() &lt;= MAX_LISTENED_EVENTS);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <span class="keyword">auto</span> initIt = types.begin();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; initIt != types.end(); ++initIt, ++i)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    this-&gt;types[i] = *initIt;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

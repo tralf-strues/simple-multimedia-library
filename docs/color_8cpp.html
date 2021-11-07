@@ -144,10 +144,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Color's alpha chanel. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="color_8cpp_source.html#l00055">55</a> of file <a class="el" href="color_8cpp_source.html">color.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> getByte(color, 0u);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a3d6512389861c3bd389c34016a39de7d" name="a3d6512389861c3bd389c34016a39de7d"></a>
@@ -174,10 +171,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Color's blue chanel. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="color_8cpp_source.html#l00050">50</a> of file <a class="el" href="color_8cpp_source.html">color.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">return</span> getByte(color, 1u);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ae57fa16e528e11b3cc07253e229ae98c" name="ae57fa16e528e11b3cc07253e229ae98c"></a>
@@ -204,10 +198,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Color's green chanel. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="color_8cpp_source.html#l00045">45</a> of file <a class="el" href="color_8cpp_source.html">color.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> getByte(color, 2u);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="acd2f58e913df38f0863fdcc50219399a" name="acd2f58e913df38f0863fdcc50219399a"></a>
@@ -234,10 +225,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Color's red chanel. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="color_8cpp_source.html#l00040">40</a> of file <a class="el" href="color_8cpp_source.html">color.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> getByte(color, 3u);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a309e56de40a7e9a92ca82524f0318592" name="a309e56de40a7e9a92ca82524f0318592"></a>
@@ -267,10 +255,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="color_8cpp_source.html#l00035">35</a> of file <a class="el" href="color_8cpp_source.html">color.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> (number &amp; (0xFFu &lt;&lt; (8u * byteNumber))) &gt;&gt; (8u * byteNumber);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a00e0bf68ab58b29b0a8dc4c385712740" name="a00e0bf68ab58b29b0a8dc4c385712740"></a>
@@ -299,20 +284,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>System level color. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="color_8cpp_source.html#l00024">24</a> of file <a class="el" href="color_8cpp_source.html">color.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        SDL_Color sysColor;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        sysColor.r = <a class="code hl_function" href="color_8h.html#acd2f58e913df38f0863fdcc50219399a">colorGetR</a>(color);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        sysColor.g = <a class="code hl_function" href="color_8h.html#ae57fa16e528e11b3cc07253e229ae98c">colorGetG</a>(color);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        sysColor.b = <a class="code hl_function" href="color_8h.html#a3d6512389861c3bd389c34016a39de7d">colorGetB</a>(color);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        sysColor.a = <a class="code hl_function" href="color_8h.html#a0b95b69df24977706b9c7e6255d494ae">colorGetA</a>(color);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> sysColor;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
-<div class="ttc" id="acolor_8h_html_a0b95b69df24977706b9c7e6255d494ae"><div class="ttname"><a href="color_8h.html#a0b95b69df24977706b9c7e6255d494ae">Sml::colorGetA</a></div><div class="ttdeci">uint8_t colorGetA(Color color)</div><div class="ttdef"><b>Definition:</b> <a href="color_8cpp_source.html#l00055">color.cpp:55</a></div></div>
-<div class="ttc" id="acolor_8h_html_a3d6512389861c3bd389c34016a39de7d"><div class="ttname"><a href="color_8h.html#a3d6512389861c3bd389c34016a39de7d">Sml::colorGetB</a></div><div class="ttdeci">uint8_t colorGetB(Color color)</div><div class="ttdef"><b>Definition:</b> <a href="color_8cpp_source.html#l00050">color.cpp:50</a></div></div>
-<div class="ttc" id="acolor_8h_html_acd2f58e913df38f0863fdcc50219399a"><div class="ttname"><a href="color_8h.html#acd2f58e913df38f0863fdcc50219399a">Sml::colorGetR</a></div><div class="ttdeci">uint8_t colorGetR(Color color)</div><div class="ttdef"><b>Definition:</b> <a href="color_8cpp_source.html#l00040">color.cpp:40</a></div></div>
-<div class="ttc" id="acolor_8h_html_ae57fa16e528e11b3cc07253e229ae98c"><div class="ttname"><a href="color_8h.html#ae57fa16e528e11b3cc07253e229ae98c">Sml::colorGetG</a></div><div class="ttdeci">uint8_t colorGetG(Color color)</div><div class="ttdef"><b>Definition:</b> <a href="color_8cpp_source.html#l00045">color.cpp:45</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a9e7fc6a01edac88e9186501b7f241776" name="a9e7fc6a01edac88e9186501b7f241776"></a>
@@ -366,13 +338,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Created rgba color. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="color_8cpp_source.html#l00016">16</a> of file <a class="el" href="color_8cpp_source.html">color.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">return</span> ((uint32_t) r &lt;&lt; 24u) + </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            ((uint32_t) g &lt;&lt; 16u) + </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            ((uint32_t) b &lt;&lt; 8u ) + </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            (uint32_t) a;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 </div><!-- contents -->

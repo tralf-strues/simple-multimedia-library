@@ -157,27 +157,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The next event in the queue or nullptr, if there are no pending events. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="system__event__manager_8cpp_source.html#l00066">66</a> of file <a class="el" href="system__event__manager_8cpp_source.html">system_event_manager.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keyword">static</span> SDL_Event nativeEvent = {};</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        Event* <span class="keyword">event</span> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (SDL_PollEvent(&amp;nativeEvent))</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keyword">event</span> = convertNativeEvent(&amp;nativeEvent);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">if</span> (event == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                <span class="keyword">event</span> = <span class="keyword">new</span> Event();</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (notifyListeners)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                notify(event);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> event;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ad528fe623e0c30854400f0555f177e64" name="ad528fe623e0c30854400f0555f177e64"></a>
@@ -198,16 +178,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Proccess all events currently in the event queue. Notify listeners of them. </p>
 
 <p class="definition">Definition at line <a class="el" href="system__event__manager_8cpp_source.html#l00056">56</a> of file <a class="el" href="system__event__manager_8cpp_source.html">system_event_manager.cpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        Event* nextEvent = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">while</span> ((nextEvent = <a class="code hl_function" href="class_sml_1_1_system_event_manager.html#ab1b1d213896a2c2f4ee75d88b0b24a14">pollEvent</a>(<span class="keyword">true</span>)) != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keyword">delete</span> nextEvent;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
-<div class="ttc" id="aclass_sml_1_1_system_event_manager_html_ab1b1d213896a2c2f4ee75d88b0b24a14"><div class="ttname"><a href="class_sml_1_1_system_event_manager.html#ab1b1d213896a2c2f4ee75d88b0b24a14">Sml::SystemEventManager::pollEvent</a></div><div class="ttdeci">Event * pollEvent(bool notifyListeners=false)</div><div class="ttdoc">Polls for currently pending events. The next event is removed from the queue and returned.</div><div class="ttdef"><b>Definition:</b> <a href="system__event__manager_8cpp_source.html#l00066">system_event_manager.cpp:66</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
