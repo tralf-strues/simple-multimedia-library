@@ -87,30 +87,38 @@ $(document).ready(function(){initNavTree('class_sml_1_1_application.html',''); i
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_sml_1_1_application-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Sml::Application Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">Sml::Application Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aca07317eb34b1e91204fc681616694b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#aca07317eb34b1e91204fc681616694b2">Application</a> (int32_t argc, char *argv[])</td></tr>
-<tr class="separator:aca07317eb34b1e91204fc681616694b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25da9c3600253d24862a1e2f6a35673d"><td class="memItemLeft" align="right" valign="top"><a id="a25da9c3600253d24862a1e2f6a35673d" name="a25da9c3600253d24862a1e2f6a35673d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()=0</td></tr>
-<tr class="separator:a25da9c3600253d24862a1e2f6a35673d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe9779a9cb351bca2d31268a48102aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#adfe9779a9cb351bca2d31268a48102aa">Application</a> (int32_t argc, const char *argv[])</td></tr>
+<tr class="separator:adfe9779a9cb351bca2d31268a48102aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459264be57cd6b1b6eadffc65cfdd1f2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#a459264be57cd6b1b6eadffc65cfdd1f2">onInit</a> ()</td></tr>
+<tr class="separator:a459264be57cd6b1b6eadffc65cfdd1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add8accd691772b9bf94c85cc5adc8a8c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#add8accd691772b9bf94c85cc5adc8a8c">onUpdate</a> ()</td></tr>
+<tr class="separator:add8accd691772b9bf94c85cc5adc8a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba42c86a74bede577586701d3b0bc956"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#aba42c86a74bede577586701d3b0bc956">onQuit</a> ()</td></tr>
+<tr class="separator:aba42c86a74bede577586701d3b0bc956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0133d4dbfaa7fa3cfa555bae2fddfdcd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#a0133d4dbfaa7fa3cfa555bae2fddfdcd">run</a> ()</td></tr>
+<tr class="separator:a0133d4dbfaa7fa3cfa555bae2fddfdcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a91ccc2df7cd0bd660d2ac1f3637894"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#a1a91ccc2df7cd0bd660d2ac1f3637894">stop</a> ()</td></tr>
+<tr class="separator:a1a91ccc2df7cd0bd660d2ac1f3637894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4651e5675558302856ffebc3186cbe84"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#a4651e5675558302856ffebc3186cbe84">getCommandLineArgument</a> (uint32_t i)</td></tr>
+<tr class="separator:a4651e5675558302856ffebc3186cbe84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97a437b9f7ae4385e8e62370750708d0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_application.html#a97a437b9f7ae4385e8e62370750708d0">getFps</a> ()</td></tr>
+<tr class="separator:a97a437b9f7ae4385e8e62370750708d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00015">15</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00016">16</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aca07317eb34b1e91204fc681616694b2" name="aca07317eb34b1e91204fc681616694b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca07317eb34b1e91204fc681616694b2">&#9670;&nbsp;</a></span>Application()</h2>
+<a id="adfe9779a9cb351bca2d31268a48102aa" name="adfe9779a9cb351bca2d31268a48102aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe9779a9cb351bca2d31268a48102aa">&#9670;&nbsp;</a></span>Application()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Sml::Application::Application </td>
@@ -121,7 +129,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()=0<
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>argv</em>[]&#160;</td>
         </tr>
         <tr>
@@ -130,26 +138,220 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()=0<
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8cpp_source.html#l00015">15</a> of file <a class="el" href="app_8cpp_source.html">app.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                                                             : m_CommandLineArguments(argc)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">for</span> (int32_t i = 0; i &lt; argc; ++i)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            m_CommandLineArguments[i] = argv[i];</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4651e5675558302856ffebc3186cbe84" name="a4651e5675558302856ffebc3186cbe84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4651e5675558302856ffebc3186cbe84">&#9670;&nbsp;</a></span>getCommandLineArgument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * Sml::Application::getCommandLineArgument </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8cpp_source.html#l00055">55</a> of file <a class="el" href="app_8cpp_source.html">app.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        assert(i &lt; m_CommandLineArguments.size());</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> m_CommandLineArguments[i];</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a97a437b9f7ae4385e8e62370750708d0" name="a97a437b9f7ae4385e8e62370750708d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97a437b9f7ae4385e8e62370750708d0">&#9670;&nbsp;</a></span>getFps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Sml::Application::getFps </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8cpp_source.html#l00062">62</a> of file <a class="el" href="app_8cpp_source.html">app.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> m_UpdateFps;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a459264be57cd6b1b6eadffc65cfdd1f2" name="a459264be57cd6b1b6eadffc65cfdd1f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a459264be57cd6b1b6eadffc65cfdd1f2">&#9670;&nbsp;</a></span>onInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Sml::Application::onInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00018">18</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
-<div class="fragment"><div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                                                : m_Arguments(argc)</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keywordflow">for</span> (int32_t i = 0; i &lt; argc; ++i)</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                m_Arguments[i] = argv[i];</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00021">21</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{};</div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a id="aba42c86a74bede577586701d3b0bc956" name="aba42c86a74bede577586701d3b0bc956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba42c86a74bede577586701d3b0bc956">&#9670;&nbsp;</a></span>onQuit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Sml::Application::onQuit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00023">23</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{ <span class="keywordflow">return</span> 0; };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="add8accd691772b9bf94c85cc5adc8a8c" name="add8accd691772b9bf94c85cc5adc8a8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add8accd691772b9bf94c85cc5adc8a8c">&#9670;&nbsp;</a></span>onUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Sml::Application::onUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00022">22</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
+<div class="fragment"><div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0133d4dbfaa7fa3cfa555bae2fddfdcd" name="a0133d4dbfaa7fa3cfa555bae2fddfdcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0133d4dbfaa7fa3cfa555bae2fddfdcd">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Sml::Application::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8cpp_source.html#l00023">23</a> of file <a class="el" href="app_8cpp_source.html">app.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        onInit();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        m_Running = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">while</span> (m_Running)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            uint32_t frameStartTime = SDL_GetTicks();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            onUpdate();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            uint32_t frameEndTime = SDL_GetTicks();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordflow">if</span> (frameStartTime != frameEndTime)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                m_UpdateFps = 1e3 / (frameEndTime - frameStartTime);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                m_UpdateFps = std::numeric_limits&lt;uint32_t&gt;::max();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> onQuit();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1a91ccc2df7cd0bd660d2ac1f3637894" name="a1a91ccc2df7cd0bd660d2ac1f3637894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a91ccc2df7cd0bd660d2ac1f3637894">&#9670;&nbsp;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Application::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8cpp_source.html#l00050">50</a> of file <a class="el" href="app_8cpp_source.html">app.cpp</a>.</p>
+<div class="fragment"><div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        m_Running = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="app_8h_source.html">app.h</a></li>
+<li><a class="el" href="app_8cpp_source.html">app.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -44,7 +44,7 @@ namespace Sml
          */
         void copyTo(Texture* target,
                     const Rectangle<int32_t>* targetRegion,
-                    const Rectangle<int32_t>* sourceRegion);
+                    const Rectangle<int32_t>* sourceRegion) const;
 
         // TODO: implement
         bool writeToBMP(const char* filename) const;

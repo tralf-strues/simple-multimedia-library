@@ -75,7 +75,7 @@ namespace Sml
 
     void Texture::copyTo(Texture* target,
                         const Rectangle<int32_t>* targetRegion,
-                        const Rectangle<int32_t>* sourceRegion)
+                        const Rectangle<int32_t>* sourceRegion) const
     {
         assert(target);
 
@@ -168,6 +168,7 @@ namespace Sml
         return true;
 
     }
+    
     //------------------------------------------------------------------------------
     // BufferedTexture
     //------------------------------------------------------------------------------

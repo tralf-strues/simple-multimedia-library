@@ -162,10 +162,10 @@ $(document).ready(function(){initNavTree('texture_8cpp_source.html',''); initRes
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        SDL_SetRenderTarget(m_Renderer-&gt;getNativeRenderer(), prevTarget);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_sml_1_1_texture.html#aaf5e68fffc8c566211d1e71935fe821b">   76</a></span>    <span class="keywordtype">void</span> Texture::copyTo(<a class="code hl_class" href="class_sml_1_1_texture.html">Texture</a>* target,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_sml_1_1_texture.html#af245a752627cf8ac42b952540ca7b1e0">   76</a></span>    <span class="keywordtype">void</span> Texture::copyTo(<a class="code hl_class" href="class_sml_1_1_texture.html">Texture</a>* target,</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                        <span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_rectangle.html">Rectangle&lt;int32_t&gt;</a>* targetRegion,</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                        <span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_rectangle.html">Rectangle&lt;int32_t&gt;</a>* sourceRegion)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                        <span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_rectangle.html">Rectangle&lt;int32_t&gt;</a>* sourceRegion)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        assert(target);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_struct" href="struct_sml_1_1_rectangle.html">Rectangle&lt;int32_t&gt;</a> targetRegionFinal{<a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;int32_t&gt;</a>{0, 0}, <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(target-&gt;getWidth()), </div>
@@ -257,79 +257,80 @@ $(document).ready(function(){initNavTree('texture_8cpp_source.html',''); initRes
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    }</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="comment">// BufferedTexture</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    BufferedTexture::BufferedTexture(Renderer* renderer, <span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        : m_Texture(renderer, width, height),</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        m_Buffer(new Color[width * height])</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    {</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    BufferedTexture::BufferedTexture(Texture&amp; texture)</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        : m_Texture(texture),</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        m_Texture.readPixels(m_Buffer);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    BufferedTexture::~BufferedTexture()</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">if</span> (m_Buffer != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        {</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            <span class="keyword">delete</span>[] m_Buffer;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        }</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    Color* BufferedTexture::getBuffer()</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    {</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordflow">return</span> m_Buffer;</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    }</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    Texture&amp; BufferedTexture::getTexture()</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    {</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">return</span> m_Texture;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    }</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    Color* BufferedTexture::operator[](<span class="keywordtype">size_t</span> row)</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        assert(row &lt; m_Texture.getHeight());</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keywordflow">return</span> &amp;m_Buffer[row * m_Texture.getWidth()];    </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    }</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keyword">const</span> Color* BufferedTexture::operator[](<span class="keywordtype">size_t</span> row)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        assert(row &lt; m_Texture.getHeight());</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordflow">return</span> &amp;m_Buffer[row * m_Texture.getWidth()];     </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordtype">void</span> BufferedTexture::clearBuffer(Color color)</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    {</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordtype">size_t</span> pixelsCount = m_Texture.getHeight() * m_Texture.getWidth();</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; pixelsCount; i++)</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        {</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            m_Buffer[i] = color;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        }</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">  229</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">BufferedTexture::updateTexture</a>()</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    {</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        SDL_UpdateTexture(m_Texture.getNativeTexture(),</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                        <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(m_Buffer),</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                        m_Texture.getWidth() * <span class="keyword">sizeof</span>(Color));</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">  237</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">BufferedTexture::updateBuffer</a>()</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    {</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        m_Texture.readPixels(m_Buffer);</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}</div>
-<div class="ttc" id="aclass_sml_1_1_buffered_texture_html_a692d0f0287d2e066e1bb2470478e389a"><div class="ttname"><a href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">Sml::BufferedTexture::updateBuffer</a></div><div class="ttdeci">void updateBuffer()</div><div class="ttdoc">Reflect texture's changes (e.g. via Renderer) on the buffer.</div><div class="ttdef"><b>Definition:</b> <a href="texture_8cpp_source.html#l00237">texture.cpp:237</a></div></div>
-<div class="ttc" id="aclass_sml_1_1_buffered_texture_html_a7bfafde78774d434c24b55b181ce2091"><div class="ttname"><a href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">Sml::BufferedTexture::updateTexture</a></div><div class="ttdeci">void updateTexture()</div><div class="ttdoc">Reflect buffer's changes on the texture.</div><div class="ttdef"><b>Definition:</b> <a href="texture_8cpp_source.html#l00229">texture.cpp:229</a></div></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="comment">// BufferedTexture</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    BufferedTexture::BufferedTexture(Renderer* renderer, <span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        : m_Texture(renderer, width, height),</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        m_Buffer(new Color[width * height])</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    BufferedTexture::BufferedTexture(Texture&amp; texture)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        : m_Texture(texture),</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        m_Texture.readPixels(m_Buffer);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    BufferedTexture::~BufferedTexture()</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">if</span> (m_Buffer != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            <span class="keyword">delete</span>[] m_Buffer;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    Color* BufferedTexture::getBuffer()</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordflow">return</span> m_Buffer;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    Texture&amp; BufferedTexture::getTexture()</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">return</span> m_Texture;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    Color* BufferedTexture::operator[](<span class="keywordtype">size_t</span> row)</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    {</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        assert(row &lt; m_Texture.getHeight());</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span> &amp;m_Buffer[row * m_Texture.getWidth()];    </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keyword">const</span> Color* BufferedTexture::operator[](<span class="keywordtype">size_t</span> row)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        assert(row &lt; m_Texture.getHeight());</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">return</span> &amp;m_Buffer[row * m_Texture.getWidth()];     </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordtype">void</span> BufferedTexture::clearBuffer(Color color)</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    {</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordtype">size_t</span> pixelsCount = m_Texture.getHeight() * m_Texture.getWidth();</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; pixelsCount; i++)</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            m_Buffer[i] = color;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">  230</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">BufferedTexture::updateTexture</a>()</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    {</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        SDL_UpdateTexture(m_Texture.getNativeTexture(),</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                        <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(m_Buffer),</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                        m_Texture.getWidth() * <span class="keyword">sizeof</span>(Color));</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    }</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">  238</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">BufferedTexture::updateBuffer</a>()</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        m_Texture.readPixels(m_Buffer);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>}</div>
+<div class="ttc" id="aclass_sml_1_1_buffered_texture_html_a692d0f0287d2e066e1bb2470478e389a"><div class="ttname"><a href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">Sml::BufferedTexture::updateBuffer</a></div><div class="ttdeci">void updateBuffer()</div><div class="ttdoc">Reflect texture's changes (e.g. via Renderer) on the buffer.</div><div class="ttdef"><b>Definition:</b> <a href="texture_8cpp_source.html#l00238">texture.cpp:238</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_buffered_texture_html_a7bfafde78774d434c24b55b181ce2091"><div class="ttname"><a href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">Sml::BufferedTexture::updateTexture</a></div><div class="ttdeci">void updateTexture()</div><div class="ttdoc">Reflect buffer's changes on the texture.</div><div class="ttdef"><b>Definition:</b> <a href="texture_8cpp_source.html#l00230">texture.cpp:230</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_texture_html"><div class="ttname"><a href="class_sml_1_1_texture.html">Sml::Texture</a></div><div class="ttdef"><b>Definition:</b> <a href="texture_8h_source.html#l00021">texture.h:22</a></div></div>
 <div class="ttc" id="arenderer_8h_html"><div class="ttname"><a href="renderer_8h.html">renderer.h</a></div></div>
 <div class="ttc" id="arenderer_8h_html_a36269a1719a366c5bd325a756f38114b"><div class="ttname"><a href="renderer_8h.html#a36269a1719a366c5bd325a756f38114b">Sml::renderTexture</a></div><div class="ttdeci">void renderTexture(Renderer *renderer, const Texture &amp;source, const Rectangle&lt; int32_t &gt; *targetRegion, const Rectangle&lt; int32_t &gt; *sourceRegion)</div><div class="ttdoc">Render texture to the current rendering target in the region. Scales the texture if necessary.</div><div class="ttdef"><b>Definition:</b> <a href="renderer_8cpp_source.html#l00172">renderer.cpp:172</a></div></div>

@@ -30,17 +30,15 @@ CXXFLAGS = $(shell pkg-config --cflags $(LIBS)) $(ModeCompilerOptions) $(AllWarn
 # ------------------------------------Options-----------------------------------
 
 # -------------------------------------Files------------------------------------
-Program = ray_tracer
-
 IncludeDir = include
 SrcDir     = src
 BinDir     = bin
 IntDir     = $(BinDir)/intermediates
 
-Deps   = $(wildcard $(IncludeDir)/*.h) $(wildcard $(IncludeDir)/**/*.h)
-CppSrc = $(notdir $(wildcard $(SrcDir)/*.cpp) $(wildcard $(SrcDir)/**/*.cpp))
-
-Objs = $(addprefix $(IntDir)/, $(CppSrc:.cpp=.o))
+rwildcard  = $(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
+Deps       = $(call rwildcard,$(IncludeDir),*.h)
+CppSrc     = $(notdir $(call rwildcard,$(SrcDir),*.cpp))
+Objs       = $(addprefix $(IntDir)/, $(CppSrc:.cpp=.o))
 
 OutputDir  = sml
 OutputFile = sml.a
@@ -63,7 +61,7 @@ endif
 build: $(Objs) $(Deps)
 	ar ru $(BinDir)/$(OutputFile) $(Objs)
 
-vpath %.cpp $(SrcDir) $(wildcard $(SrcDir)/**/)
+vpath %.cpp $(dir $(call rwildcard,$(SrcDir),*.cpp))
 $(IntDir)/%.o: %.cpp $(Deps)
 	$(CXX) -I $(IncludeDir) -c $< $(CXXFLAGS) -o $@
 
@@ -73,5 +71,5 @@ init:
 
 .PHONY: clean
 clean:
-	rm -f $(Objs) $(Exec)
+	rm -f $(call rwildcard,$(IntDir),*.o) $(BinDir)/$(OutputFile)
 # ----------------------------------Make rules----------------------------------

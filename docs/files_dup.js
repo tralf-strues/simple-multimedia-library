@@ -54,6 +54,7 @@ var files_dup =
     [ "viewport.h", "viewport_8h.html", [
       [ "Sml::Viewport", "struct_sml_1_1_viewport.html", null ]
     ] ],
+    [ "app.cpp", "app_8cpp.html", null ],
     [ "listener_notifier.cpp", "listener__notifier_8cpp.html", null ],
     [ "system_event_manager.cpp", "system__event__manager_8cpp.html", null ],
     [ "color.cpp", "color_8cpp.html", "color_8cpp" ],

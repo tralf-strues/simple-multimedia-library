@@ -8,24 +8,29 @@
 
 #pragma once
 
-#include "../containers/array.h"
+#include <stdint.h>
+#include <vector>
 
 namespace Sml
 {
     class Application
     {
     public:
-        Application(int32_t argc, char* argv[]) : m_Arguments(argc)
-        {
-            for (int32_t i = 0; i < argc; ++i)
-            {
-                m_Arguments[i] = argv[i];
-            }
-        }
+        Application(int32_t argc, const char* argv[]);
+        
+        virtual void onInit() {};
+        virtual void onUpdate() {};
+        virtual int onQuit() { return 0; };
 
-        virtual void run() = 0;
+        int run();
+        void stop();
+
+        const char* getCommandLineArgument(uint32_t i);
+        uint32_t    getFps();
 
     private:
-        Array<char*> m_Arguments;
+        std::vector<const char*> m_CommandLineArguments;
+        bool                     m_Running   = false;
+        uint32_t                 m_UpdateFps = 0;
     };
 }
