@@ -44,7 +44,7 @@ namespace Sml
         for (int32_t row = 0; row < rect.height; ++row)
         {
             renderLine(renderer, Vec2<int32_t>{rect.pos.x, rect.pos.y + row}, 
-                                Vec2<int32_t>{rect.pos.x + rect.width - 1, rect.pos.y + row});
+                                 Vec2<int32_t>{rect.pos.x + rect.width - 1, rect.pos.y + row});
         }
     }
 

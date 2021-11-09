@@ -39,6 +39,16 @@ namespace Sml
         destroy();
     }
 
+    Vec2<int32_t> Text::estimateTextDimensions(const char* text) const
+    {
+        assert(text);
+
+        Vec2<int32_t> dimensions{0, 0};
+        TTF_SizeText(getFont().getNativeFont(), text, &dimensions.x, &dimensions.y);
+
+        return dimensions;
+    }
+
     const Font& Text::getFont()      const { return m_Font;      }
     const char* Text::getStr()       const { return m_Str;       }
     Color       Text::getColor()     const { return m_Color;     }

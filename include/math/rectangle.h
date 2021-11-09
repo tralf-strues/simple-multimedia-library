@@ -27,4 +27,11 @@ namespace Sml
 
         return Rectangle<T>{Vec2<T>{offsetX, offsetY}, innerRegion.width, innerRegion.height};
     }
+
+    template<typename T>
+    bool isPointInsideRectangle(const Vec2<T>& point, const Rectangle<T>& rectangle)
+    {
+        return point.x >= rectangle.pos.x && point.x <= (rectangle.pos.x + rectangle.width) &&
+               point.y >= rectangle.pos.y && point.y <= (rectangle.pos.y + rectangle.height);
+    }
 }

@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <SDL.h>
 #include "app/app.h"
+#include "graphics_wrapper/window.h"
 
 namespace Sml
 {
@@ -22,6 +23,7 @@ namespace Sml
 
     int Application::run()
     {
+        initGraphics();
         onInit();
 
         m_Running = true;
@@ -44,7 +46,10 @@ namespace Sml
             }
         }
 
-        return onQuit();
+        int returnStatus = onQuit();
+        quitGraphics();
+
+        return returnStatus;
     }
 
     void Application::stop()

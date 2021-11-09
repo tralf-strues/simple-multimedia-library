@@ -127,8 +127,8 @@ namespace Sml
     }
 
     void Renderer::renderTexture(const Texture& texture,
-                                const Rectangle<int32_t>* targetRegion,
-                                const Rectangle<int32_t>* sourceRegion)
+                                 const Rectangle<int32_t>* targetRegion,
+                                 const Rectangle<int32_t>* sourceRegion)
     {
         SDL_Rect targetRect;
         SDL_Rect sourceRect;
