@@ -47,6 +47,16 @@ namespace Sml
                 return new MouseButtonPressedEvent{mouseX, mouseY};
             }
 
+            case SDL_MOUSEBUTTONUP:
+            {
+                int32_t mouseX = 0;
+                int32_t mouseY = 0;
+
+                SDL_GetMouseState(&mouseX, &mouseY);
+
+                return new MouseButtonReleasedEvent{mouseX, mouseY};
+            }
+
             default: { break; }
         }
 

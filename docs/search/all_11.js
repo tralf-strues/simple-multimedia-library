@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['updatebuffer_0',['updateBuffer',['../class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a',1,'Sml::BufferedTexture']]],
-  ['updatetexture_1',['updateTexture',['../class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091',1,'Sml::BufferedTexture']]],
-  ['updatetitle_2',['updateTitle',['../class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a',1,'Sml::Window']]]
+  ['text_0',['Text',['../class_sml_1_1_text.html',1,'Sml']]],
+  ['text_2ecpp_1',['text.cpp',['../text_8cpp.html',1,'']]],
+  ['text_2eh_2',['text.h',['../text_8h.html',1,'']]],
+  ['texture_3',['Texture',['../class_sml_1_1_texture.html',1,'Sml']]],
+  ['texture_2ecpp_4',['texture.cpp',['../texture_8cpp.html',1,'']]],
+  ['texture_2eh_5',['texture.h',['../texture_8h.html',1,'']]]
 ];

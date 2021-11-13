@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['window_0',['Window',['../class_sml_1_1_window.html',1,'Sml::Window'],['../class_sml_1_1_window.html#ae39e0ae5c99b4029374e95f80fe6a42b',1,'Sml::Window::Window()']]],
-  ['window_2ecpp_1',['window.cpp',['../window_8cpp.html',1,'']]],
-  ['window_2eh_2',['window.h',['../window_8h.html',1,'']]],
-  ['windowcloseevent_3',['WindowCloseEvent',['../class_sml_1_1_window_close_event.html',1,'Sml']]],
-  ['windowevent_4',['WindowEvent',['../class_sml_1_1_window_event.html',1,'Sml']]]
+  ['vec2_0',['Vec2',['../struct_sml_1_1_vec2.html',1,'Sml']]],
+  ['vec2_2eh_1',['vec2.h',['../vec2_8h.html',1,'']]],
+  ['vec3_2',['Vec3',['../struct_sml_1_1_vec3.html',1,'Sml']]],
+  ['vec3_2eh_3',['vec3.h',['../vec3_8h.html',1,'']]],
+  ['viewport_4',['Viewport',['../struct_sml_1_1_viewport.html',1,'Sml']]],
+  ['viewport_2ecpp_5',['viewport.cpp',['../viewport_8cpp.html',1,'']]],
+  ['viewport_2eh_6',['viewport.h',['../viewport_8h.html',1,'']]]
 ];

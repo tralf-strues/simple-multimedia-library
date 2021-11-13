@@ -33,6 +33,8 @@ namespace Sml
         Event(EventType type = INVALID_EVENT_TYPE, EventCategory category = 0, EventTarget* target = nullptr)
             : m_Type(type), m_Category(category), m_Target(target) {}
 
+        virtual ~Event() = default;
+
         void setType(EventType type) { m_Type = type; }
         void setCategory(EventCategory category) { m_Category = category; }
 

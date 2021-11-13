@@ -1,9 +1,25 @@
 var searchData=
 [
-  ['text_0',['Text',['../class_sml_1_1_text.html',1,'Sml']]],
-  ['text_2ecpp_1',['text.cpp',['../text_8cpp.html',1,'']]],
-  ['text_2eh_2',['text.h',['../text_8h.html',1,'']]],
-  ['texture_3',['Texture',['../class_sml_1_1_texture.html',1,'Sml']]],
-  ['texture_2ecpp_4',['texture.cpp',['../texture_8cpp.html',1,'']]],
-  ['texture_2eh_5',['texture.h',['../texture_8h.html',1,'']]]
+  ['scancode_2eh_0',['scancode.h',['../scancode_8h.html',1,'']]],
+  ['sendthroughchain_1',['sendThroughChain',['../class_sml_1_1_event_dispatch_chain.html#a75de55d20d05f536cb13abde3beabed7',1,'Sml::EventDispatchChain']]],
+  ['setborderless_2',['setBorderless',['../class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9',1,'Sml::Window']]],
+  ['setclipregion_3',['setClipRegion',['../class_sml_1_1_renderer.html#a0db76f0a74e6ea422a01433038891d4f',1,'Sml::Renderer']]],
+  ['setcolor_4',['setColor',['../class_sml_1_1_renderer.html#a458487f7e22dc041b0b05a1aa3b9581d',1,'Sml::Renderer']]],
+  ['settarget_5',['setTarget',['../class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656',1,'Sml::Renderer']]],
+  ['simple_2dmultimedia_2dlibrary_6',['simple-multimedia-library',['../index.html',1,'']]],
+  ['sml_5fcontainers_2eh_7',['sml_containers.h',['../sml__containers_8h.html',1,'']]],
+  ['sml_5fevent_5fcategory_5ffirst_5funspecified_8',['SML_EVENT_CATEGORY_FIRST_UNSPECIFIED',['../system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cdad45ba3593c6df878f6d51289ceed0f5b',1,'Sml']]],
+  ['sml_5fevent_5ftype_5ffirst_5funspecified_9',['SML_EVENT_TYPE_FIRST_UNSPECIFIED',['../system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984',1,'Sml']]],
+  ['sml_5fevents_2eh_10',['sml_events.h',['../sml__events_8h.html',1,'']]],
+  ['sml_5fgraphics_5fwrapper_2eh_11',['sml_graphics_wrapper.h',['../sml__graphics__wrapper_8h.html',1,'']]],
+  ['sml_5fmath_2eh_12',['sml_math.h',['../sml__math_8h.html',1,'']]],
+  ['sml_5futils_2eh_13',['sml_utils.h',['../sml__utils_8h.html',1,'']]],
+  ['solve_5fequation_2ecpp_14',['solve_equation.cpp',['../solve__equation_8cpp.html',1,'']]],
+  ['solve_5fequation_2eh_15',['solve_equation.h',['../solve__equation_8h.html',1,'']]],
+  ['system_5fevent_5fmanager_2ecpp_16',['system_event_manager.cpp',['../system__event__manager_8cpp.html',1,'']]],
+  ['system_5fevent_5fmanager_2eh_17',['system_event_manager.h',['../system__event__manager_8h.html',1,'']]],
+  ['system_5fevents_2eh_18',['system_events.h',['../system__events_8h.html',1,'']]],
+  ['systemeventcategory_19',['SystemEventCategory',['../system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cd',1,'Sml']]],
+  ['systemeventmanager_20',['SystemEventManager',['../class_sml_1_1_system_event_manager.html',1,'Sml']]],
+  ['systemeventtype_21',['SystemEventType',['../system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41',1,'Sml']]]
 ];

@@ -16,6 +16,10 @@ var files_dup =
       [ "Sml::EventTarget", "class_sml_1_1_event_target.html", "class_sml_1_1_event_target" ]
     ] ],
     [ "listener_notifier.h", "listener__notifier_8h.html", "listener__notifier_8h" ],
+    [ "observable_property.h", "observable__property_8h.html", [
+      [ "Sml::PropertyChangeEvent< T >", "class_sml_1_1_property_change_event.html", null ],
+      [ "Sml::ObservableProperty< T >", "class_sml_1_1_observable_property.html", null ]
+    ] ],
     [ "scancode.h", "scancode_8h.html", null ],
     [ "system_event_manager.h", "system__event__manager_8h.html", [
       [ "Sml::SystemEventManager", "class_sml_1_1_system_event_manager.html", "class_sml_1_1_system_event_manager" ]

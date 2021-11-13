@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['text_0',['Text',['../class_sml_1_1_text.html',1,'Sml']]],
-  ['texture_1',['Texture',['../class_sml_1_1_texture.html',1,'Sml']]]
+  ['ray_0',['Ray',['../struct_sml_1_1_ray.html',1,'Sml']]],
+  ['rectangle_1',['Rectangle',['../struct_sml_1_1_rectangle.html',1,'Sml']]],
+  ['renderer_2',['Renderer',['../class_sml_1_1_renderer.html',1,'Sml']]]
 ];

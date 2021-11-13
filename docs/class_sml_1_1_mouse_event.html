@@ -97,16 +97,18 @@ Inheritance diagram for Sml::MouseEvent:</div>
  <div class="center">
   <img src="class_sml_1_1_mouse_event.png" usemap="#Sml::MouseEvent_map" alt=""/>
   <map id="Sml::MouseEvent_map" name="Sml::MouseEvent_map">
-<area href="class_sml_1_1_event.html" alt="Sml::Event" shape="rect" coords="99,0,288,24"/>
-<area href="class_sml_1_1_mouse_button_pressed_event.html" alt="Sml::MouseButtonPressedEvent" shape="rect" coords="0,112,189,136"/>
-<area href="class_sml_1_1_mouse_moved_event.html" alt="Sml::MouseMovedEvent" shape="rect" coords="199,112,388,136"/>
+<area href="class_sml_1_1_event.html" alt="Sml::Event" shape="rect" coords="205,0,400,24"/>
+<area href="class_sml_1_1_mouse_button_event.html" alt="Sml::MouseButtonEvent" shape="rect" coords="102,112,297,136"/>
+<area href="class_sml_1_1_mouse_moved_event.html" alt="Sml::MouseMovedEvent" shape="rect" coords="307,112,502,136"/>
+<area href="class_sml_1_1_mouse_button_pressed_event.html" alt="Sml::MouseButtonPressedEvent" shape="rect" coords="0,168,195,192"/>
+<area href="class_sml_1_1_mouse_button_released_event.html" alt="Sml::MouseButtonReleasedEvent" shape="rect" coords="205,168,400,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a54e7e33f4b43cf3e4e653f1c9fb21741"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_event.html#a54e7e33f4b43cf3e4e653f1c9fb21741">MouseEvent</a> (int32_t x=0, int32_t y=0)</td></tr>
-<tr class="separator:a54e7e33f4b43cf3e4e653f1c9fb21741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdb9833fee024d00f8167d98b2d60da6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_event.html#abdb9833fee024d00f8167d98b2d60da6">MouseEvent</a> (int32_t x=0, int32_t y=0, <a class="el" href="class_sml_1_1_event_target.html">EventTarget</a> *target=nullptr)</td></tr>
+<tr class="separator:abdb9833fee024d00f8167d98b2d60da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d654e2093dd2fb6b499bb4051424bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_event.html#a14d654e2093dd2fb6b499bb4051424bd">setX</a> (int32_t x)</td></tr>
 <tr class="separator:a14d654e2093dd2fb6b499bb4051424bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35b768c92535ed0628d041ed7f7992d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_event.html#a35b768c92535ed0628d041ed7f7992d5">setY</a> (int32_t y)</td></tr>
@@ -155,10 +157,10 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00075">75</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00079">79</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a54e7e33f4b43cf3e4e653f1c9fb21741" name="a54e7e33f4b43cf3e4e653f1c9fb21741"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54e7e33f4b43cf3e4e653f1c9fb21741">&#9670;&nbsp;</a></span>MouseEvent()</h2>
+<a id="abdb9833fee024d00f8167d98b2d60da6" name="abdb9833fee024d00f8167d98b2d60da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdb9833fee024d00f8167d98b2d60da6">&#9670;&nbsp;</a></span>MouseEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +178,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>y</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>y</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sml_1_1_event_target.html">EventTarget</a> *&#160;</td>
+          <td class="paramname"><em>target</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -191,7 +199,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00078">78</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00082">82</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>
@@ -219,7 +227,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00084">84</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00088">88</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>
@@ -246,7 +254,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00085">85</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00089">89</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +282,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00081">81</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00085">85</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>
@@ -302,7 +310,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00082">82</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00086">86</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>
@@ -327,7 +335,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00091">91</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00095">95</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>
@@ -351,7 +359,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00092">92</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00096">96</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>

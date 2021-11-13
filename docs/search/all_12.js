@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['vec2_0',['Vec2',['../struct_sml_1_1_vec2.html',1,'Sml']]],
-  ['vec2_2eh_1',['vec2.h',['../vec2_8h.html',1,'']]],
-  ['vec3_2',['Vec3',['../struct_sml_1_1_vec3.html',1,'Sml']]],
-  ['vec3_2eh_3',['vec3.h',['../vec3_8h.html',1,'']]],
-  ['viewport_4',['Viewport',['../struct_sml_1_1_viewport.html',1,'Sml']]],
-  ['viewport_2ecpp_5',['viewport.cpp',['../viewport_8cpp.html',1,'']]],
-  ['viewport_2eh_6',['viewport.h',['../viewport_8h.html',1,'']]]
+  ['updatebuffer_0',['updateBuffer',['../class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a',1,'Sml::BufferedTexture']]],
+  ['updatetexture_1',['updateTexture',['../class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091',1,'Sml::BufferedTexture']]],
+  ['updatetitle_2',['updateTitle',['../class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a',1,'Sml::Window']]]
 ];

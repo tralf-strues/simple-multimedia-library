@@ -12,9 +12,13 @@ var hierarchy =
         [ "Sml::KeyReleasedEvent", "class_sml_1_1_key_released_event.html", null ]
       ] ],
       [ "Sml::MouseEvent", "class_sml_1_1_mouse_event.html", [
-        [ "Sml::MouseButtonPressedEvent", "class_sml_1_1_mouse_button_pressed_event.html", null ],
+        [ "Sml::MouseButtonEvent", "class_sml_1_1_mouse_button_event.html", [
+          [ "Sml::MouseButtonPressedEvent", "class_sml_1_1_mouse_button_pressed_event.html", null ],
+          [ "Sml::MouseButtonReleasedEvent", "class_sml_1_1_mouse_button_released_event.html", null ]
+        ] ],
         [ "Sml::MouseMovedEvent", "class_sml_1_1_mouse_moved_event.html", null ]
       ] ],
+      [ "Sml::PropertyChangeEvent< T >", "class_sml_1_1_property_change_event.html", null ],
       [ "Sml::WindowEvent", "class_sml_1_1_window_event.html", [
         [ "Sml::WindowCloseEvent", "class_sml_1_1_window_close_event.html", null ]
       ] ]
@@ -31,6 +35,7 @@ var hierarchy =
     [ "ListIterator< T >", "class_list_iterator.html", null ],
     [ "Sml::Mat4< T >", "struct_sml_1_1_mat4.html", null ],
     [ "Sml::Notifier", "class_sml_1_1_notifier.html", [
+      [ "Sml::ObservableProperty< T >", "class_sml_1_1_observable_property.html", null ],
       [ "Sml::SystemEventManager", "class_sml_1_1_system_event_manager.html", null ]
     ] ],
     [ "Sml::Ray", "struct_sml_1_1_ray.html", null ],
