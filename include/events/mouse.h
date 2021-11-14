@@ -16,10 +16,13 @@ namespace Sml
 {
     enum class MouseButton
     {
-        LEFT   = BIT(0),
-        MIDDLE = BIT(1),
-        RIGHT  = BIT(2)
+        INVALID = 0,
+        LEFT    = BIT(0),
+        MIDDLE  = BIT(1),
+        RIGHT   = BIT(2)
     };
+
+    MouseButton convertNativeButton(uint8_t nativeButton);
 
     class MouseButtonsState
     {
@@ -34,7 +37,10 @@ namespace Sml
 
     struct MouseState
     {
-        Vec2<int32_t>     pos            = {0, 0};
+        MouseState(int32_t x = 0, int32_t y = 0);
+
+        int32_t           x              = 0;
+        int32_t           y              = 0;
         MouseButtonsState pressedButtons = {};
 
         static MouseState getMouseState();

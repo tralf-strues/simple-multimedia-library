@@ -10,6 +10,17 @@
 
 namespace Sml
 {
+    MouseButton convertNativeButton(uint8_t nativeButton)
+    {
+        switch (nativeButton)
+        {
+            case SDL_BUTTON_LEFT:   { return MouseButton::LEFT;    }
+            case SDL_BUTTON_MIDDLE: { return MouseButton::MIDDLE;  }
+            case SDL_BUTTON_RIGHT:  { return MouseButton::RIGHT;   }
+            default:                { return MouseButton::INVALID; }
+        }
+    }
+
     bool MouseButtonsState::isButtonDown(MouseButton button) const
     { 
         return (m_PressedButtons & static_cast<uint8_t>(button)) != 0;
@@ -25,10 +36,12 @@ namespace Sml
         m_PressedButtons &= ~(static_cast<uint8_t>(button));
     }
 
+    MouseState::MouseState(int32_t x, int32_t y) : x(x), y(y) {}
+
     MouseState MouseState::getMouseState()
     {
         MouseState mouseState = {};
-        uint32_t buttons = SDL_GetMouseState(&mouseState.pos.x, &mouseState.pos.y);
+        uint32_t buttons = SDL_GetMouseState(&mouseState.x, &mouseState.y);
 
         if ((buttons & SDL_BUTTON_LMASK) != 0)
         {

@@ -9,6 +9,7 @@
 #pragma once
 
 #include "event.h"
+#include "mouse.h"
 #include "../utils/bit.h"
 
 namespace Sml
@@ -99,15 +100,27 @@ namespace Sml
     class MouseMovedEvent : public MouseEvent
     {
     public:
-        MouseMovedEvent(int32_t x = 0, int32_t y = 0, EventTarget* target = nullptr)
-            : MouseEvent(x, y, target)
+        MouseMovedEvent(int32_t x = 0, int32_t y = 0,
+                        int32_t deltaX = 0, int32_t deltaY = 0,
+                        EventTarget* target = nullptr)
+            : MouseEvent(x, y, target), m_DeltaX(deltaX), m_DeltaY(deltaY)
         {
             m_Type = getStaticType();
             m_Category = getStaticCategory();
         }
 
+        void setDeltaX(int32_t deltaX) { m_DeltaX = deltaX; }
+        void setDeltaY(int32_t deltaY) { m_DeltaY = deltaY; }
+
+        int32_t getDeltaX() const { return m_DeltaX; }
+        int32_t getDeltaY() const { return m_DeltaY; }
+
         DEFINE_STATIC_EVENT_TYPE(MOUSE_MOVED)
         DEFINE_STATIC_EVENT_CATEGORY(MouseEvent::getStaticCategory())
+
+    private:
+        int32_t m_DeltaX;
+        int32_t m_DeltaY;
     };
 
     //------------------------------------------------------------------------------
@@ -116,8 +129,10 @@ namespace Sml
     class MouseButtonEvent : public MouseEvent
     {
     public:
-        MouseButtonEvent(int32_t x = 0, int32_t y = 0, EventTarget* target = nullptr)
-            : MouseEvent(x, y, target)
+        MouseButtonEvent(int32_t x = 0, int32_t y = 0,
+                         MouseButton button = MouseButton::INVALID,
+                         EventTarget* target = nullptr)
+            : MouseEvent(x, y, target), m_Button(button)
         {
             m_Type = getStaticType();
             m_Category = getStaticCategory();
@@ -125,13 +140,18 @@ namespace Sml
 
         DEFINE_STATIC_EVENT_TYPE(INVALID_EVENT_TYPE)
         DEFINE_STATIC_EVENT_CATEGORY(MouseEvent::getStaticCategory() | EVENT_CATEGORY_MOUSE_BUTTON)
+    
+    protected:
+        MouseButton m_Button;
     };
 
     class MouseButtonPressedEvent : public MouseButtonEvent
     {
     public:
-        MouseButtonPressedEvent(int32_t x = 0, int32_t y = 0, EventTarget* target = nullptr)
-            : MouseButtonEvent(x, y, target)
+        MouseButtonPressedEvent(int32_t x = 0, int32_t y = 0,
+                                MouseButton button = MouseButton::INVALID,
+                                EventTarget* target = nullptr)
+            : MouseButtonEvent(x, y, button, target)
         {
             m_Type = getStaticType();
             m_Category = getStaticCategory();
@@ -144,8 +164,10 @@ namespace Sml
     class MouseButtonReleasedEvent : public MouseButtonEvent
     {
     public:
-        MouseButtonReleasedEvent(int32_t x = 0, int32_t y = 0, EventTarget* target = nullptr)
-            : MouseButtonEvent(x, y, target)
+        MouseButtonReleasedEvent(int32_t x = 0, int32_t y = 0,
+                                 MouseButton button = MouseButton::INVALID,
+                                 EventTarget* target = nullptr)
+            : MouseButtonEvent(x, y, button, target)
         {
             m_Type = getStaticType();
             m_Category = getStaticCategory();

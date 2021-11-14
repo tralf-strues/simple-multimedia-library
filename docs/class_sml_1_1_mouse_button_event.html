@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('class_sml_1_1_mouse_button_event.html'
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_sml_1_1_mouse_button_event-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Sml::MouseButtonEvent Class Reference</div></div>
 </div><!--header-->
@@ -105,8 +106,8 @@ Inheritance diagram for Sml::MouseButtonEvent:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a23e2fa9fcd07c083ab4163ea417e343e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_button_event.html#a23e2fa9fcd07c083ab4163ea417e343e">MouseButtonEvent</a> (int32_t x=0, int32_t y=0, <a class="el" href="class_sml_1_1_event_target.html">EventTarget</a> *target=nullptr)</td></tr>
-<tr class="separator:a23e2fa9fcd07c083ab4163ea417e343e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809f999a8e181765816a165719c7e9cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_button_event.html#a809f999a8e181765816a165719c7e9cc">MouseButtonEvent</a> (int32_t x=0, int32_t y=0, MouseButton button=MouseButton::INVALID, <a class="el" href="class_sml_1_1_event_target.html">EventTarget</a> *target=nullptr)</td></tr>
+<tr class="separator:a809f999a8e181765816a165719c7e9cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_sml_1_1_mouse_event"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_sml_1_1_mouse_event')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_sml_1_1_mouse_event.html">Sml::MouseEvent</a></td></tr>
 <tr class="memitem:abdb9833fee024d00f8167d98b2d60da6 inherit pub_methods_class_sml_1_1_mouse_event"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_event.html#abdb9833fee024d00f8167d98b2d60da6">MouseEvent</a> (int32_t x=0, int32_t y=0, <a class="el" href="class_sml_1_1_event_target.html">EventTarget</a> *target=nullptr)</td></tr>
 <tr class="separator:abdb9833fee024d00f8167d98b2d60da6 inherit pub_methods_class_sml_1_1_mouse_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,8 +141,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af9b10db2b456630f4e871782ec8c0def inherit pub_methods_class_sml_1_1_event"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_event.html#af9b10db2b456630f4e871782ec8c0def">consume</a> ()</td></tr>
 <tr class="separator:af9b10db2b456630f4e871782ec8c0def inherit pub_methods_class_sml_1_1_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a133ceeb5c97f8f13532ee2094a81be29"><td class="memItemLeft" align="right" valign="top">MouseButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_button_event.html#a133ceeb5c97f8f13532ee2094a81be29">m_Button</a></td></tr>
+<tr class="separator:a133ceeb5c97f8f13532ee2094a81be29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_sml_1_1_mouse_event"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_sml_1_1_mouse_event')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_sml_1_1_mouse_event.html">Sml::MouseEvent</a></td></tr>
 <tr class="memitem:a997bd452cc6b5c181c96b4e8a3cfdd3c inherit pro_attribs_class_sml_1_1_mouse_event"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_mouse_event.html#a997bd452cc6b5c181c96b4e8a3cfdd3c">m_X</a></td></tr>
 <tr class="separator:a997bd452cc6b5c181c96b4e8a3cfdd3c inherit pro_attribs_class_sml_1_1_mouse_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,10 +162,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00116">116</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00129">129</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a23e2fa9fcd07c083ab4163ea417e343e" name="a23e2fa9fcd07c083ab4163ea417e343e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23e2fa9fcd07c083ab4163ea417e343e">&#9670;&nbsp;</a></span>MouseButtonEvent()</h2>
+<a id="a809f999a8e181765816a165719c7e9cc" name="a809f999a8e181765816a165719c7e9cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809f999a8e181765816a165719c7e9cc">&#9670;&nbsp;</a></span>MouseButtonEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,6 +188,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">MouseButton&#160;</td>
+          <td class="paramname"><em>button</em> = <code>MouseButton::INVALID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="class_sml_1_1_event_target.html">EventTarget</a> *&#160;</td>
           <td class="paramname"><em>target</em> = <code>nullptr</code>&#160;</td>
         </tr>
@@ -201,7 +210,32 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00119">119</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00132">132</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a133ceeb5c97f8f13532ee2094a81be29" name="a133ceeb5c97f8f13532ee2094a81be29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133ceeb5c97f8f13532ee2094a81be29">&#9670;&nbsp;</a></span>m_Button</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MouseButton Sml::MouseButtonEvent::m_Button</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="system__events_8h_source.html#l00145">145</a> of file <a class="el" href="system__events_8h_source.html">system_events.h</a>.</p>
 
 </div>
 </div>

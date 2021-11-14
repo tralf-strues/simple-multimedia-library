@@ -29,32 +29,20 @@ namespace Sml
 
             case SDL_MOUSEMOTION:
             {
-                int32_t mouseX = 0;
-                int32_t mouseY = 0;
-
-                SDL_GetMouseState(&mouseX, &mouseY);
-
-                return new MouseMovedEvent{mouseX, mouseY};
+                return new MouseMovedEvent{nativeEvent->motion.x, nativeEvent->motion.y,
+                                           nativeEvent->motion.xrel, nativeEvent->motion.yrel};
             }
 
             case SDL_MOUSEBUTTONDOWN:
             {
-                int32_t mouseX = 0;
-                int32_t mouseY = 0;
-
-                SDL_GetMouseState(&mouseX, &mouseY);
-
-                return new MouseButtonPressedEvent{mouseX, mouseY};
+                return new MouseButtonPressedEvent{nativeEvent->motion.x, nativeEvent->motion.y,
+                                                   convertNativeButton(nativeEvent->button.button)};
             }
 
             case SDL_MOUSEBUTTONUP:
             {
-                int32_t mouseX = 0;
-                int32_t mouseY = 0;
-
-                SDL_GetMouseState(&mouseX, &mouseY);
-
-                return new MouseButtonReleasedEvent{mouseX, mouseY};
+                return new MouseButtonReleasedEvent{nativeEvent->motion.x, nativeEvent->motion.y,
+                                                    convertNativeButton(nativeEvent->button.button)};
             }
 
             default: { break; }
