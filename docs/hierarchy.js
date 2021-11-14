@@ -34,6 +34,8 @@ var hierarchy =
     [ "Sml::Notifier::ListenerInfo", "struct_sml_1_1_notifier_1_1_listener_info.html", null ],
     [ "ListIterator< T >", "class_list_iterator.html", null ],
     [ "Sml::Mat4< T >", "struct_sml_1_1_mat4.html", null ],
+    [ "Sml::MouseButtonsState", "class_sml_1_1_mouse_buttons_state.html", null ],
+    [ "Sml::MouseState", "struct_sml_1_1_mouse_state.html", null ],
     [ "Sml::Notifier", "class_sml_1_1_notifier.html", [
       [ "Sml::ObservableProperty< T >", "class_sml_1_1_observable_property.html", null ],
       [ "Sml::SystemEventManager", "class_sml_1_1_system_event_manager.html", null ]

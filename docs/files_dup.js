@@ -16,6 +16,7 @@ var files_dup =
       [ "Sml::EventTarget", "class_sml_1_1_event_target.html", "class_sml_1_1_event_target" ]
     ] ],
     [ "listener_notifier.h", "listener__notifier_8h.html", "listener__notifier_8h" ],
+    [ "mouse.h", "mouse_8h.html", "mouse_8h" ],
     [ "observable_property.h", "observable__property_8h.html", [
       [ "Sml::PropertyChangeEvent< T >", "class_sml_1_1_property_change_event.html", null ],
       [ "Sml::ObservableProperty< T >", "class_sml_1_1_observable_property.html", null ]
@@ -60,6 +61,7 @@ var files_dup =
     ] ],
     [ "app.cpp", "app_8cpp.html", null ],
     [ "listener_notifier.cpp", "listener__notifier_8cpp.html", null ],
+    [ "mouse.cpp", "mouse_8cpp.html", null ],
     [ "system_event_manager.cpp", "system__event__manager_8cpp.html", null ],
     [ "color.cpp", "color_8cpp.html", "color_8cpp" ],
     [ "primitives.cpp", "primitives_8cpp.html", null ],
