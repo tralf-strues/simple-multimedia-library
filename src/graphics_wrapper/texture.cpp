@@ -74,27 +74,15 @@ namespace Sml
     }
 
     void Texture::copyTo(Texture* target,
-                        const Rectangle<int32_t>* targetRegion,
-                        const Rectangle<int32_t>* sourceRegion) const
+                         const Rectangle<int32_t>* targetRegion,
+                         const Rectangle<int32_t>* sourceRegion) const
     {
-        assert(target);
+        Texture* savedTarget = m_Renderer->getTarget();
+        m_Renderer->setTarget(target);
 
-        Rectangle<int32_t> targetRegionFinal{Vec2<int32_t>{0, 0}, static_cast<int32_t>(target->getWidth()), 
-                                                                static_cast<int32_t>(target->getHeight())};
-        Rectangle<int32_t> sourceRegionFinal{Vec2<int32_t>{0, 0}, static_cast<int32_t>(this->getWidth()), 
-                                                                static_cast<int32_t>(this->getHeight())};
+        renderTexture(m_Renderer, *this, targetRegion, sourceRegion);
 
-        if (targetRegion != nullptr)
-        {
-            targetRegionFinal = *targetRegion;
-        }
-
-        if (sourceRegion != nullptr)
-        {
-            sourceRegionFinal = *sourceRegion;
-        }
-
-        renderTexture(m_Renderer, *this, &targetRegionFinal, &sourceRegionFinal);
+        m_Renderer->setTarget(savedTarget);
     }
 
     bool Texture::writeToBMP(const char* filename) const
