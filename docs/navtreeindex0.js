@@ -38,7 +38,7 @@ var NAVTREEINDEX0 =
 "class_sml_1_1_mouse_event.html":[1,0,0,19],
 "class_sml_1_1_mouse_moved_event.html":[1,0,0,20],
 "class_sml_1_1_notifier.html":[1,0,0,22],
-"class_sml_1_1_notifier.html#a195131e93f95360a35c38f7f6300428d":[1,0,0,22,1],
+"class_sml_1_1_notifier.html#a195131e93f95360a35c38f7f6300428d":[1,0,0,22,0],
 "class_sml_1_1_observable_property.html":[1,0,0,23],
 "class_sml_1_1_property_change_event.html":[1,0,0,24],
 "class_sml_1_1_renderer.html":[1,0,0,27],
@@ -200,7 +200,6 @@ var NAVTREEINDEX0 =
 "struct_sml_1_1_inf_line.html":[1,0,0,9],
 "struct_sml_1_1_mat4.html":[1,0,0,14],
 "struct_sml_1_1_mouse_state.html":[1,0,0,21],
-"struct_sml_1_1_notifier_1_1_listener_info.html":[1,0,0,22,0],
 "struct_sml_1_1_ray.html":[1,0,0,25],
 "struct_sml_1_1_rectangle.html":[1,0,0,26],
 "struct_sml_1_1_vec2.html":[1,0,0,31],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "window_8cpp.html#ade3dd968e0e6c22344557bdf05b3c0c0":[2,0,44,0],
 "window_8cpp_source.html":[2,0,44],
 "window_8h.html":[2,0,17],
-"window_8h.html#ac542862487210cb21a6897d4d7406f02":[2,0,17,2]
+"window_8h.html#ac542862487210cb21a6897d4d7406f02":[2,0,17,2],
+"window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0":[2,0,17,1]
 };

@@ -85,7 +85,6 @@ $(document).ready(function(){initNavTree('class_sml_1_1_notifier.html',''); init
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_sml_1_1_notifier-members.html">List of all members</a>  </div>
@@ -103,11 +102,6 @@ Inheritance diagram for Sml::Notifier:</div>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sml_1_1_notifier_1_1_listener_info.html">ListenerInfo</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a195131e93f95360a35c38f7f6300428d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_notifier.html#a195131e93f95360a35c38f7f6300428d">~Notifier</a> ()</td></tr>
@@ -122,12 +116,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ab178ac3ee216e6a3fd01bf7d36550132"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="struct_sml_1_1_notifier_1_1_listener_info.html">ListenerInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_notifier.html#ab178ac3ee216e6a3fd01bf7d36550132">m_Listeners</a></td></tr>
-<tr class="separator:ab178ac3ee216e6a3fd01bf7d36550132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eeaf93aae3d4dc10a372624187b4083"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; EventType, std::list&lt; <a class="el" href="class_sml_1_1_listener.html">Listener</a> * &gt; * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_notifier.html#a1eeaf93aae3d4dc10a372624187b4083">m_Listeners</a></td></tr>
+<tr class="separator:a1eeaf93aae3d4dc10a372624187b4083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00027">27</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00028">28</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a195131e93f95360a35c38f7f6300428d" name="a195131e93f95360a35c38f7f6300428d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a195131e93f95360a35c38f7f6300428d">&#9670;&nbsp;</a></span>~Notifier()</h2>
@@ -146,7 +140,7 @@ Protected Attributes</h2></td></tr>
 
 <p>FIXME: Manage memory smarter! </p>
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00013">13</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00014">14</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,7 +179,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00021">21</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00027">27</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
 
 </div>
 </div>
@@ -213,7 +207,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00028">28</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00049">49</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,13 +235,13 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00042">42</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8cpp_source.html#l00065">65</a> of file <a class="el" href="listener__notifier_8cpp_source.html">listener_notifier.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab178ac3ee216e6a3fd01bf7d36550132" name="ab178ac3ee216e6a3fd01bf7d36550132"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab178ac3ee216e6a3fd01bf7d36550132">&#9670;&nbsp;</a></span>m_Listeners</h2>
+<a id="a1eeaf93aae3d4dc10a372624187b4083" name="a1eeaf93aae3d4dc10a372624187b4083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eeaf93aae3d4dc10a372624187b4083">&#9670;&nbsp;</a></span>m_Listeners</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +250,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="struct_sml_1_1_notifier_1_1_listener_info.html">ListenerInfo</a>&gt; Sml::Notifier::m_Listeners</td>
+          <td class="memname">std::unordered_map&lt;EventType, std::list&lt;<a class="el" href="class_sml_1_1_listener.html">Listener</a>*&gt;*&gt; Sml::Notifier::m_Listeners</td>
         </tr>
       </table>
   </td>
@@ -266,7 +260,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00064">64</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="listener__notifier_8h_source.html#l00038">38</a> of file <a class="el" href="listener__notifier_8h_source.html">listener_notifier.h</a>.</p>
 
 </div>
 </div>

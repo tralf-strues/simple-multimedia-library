@@ -6,15 +6,21 @@
  * @copyright Copyright (c) 2021
  */
 
+#include <algorithm>
 #include "events/listener_notifier.h"
 
 namespace Sml
 {
     Notifier::~Notifier()
     {
-        for (auto listenerInfo : m_Listeners)
+        for (auto pair : m_Listeners)
         {
-            delete listenerInfo.listener;
+            for (auto listener : *pair.second)
+            {
+                delete listener;
+            }
+
+            delete pair.second;
         }
     }
 
@@ -22,32 +28,51 @@ namespace Sml
     {
         assert(listener);
 
-        m_Listeners.emplace_back(events, listener);
+        for (auto eventType : events)
+        {
+            auto foundListIt = m_Listeners.find(eventType);
+
+            if (foundListIt == m_Listeners.end())
+            {
+                std::list<Listener*>* newList = new std::list<Listener*>();
+                newList->push_back(listener);
+
+                m_Listeners[eventType] = newList;
+            }
+            else
+            {
+                (*foundListIt).second->push_back(listener);
+            }
+        }
     }
 
     void Notifier::detachListener(Listener* listener)
     {
         assert(listener);
 
-        for (auto it = m_Listeners.begin(); it != m_Listeners.end(); ++it)
+        for (auto pair : m_Listeners)
         {
-            if (it->listener == listener)
+            std::list<Listener*>* listenersList = pair.second;
+            auto listenerIt = std::find(listenersList->begin(), listenersList->end(), listener);
+
+            if (listenerIt != listenersList->end())
             {
-                m_Listeners.erase(it);
-                return;
+                listenersList->erase(listenerIt);
             }
         }
     }
 
     void Notifier::notify(Event* event)
     {
-        for (auto listenerInfo : m_Listeners)
+        assert(event);
+
+        for (auto pair : m_Listeners)
         {
-            for (auto eventType : listenerInfo.types)
+            if (pair.first == event->getType())
             {
-                if (eventType == event->getType())
+                for (Listener* listener : *pair.second)
                 {
-                    listenerInfo.listener->onEvent(event);
+                    listener->onEvent(event);
                 }
             }
         }

@@ -10,6 +10,7 @@
 
 #include <assert.h>
 #include <initializer_list>
+#include <unordered_map>
 #include <list>
 #include "event.h"
 
@@ -30,37 +31,10 @@ namespace Sml
         ~Notifier(); ///< FIXME: Manage memory smarter!
 
         virtual void attachListener(const std::initializer_list<EventType>& types, Listener* listener);
-        virtual void detachListener(Listener* listener);
+        virtual void detachListener(Listener* listener); // FIXME: doesn't free memory of listener
         virtual void notify(Event* event);
 
     protected:
-        struct ListenerInfo
-        {
-            EventType types[MAX_LISTENED_EVENTS];
-            Listener* listener;
-
-            ListenerInfo(Listener* listener = nullptr) : listener(listener)
-            {
-                for (size_t i = 0; i < MAX_LISTENED_EVENTS; ++i)
-                {
-                    this->types[i] = INVALID_EVENT_TYPE;
-                }
-            }
-
-            ListenerInfo(const std::initializer_list<EventType>& types, 
-                        Listener* listener = nullptr)
-                : ListenerInfo(listener) 
-            {
-                assert(types.size() <= MAX_LISTENED_EVENTS);
-
-                auto initIt = types.begin();
-                for (size_t i = 0; initIt != types.end(); ++initIt, ++i)
-                {
-                    this->types[i] = *initIt;
-                }
-            }
-        };
-
-        std::list<ListenerInfo> m_Listeners;
+        std::unordered_map<EventType, std::list<Listener*>*> m_Listeners;
     };
 }
