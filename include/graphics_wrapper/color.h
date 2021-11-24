@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <SDL.h>
+#include "../math/vec4.h"
 
 namespace Sml
 {
@@ -34,6 +35,24 @@ namespace Sml
      * @return Created rgba color. 
      */
     Color rgbaColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+
+    /**
+     * @brief Convert rgba color to normalized floating-point vector.
+     * 
+     * @param color
+     * 
+     * @return Normalized color.
+     */
+    Vec4<float> colorToNormalized(Color color);
+
+    /**
+     * @brief Convert normalized floating-point vector to rgba color.
+     * 
+     * @param normalizedColor
+     * 
+     * @return Rgba color.
+     */
+    Color colorFromNormalized(const Vec4<float>& normalizedColor);
 
     /**
      * @brief Get the System Color object

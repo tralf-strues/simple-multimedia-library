@@ -33,7 +33,7 @@ namespace Sml
             return;
         }
 
-        SDL_SetRenderDrawBlendMode(m_NativeRenderer, SDL_BLENDMODE_BLEND);
+        setBlendMode(BlendMode::BLEND);
     }
 
     Renderer::~Renderer()
@@ -50,9 +50,39 @@ namespace Sml
     {
         m_Color = color;
         SDL_SetRenderDrawColor(m_NativeRenderer, colorGetR(color), 
-                                                colorGetG(color), 
-                                                colorGetB(color), 
-                                                colorGetA(color));
+                                                 colorGetG(color), 
+                                                 colorGetB(color), 
+                                                 colorGetA(color));
+    }
+
+    Renderer::BlendMode Renderer::getBlendMode() const
+    {
+        return m_BlendMode;
+    }
+
+    void Renderer::setBlendMode(BlendMode mode)
+    {
+        m_BlendMode = mode;
+
+        switch (mode)
+        {
+            case BlendMode::NONE:
+            {
+                SDL_SetRenderDrawBlendMode(getNativeRenderer(), SDL_BLENDMODE_NONE);
+                break;
+            }
+
+            case BlendMode::BLEND:
+            {
+                SDL_SetRenderDrawBlendMode(getNativeRenderer(), SDL_BLENDMODE_BLEND);
+                break;
+            }
+            
+            default:
+            {
+                assert(!"INVALID BlendMode");
+            }
+        }
     }
 
     uint32_t Renderer::getError() const
@@ -102,6 +132,56 @@ namespace Sml
     Texture* Renderer::getTarget()
     {
         return m_TargetTexture;
+    }
+
+    size_t Renderer::getTargetWidth() const
+    {
+        if (m_TargetTexture == nullptr)
+        {
+            return static_cast<int32_t>(getWindow().getWidth());
+        }
+        else
+        {
+            return static_cast<int32_t>(m_TargetTexture->getWidth());
+        }
+    }
+
+
+    size_t Renderer::getTargetHeight() const
+    {
+        if (m_TargetTexture == nullptr)
+        {
+            return static_cast<int32_t>(getWindow().getHeight());
+        }
+        else
+        {
+            return static_cast<int32_t>(m_TargetTexture->getHeight());
+        }
+    }
+
+    Color* Renderer::readTargetPixels() const
+    {
+        if (getTargetWidth() <= 0 || getTargetHeight() <= 0)
+        {
+            return nullptr;
+        }
+
+        Color* pixels = new Color[getTargetWidth() * getTargetHeight()];
+        readTargetPixelsTo(pixels);
+
+        return pixels;
+
+        // if (m_TargetTexture != nullptr)
+        // {
+        //     return m_TargetTexture->readPixels();
+        // }
+
+        // return m_Window.readPixels();
+    }
+
+    void Renderer::readTargetPixelsTo(Color* dst) const
+    {
+        SDL_RenderReadPixels(getNativeRenderer(), nullptr, SDL_PIXELFORMAT_RGBA8888, dst, getTargetWidth() * sizeof(Color));
     }
 
     void Renderer::setClipRegion(const Rectangle<int32_t>& clipRegion) const

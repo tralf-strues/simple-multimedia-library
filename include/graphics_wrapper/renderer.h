@@ -25,6 +25,11 @@ namespace Sml
             CREATE_ERROR = (1u << 0)
         };
 
+        enum class BlendMode
+        {
+            NONE, BLEND
+        };
+
     public:
         /**
          * @brief Construct a new Renderer object
@@ -48,6 +53,17 @@ namespace Sml
          * @param color 
          */
         void setColor(Color color);
+
+        /**
+         * @return Current blending mode. 
+         */
+        BlendMode getBlendMode() const;
+
+        /**
+         * @brief Set the blending mode.
+         * @param mode 
+         */
+        void setBlendMode(BlendMode mode);
 
         /**
          * @brief Get renderer's error status, which is represented as bit-mask of all
@@ -91,6 +107,35 @@ namespace Sml
          *         rendering target is window.
          */
         Texture* getTarget();
+
+        /**
+         * @return The current target's width.
+         */
+        size_t getTargetWidth() const;
+
+        /**
+         * @return The current target's height.
+         */
+        size_t getTargetHeight() const;
+
+        /**
+         * @brief Allocate a pixel buffer and read pixels from the current target to it.
+         * 
+         * @warning The buffer must be freed after usage!
+         * 
+         * @return Copy of the target's pixel buffer.
+         */
+        // Color* readTargetPixels(const Rectangle<int32_t>& targetRegion) const;
+        Color* readTargetPixels() const;
+
+        /**
+         * @brief Read pixels from the current target to dst.
+         * 
+         * @warning The pixel buffer must be of size greater or equal to the size of the window.
+         * 
+         * @param dst Pixel buffer to read to.
+         */
+        void readTargetPixelsTo(Color* dst) const;
 
         /**
          * @brief Set rectangular clip region for the rendering target. Outside this region
@@ -149,6 +194,7 @@ namespace Sml
         Window&       m_Window;
         Texture*      m_TargetTexture  = nullptr;
         Color         m_Color          = COLOR_BLACK;
+        BlendMode     m_BlendMode      = BlendMode::BLEND;
         uint32_t      m_ErrorStatus    = 0;
 
         SDL_Renderer* m_NativeRenderer = nullptr;

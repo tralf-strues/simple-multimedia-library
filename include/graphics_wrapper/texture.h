@@ -23,17 +23,20 @@ namespace Sml
     public:
         friend class BufferedTexture;
 
+    public:
         Texture() = default;
         Texture(Renderer* renderer);
         Texture(Renderer* renderer, size_t width, size_t height);
         ~Texture();
 
-        size_t       getWidth()             const;
-        size_t       getHeight()            const;
-        Renderer*    getRenderer()          const;
-        SDL_Texture* getNativeTexture()     const;
+        size_t       getWidth()               const;
+        size_t       getHeight()              const;
+        Renderer*    getRenderer()            const;
+        SDL_Texture* getNativeTexture()       const;
         
-        void         readPixels(Color* dst) const;
+        Color*       readPixels()             const;
+        void         readPixelsTo(Color* dst) const;
+        void         updatePixels(const Color* src);
 
         /**
          * @brief Copies the sourceRegion of this Texture to the targetRegion of the target.

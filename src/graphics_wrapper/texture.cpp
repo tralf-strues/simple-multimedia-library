@@ -62,7 +62,20 @@ namespace Sml
         return m_NativeTexture;
     }
 
-    void Texture::readPixels(Color* dst) const
+    Color* Texture::readPixels() const
+    {
+        if (getWidth() <= 0 || getHeight() <= 0)
+        {
+            return nullptr;
+        }
+
+        Color* pixels = new Color[getWidth() * getHeight()];
+        readPixelsTo(pixels);
+
+        return pixels;
+    }
+
+    void Texture::readPixelsTo(Color* dst) const
     {
         assert(dst);
 
@@ -71,6 +84,16 @@ namespace Sml
         SDL_SetRenderTarget(m_Renderer->getNativeRenderer(), m_NativeTexture);
         SDL_RenderReadPixels(m_Renderer->getNativeRenderer(), NULL, 0, dst, m_Width * sizeof(Color));
         SDL_SetRenderTarget(m_Renderer->getNativeRenderer(), prevTarget);
+    }
+
+    void Texture::updatePixels(const Color* src)
+    {
+        assert(src);
+
+        SDL_UpdateTexture(getNativeTexture(),
+                          nullptr,
+                          static_cast<const void*>(src),
+                          getWidth() * sizeof(Color));
     }
 
     void Texture::copyTo(Texture* target,
@@ -154,7 +177,6 @@ namespace Sml
         SDL_FreeSurface(surface);
 
         return true;
-
     }
     
     //------------------------------------------------------------------------------
@@ -170,7 +192,7 @@ namespace Sml
         : m_Texture(texture),
         m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])
     {
-        m_Texture.readPixels(m_Buffer);
+        m_Texture.readPixelsTo(m_Buffer);
     }
 
     BufferedTexture::~BufferedTexture()
@@ -218,13 +240,13 @@ namespace Sml
     void BufferedTexture::updateTexture()
     {
         SDL_UpdateTexture(m_Texture.getNativeTexture(),
-                        nullptr,
-                        static_cast<void*>(m_Buffer),
-                        m_Texture.getWidth() * sizeof(Color));
+                          nullptr,
+                          static_cast<void*>(m_Buffer),
+                          m_Texture.getWidth() * sizeof(Color));
     }
 
     void BufferedTexture::updateBuffer()
     {
-        m_Texture.readPixels(m_Buffer);
+        m_Texture.readPixelsTo(m_Buffer);
     }
 }

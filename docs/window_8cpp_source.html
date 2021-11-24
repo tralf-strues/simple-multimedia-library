@@ -148,67 +148,95 @@ $(document).ready(function(){initNavTree('window_8cpp_source.html',''); initResi
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> m_NativeWindow;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">   62</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Window::updateTitle</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* title)</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        m_Title  = (title == <span class="keyword">nullptr</span>) ? WINDOW_DEFAULT_TITLE : title;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        SDL_SetWindowTitle(m_NativeWindow, m_Title);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#aa0888dbe856a245847b0322d67b3b4c4">   62</a></span>    Color* <a class="code hl_function" href="class_sml_1_1_window.html#aa0888dbe856a245847b0322d67b3b4c4">Window::readPixels</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_sml_1_1_window.html#aa2045e97192ba2d2de0549dc9bc81f2f">getWidth</a>() &lt;= 0 || <a class="code hl_function" href="class_sml_1_1_window.html#a728f5e427b609f5b5a283042fb244158">getHeight</a>() &lt;= 0)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        }</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">   69</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Window::setBorderless</a>(<span class="keywordtype">bool</span> borderless)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        SDL_SetWindowBordered(m_NativeWindow, <span class="keyword">static_cast&lt;</span>SDL_bool<span class="keyword">&gt;</span>(!borderless));</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">   74</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Window::resizeWindow</a>(<span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        assert(width);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        assert(height);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        Color* pixels = <span class="keyword">new</span> Color[<a class="code hl_function" href="class_sml_1_1_window.html#aa2045e97192ba2d2de0549dc9bc81f2f">getWidth</a>() * <a class="code hl_function" href="class_sml_1_1_window.html#a728f5e427b609f5b5a283042fb244158">getHeight</a>()];</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_function" href="class_sml_1_1_window.html#af5b9fe799645e5ebfe7c51be007a2fa4">readPixelsTo</a>(pixels);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> pixels;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#af5b9fe799645e5ebfe7c51be007a2fa4">   75</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#af5b9fe799645e5ebfe7c51be007a2fa4">Window::readPixelsTo</a>(Color* dst)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        assert(dst);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        m_Width  = width;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        m_Height = height;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        SDL_SetWindowSize(m_NativeWindow, (<span class="keywordtype">int</span>) m_Width, (<span class="keywordtype">int</span>) m_Height);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        SDL_Surface* surface = SDL_GetWindowSurface(<a class="code hl_function" href="class_sml_1_1_window.html#a52ef563e8fbac854873e77f38d92aabe">getNativeWindow</a>());</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">if</span> (surface == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            printf(<span class="stringliteral">&quot;%s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> Window::setError(uint32_t error)</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        m_ErrorStatus |= error;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">   90</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">initGraphics</a>()</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) == -1)</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">if</span> (TTF_Init() == -1)</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        memcpy(dst, surface-&gt;pixels, <a class="code hl_function" href="class_sml_1_1_window.html#aa2045e97192ba2d2de0549dc9bc81f2f">getWidth</a>() * <a class="code hl_function" href="class_sml_1_1_window.html#a728f5e427b609f5b5a283042fb244158">getHeight</a>() * <span class="keyword">sizeof</span>(Color));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">   88</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Window::updateTitle</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* title)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        m_Title  = (title == <span class="keyword">nullptr</span>) ? WINDOW_DEFAULT_TITLE : title;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        SDL_SetWindowTitle(m_NativeWindow, m_Title);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">   95</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Window::setBorderless</a>(<span class="keywordtype">bool</span> borderless)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        SDL_SetWindowBordered(m_NativeWindow, <span class="keyword">static_cast&lt;</span>SDL_bool<span class="keyword">&gt;</span>(!borderless));</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">  100</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Window::resizeWindow</a>(<span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        assert(width);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        assert(height);</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">  105</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">quitGraphics</a>()</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        SDL_Quit();</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
-<div class="ttc" id="aclass_sml_1_1_window_html_a0475625a8ee342412d1e47fba5dabc79"><div class="ttname"><a href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Sml::Window::resizeWindow</a></div><div class="ttdeci">void resizeWindow(size_t width, size_t height)</div><div class="ttdoc">Resize Window.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00074">window.cpp:74</a></div></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        m_Width  = width;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        m_Height = height;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        SDL_SetWindowSize(m_NativeWindow, (<span class="keywordtype">int</span>) m_Width, (<span class="keywordtype">int</span>) m_Height);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> Window::setError(uint32_t error)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        m_ErrorStatus |= error;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">  116</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">initGraphics</a>()</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) == -1)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">if</span> (TTF_Init() == -1)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">  131</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">quitGraphics</a>()</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        SDL_Quit();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+<div class="ttc" id="aclass_sml_1_1_window_html_a0475625a8ee342412d1e47fba5dabc79"><div class="ttname"><a href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Sml::Window::resizeWindow</a></div><div class="ttdeci">void resizeWindow(size_t width, size_t height)</div><div class="ttdoc">Resize Window.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00100">window.cpp:100</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_a0f96937dd75d66bf1470f23df6be5244"><div class="ttname"><a href="class_sml_1_1_window.html#a0f96937dd75d66bf1470f23df6be5244">Sml::Window::getTitle</a></div><div class="ttdeci">const char * getTitle() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00047">window.cpp:47</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_a52ef563e8fbac854873e77f38d92aabe"><div class="ttname"><a href="class_sml_1_1_window.html#a52ef563e8fbac854873e77f38d92aabe">Sml::Window::getNativeWindow</a></div><div class="ttdeci">SDL_Window * getNativeWindow() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00057">window.cpp:57</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_a728f5e427b609f5b5a283042fb244158"><div class="ttname"><a href="class_sml_1_1_window.html#a728f5e427b609f5b5a283042fb244158">Sml::Window::getHeight</a></div><div class="ttdeci">size_t getHeight() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00042">window.cpp:42</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_a8e43bff361ec91918ca01b2c45e5989a"><div class="ttname"><a href="class_sml_1_1_window.html#a8e43bff361ec91918ca01b2c45e5989a">Sml::Window::getError</a></div><div class="ttdeci">uint32_t getError() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00052">window.cpp:52</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_window_html_aa0888dbe856a245847b0322d67b3b4c4"><div class="ttname"><a href="class_sml_1_1_window.html#aa0888dbe856a245847b0322d67b3b4c4">Sml::Window::readPixels</a></div><div class="ttdeci">Color * readPixels() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00062">window.cpp:62</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_aa2045e97192ba2d2de0549dc9bc81f2f"><div class="ttname"><a href="class_sml_1_1_window.html#aa2045e97192ba2d2de0549dc9bc81f2f">Sml::Window::getWidth</a></div><div class="ttdeci">size_t getWidth() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00037">window.cpp:37</a></div></div>
-<div class="ttc" id="aclass_sml_1_1_window_html_aaa18ecca5575c6abb820ddb8da0e991a"><div class="ttname"><a href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Sml::Window::updateTitle</a></div><div class="ttdeci">void updateTitle(const char *title)</div><div class="ttdoc">Update Window's title.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00062">window.cpp:62</a></div></div>
-<div class="ttc" id="aclass_sml_1_1_window_html_ac28ca0142f5e7aa24ca2d21766325bd9"><div class="ttname"><a href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Sml::Window::setBorderless</a></div><div class="ttdeci">void setBorderless(bool borderless=true)</div><div class="ttdoc">Add or remove Window's borders.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00069">window.cpp:69</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_window_html_aaa18ecca5575c6abb820ddb8da0e991a"><div class="ttname"><a href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Sml::Window::updateTitle</a></div><div class="ttdeci">void updateTitle(const char *title)</div><div class="ttdoc">Update Window's title.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00088">window.cpp:88</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_window_html_ac28ca0142f5e7aa24ca2d21766325bd9"><div class="ttname"><a href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Sml::Window::setBorderless</a></div><div class="ttdeci">void setBorderless(bool borderless=true)</div><div class="ttdoc">Add or remove Window's borders.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00095">window.cpp:95</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_ae030e1e5d20ebe46d76f5ac3dc44f537"><div class="ttname"><a href="class_sml_1_1_window.html#ae030e1e5d20ebe46d76f5ac3dc44f537">Sml::Window::~Window</a></div><div class="ttdeci">~Window()</div><div class="ttdoc">Destroy the Window object.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00032">window.cpp:32</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_ae39e0ae5c99b4029374e95f80fe6a42b"><div class="ttname"><a href="class_sml_1_1_window.html#ae39e0ae5c99b4029374e95f80fe6a42b">Sml::Window::Window</a></div><div class="ttdeci">Window(size_t width, size_t height, const char *title)</div><div class="ttdoc">Construct a new Window object.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00015">window.cpp:15</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_window_html_af5b9fe799645e5ebfe7c51be007a2fa4"><div class="ttname"><a href="class_sml_1_1_window.html#af5b9fe799645e5ebfe7c51be007a2fa4">Sml::Window::readPixelsTo</a></div><div class="ttdeci">void readPixelsTo(Color *dst) const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00075">window.cpp:75</a></div></div>
 <div class="ttc" id="awindow_8h_html"><div class="ttname"><a href="window_8h.html">window.h</a></div></div>
-<div class="ttc" id="awindow_8h_html_ac542862487210cb21a6897d4d7406f02"><div class="ttname"><a href="window_8h.html#ac542862487210cb21a6897d4d7406f02">Sml::quitGraphics</a></div><div class="ttdeci">void quitGraphics()</div><div class="ttdoc">Quit graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00105">window.cpp:105</a></div></div>
-<div class="ttc" id="awindow_8h_html_ade3dd968e0e6c22344557bdf05b3c0c0"><div class="ttname"><a href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">Sml::initGraphics</a></div><div class="ttdeci">bool initGraphics()</div><div class="ttdoc">Initialize graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00090">window.cpp:90</a></div></div>
+<div class="ttc" id="awindow_8h_html_ac542862487210cb21a6897d4d7406f02"><div class="ttname"><a href="window_8h.html#ac542862487210cb21a6897d4d7406f02">Sml::quitGraphics</a></div><div class="ttdeci">void quitGraphics()</div><div class="ttdoc">Quit graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00131">window.cpp:131</a></div></div>
+<div class="ttc" id="awindow_8h_html_ade3dd968e0e6c22344557bdf05b3c0c0"><div class="ttname"><a href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">Sml::initGraphics</a></div><div class="ttdeci">bool initGraphics()</div><div class="ttdoc">Initialize graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00116">window.cpp:116</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

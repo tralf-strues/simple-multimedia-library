@@ -59,6 +59,32 @@ namespace Sml
         return m_NativeWindow;
     }
 
+    Color* Window::readPixels() const
+    {
+        if (getWidth() <= 0 || getHeight() <= 0)
+        {
+            return nullptr;
+        }
+
+        Color* pixels = new Color[getWidth() * getHeight()];
+        readPixelsTo(pixels);
+
+        return pixels;
+    }
+
+    void Window::readPixelsTo(Color* dst) const
+    {
+        assert(dst);
+
+        SDL_Surface* surface = SDL_GetWindowSurface(getNativeWindow());
+        if (surface == nullptr)
+        {
+            printf("%s\n", SDL_GetError());
+        }
+
+        memcpy(dst, surface->pixels, getWidth() * getHeight() * sizeof(Color));
+    }
+
     void Window::updateTitle(const char* title)
     {
         m_Title  = (title == nullptr) ? WINDOW_DEFAULT_TITLE : title;

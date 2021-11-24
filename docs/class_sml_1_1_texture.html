@@ -106,8 +106,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adf00f4b42f7f470f2ed8585a95803cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca4130968ffa17f725063becc504ae65"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_texture.html#aca4130968ffa17f725063becc504ae65">getNativeTexture</a> () const</td></tr>
 <tr class="separator:aca4130968ffa17f725063becc504ae65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c1b3d1ecff821a892f67e10ac9968f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_texture.html#a1c1b3d1ecff821a892f67e10ac9968f2">readPixels</a> (Color *dst) const</td></tr>
-<tr class="separator:a1c1b3d1ecff821a892f67e10ac9968f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3716ab623212313395f5ebb530a72cf"><td class="memItemLeft" align="right" valign="top">Color *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_texture.html#ae3716ab623212313395f5ebb530a72cf">readPixels</a> () const</td></tr>
+<tr class="separator:ae3716ab623212313395f5ebb530a72cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4712e470a3d2d36f902b1e2bc1ad9203"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_texture.html#a4712e470a3d2d36f902b1e2bc1ad9203">readPixelsTo</a> (Color *dst) const</td></tr>
+<tr class="separator:a4712e470a3d2d36f902b1e2bc1ad9203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ac09b6e16ba0cebd3a5ccd797aa4cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_texture.html#a69ac09b6e16ba0cebd3a5ccd797aa4cf">updatePixels</a> (const Color *src)</td></tr>
+<tr class="separator:a69ac09b6e16ba0cebd3a5ccd797aa4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af245a752627cf8ac42b952540ca7b1e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_texture.html#af245a752627cf8ac42b952540ca7b1e0">copyTo</a> (<a class="el" href="class_sml_1_1_texture.html">Texture</a> *target, const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *targetRegion, const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *sourceRegion) const</td></tr>
 <tr class="memdesc:af245a752627cf8ac42b952540ca7b1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the sourceRegion of this <a class="el" href="class_sml_1_1_texture.html">Texture</a> to the targetRegion of the target.  <a href="class_sml_1_1_texture.html#af245a752627cf8ac42b952540ca7b1e0">More...</a><br /></td></tr>
 <tr class="separator:af245a752627cf8ac42b952540ca7b1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,7 +247,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00076">76</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00099">99</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -339,18 +343,37 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00128">128</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00151">151</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a1c1b3d1ecff821a892f67e10ac9968f2" name="a1c1b3d1ecff821a892f67e10ac9968f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c1b3d1ecff821a892f67e10ac9968f2">&#9670;&nbsp;</a></span>readPixels()</h2>
+<a id="ae3716ab623212313395f5ebb530a72cf" name="ae3716ab623212313395f5ebb530a72cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3716ab623212313395f5ebb530a72cf">&#9670;&nbsp;</a></span>readPixels()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Sml::Texture::readPixels </td>
+          <td class="memname">Color * Sml::Texture::readPixels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00065">65</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4712e470a3d2d36f902b1e2bc1ad9203" name="a4712e470a3d2d36f902b1e2bc1ad9203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4712e470a3d2d36f902b1e2bc1ad9203">&#9670;&nbsp;</a></span>readPixelsTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Texture::readPixelsTo </td>
           <td>(</td>
           <td class="paramtype">Color *&#160;</td>
           <td class="paramname"><em>dst</em></td><td>)</td>
@@ -359,7 +382,27 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00065">65</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00078">78</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a69ac09b6e16ba0cebd3a5ccd797aa4cf" name="a69ac09b6e16ba0cebd3a5ccd797aa4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69ac09b6e16ba0cebd3a5ccd797aa4cf">&#9670;&nbsp;</a></span>updatePixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Texture::updatePixels </td>
+          <td>(</td>
+          <td class="paramtype">const Color *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00089">89</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +422,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00088">88</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="texture_8cpp_source.html#l00111">111</a> of file <a class="el" href="texture_8cpp_source.html">texture.cpp</a>.</p>
 
 </div>
 </div>

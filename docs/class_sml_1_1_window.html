@@ -118,6 +118,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8e43bff361ec91918ca01b2c45e5989a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52ef563e8fbac854873e77f38d92aabe"><td class="memItemLeft" align="right" valign="top">SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_window.html#a52ef563e8fbac854873e77f38d92aabe">getNativeWindow</a> () const</td></tr>
 <tr class="separator:a52ef563e8fbac854873e77f38d92aabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0888dbe856a245847b0322d67b3b4c4"><td class="memItemLeft" align="right" valign="top">Color *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_window.html#aa0888dbe856a245847b0322d67b3b4c4">readPixels</a> () const</td></tr>
+<tr class="separator:aa0888dbe856a245847b0322d67b3b4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b9fe799645e5ebfe7c51be007a2fa4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_window.html#af5b9fe799645e5ebfe7c51be007a2fa4">readPixelsTo</a> (Color *dst) const</td></tr>
+<tr class="separator:af5b9fe799645e5ebfe7c51be007a2fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa18ecca5575c6abb820ddb8da0e991a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">updateTitle</a> (const char *title)</td></tr>
 <tr class="memdesc:aaa18ecca5575c6abb820ddb8da0e991a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update <a class="el" href="class_sml_1_1_window.html">Window</a>'s title.  <a href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">More...</a><br /></td></tr>
 <tr class="separator:aaa18ecca5575c6abb820ddb8da0e991a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,7 +134,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00019">19</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00020">20</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ae543663c5f01c6ec8bfcac2635e47c7d" name="ae543663c5f01c6ec8bfcac2635e47c7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae543663c5f01c6ec8bfcac2635e47c7d">&#9670;&nbsp;</a></span>Error</h2>
@@ -144,7 +148,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00022">22</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8h_source.html#l00023">23</a> of file <a class="el" href="window_8h_source.html">window.h</a>.</p>
 
 </div>
 </div>
@@ -318,6 +322,53 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa0888dbe856a245847b0322d67b3b4c4" name="aa0888dbe856a245847b0322d67b3b4c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0888dbe856a245847b0322d67b3b4c4">&#9670;&nbsp;</a></span>readPixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Color * Sml::Window::readPixels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Pixels of the window's surface. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00062">62</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af5b9fe799645e5ebfe7c51be007a2fa4" name="af5b9fe799645e5ebfe7c51be007a2fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b9fe799645e5ebfe7c51be007a2fa4">&#9670;&nbsp;</a></span>readPixelsTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Window::readPixelsTo </td>
+          <td>(</td>
+          <td class="paramtype">Color *&#160;</td>
+          <td class="paramname"><em>dst</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>The pixel buffer must be of size greater or equal to the size of the window.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>Pixel buffer to read to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00075">75</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a0475625a8ee342412d1e47fba5dabc79" name="a0475625a8ee342412d1e47fba5dabc79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0475625a8ee342412d1e47fba5dabc79">&#9670;&nbsp;</a></span>resizeWindow()</h2>
 
@@ -353,7 +404,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00074">74</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00100">100</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +432,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00069">69</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00095">95</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +460,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00062">62</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00088">88</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>

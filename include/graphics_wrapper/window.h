@@ -11,6 +11,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <SDL.h>
+#include "color.h"
 
 namespace Sml
 {
@@ -67,6 +68,18 @@ namespace Sml
          * @return Low-level native window.
          */
         SDL_Window* getNativeWindow() const;
+
+        /**
+         * @return Pixels of the window's surface.
+         */
+        Color* readPixels() const;
+
+        /**
+         * @warning The pixel buffer must be of size greater or equal to the size of the window.
+         *
+         * @param dst Pixel buffer to read to.
+         */
+        void readPixelsTo(Color* dst) const;
 
         /**
          * @brief Update Window's title.

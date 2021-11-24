@@ -16,9 +16,30 @@ namespace Sml
     Color rgbaColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
     {
         return ((uint32_t) r << 24u) + 
-            ((uint32_t) g << 16u) + 
-            ((uint32_t) b << 8u ) + 
-            (uint32_t) a;
+               ((uint32_t) g << 16u) + 
+               ((uint32_t) b << 8u ) + 
+               (uint32_t) a;
+    }
+
+    Vec4<float> colorToNormalized(Color color)
+    {
+        Vec4<float> floatColor;
+
+        floatColor.x = static_cast<float>(colorGetR(color)) / 255.f;
+        floatColor.y = static_cast<float>(colorGetG(color)) / 255.f;
+        floatColor.z = static_cast<float>(colorGetB(color)) / 255.f;
+        floatColor.w = static_cast<float>(colorGetA(color)) / 255.f;
+
+        return floatColor;
+    }
+
+    Color colorFromNormalized(const Vec4<float>& normalizedColor)
+    {
+        Vec4<float> color = normalizedColor * 255.f;
+        return rgbaColor(static_cast<uint8_t>(color.x),
+                         static_cast<uint8_t>(color.y),
+                         static_cast<uint8_t>(color.z),
+                         static_cast<uint8_t>(color.w));
     }
 
     SDL_Color getSystemColor(Color color)

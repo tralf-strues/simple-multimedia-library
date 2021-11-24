@@ -38,6 +38,7 @@ var files_dup =
       [ "Sml::BufferedTexture", "class_sml_1_1_buffered_texture.html", "class_sml_1_1_buffered_texture" ]
     ] ],
     [ "window.h", "window_8h.html", "window_8h" ],
+    [ "blur.h", "blur_8h.html", "blur_8h" ],
     [ "float_compare.h", "float__compare_8h.html", null ],
     [ "geometry.h", "geometry_8h.html", null ],
     [ "mat4.h", "mat4_8h.html", "mat4_8h" ],
@@ -48,6 +49,7 @@ var files_dup =
     [ "solve_equation.h", "solve__equation_8h.html", null ],
     [ "vec2.h", "vec2_8h.html", "vec2_8h" ],
     [ "vec3.h", "vec3_8h.html", "vec3_8h" ],
+    [ "vec4.h", "vec4_8h.html", "vec4_8h" ],
     [ "sml_containers.h", "sml__containers_8h.html", null ],
     [ "sml_events.h", "sml__events_8h.html", null ],
     [ "sml_graphics_wrapper.h", "sml__graphics__wrapper_8h.html", null ],
@@ -69,6 +71,7 @@ var files_dup =
     [ "text.cpp", "text_8cpp.html", null ],
     [ "texture.cpp", "texture_8cpp.html", null ],
     [ "window.cpp", "window_8cpp.html", "window_8cpp" ],
+    [ "blur.cpp", "blur_8cpp.html", null ],
     [ "float_compare.cpp", "float__compare_8cpp.html", null ],
     [ "geometry.cpp", "geometry_8cpp.html", null ],
     [ "mat4.cpp", "mat4_8cpp.html", "mat4_8cpp" ],
