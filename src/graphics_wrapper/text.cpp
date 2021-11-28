@@ -61,9 +61,8 @@ namespace Sml
     void Text::setString(const char* str)     { m_Str       = str;       }
     void Text::setWrapWidth(size_t wrapWidth) { m_WrapWidth = wrapWidth; }
 
-    void Text::load(Renderer* renderer)
+    void Text::load()
     {
-        assert(renderer);
         assert(m_Font.getNativeFont());
         assert(m_Font.getSize() > 0);
         assert(m_Str);
@@ -87,7 +86,7 @@ namespace Sml
 
         assert(loadedSurface);
 
-        m_Texture = SDL_CreateTextureFromSurface(renderer->getNativeRenderer(), loadedSurface);
+        m_Texture = SDL_CreateTextureFromSurface(Renderer::getInstance().getNativeRenderer(), loadedSurface);
         assert(m_Texture);
         
         m_Width  = loadedSurface->w;
@@ -104,13 +103,10 @@ namespace Sml
         }
     }
 
-    void Text::render(Renderer* renderer, const Vec2<int32_t>& pos) const
+    void Text::render(const Vec2<int32_t>& pos) const
     {
-        assert(renderer);
-
-        SDL_Rect renderQuad = {pos.x, pos.y, 
-                            static_cast<int32_t>(m_Width), static_cast<int32_t>(m_Height)};
-
-        SDL_RenderCopy(renderer->getNativeRenderer(), m_Texture, nullptr, &renderQuad); 
+        SDL_Rect renderQuad = {pos.x, pos.y, static_cast<int32_t>(m_Width), static_cast<int32_t>(m_Height)};
+        
+        SDL_RenderCopy(Renderer::getInstance().getNativeRenderer(), m_Texture, nullptr, &renderQuad); 
     }
 }

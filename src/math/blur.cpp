@@ -51,7 +51,7 @@ namespace Sml
 
         float kernelSum        = 0;
         float kernelConstant   = 1 / (2 * M_PI * sigma * sigma);
-        float exponentConstant = - 1 / (2 * sigma * sigma);
+        float exponentConstant = - 2 / (3 * sigma * sigma);
 
         for (int32_t y = -radius; y <= radius; ++y)
         {
@@ -76,21 +76,17 @@ namespace Sml
         return kernel;
     }
 
-    void applyKernel(const Kernel* kernel, Renderer* renderer, const Rectangle<int32_t>& targetRegion)
+    void applyKernel(const Kernel* kernel, const Rectangle<int32_t>& targetRegion)
     {
         assert(kernel);
-        assert(renderer);
         assert(targetRegion.width  > 0);
         assert(targetRegion.height > 0);
 
-        Renderer::BlendMode savedBlendMode = renderer->getBlendMode();
-        renderer->setBlendMode(Renderer::BlendMode::NONE);
-
-        Color* src = renderer->readTargetPixels();
+        Color* src = Renderer::getInstance().readTargetPixels(&targetRegion);
         assert(src);
 
-        int32_t targetWidth  = renderer->getTargetWidth();
-        int32_t targetHeight = renderer->getTargetHeight();
+        Color* newPixels = new Color[targetRegion.width * targetRegion.height];
+
         int32_t kernelRadius = kernel->getRadius();
 
         for (int32_t y = 0; y < targetRegion.height; ++y)
@@ -103,33 +99,27 @@ namespace Sml
                 {
                     for (int32_t kernelX = -kernelRadius; kernelX <= kernelRadius; ++kernelX)
                     {
-                        int32_t targetY = targetRegion.pos.y + y + kernelY;
-                        int32_t targetX = targetRegion.pos.x + x + kernelX;
+                        int32_t targetY = y + kernelY;
+                        int32_t targetX = x + kernelX;
 
                         targetX = std::max(targetX, 0);
-                        targetX = std::min(targetX, targetWidth - 1);
+                        targetX = std::min(targetX, targetRegion.width - 1);
 
                         targetY = std::max(targetY, 0);
-                        targetY = std::min(targetY, targetHeight - 1);
+                        targetY = std::min(targetY, targetRegion.height - 1);
 
-                        // if (targetX < 0 || targetX > targetWidth || targetY < 0 || targetY > targetHeight)
-                        // {
-                        //     printf("Ok?\n");
-                        //     continue;
-                        // }
-
-                        normalizedColor += colorToNormalized(src[targetX + targetY * targetWidth]) *
+                        normalizedColor += colorToNormalized(src[targetX + targetY * targetRegion.width]) *
                                            (*kernel)[kernelY + kernelRadius][kernelX + kernelRadius];
                     }
                 }
                 
-                renderer->setColor(colorFromNormalized(normalizedColor));
-                renderPoint(renderer, {x + targetRegion.pos.x, y + targetRegion.pos.y});
+                newPixels[x + y * targetRegion.width] = colorFromNormalized(normalizedColor);
             }
         }
 
-        delete[] src;
+        Renderer::getInstance().updateTargetPixels(newPixels, &targetRegion);
 
-        renderer->setBlendMode(savedBlendMode);
+        delete[] src;
+        delete[] newPixels;
     }
 }

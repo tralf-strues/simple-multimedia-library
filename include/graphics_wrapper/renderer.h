@@ -9,6 +9,8 @@
 #pragma once
 
 #include <stdint.h>
+#include <unordered_map>
+#include <stack>
 #include "window.h"
 #include "texture.h"
 #include "color.h"
@@ -30,14 +32,29 @@ namespace Sml
             NONE, BLEND
         };
 
+        static constexpr Texture* WINDOW_TARGET = nullptr;
+
     public:
         /**
-         * @brief Construct a new Renderer object
+         * @brief Initializes Renderer with the specified window.
          * 
-         * @param window Renderer's target window.
+         * @note Supposed to be called once. All following calls will do nothing.
+         * 
+         * @param window
          */
-        Renderer(Window& window);
+        static void init(Window* window);
 
+        /**
+         * @return Renderer instance.
+         */
+        static Renderer& getInstance();
+
+        /**
+         * @return Whether or not Renderer::init() has been previously called.
+         */
+        static bool isInitialized();
+
+    public:
         /**
          * @brief Destroy the Renderer object
          */
@@ -74,7 +91,7 @@ namespace Sml
         uint32_t getError() const;
 
         /**
-         * @return Renderer's target window.  
+         * @return Renderer's current window.  
          */
         Window& getWindow() const;
 
@@ -84,9 +101,9 @@ namespace Sml
         SDL_Renderer* getNativeRenderer() const;
 
         /**
-         * @brief Present all rendered elements onto the renderer's target window.
+         * @brief Present all rendered elements onto the renderer's target.
          */
-        void present() const;
+        void present();
         
         /**
          * @brief Clear renderer's target with current rendering color.
@@ -94,16 +111,32 @@ namespace Sml
         void clear();
 
         /**
+         * @brief Push current rendering target to stack.
+         * 
+         * Supposed to be used in conjunction with @ref popTarget() function. Useful if one
+         * needs to save current rendering target before switching to then simply reset
+         * target to the previous one using @ref popTarget().
+         */
+        void pushTarget();
+
+        /**
+         * @brief Sets current rendering target to the one currently on top of stack.
+         * 
+         * Supposed to be used in conjunction with @ref pushTarget() function.
+         */
+        void popTarget();
+
+        /**
          * @brief Set rendering target.
          * 
-         * @param targetTexture If nullptr, then set render target back to window.
+         * @param targetTexture If WINDOW_TARGET, then set render target back to window.
          */
         void setTarget(Texture* targetTexture);
 
         /**
          * @brief Get rendering target.
          * 
-         * @return Texture being the current rendering target, or nullptr, if the current
+         * @return Texture being the current rendering target, or WINDOW_TARGET, if the current
          *         rendering target is window.
          */
         Texture* getTarget();
@@ -120,22 +153,30 @@ namespace Sml
 
         /**
          * @brief Allocate a pixel buffer and read pixels from the current target to it.
-         * 
          * @warning The buffer must be freed after usage!
+         * 
+         * @param targetRegion If nullptr reads the entire surface.
          * 
          * @return Copy of the target's pixel buffer.
          */
-        // Color* readTargetPixels(const Rectangle<int32_t>& targetRegion) const;
-        Color* readTargetPixels() const;
+        Color* readTargetPixels(const Rectangle<int32_t>* targetRegion = nullptr) const;
 
         /**
          * @brief Read pixels from the current target to dst.
-         * 
          * @warning The pixel buffer must be of size greater or equal to the size of the window.
          * 
-         * @param dst Pixel buffer to read to.
+         * @param dst          Pixel buffer to read to.
+         * @param targetRegion If nullptr reads the entire surface.
          */
-        void readTargetPixelsTo(Color* dst) const;
+        void readTargetPixelsTo(Color* dst, const Rectangle<int32_t>* targetRegion = nullptr) const;
+
+        /**
+         * @brief Updates the target surface's region 
+         * 
+         * @param src
+         * @param region If nullptr update the entire surface.
+         */
+        void updateTargetPixels(const Color* src, const Rectangle<int32_t>* targetRegion = nullptr);
 
         /**
          * @brief Set rectangular clip region for the rendering target. Outside this region
@@ -179,8 +220,8 @@ namespace Sml
          * @param sourceRegion 
          */
         void renderTexture(const Texture& source,
-                        const Rectangle<int32_t>* targetRegion,
-                        const Rectangle<int32_t>* sourceRegion);
+                           const Rectangle<int32_t>* targetRegion,
+                           const Rectangle<int32_t>* sourceRegion);
 
         /**
          * @brief Render texture to the current rendering target at position pos.
@@ -191,13 +232,29 @@ namespace Sml
         void renderTexture(const Texture& texture, const Vec2<int32_t>& pos);
 
     private:
-        Window&       m_Window;
-        Texture*      m_TargetTexture  = nullptr;
-        Color         m_Color          = COLOR_BLACK;
-        BlendMode     m_BlendMode      = BlendMode::BLEND;
-        uint32_t      m_ErrorStatus    = 0;
+        static Renderer*   s_Instance;
 
-        SDL_Renderer* m_NativeRenderer = nullptr;
+        std::unordered_map<Window*, SDL_Renderer*> m_WindowSpecificNativeRenderers;
+        SDL_Renderer*        m_NativeRenderer = nullptr;
+
+        Window*              m_Window         = nullptr;
+        Texture*             m_TargetTexture  = nullptr;
+        std::stack<Texture*> m_TargetStack;
+        
+        uint32_t             m_ErrorStatus    = 0;
+
+        /* Rendering state values. */
+        Color                m_Color          = COLOR_BLACK;
+        BlendMode            m_BlendMode      = BlendMode::BLEND;
+        Rectangle<int32_t>   m_ClipRegion     = {0, 0, 0, 0};
+
+    private:
+        /**
+         * @brief Construct a new Renderer object
+         * 
+         * @param window Renderer's target window.
+         */
+        Renderer(Window* window);
 
         /**
          * @brief Set the error.
@@ -212,40 +269,35 @@ namespace Sml
     /**
      * @brief See @ref Renderer::renderPoint().
      * 
-     * @param renderer 
      * @param pos 
      */
-    void renderPoint(Renderer* renderer, const Vec2<int32_t>& pos);
+    void renderPoint(const Vec2<int32_t>& pos);
 
     /**
      * @brief See @ref Renderer::renderLine().
      * 
-     * @param renderer 
      * @param start 
      * @param end 
      */
-    void renderLine(Renderer* renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end);
+    void renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end);
 
     /**
      * @brief Render texture to the current rendering target in the region. Scales the
      *        texture if necessary.
      * 
-     * @param renderer 
      * @param source 
      * @param targetRegion 
      * @param sourceRegion 
      */
-    void renderTexture(Renderer* renderer,
-                       const Texture& source,
+    void renderTexture(const Texture& source,
                        const Rectangle<int32_t>* targetRegion,
                        const Rectangle<int32_t>* sourceRegion);
 
     /**
      * @brief See @ref Renderer::renderTexture().
      * 
-     * @param renderer 
      * @param texture 
      * @param pos 
      */
-    void renderTexture(Renderer* renderer, const Texture& texture, const Vec2<int32_t>& pos);
+    void renderTexture(const Texture& texture, const Vec2<int32_t>& pos);
 }

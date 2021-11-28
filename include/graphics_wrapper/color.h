@@ -24,6 +24,11 @@ namespace Sml
     static const Color COLOR_BLUE        = 0x00'00'FF'FF;
     static const Color COLOR_YELLOW      = 0xFF'FF'00'FF;
 
+    static inline uint8_t getByte(uint32_t number, uint8_t byteNumber)
+    {
+        return (number & (0xFFu << (8u * byteNumber))) >> (8u * byteNumber);
+    }
+
     /**
      * @brief Creates Color from separate color chanels - rgba.
      * 
@@ -34,7 +39,46 @@ namespace Sml
      * 
      * @return Created rgba color. 
      */
-    Color rgbaColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+    static inline Color rgbaColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+    {
+        return ((uint32_t) r << 24u) + ((uint32_t) g << 16u) + ((uint32_t) b << 8u ) + (uint32_t) a;
+    }
+
+    /**
+     * @param color 
+     * @return Color's red chanel. 
+     */
+    static inline uint8_t colorGetR(Color color)
+    {
+        return getByte(color, 3u);
+    }
+
+    /**
+     * @param color 
+     * @return Color's green chanel. 
+     */
+    static inline uint8_t colorGetG(Color color)
+    {
+        return getByte(color, 2u);
+    }
+
+    /**
+     * @param color 
+     * @return Color's blue chanel. 
+     */
+    static inline uint8_t colorGetB(Color color)
+    {
+        return getByte(color, 1u);
+    }
+
+    /**
+     * @param color 
+     * @return Color's alpha chanel. 
+     */
+    static inline uint8_t colorGetA(Color color)
+    {
+        return getByte(color, 0u);
+    }
 
     /**
      * @brief Convert rgba color to normalized floating-point vector.
@@ -43,7 +87,17 @@ namespace Sml
      * 
      * @return Normalized color.
      */
-    Vec4<float> colorToNormalized(Color color);
+    static inline Vec4<float> colorToNormalized(Color color)
+    {
+        Vec4<float> floatColor;
+
+        floatColor.x = static_cast<float>(colorGetR(color)) / 255.f;
+        floatColor.y = static_cast<float>(colorGetG(color)) / 255.f;
+        floatColor.z = static_cast<float>(colorGetB(color)) / 255.f;
+        floatColor.w = static_cast<float>(colorGetA(color)) / 255.f;
+
+        return floatColor;
+    }
 
     /**
      * @brief Convert normalized floating-point vector to rgba color.
@@ -52,7 +106,14 @@ namespace Sml
      * 
      * @return Rgba color.
      */
-    Color colorFromNormalized(const Vec4<float>& normalizedColor);
+    static inline Color colorFromNormalized(const Vec4<float>& normalizedColor)
+    {
+        Vec4<float> color = normalizedColor * 255.f;
+        return rgbaColor(static_cast<uint8_t>(color.x),
+                         static_cast<uint8_t>(color.y),
+                         static_cast<uint8_t>(color.z),
+                         static_cast<uint8_t>(color.w));
+    }
 
     /**
      * @brief Get the System Color object
@@ -60,29 +121,14 @@ namespace Sml
      * @param color 
      * @return System level color. 
      */
-    SDL_Color getSystemColor(Color color);
-
-    /**
-     * @param color 
-     * @return Color's red chanel. 
-     */
-    uint8_t colorGetR(Color color);
-
-    /**
-     * @param color 
-     * @return Color's green chanel. 
-     */
-    uint8_t colorGetG(Color color);
-
-    /**
-     * @param color 
-     * @return Color's blue chanel. 
-     */
-    uint8_t colorGetB(Color color);
-
-    /**
-     * @param color 
-     * @return Color's alpha chanel. 
-     */
-    uint8_t colorGetA(Color color);
+    static inline SDL_Color getSystemColor(Color color)
+    {
+        SDL_Color sysColor;
+        sysColor.r = colorGetR(color);
+        sysColor.g = colorGetG(color);
+        sysColor.b = colorGetB(color);
+        sysColor.a = colorGetA(color);
+        
+        return sysColor;
+    }
 }

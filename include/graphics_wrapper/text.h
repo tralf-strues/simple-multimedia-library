@@ -35,10 +35,10 @@ namespace Sml
 
         Vec2<int32_t> estimateTextDimensions(const char* text) const;
 
-        void load(Renderer* renderer);
+        void load();
         void destroy();
 
-        void render(Renderer* renderer, const Vec2<int32_t>& pos) const;
+        void render(const Vec2<int32_t>& pos) const;
 
         const Font& getFont() const;
         Color getColor() const;

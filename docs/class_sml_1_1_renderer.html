@@ -87,6 +87,8 @@ $(document).ready(function(){initNavTree('class_sml_1_1_renderer.html',''); init
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="class_sml_1_1_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Sml::Renderer Class Reference</div></div>
 </div><!--header-->
@@ -105,9 +107,6 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a03f44403b0458380ab0360e58e8969d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a03f44403b0458380ab0360e58e8969d3">Renderer</a> (<a class="el" href="class_sml_1_1_window.html">Window</a> &amp;window)</td></tr>
-<tr class="memdesc:a03f44403b0458380ab0360e58e8969d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_sml_1_1_renderer.html">Renderer</a> object.  <a href="class_sml_1_1_renderer.html#a03f44403b0458380ab0360e58e8969d3">More...</a><br /></td></tr>
-<tr class="separator:a03f44403b0458380ab0360e58e8969d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad43e3819fc7b9850c86c418a2320d986"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#ad43e3819fc7b9850c86c418a2320d986">~Renderer</a> ()</td></tr>
 <tr class="memdesc:ad43e3819fc7b9850c86c418a2320d986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_sml_1_1_renderer.html">Renderer</a> object.  <a href="class_sml_1_1_renderer.html#ad43e3819fc7b9850c86c418a2320d986">More...</a><br /></td></tr>
 <tr class="separator:ad43e3819fc7b9850c86c418a2320d986"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,12 +127,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a287d61ce79690e33c7633fb1d84d431c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac90e40ad52bd2a43e99231c34269055f"><td class="memItemLeft" align="right" valign="top">SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#ac90e40ad52bd2a43e99231c34269055f">getNativeRenderer</a> () const</td></tr>
 <tr class="separator:ac90e40ad52bd2a43e99231c34269055f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40275f7c221d0a3f05fd0445268e9bcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a40275f7c221d0a3f05fd0445268e9bcd">present</a> () const</td></tr>
-<tr class="memdesc:a40275f7c221d0a3f05fd0445268e9bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Present all rendered elements onto the renderer's target window.  <a href="class_sml_1_1_renderer.html#a40275f7c221d0a3f05fd0445268e9bcd">More...</a><br /></td></tr>
-<tr class="separator:a40275f7c221d0a3f05fd0445268e9bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26dfd5ed8084b051d1abea88fae78ce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a26dfd5ed8084b051d1abea88fae78ce8">present</a> ()</td></tr>
+<tr class="memdesc:a26dfd5ed8084b051d1abea88fae78ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Present all rendered elements onto the renderer's target.  <a href="class_sml_1_1_renderer.html#a26dfd5ed8084b051d1abea88fae78ce8">More...</a><br /></td></tr>
+<tr class="separator:a26dfd5ed8084b051d1abea88fae78ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0514861541da7ceb1a016e392b9c2809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a0514861541da7ceb1a016e392b9c2809">clear</a> ()</td></tr>
 <tr class="memdesc:a0514861541da7ceb1a016e392b9c2809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear renderer's target with current rendering color.  <a href="class_sml_1_1_renderer.html#a0514861541da7ceb1a016e392b9c2809">More...</a><br /></td></tr>
 <tr class="separator:a0514861541da7ceb1a016e392b9c2809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac44d5ff05b935530c4a051996810fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#aaac44d5ff05b935530c4a051996810fd">pushTarget</a> ()</td></tr>
+<tr class="memdesc:aaac44d5ff05b935530c4a051996810fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push current rendering target to stack.  <a href="class_sml_1_1_renderer.html#aaac44d5ff05b935530c4a051996810fd">More...</a><br /></td></tr>
+<tr class="separator:aaac44d5ff05b935530c4a051996810fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac746f48dc670de0f440e4dc9f33ce1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d">popTarget</a> ()</td></tr>
+<tr class="memdesc:aac746f48dc670de0f440e4dc9f33ce1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets current rendering target to the one currently on top of stack.  <a href="class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d">More...</a><br /></td></tr>
+<tr class="separator:aac746f48dc670de0f440e4dc9f33ce1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f22dbb3ecd0b0569d38be3eb0ae656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656">setTarget</a> (<a class="el" href="class_sml_1_1_texture.html">Texture</a> *targetTexture)</td></tr>
 <tr class="memdesc:a98f22dbb3ecd0b0569d38be3eb0ae656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set rendering target.  <a href="class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656">More...</a><br /></td></tr>
 <tr class="separator:a98f22dbb3ecd0b0569d38be3eb0ae656"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,12 +149,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a90f7914c412995a914a3c4910bb819be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a2bdb2c13cc291e381a073f2701609a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a1a2bdb2c13cc291e381a073f2701609a">getTargetHeight</a> () const</td></tr>
 <tr class="separator:a1a2bdb2c13cc291e381a073f2701609a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8971ac3cd5875b7ae90880e8466b9396"><td class="memItemLeft" align="right" valign="top">Color *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a8971ac3cd5875b7ae90880e8466b9396">readTargetPixels</a> () const</td></tr>
-<tr class="memdesc:a8971ac3cd5875b7ae90880e8466b9396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a pixel buffer and read pixels from the current target to it.  <a href="class_sml_1_1_renderer.html#a8971ac3cd5875b7ae90880e8466b9396">More...</a><br /></td></tr>
-<tr class="separator:a8971ac3cd5875b7ae90880e8466b9396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab5597614a343b1850e877befd27ec99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#aab5597614a343b1850e877befd27ec99">readTargetPixelsTo</a> (Color *dst) const</td></tr>
-<tr class="memdesc:aab5597614a343b1850e877befd27ec99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read pixels from the current target to dst.  <a href="class_sml_1_1_renderer.html#aab5597614a343b1850e877befd27ec99">More...</a><br /></td></tr>
-<tr class="separator:aab5597614a343b1850e877befd27ec99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a013a99899eeb376990e9812b14c612ad"><td class="memItemLeft" align="right" valign="top">Color *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a013a99899eeb376990e9812b14c612ad">readTargetPixels</a> (const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *targetRegion=nullptr) const</td></tr>
+<tr class="memdesc:a013a99899eeb376990e9812b14c612ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a pixel buffer and read pixels from the current target to it.  <a href="class_sml_1_1_renderer.html#a013a99899eeb376990e9812b14c612ad">More...</a><br /></td></tr>
+<tr class="separator:a013a99899eeb376990e9812b14c612ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affbd75750b3807aa5e10a38bd26fa44b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#affbd75750b3807aa5e10a38bd26fa44b">readTargetPixelsTo</a> (Color *dst, const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *targetRegion=nullptr) const</td></tr>
+<tr class="memdesc:affbd75750b3807aa5e10a38bd26fa44b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read pixels from the current target to dst.  <a href="class_sml_1_1_renderer.html#affbd75750b3807aa5e10a38bd26fa44b">More...</a><br /></td></tr>
+<tr class="separator:affbd75750b3807aa5e10a38bd26fa44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a336fed95ac317484052fb6fa543e12e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a336fed95ac317484052fb6fa543e12e0">updateTargetPixels</a> (const Color *src, const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *targetRegion=nullptr)</td></tr>
+<tr class="memdesc:a336fed95ac317484052fb6fa543e12e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the target surface's region.  <a href="class_sml_1_1_renderer.html#a336fed95ac317484052fb6fa543e12e0">More...</a><br /></td></tr>
+<tr class="separator:a336fed95ac317484052fb6fa543e12e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0db76f0a74e6ea422a01433038891d4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a0db76f0a74e6ea422a01433038891d4f">setClipRegion</a> (const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; &amp;clipRegion) const</td></tr>
 <tr class="memdesc:a0db76f0a74e6ea422a01433038891d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set rectangular clip region for the rendering target. Outside this region nothing will be rendered.  <a href="class_sml_1_1_renderer.html#a0db76f0a74e6ea422a01433038891d4f">More...</a><br /></td></tr>
 <tr class="separator:a0db76f0a74e6ea422a01433038891d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,10 +176,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f5b7c65bd82ad26a6dbd645e82b1061"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a3f5b7c65bd82ad26a6dbd645e82b1061">renderTexture</a> (const <a class="el" href="class_sml_1_1_texture.html">Texture</a> &amp;texture, const <a class="el" href="struct_sml_1_1_vec2.html">Vec2</a>&lt; int32_t &gt; &amp;pos)</td></tr>
 <tr class="memdesc:a3f5b7c65bd82ad26a6dbd645e82b1061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render texture to the current rendering target at position pos.  <a href="class_sml_1_1_renderer.html#a3f5b7c65bd82ad26a6dbd645e82b1061">More...</a><br /></td></tr>
 <tr class="separator:a3f5b7c65bd82ad26a6dbd645e82b1061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a49aedf3913092d3a5604dbcc6a7c2fb3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a49aedf3913092d3a5604dbcc6a7c2fb3">init</a> (<a class="el" href="class_sml_1_1_window.html">Window</a> *window)</td></tr>
+<tr class="memdesc:a49aedf3913092d3a5604dbcc6a7c2fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="class_sml_1_1_renderer.html">Renderer</a> with the specified window.  <a href="class_sml_1_1_renderer.html#a49aedf3913092d3a5604dbcc6a7c2fb3">More...</a><br /></td></tr>
+<tr class="separator:a49aedf3913092d3a5604dbcc6a7c2fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5f7b5f873ea107c9f599360ac3730a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_sml_1_1_renderer.html">Renderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a0a5f7b5f873ea107c9f599360ac3730a">getInstance</a> ()</td></tr>
+<tr class="separator:a0a5f7b5f873ea107c9f599360ac3730a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace84247928f126baae582a6b4fea5751"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#ace84247928f126baae582a6b4fea5751">isInitialized</a> ()</td></tr>
+<tr class="separator:ace84247928f126baae582a6b4fea5751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:abed29a6a14f6de60928722a11f2f0ddc"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="class_sml_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#abed29a6a14f6de60928722a11f2f0ddc">WINDOW_TARGET</a> = nullptr</td></tr>
+<tr class="separator:abed29a6a14f6de60928722a11f2f0ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00019">19</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00021">21</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a03410a5433ff529ab998fe248f86ac8b" name="a03410a5433ff529ab998fe248f86ac8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03410a5433ff529ab998fe248f86ac8b">&#9670;&nbsp;</a></span>BlendMode</h2>
@@ -193,7 +216,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00028">28</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00030">30</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
 
 </div>
 </div>
@@ -209,39 +232,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00022">22</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00024">24</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a03f44403b0458380ab0360e58e8969d3" name="a03f44403b0458380ab0360e58e8969d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03f44403b0458380ab0360e58e8969d3">&#9670;&nbsp;</a></span>Renderer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Sml::Renderer::Renderer </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_sml_1_1_window.html">Window</a> &amp;&#160;</td>
-          <td class="paramname"><em>window</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a new <a class="el" href="class_sml_1_1_renderer.html">Renderer</a> object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">window</td><td><a class="el" href="class_sml_1_1_renderer.html">Renderer</a>'s target window. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00026">26</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
-
-</div>
-</div>
 <a id="ad43e3819fc7b9850c86c418a2320d986" name="ad43e3819fc7b9850c86c418a2320d986"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad43e3819fc7b9850c86c418a2320d986">&#9670;&nbsp;</a></span>~Renderer()</h2>
 
@@ -259,7 +254,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destroy the <a class="el" href="class_sml_1_1_renderer.html">Renderer</a> object. </p>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00039">39</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00059">59</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +276,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Clear renderer's target with current rendering color. </p>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00113">113</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00146">146</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +296,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Current blending mode. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00058">58</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00081">81</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -321,7 +316,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Rendering color. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00044">44</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00067">67</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -343,7 +338,35 @@ Public Member Functions</h2></td></tr>
 <p>Get renderer's error status, which is represented as bit-mask of all possible Error codes. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_renderer.html">Renderer</a>'s error status. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00088">88</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00111">111</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0a5f7b5f873ea107c9f599360ac3730a" name="a0a5f7b5f873ea107c9f599360ac3730a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5f7b5f873ea107c9f599360ac3730a">&#9670;&nbsp;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sml_1_1_renderer.html">Renderer</a> &amp; Sml::Renderer::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_renderer.html">Renderer</a> instance. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00031">31</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -363,7 +386,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_renderer.html">Renderer</a>'s native renderer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00098">98</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00121">121</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -383,9 +406,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get rendering target. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_texture.html">Texture</a> being the current rendering target, or nullptr, if the current rendering target is window. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_texture.html">Texture</a> being the current rendering target, or WINDOW_TARGET, if the current rendering target is window. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00132">132</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00183">183</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -405,7 +428,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The current target's height. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00150">150</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00193">193</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -425,7 +448,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The current target's width. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00137">137</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00188">188</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -443,15 +466,102 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_renderer.html">Renderer</a>'s target window. <br  />
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_renderer.html">Renderer</a>'s current window. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00093">93</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00116">116</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a40275f7c221d0a3f05fd0445268e9bcd" name="a40275f7c221d0a3f05fd0445268e9bcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40275f7c221d0a3f05fd0445268e9bcd">&#9670;&nbsp;</a></span>present()</h2>
+<a id="a49aedf3913092d3a5604dbcc6a7c2fb3" name="a49aedf3913092d3a5604dbcc6a7c2fb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49aedf3913092d3a5604dbcc6a7c2fb3">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Renderer::init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sml_1_1_window.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes <a class="el" href="class_sml_1_1_renderer.html">Renderer</a> with the specified window. </p>
+<dl class="section note"><dt>Note</dt><dd>Supposed to be called once. All following calls will do nothing.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00017">17</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ace84247928f126baae582a6b4fea5751" name="ace84247928f126baae582a6b4fea5751"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace84247928f126baae582a6b4fea5751">&#9670;&nbsp;</a></span>isInitialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Sml::Renderer::isInitialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Whether or not <a class="el" href="class_sml_1_1_renderer.html#a49aedf3913092d3a5604dbcc6a7c2fb3" title="Initializes Renderer with the specified window.">Renderer::init()</a> has been previously called. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00036">36</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aac746f48dc670de0f440e4dc9f33ce1d" name="aac746f48dc670de0f440e4dc9f33ce1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac746f48dc670de0f440e4dc9f33ce1d">&#9670;&nbsp;</a></span>popTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Renderer::popTarget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets current rendering target to the one currently on top of stack. </p>
+<p >Supposed to be used in conjunction with <a class="el" href="class_sml_1_1_renderer.html#aaac44d5ff05b935530c4a051996810fd">pushTarget()</a> function. </p>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00166">166</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a26dfd5ed8084b051d1abea88fae78ce8" name="a26dfd5ed8084b051d1abea88fae78ce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26dfd5ed8084b051d1abea88fae78ce8">&#9670;&nbsp;</a></span>present()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -460,19 +570,41 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Sml::Renderer::present </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Present all rendered elements onto the renderer's target window. </p>
+<p>Present all rendered elements onto the renderer's target. </p>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00108">108</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00131">131</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a8971ac3cd5875b7ae90880e8466b9396" name="a8971ac3cd5875b7ae90880e8466b9396"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8971ac3cd5875b7ae90880e8466b9396">&#9670;&nbsp;</a></span>readTargetPixels()</h2>
+<a id="aaac44d5ff05b935530c4a051996810fd" name="aaac44d5ff05b935530c4a051996810fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac44d5ff05b935530c4a051996810fd">&#9670;&nbsp;</a></span>pushTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Renderer::pushTarget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Push current rendering target to stack. </p>
+<p >Supposed to be used in conjunction with <a class="el" href="class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d">popTarget()</a> function. Useful if one needs to save current rendering target before switching to then simply reset target to the previous one using <a class="el" href="class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d">popTarget()</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00161">161</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a013a99899eeb376990e9812b14c612ad" name="a013a99899eeb376990e9812b14c612ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a013a99899eeb376990e9812b14c612ad">&#9670;&nbsp;</a></span>readTargetPixels()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,7 +612,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Color * Sml::Renderer::readTargetPixels </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *&#160;</td>
+          <td class="paramname"><em>targetRegion</em> = <code>nullptr</code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -488,14 +621,20 @@ Public Member Functions</h2></td></tr>
 
 <p>Allocate a pixel buffer and read pixels from the current target to it. </p>
 <dl class="section warning"><dt>Warning</dt><dd>The buffer must be freed after usage!</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetRegion</td><td>If nullptr reads the entire surface.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>Copy of the target's pixel buffer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00162">162</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00198">198</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aab5597614a343b1850e877befd27ec99" name="aab5597614a343b1850e877befd27ec99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab5597614a343b1850e877befd27ec99">&#9670;&nbsp;</a></span>readTargetPixelsTo()</h2>
+<a id="affbd75750b3807aa5e10a38bd26fa44b" name="affbd75750b3807aa5e10a38bd26fa44b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affbd75750b3807aa5e10a38bd26fa44b">&#9670;&nbsp;</a></span>readTargetPixelsTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -504,8 +643,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Sml::Renderer::readTargetPixelsTo </td>
           <td>(</td>
           <td class="paramtype">Color *&#160;</td>
-          <td class="paramname"><em>dst</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *&#160;</td>
+          <td class="paramname"><em>targetRegion</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -515,11 +664,12 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dst</td><td>Pixel buffer to read to. </td></tr>
+    <tr><td class="paramname">targetRegion</td><td>If nullptr reads the entire surface. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00182">182</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00217">217</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -559,7 +709,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00204">204</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00258">258</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -588,7 +738,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00199">199</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00253">253</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -634,7 +784,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00209">209</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00263">263</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -673,7 +823,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00234">234</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00288">288</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -694,7 +844,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Disable the current clip region, if any was set using setClipRegion. </p>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00194">194</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00248">248</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -722,7 +872,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00063">63</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00086">86</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -750,7 +900,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00187">187</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00241">241</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -778,7 +928,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00049">49</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00072">72</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -801,12 +951,76 @@ Public Member Functions</h2></td></tr>
 <p>Set rendering target. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targetTexture</td><td>If nullptr, then set render target back to window. </td></tr>
+    <tr><td class="paramname">targetTexture</td><td>If WINDOW_TARGET, then set render target back to window. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00118">118</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00176">176</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a336fed95ac317484052fb6fa543e12e0" name="a336fed95ac317484052fb6fa543e12e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336fed95ac317484052fb6fa543e12e0">&#9670;&nbsp;</a></span>updateTargetPixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Renderer::updateTargetPixels </td>
+          <td>(</td>
+          <td class="paramtype">const Color *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_sml_1_1_rectangle.html">Rectangle</a>&lt; int32_t &gt; *&#160;</td>
+          <td class="paramname"><em>targetRegion</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the target surface's region. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td></td></tr>
+    <tr><td class="paramname">region</td><td>If nullptr update the entire surface. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00234">234</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abed29a6a14f6de60928722a11f2f0ddc" name="abed29a6a14f6de60928722a11f2f0ddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abed29a6a14f6de60928722a11f2f0ddc">&#9670;&nbsp;</a></span>WINDOW_TARGET</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="class_sml_1_1_texture.html">Texture</a>* Sml::Renderer::WINDOW_TARGET = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="renderer_8h_source.html#l00035">35</a> of file <a class="el" href="renderer_8h_source.html">renderer.h</a>.</p>
 
 </div>
 </div>

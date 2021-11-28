@@ -15,19 +15,13 @@ namespace Sml
     //------------------------------------------------------------------------------
     // Texture
     //------------------------------------------------------------------------------
-    Texture::Texture(Renderer* renderer)
-        : m_Renderer(renderer) {}
-
-    Texture::Texture(Renderer* renderer, size_t width, size_t height)
-        : m_Width(width),
-        m_Height(height),
-        m_Renderer(renderer),
-        m_NativeTexture(nullptr) 
+    Texture::Texture(size_t width, size_t height)
+        : m_Width(width), m_Height(height), m_NativeTexture(nullptr) 
     {
         assert(m_Width);
         assert(m_Height);
 
-        m_NativeTexture = SDL_CreateTexture(m_Renderer->getNativeRenderer(),
+        m_NativeTexture = SDL_CreateTexture(Renderer::getInstance().getNativeRenderer(),
                                             SDL_PIXELFORMAT_RGBA8888, 
                                             SDL_TEXTUREACCESS_TARGET,
                                             m_Width, m_Height);
@@ -52,60 +46,79 @@ namespace Sml
         return m_Height;
     }
 
-    Renderer* Texture::getRenderer() const
-    {
-        return m_Renderer;
-    }
-
     SDL_Texture* Texture::getNativeTexture() const
     {
         return m_NativeTexture;
     }
 
-    Color* Texture::readPixels() const
+    Color* Texture::readPixels(const Rectangle<int32_t>* region) const
     {
-        if (getWidth() <= 0 || getHeight() <= 0)
+        Rectangle<int32_t> realRegion = (region != nullptr) ?
+                                        *region :
+                                        Rectangle<int32_t>{{0, 0},
+                                                           static_cast<int32_t>(getWidth()),
+                                                           static_cast<int32_t>(getHeight())};
+
+        if (realRegion.width <= 0 || realRegion.height <= 0)
         {
             return nullptr;
         }
 
-        Color* pixels = new Color[getWidth() * getHeight()];
+        Color* pixels = new Color[realRegion.width * realRegion.height];
         readPixelsTo(pixels);
 
         return pixels;
     }
 
-    void Texture::readPixelsTo(Color* dst) const
+    void Texture::readPixelsTo(Color* dst, const Rectangle<int32_t>* region) const
     {
         assert(dst);
 
-        SDL_Texture* prevTarget = SDL_GetRenderTarget(m_Renderer->getNativeRenderer());
+        SDL_Rect rect;
+        if (region != nullptr)
+        {
+            rect = toNativeRectangle(*region);
+        }
 
-        SDL_SetRenderTarget(m_Renderer->getNativeRenderer(), m_NativeTexture);
-        SDL_RenderReadPixels(m_Renderer->getNativeRenderer(), NULL, 0, dst, m_Width * sizeof(Color));
-        SDL_SetRenderTarget(m_Renderer->getNativeRenderer(), prevTarget);
+        SDL_Texture* prevTarget = SDL_GetRenderTarget(Renderer::getInstance().getNativeRenderer());
+
+        SDL_SetRenderTarget(Renderer::getInstance().getNativeRenderer(), m_NativeTexture);
+
+        SDL_RenderReadPixels(Renderer::getInstance().getNativeRenderer(),
+                             region == nullptr ? nullptr : &rect,
+                             0,
+                             dst,
+                             (region == nullptr ? static_cast<int32_t>(m_Width) : rect.w) * sizeof(Color));
+        
+        SDL_SetRenderTarget(Renderer::getInstance().getNativeRenderer(), prevTarget);
     }
 
-    void Texture::updatePixels(const Color* src)
+    void Texture::updatePixels(const Color* src, const Rectangle<int32_t>* region)
     {
         assert(src);
 
+        SDL_Rect rect;
+        if (region != nullptr)
+        {
+            rect = toNativeRectangle(*region);
+        }
+
         SDL_UpdateTexture(getNativeTexture(),
-                          nullptr,
+                          region == nullptr ? nullptr : &rect,
                           static_cast<const void*>(src),
-                          getWidth() * sizeof(Color));
+                          (region == nullptr ? static_cast<int32_t>(m_Width) : rect.w) * sizeof(Color));
     }
 
     void Texture::copyTo(Texture* target,
                          const Rectangle<int32_t>* targetRegion,
                          const Rectangle<int32_t>* sourceRegion) const
     {
-        Texture* savedTarget = m_Renderer->getTarget();
-        m_Renderer->setTarget(target);
+        Texture* savedTarget = Renderer::getInstance().getTarget();
+        Renderer::getInstance().setTarget(target);
 
-        renderTexture(m_Renderer, *this, targetRegion, sourceRegion);
+        renderTexture(*this, targetRegion, sourceRegion);
 
-        m_Renderer->setTarget(savedTarget);
+        Renderer::getInstance().setTarget(savedTarget);
     }
 
     bool Texture::writeToBMP(const char* filename) const
@@ -158,7 +171,7 @@ namespace Sml
             return false;
         }
 
-        SDL_Texture* texture = SDL_CreateTextureFromSurface(m_Renderer->getNativeRenderer(), surface);
+        SDL_Texture* texture = SDL_CreateTextureFromSurface(Renderer::getInstance().getNativeRenderer(), surface);
         if (texture == nullptr)
         {
             SDL_FreeSurface(surface);
@@ -182,15 +195,11 @@ namespace Sml
     //------------------------------------------------------------------------------
     // BufferedTexture
     //------------------------------------------------------------------------------
-    BufferedTexture::BufferedTexture(Renderer* renderer, size_t width, size_t height)
-        : m_Texture(renderer, width, height),
-        m_Buffer(new Color[width * height])
-    {
-    }
+    BufferedTexture::BufferedTexture(size_t width, size_t height)
+        : m_Texture(width, height), m_Buffer(new Color[width * height]) { }
 
     BufferedTexture::BufferedTexture(Texture& texture)
-        : m_Texture(texture),
-        m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])
+        : m_Texture(texture), m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])
     {
         m_Texture.readPixelsTo(m_Buffer);
     }

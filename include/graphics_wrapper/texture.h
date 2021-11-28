@@ -16,8 +16,6 @@
 
 namespace Sml
 {
-    class Renderer;
-
     class Texture
     {
     public:
@@ -25,18 +23,16 @@ namespace Sml
 
     public:
         Texture() = default;
-        Texture(Renderer* renderer);
-        Texture(Renderer* renderer, size_t width, size_t height);
+        Texture(size_t width, size_t height);
         ~Texture();
 
-        size_t       getWidth()               const;
-        size_t       getHeight()              const;
-        Renderer*    getRenderer()            const;
-        SDL_Texture* getNativeTexture()       const;
+        size_t       getWidth()         const;
+        size_t       getHeight()        const;
+        SDL_Texture* getNativeTexture() const;
         
-        Color*       readPixels()             const;
-        void         readPixelsTo(Color* dst) const;
-        void         updatePixels(const Color* src);
+        Color*       readPixels(const Rectangle<int32_t>* region = nullptr) const;
+        void         readPixelsTo(Color* dst, const Rectangle<int32_t>* region = nullptr) const;
+        void         updatePixels(const Color* src, const Rectangle<int32_t>* region = nullptr);
 
         /**
          * @brief Copies the sourceRegion of this Texture to the targetRegion of the target.
@@ -57,14 +53,13 @@ namespace Sml
         size_t        m_Width         = 0;
         size_t        m_Height        = 0;
 
-        Renderer*     m_Renderer      = 0;
         SDL_Texture*  m_NativeTexture = 0;
     };
 
     class BufferedTexture
     {
     public:
-        BufferedTexture(Renderer* renderer, size_t width, size_t height);
+        BufferedTexture(size_t width, size_t height);
         BufferedTexture(Texture& texture);
         ~BufferedTexture();
 

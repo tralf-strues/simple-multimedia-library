@@ -26,7 +26,7 @@ var files_dup =
       [ "Sml::SystemEventManager", "class_sml_1_1_system_event_manager.html", "class_sml_1_1_system_event_manager" ]
     ] ],
     [ "system_events.h", "system__events_8h.html", "system__events_8h" ],
-    [ "color.h", "color_8h.html", "color_8h" ],
+    [ "color.h", "color_8h.html", null ],
     [ "primitives.h", "primitives_8h.html", "primitives_8h" ],
     [ "renderer.h", "renderer_8h.html", "renderer_8h" ],
     [ "text.h", "text_8h.html", [
@@ -38,6 +38,7 @@ var files_dup =
       [ "Sml::BufferedTexture", "class_sml_1_1_buffered_texture.html", "class_sml_1_1_buffered_texture" ]
     ] ],
     [ "window.h", "window_8h.html", "window_8h" ],
+    [ "log.h", "log_8h.html", null ],
     [ "blur.h", "blur_8h.html", "blur_8h" ],
     [ "float_compare.h", "float__compare_8h.html", null ],
     [ "geometry.h", "geometry_8h.html", null ],
@@ -53,6 +54,7 @@ var files_dup =
     [ "sml_containers.h", "sml__containers_8h.html", null ],
     [ "sml_events.h", "sml__events_8h.html", null ],
     [ "sml_graphics_wrapper.h", "sml__graphics__wrapper_8h.html", null ],
+    [ "sml_log.h", "sml__log_8h.html", null ],
     [ "sml_math.h", "sml__math_8h.html", null ],
     [ "sml_utils.h", "sml__utils_8h.html", null ],
     [ "bit.h", "bit_8h.html", null ],
@@ -65,7 +67,7 @@ var files_dup =
     [ "listener_notifier.cpp", "listener__notifier_8cpp.html", null ],
     [ "mouse.cpp", "mouse_8cpp.html", null ],
     [ "system_event_manager.cpp", "system__event__manager_8cpp.html", null ],
-    [ "color.cpp", "color_8cpp.html", "color_8cpp" ],
+    [ "color.cpp", "color_8cpp.html", null ],
     [ "primitives.cpp", "primitives_8cpp.html", null ],
     [ "renderer.cpp", "renderer_8cpp.html", "renderer_8cpp" ],
     [ "text.cpp", "text_8cpp.html", null ],
@@ -76,6 +78,7 @@ var files_dup =
     [ "geometry.cpp", "geometry_8cpp.html", null ],
     [ "mat4.cpp", "mat4_8cpp.html", "mat4_8cpp" ],
     [ "ray.cpp", "ray_8cpp.html", null ],
+    [ "rectangle.cpp", "rectangle_8cpp.html", null ],
     [ "solve_equation.cpp", "solve__equation_8cpp.html", null ],
     [ "id.cpp", "id_8cpp.html", null ],
     [ "random.cpp", "random_8cpp.html", null ],

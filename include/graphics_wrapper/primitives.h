@@ -24,9 +24,9 @@ namespace Sml
         Vec2<float> direction;
     };
 
-    void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect, uint8_t thickness = 1);
-    void renderFilledRect(Renderer* renderer, const Rectangle<int32_t>& rect);
-    void renderCircle(Renderer* renderer, const Circle& circle);
-    void renderFilledCircle(Renderer* renderer, const Circle& circle);
-    void renderInfLine(Renderer* renderer, const InfLine& infLine);
+    void renderRect(const Rectangle<int32_t>& rect, uint8_t thickness = 1);
+    void renderFilledRect(const Rectangle<int32_t>& rect);
+    void renderCircle(const Circle& circle);
+    void renderFilledCircle(const Circle& circle);
+    void renderInfLine(const InfLine& infLine);
 }

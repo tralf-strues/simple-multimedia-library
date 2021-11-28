@@ -1,6 +1,5 @@
 var class_sml_1_1_renderer =
 [
-    [ "Renderer", "class_sml_1_1_renderer.html#a03f44403b0458380ab0360e58e8969d3", null ],
     [ "~Renderer", "class_sml_1_1_renderer.html#ad43e3819fc7b9850c86c418a2320d986", null ],
     [ "clear", "class_sml_1_1_renderer.html#a0514861541da7ceb1a016e392b9c2809", null ],
     [ "getBlendMode", "class_sml_1_1_renderer.html#a11968549a3bb54e52c5ea8aab3848e3f", null ],
@@ -11,9 +10,11 @@ var class_sml_1_1_renderer =
     [ "getTargetHeight", "class_sml_1_1_renderer.html#a1a2bdb2c13cc291e381a073f2701609a", null ],
     [ "getTargetWidth", "class_sml_1_1_renderer.html#a90f7914c412995a914a3c4910bb819be", null ],
     [ "getWindow", "class_sml_1_1_renderer.html#a287d61ce79690e33c7633fb1d84d431c", null ],
-    [ "present", "class_sml_1_1_renderer.html#a40275f7c221d0a3f05fd0445268e9bcd", null ],
-    [ "readTargetPixels", "class_sml_1_1_renderer.html#a8971ac3cd5875b7ae90880e8466b9396", null ],
-    [ "readTargetPixelsTo", "class_sml_1_1_renderer.html#aab5597614a343b1850e877befd27ec99", null ],
+    [ "popTarget", "class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d", null ],
+    [ "present", "class_sml_1_1_renderer.html#a26dfd5ed8084b051d1abea88fae78ce8", null ],
+    [ "pushTarget", "class_sml_1_1_renderer.html#aaac44d5ff05b935530c4a051996810fd", null ],
+    [ "readTargetPixels", "class_sml_1_1_renderer.html#a013a99899eeb376990e9812b14c612ad", null ],
+    [ "readTargetPixelsTo", "class_sml_1_1_renderer.html#affbd75750b3807aa5e10a38bd26fa44b", null ],
     [ "renderLine", "class_sml_1_1_renderer.html#abf8477ae68f039f4f3daa26ffcb5ef1d", null ],
     [ "renderPoint", "class_sml_1_1_renderer.html#a47f0aac56818e510eb0e0104dd2d75e4", null ],
     [ "renderTexture", "class_sml_1_1_renderer.html#a471263882fd865e5cfa92591b55214c4", null ],
@@ -22,5 +23,6 @@ var class_sml_1_1_renderer =
     [ "setBlendMode", "class_sml_1_1_renderer.html#a3da4c458a020bf183886c0e3f0224812", null ],
     [ "setClipRegion", "class_sml_1_1_renderer.html#a0db76f0a74e6ea422a01433038891d4f", null ],
     [ "setColor", "class_sml_1_1_renderer.html#a458487f7e22dc041b0b05a1aa3b9581d", null ],
-    [ "setTarget", "class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656", null ]
+    [ "setTarget", "class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656", null ],
+    [ "updateTargetPixels", "class_sml_1_1_renderer.html#a336fed95ac317484052fb6fa543e12e0", null ]
 ];

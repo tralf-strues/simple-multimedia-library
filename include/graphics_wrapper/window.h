@@ -12,9 +12,12 @@
 #include <stdio.h>
 #include <SDL.h>
 #include "color.h"
+#include "../math/rectangle.h"
 
 namespace Sml
 {
+    class Texture;
+
     static const char* WINDOW_DEFAULT_TITLE = "Untitled";
 
     class Window
@@ -53,6 +56,18 @@ namespace Sml
         size_t getHeight() const;
 
         /**
+         * @return Window's surface texture. 
+         */
+        Texture* getSurface() const;
+
+        /**
+         * @brief Set the window's surface texture
+         * 
+         * @param surface 
+         */
+        void setSurface(Texture* surface);
+
+        /**
          * @return Window's title.
          */
         const char* getTitle() const;
@@ -69,17 +84,28 @@ namespace Sml
          */
         SDL_Window* getNativeWindow() const;
 
-        /**
-         * @return Pixels of the window's surface.
-         */
-        Color* readPixels() const;
+        // /**
+        //  * @param region If nullptr reads the entire surface.
+        //  * 
+        //  * @return Pixels of the window's region surface.
+        //  */
+        // Color* readPixels(const Rectangle<int32_t>* region = nullptr) const;
 
-        /**
-         * @warning The pixel buffer must be of size greater or equal to the size of the window.
-         *
-         * @param dst Pixel buffer to read to.
-         */
-        void readPixelsTo(Color* dst) const;
+        // /**
+        //  * @warning The pixel buffer must be of size greater or equal to the size of the region.
+        //  *
+        //  * @param dst    Pixel buffer to read to.
+        //  * @param region If nullptr reads the entire surface.
+        //  */
+        // void readPixelsTo(Color* dst, const Rectangle<int32_t>* region = nullptr) const;
+
+        // /**
+        //  * @brief Updates the window surface's region 
+        //  * 
+        //  * @param src
+        //  * @param region If nullptr update the entire surface.
+        //  */
+        // void updatePixels(const Color* src, const Rectangle<int32_t>* region = nullptr);
 
         /**
          * @brief Update Window's title.
@@ -106,6 +132,8 @@ namespace Sml
     private:
         size_t      m_Width        = 0;
         size_t      m_Height       = 0;
+        Texture*    m_Surface      = nullptr;
+
         const char* m_Title        = nullptr;
         uint32_t    m_ErrorStatus  = NO_ERROR;
 

@@ -10,7 +10,7 @@
 
 namespace Sml
 {
-    void renderRect(Renderer* renderer, const Rectangle<int32_t>& rect, uint8_t thickness)
+    void renderRect(const Rectangle<int32_t>& rect, uint8_t thickness)
     {
         Vec2<int32_t> upperLeftCorner(rect.pos.x, rect.pos.y);
         Vec2<int32_t> upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
@@ -21,16 +21,16 @@ namespace Sml
         for (int32_t step = 0; static_cast<uint8_t>(step) < thickness; ++step)
         {
             // Top line
-            renderLine(renderer, upperLeftCorner, upperRightCorner);
+            renderLine(upperLeftCorner, upperRightCorner);
 
             // Bottom line
-            renderLine(renderer, bottomLeftCorner, bottomRightCorner);
+            renderLine(bottomLeftCorner, bottomRightCorner);
 
             // Left line
-            renderLine(renderer, upperLeftCorner, bottomLeftCorner);
+            renderLine(upperLeftCorner, bottomLeftCorner);
 
             // Right line
-            renderLine(renderer, upperRightCorner, bottomRightCorner);
+            renderLine(upperRightCorner, bottomRightCorner);
 
             upperLeftCorner   += Vec2<int32_t>{  1,  1 };
             upperRightCorner  += Vec2<int32_t>{ -1,  1 };
@@ -39,16 +39,16 @@ namespace Sml
         }
     }
 
-    void renderFilledRect(Renderer* renderer, const Rectangle<int32_t>& rect)
+    void renderFilledRect(const Rectangle<int32_t>& rect)
     {
         for (int32_t row = 0; row < rect.height; ++row)
         {
-            renderLine(renderer, Vec2<int32_t>{rect.pos.x, rect.pos.y + row}, 
-                                 Vec2<int32_t>{rect.pos.x + rect.width - 1, rect.pos.y + row});
+            renderLine(Vec2<int32_t>{rect.pos.x, rect.pos.y + row}, 
+                       Vec2<int32_t>{rect.pos.x + rect.width - 1, rect.pos.y + row});
         }
     }
 
-    void renderCircle(Renderer* renderer, const Circle& circle)
+    void renderCircle(const Circle& circle)
     {
         int32_t diameter = 2 * circle.radius;
 
@@ -60,14 +60,14 @@ namespace Sml
 
         while (x >= y)
         {
-            renderPoint(renderer, {circle.center.x + x, circle.center.y - y});
-            renderPoint(renderer, {circle.center.x + x, circle.center.y + y});
-            renderPoint(renderer, {circle.center.x - x, circle.center.y - y});
-            renderPoint(renderer, {circle.center.x - x, circle.center.y + y});
-            renderPoint(renderer, {circle.center.x + y, circle.center.y - x});
-            renderPoint(renderer, {circle.center.x + y, circle.center.y + x});
-            renderPoint(renderer, {circle.center.x - y, circle.center.y - x});
-            renderPoint(renderer, {circle.center.x - y, circle.center.y + x});
+            renderPoint({circle.center.x + x, circle.center.y - y});
+            renderPoint({circle.center.x + x, circle.center.y + y});
+            renderPoint({circle.center.x - x, circle.center.y - y});
+            renderPoint({circle.center.x - x, circle.center.y + y});
+            renderPoint({circle.center.x + y, circle.center.y - x});
+            renderPoint({circle.center.x + y, circle.center.y + x});
+            renderPoint({circle.center.x - y, circle.center.y - x});
+            renderPoint({circle.center.x - y, circle.center.y + x});
 
             if (error <= 0)
             {
@@ -85,7 +85,7 @@ namespace Sml
         }
     }
 
-    void renderFilledCircle(Renderer* renderer, const Circle& circle)
+    void renderFilledCircle(const Circle& circle)
     {
         for (int w = 0; w < 2 * circle.radius; w++)
         {
@@ -96,7 +96,7 @@ namespace Sml
 
                 if ((dx * dx + dy * dy) <= (circle.radius * circle.radius))
                 {
-                    renderPoint(renderer, Vec2<int32_t>{circle.center.x + dx, circle.center.y + dy});
+                    renderPoint(Vec2<int32_t>{circle.center.x + dx, circle.center.y + dy});
                 }
             }
         }
@@ -126,10 +126,10 @@ namespace Sml
         return true;
     }
 
-    void renderInfLine(Renderer* renderer, const InfLine& infLine)
+    void renderInfLine(const InfLine& infLine)
     {
-        float width  = renderer->getWindow().getWidth();
-        float height = renderer->getWindow().getHeight();
+        float width  = Renderer::getInstance().getTargetWidth();
+        float height = Renderer::getInstance().getTargetHeight();
 
         InfLine topLine    = {Vec2<float>{0,     0     }, Vec2<float>{1, 0}};
         InfLine bottomLine = {Vec2<float>{0,     height}, Vec2<float>{1, 0}};
@@ -161,7 +161,7 @@ namespace Sml
 
         if (intersectionsCount > 1)
         {
-            renderLine(renderer, intersections[0], intersections[1]);
+            renderLine(intersections[0], intersections[1]);
         }
     }
 }

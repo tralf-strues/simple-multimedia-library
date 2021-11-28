@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <SDL_ttf.h>
 #include "graphics_wrapper/window.h"
+#include "graphics_wrapper/texture.h"
 
 namespace Sml
 {
@@ -59,31 +60,100 @@ namespace Sml
         return m_NativeWindow;
     }
 
-    Color* Window::readPixels() const
+    Texture* Window::getSurface() const
     {
-        if (getWidth() <= 0 || getHeight() <= 0)
-        {
-            return nullptr;
-        }
-
-        Color* pixels = new Color[getWidth() * getHeight()];
-        readPixelsTo(pixels);
-
-        return pixels;
+        return m_Surface;
     }
 
-    void Window::readPixelsTo(Color* dst) const
+    void Window::setSurface(Texture* surface)
     {
-        assert(dst);
-
-        SDL_Surface* surface = SDL_GetWindowSurface(getNativeWindow());
-        if (surface == nullptr)
+        assert(surface);
+        
+        if (m_Surface != nullptr)
         {
-            printf("%s\n", SDL_GetError());
+            delete m_Surface;
         }
 
-        memcpy(dst, surface->pixels, getWidth() * getHeight() * sizeof(Color));
+        m_Surface = surface;
     }
+
+    // Color* Window::readPixels(const Rectangle<int32_t>* region) const
+    // {
+    //     int32_t width  = (region != nullptr) ? region->width  : getWidth();
+    //     int32_t height = (region != nullptr) ? region->height : getHeight();
+
+    //     if (width <= 0 || height <= 0)
+    //     {
+    //         return nullptr;
+    //     }
+
+    //     Color* pixels = new Color[width * height];
+    //     readPixelsTo(pixels, region);
+
+    //     return pixels;
+    // }
+
+    // void Window::readPixelsTo(Color* dst, const Rectangle<int32_t>* region) const
+    // {
+    //     assert(dst);
+
+    //     SDL_Surface* surface = SDL_GetWindowSurface(getNativeWindow());
+    //     if (surface == nullptr)
+    //     {
+    //         printf("%s\n", SDL_GetError());
+    //     }
+
+    //     Rectangle<int32_t> realRegion = (region != nullptr) ?
+    //                                     *region :
+    //                                     Rectangle<int32_t>{{0, 0},
+    //                                                        static_cast<int32_t>(getWidth()),
+    //                                                        static_cast<int32_t>(getHeight())};
+
+    //     if (region != nullptr)
+    //     {
+    //         for (int32_t row = 0; row < realRegion.height; ++row)
+    //         {
+    //             Color*       dstStart = dst + realRegion.width * row;
+    //             const Color* srcStart = static_cast<const Color*>(surface->pixels) +
+    //                                     getWidth() * (realRegion.pos.y + row) + realRegion.pos.x;
+    //             memcpy(dstStart, srcStart, realRegion.width * sizeof(Color));
+    //         }
+    //     }
+    //     else
+    //     {
+    //         memcpy(dst, surface->pixels, getWidth() * getHeight() * sizeof(Color));
+    //     }
+    // }
+
+    // void Window::updatePixels(const Color* src, const Rectangle<int32_t>* region)
+    // {
+    //     SDL_Surface* surface = SDL_GetWindowSurface(getNativeWindow());
+    //     if (surface == nullptr)
+    //     {
+    //         printf("%s\n", SDL_GetError());
+    //     }
+
+    //     Rectangle<int32_t> realRegion = (region != nullptr) ?
+    //                                     *region :
+    //                                     Rectangle<int32_t>{{0, 0},
+    //                                                        static_cast<int32_t>(getWidth()),
+    //                                                        static_cast<int32_t>(getHeight())};
+
+    //     if (region != nullptr)
+    //     {
+    //         for (int32_t row = 0; row < realRegion.height; ++row)
+    //         {
+    //             const Color* srcStart     = src + realRegion.width * row;
+    //             Color*       surfaceStart = static_cast<Color*>(surface->pixels) +
+    //                                         getWidth() * (realRegion.pos.y + row) + realRegion.pos.x;
+    //             memcpy(surfaceStart, srcStart, realRegion.width * sizeof(Color));
+    //         }
+    //     }
+    //     else
+    //     {
+    //         memcpy(surface->pixels, src, getWidth() * getHeight() * sizeof(Color));
+    //     }
+    // }
 
     void Window::updateTitle(const char* title)
     {
@@ -102,10 +172,16 @@ namespace Sml
         assert(width);
         assert(height);
 
-        m_Width  = width;
-        m_Height = height;
+        if (m_Surface != nullptr && (m_Width != width || m_Height != height))
+        {
+            delete m_Surface;
+            m_Surface = new Texture(width, height);
+        }
 
         SDL_SetWindowSize(m_NativeWindow, (int) m_Width, (int) m_Height);
+
+        m_Width  = width;
+        m_Height = height;
     }
 
     void Window::setError(uint32_t error)

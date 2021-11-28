@@ -8,6 +8,9 @@
 
 #pragma once
 
+#include <SDL.h>
+#include "vec2.h"
+
 namespace Sml
 {
     template<typename T>
@@ -17,6 +20,14 @@ namespace Sml
         
         T width;
         T height;
+
+        Rectangle() = default;
+
+        Rectangle(const Vec2<T>& pos, const T& width, const T& height)
+            : pos(pos), width(width), height(height) {}
+
+        Rectangle(const T& posX, const T& posY, const T& width, const T& height)
+            : Rectangle(Vec2<T>{posX, posY}, width, height) {}
     };
 
     template<typename T>
@@ -34,4 +45,6 @@ namespace Sml
         return point.x >= rectangle.pos.x && point.x <= (rectangle.pos.x + rectangle.width) &&
                point.y >= rectangle.pos.y && point.y <= (rectangle.pos.y + rectangle.height);
     }
+
+    SDL_Rect toNativeRectangle(const Rectangle<int32_t>& rectangle);
 }

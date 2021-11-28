@@ -32,5 +32,5 @@ namespace Sml
     };
 
     Kernel* createGaussianBlurKernel(int32_t radius);
-    void applyKernel(const Kernel* kernel, Renderer* renderer, const Rectangle<int32_t>& targetRegion);
+    void applyKernel(const Kernel* kernel, const Rectangle<int32_t>& targetRegion);
 }

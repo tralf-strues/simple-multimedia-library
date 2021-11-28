@@ -7,38 +7,61 @@
  */
 
 #include <assert.h>
+#include "sml_log.h"
 #include "graphics_wrapper/renderer.h"
 
 namespace Sml
 {
-    SDL_Rect toNativeRectangle(const Rectangle<int32_t>& rectangle)
+    Renderer* Renderer::s_Instance;
+
+    void Renderer::init(Window* window)
     {
-        SDL_Rect nativeRectangle;
+        assert(window);
 
-        nativeRectangle.x = rectangle.pos.x;
-        nativeRectangle.y = rectangle.pos.y;
-        nativeRectangle.w = rectangle.width;
-        nativeRectangle.h = rectangle.height;
+        if (s_Instance != nullptr) { return; }
 
-        return nativeRectangle;
+        s_Instance = new Renderer(window);
+
+        s_Instance->m_Window->setSurface(new Texture(s_Instance->m_Window->getWidth(),
+                                                     s_Instance->m_Window->getHeight()));
+
+        s_Instance->setTarget(WINDOW_TARGET);
     }
 
-    Renderer::Renderer(Window& window) : m_Window(window)
+    Renderer& Renderer::getInstance()
     {
-        m_NativeRenderer = SDL_CreateRenderer(m_Window.getNativeWindow(), -1, 
-                                            SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+        return *s_Instance;
+    }
+
+    bool Renderer::isInitialized()
+    {
+        return s_Instance != nullptr;
+    }
+
+    Renderer::Renderer(Window* window) : m_Window(window)
+    {
+        assert(window);
+
+        m_NativeRenderer = SDL_CreateRenderer(m_Window->getNativeWindow(),
+                                              -1, 
+                                              SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
         if (m_NativeRenderer == nullptr)
         {
             setError(Renderer::CREATE_ERROR);
             return;
         }
 
+        m_WindowSpecificNativeRenderers[m_Window] = m_NativeRenderer;
+
         setBlendMode(BlendMode::BLEND);
     }
 
     Renderer::~Renderer()
     {
-        SDL_DestroyRenderer(m_NativeRenderer);
+        for (auto nativeRenderer : m_WindowSpecificNativeRenderers)
+        {
+            SDL_DestroyRenderer(nativeRenderer.second);
+        }
     }
 
     Color Renderer::getColor() const
@@ -80,7 +103,7 @@ namespace Sml
             
             default:
             {
-                assert(!"INVALID BlendMode");
+                LOG_LIB_ERROR("Invalid BlendMode");
             }
         }
     }
@@ -92,7 +115,7 @@ namespace Sml
 
     Window& Renderer::getWindow() const
     {
-        return m_Window;
+        return *m_Window;
     }
 
     SDL_Renderer* Renderer::getNativeRenderer() const
@@ -105,28 +128,56 @@ namespace Sml
         m_ErrorStatus |= error;
     }
 
-    void Renderer::present() const
+    void Renderer::present()
     {
-        SDL_RenderPresent(m_NativeRenderer);
+        if (m_TargetTexture == m_Window->getSurface())
+        {
+            pushTarget();
+
+            SDL_SetRenderTarget(m_NativeRenderer, nullptr);
+            renderTexture(*m_Window->getSurface(), nullptr, nullptr);
+
+            SDL_RenderPresent(m_NativeRenderer);
+
+            popTarget();
+        }
     }
 
     void Renderer::clear()
     {
+        if (m_TargetTexture == m_Window->getSurface())
+        {
+            pushTarget();
+
+            SDL_SetRenderTarget(m_NativeRenderer, nullptr);
+            SDL_RenderClear(m_NativeRenderer);
+
+            popTarget();
+        }
+
         SDL_RenderClear(m_NativeRenderer);
+    }
+
+    void Renderer::pushTarget()
+    {
+        m_TargetStack.push(m_TargetTexture);
+    }
+
+    void Renderer::popTarget()
+    {
+        assert(!m_TargetStack.empty());
+
+        m_TargetTexture = m_TargetStack.top();
+        m_TargetStack.pop();
+
+        setTarget(m_TargetTexture);
     }
 
     void Renderer::setTarget(Texture* targetTexture)
     {
-        m_TargetTexture = targetTexture;
+        m_TargetTexture = (targetTexture == WINDOW_TARGET) ? m_Window->getSurface() : targetTexture;
 
-        if (targetTexture == nullptr)
-        {
-            SDL_SetRenderTarget(m_NativeRenderer, nullptr);
-        }
-        else
-        {
-            SDL_SetRenderTarget(m_NativeRenderer, targetTexture->getNativeTexture());
-        }
+        SDL_SetRenderTarget(m_NativeRenderer, m_TargetTexture->getNativeTexture());
     }
 
     Texture* Renderer::getTarget()
@@ -136,52 +187,55 @@ namespace Sml
 
     size_t Renderer::getTargetWidth() const
     {
-        if (m_TargetTexture == nullptr)
-        {
-            return static_cast<int32_t>(getWindow().getWidth());
-        }
-        else
-        {
-            return static_cast<int32_t>(m_TargetTexture->getWidth());
-        }
+        return static_cast<int32_t>(m_TargetTexture->getWidth());
     }
-
 
     size_t Renderer::getTargetHeight() const
     {
-        if (m_TargetTexture == nullptr)
-        {
-            return static_cast<int32_t>(getWindow().getHeight());
-        }
-        else
-        {
-            return static_cast<int32_t>(m_TargetTexture->getHeight());
-        }
+        return static_cast<int32_t>(m_TargetTexture->getHeight());
     }
 
-    Color* Renderer::readTargetPixels() const
+    Color* Renderer::readTargetPixels(const Rectangle<int32_t>* targetRegion) const
     {
-        if (getTargetWidth() <= 0 || getTargetHeight() <= 0)
+        Rectangle<int32_t> realRegion = (targetRegion != nullptr) ?
+                                        *targetRegion :
+                                        Rectangle<int32_t>{{0, 0},
+                                                           static_cast<int32_t>(getTargetWidth()),
+                                                           static_cast<int32_t>(getTargetHeight())};
+
+        if (realRegion.width <= 0 || realRegion.height <= 0)
         {
             return nullptr;
         }
 
-        Color* pixels = new Color[getTargetWidth() * getTargetHeight()];
-        readTargetPixelsTo(pixels);
+        Color* pixels = new Color[realRegion.width * realRegion.height];
+        readTargetPixelsTo(pixels, targetRegion);
 
         return pixels;
-
-        // if (m_TargetTexture != nullptr)
-        // {
-        //     return m_TargetTexture->readPixels();
-        // }
-
-        // return m_Window.readPixels();
     }
 
-    void Renderer::readTargetPixelsTo(Color* dst) const
+    void Renderer::readTargetPixelsTo(Color* dst, const Rectangle<int32_t>* targetRegion) const
     {
-        SDL_RenderReadPixels(getNativeRenderer(), nullptr, SDL_PIXELFORMAT_RGBA8888, dst, getTargetWidth() * sizeof(Color));
+        assert(dst);
+
+        SDL_Rect rect;
+        if (targetRegion != nullptr)
+        {
+            rect = {targetRegion->pos.x, targetRegion->pos.y, targetRegion->width, targetRegion->height};
+        }
+
+        SDL_RenderReadPixels(getNativeRenderer(),
+                             targetRegion == nullptr ? nullptr : &rect,
+                             SDL_PIXELFORMAT_RGBA8888,
+                             dst,
+                             (targetRegion == nullptr ? getTargetWidth() : rect.w) * sizeof(Color));
+    }
+
+    void Renderer::updateTargetPixels(const Color* src, const Rectangle<int32_t>* targetRegion)
+    {
+        assert(src);
+
+        getTarget()->updatePixels(src, targetRegion);
     }
 
     void Renderer::setClipRegion(const Rectangle<int32_t>& clipRegion) const
@@ -239,26 +293,25 @@ namespace Sml
         renderTexture(texture, &targetRegion, nullptr);
     }
 
-    void renderPoint(Renderer* renderer, const Vec2<int32_t>& pos)
+    void renderPoint(const Vec2<int32_t>& pos)
     {
-        renderer->renderPoint(pos);
+        Renderer::getInstance().renderPoint(pos);
     }
 
-    void renderLine(Renderer* renderer, const Vec2<int32_t>& start, const Vec2<int32_t>& end)
+    void renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end)
     {
-        renderer->renderLine(start, end);
+        Renderer::getInstance().renderLine(start, end);
     }
 
-    void renderTexture(Renderer* renderer,
-                    const Texture& source,
+    void renderTexture(const Texture& source,
                     const Rectangle<int32_t>* targetRegion,
                     const Rectangle<int32_t>* sourceRegion)
     {
-        renderer->renderTexture(source, targetRegion, sourceRegion);
+        Renderer::getInstance().renderTexture(source, targetRegion, sourceRegion);
     }
 
-    void renderTexture(Renderer* renderer, const Texture& texture, const Vec2<int32_t>& pos)
+    void renderTexture(const Texture& texture, const Vec2<int32_t>& pos)
     {
-        renderer->renderTexture(texture, pos);
+        Renderer::getInstance().renderTexture(texture, pos);
     }
 }
