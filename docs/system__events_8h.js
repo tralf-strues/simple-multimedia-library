@@ -10,6 +10,8 @@ var system__events_8h =
     [ "Sml::KeyEvent", "class_sml_1_1_key_event.html", null ],
     [ "Sml::KeyPressedEvent", "class_sml_1_1_key_pressed_event.html", null ],
     [ "Sml::KeyReleasedEvent", "class_sml_1_1_key_released_event.html", null ],
+    [ "Sml::PropertyChangeEvent< T >", "class_sml_1_1_property_change_event.html", null ],
+    [ "Sml::PropertyChangeListener< T >", "class_sml_1_1_property_change_listener.html", null ],
     [ "SystemEventCategory", "system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cd", [
       [ "EVENT_CATEGORY_WINDOW", "system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cdaa9c880b4bf1ec65119c4fab4158df744", null ],
       [ "EVENT_CATEGORY_INPUT", "system__events_8h.html#aabdafb7dc899144e2c73caf83fab91cdaa760c81cffeb394ad00bed762cb13c50", null ],
@@ -25,6 +27,7 @@ var system__events_8h =
       [ "MOUSE_BUTTON_RELEASED", "system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41a0b99e4da6faf1e97a5d4a61a247b4a7f", null ],
       [ "KEY_PRESSED", "system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41aa3738340467f3ec29fd2694885f1bf77", null ],
       [ "KEY_RELEASED", "system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41a16708eff0b9b5c0b85a7384d81c9787f", null ],
+      [ "PROPERTY_CHANGE", "system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41a64aca1cd5d14606de7be61cd68833582", null ],
       [ "SML_EVENT_TYPE_FIRST_UNSPECIFIED", "system__events_8h.html#ac6abad372e55f6e98d8252ac7b983a41aa4c0f509697238d0b24d32d508763984", null ]
     ] ]
 ];

@@ -16,7 +16,11 @@
 
 namespace Sml
 {
-    static const size_t MAX_LISTENED_EVENTS = 3;
+    #define DEFINE_STATIC_LISTENED_EVENT_TYPES(...) \
+        static constexpr std::initializer_list<Sml::EventType> EVENT_TYPES{__VA_ARGS__};
+
+    #define DEFINE_STATIC_LISTENED_EVENT_TYPES_FROM_BASE_CLASS(baseClass) \
+        static constexpr std::initializer_list<Sml::EventType> EVENT_TYPES = baseClass::EVENT_TYPES;
 
     class Listener
     {

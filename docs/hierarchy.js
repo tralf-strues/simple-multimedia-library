@@ -31,7 +31,9 @@ var hierarchy =
     [ "Sml::InfLine", "struct_sml_1_1_inf_line.html", null ],
     [ "Sml::Kernel", "class_sml_1_1_kernel.html", null ],
     [ "List< T >", "class_list.html", null ],
-    [ "Sml::Listener", "class_sml_1_1_listener.html", null ],
+    [ "Sml::Listener", "class_sml_1_1_listener.html", [
+      [ "Sml::PropertyChangeListener< T >", "class_sml_1_1_property_change_listener.html", null ]
+    ] ],
     [ "ListIterator< T >", "class_list_iterator.html", null ],
     [ "Sml::Mat4< T >", "struct_sml_1_1_mat4.html", null ],
     [ "Sml::MouseButtonsState", "class_sml_1_1_mouse_buttons_state.html", null ],

@@ -18,7 +18,6 @@ var files_dup =
     [ "listener_notifier.h", "listener__notifier_8h.html", "listener__notifier_8h" ],
     [ "mouse.h", "mouse_8h.html", "mouse_8h" ],
     [ "observable_property.h", "observable__property_8h.html", [
-      [ "Sml::PropertyChangeEvent< T >", "class_sml_1_1_property_change_event.html", null ],
       [ "Sml::ObservableProperty< T >", "class_sml_1_1_observable_property.html", null ]
     ] ],
     [ "scancode.h", "scancode_8h.html", null ],

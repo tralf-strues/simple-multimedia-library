@@ -9,6 +9,7 @@
 #pragma once
 
 #include "event.h"
+#include "listener_notifier.h"
 #include "mouse.h"
 #include "../utils/bit.h"
 
@@ -29,7 +30,7 @@ namespace Sml
         KEY_RELEASED,
 
         /* Other */
-        // PROPERTY_CHANGE,
+        PROPERTY_CHANGE,
 
         /** Custom event types must not be less than this. */
         SML_EVENT_TYPE_FIRST_UNSPECIFIED = 4096
@@ -222,5 +223,41 @@ namespace Sml
 
         DEFINE_STATIC_EVENT_TYPE(KEY_RELEASED)
         DEFINE_STATIC_EVENT_CATEGORY(KeyEvent::getStaticCategory())
+    };
+
+    //------------------------------------------------------------------------------
+    // Event category [OTHER]
+    //------------------------------------------------------------------------------
+    template<typename T>
+    class PropertyChangeEvent : public Event
+    {
+    public:
+        PropertyChangeEvent(T oldValue, T newValue, EventTarget* target = nullptr)
+            : Event(getStaticType(), getStaticCategory(), target), m_OldValue(oldValue), m_NewValue(newValue) {}
+
+        const T& getOldValue() const { return m_OldValue; }
+        const T& getNewValue() const { return m_NewValue; }
+
+        DEFINE_STATIC_EVENT_TYPE(PROPERTY_CHANGE)
+        DEFINE_STATIC_EVENT_CATEGORY(EVENT_CATEGORY_ANY)
+
+    private:
+        T m_OldValue;
+        T m_NewValue;
+    };
+
+    template<typename T>
+    class PropertyChangeListener : public Listener
+    {
+    public:
+        DEFINE_STATIC_LISTENED_EVENT_TYPES(PropertyChangeEvent<T>::getStaticType())
+
+        virtual void onEvent(Sml::Event* event) override final
+        {
+            onPropertyChange(dynamic_cast<PropertyChangeEvent<T>*>(event));
+            event->consume();
+        }
+
+        virtual void onPropertyChange(PropertyChangeEvent<T>* event) = 0;
     };
 }

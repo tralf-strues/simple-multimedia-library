@@ -27,6 +27,7 @@ var annotated_dup =
       [ "Notifier", "class_sml_1_1_notifier.html", "class_sml_1_1_notifier" ],
       [ "ObservableProperty", "class_sml_1_1_observable_property.html", null ],
       [ "PropertyChangeEvent", "class_sml_1_1_property_change_event.html", null ],
+      [ "PropertyChangeListener", "class_sml_1_1_property_change_listener.html", null ],
       [ "Ray", "struct_sml_1_1_ray.html", null ],
       [ "Rectangle", "struct_sml_1_1_rectangle.html", null ],
       [ "Renderer", "class_sml_1_1_renderer.html", "class_sml_1_1_renderer" ],

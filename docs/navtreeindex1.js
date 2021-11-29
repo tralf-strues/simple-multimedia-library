@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"vec3_8h_source.html":[2,0,27],
+"vec4_8h.html":[2,0,28],
 "vec4_8h_source.html":[2,0,28],
 "viewport_8cpp.html":[2,0,58],
 "viewport_8cpp_source.html":[2,0,58],

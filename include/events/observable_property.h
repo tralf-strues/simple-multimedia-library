@@ -13,18 +13,6 @@
 
 namespace Sml
 {
-    template<typename T>
-    class PropertyChangeEvent : public Event
-    {
-    public:
-        PropertyChangeEvent(T prevValue, T newValue);
-
-    
-
-    private:
-        T m_PrevValue;
-        T m_NewValue;
-    };
 
     template<typename T>
     class ObservableProperty : protected Notifier
