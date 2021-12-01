@@ -82,16 +82,30 @@ namespace Sml
         assert(targetRegion.width  > 0);
         assert(targetRegion.height > 0);
 
-        Color* src = Renderer::getInstance().readTargetPixels(&targetRegion);
-        assert(src);
+        Color* srcPixels = Renderer::getInstance().readTargetPixels(&targetRegion);
+        assert(srcPixels);
 
-        Color* newPixels = new Color[targetRegion.width * targetRegion.height];
+        Color* dstPixels = new Color[targetRegion.width * targetRegion.height];
+
+        applyKernel(kernel, srcPixels, dstPixels, targetRegion.width, targetRegion.height);
+
+        Renderer::getInstance().updateTargetPixels(dstPixels, &targetRegion);
+
+        delete[] srcPixels;
+        delete[] dstPixels;
+    }
+
+    void applyKernel(const Kernel* kernel, const Color* srcPixels, Color* dstPixels, int32_t width, int32_t height)
+    {
+        assert(kernel);
+        assert(srcPixels);
+        assert(dstPixels);
 
         int32_t kernelRadius = kernel->getRadius();
 
-        for (int32_t y = 0; y < targetRegion.height; ++y)
+        for (int32_t y = 0; y < height; ++y)
         {
-            for (int32_t x = 0; x < targetRegion.width; ++x)
+            for (int32_t x = 0; x < width; ++x)
             {
                 Vec4<float> normalizedColor = {0, 0, 0, 0};
 
@@ -103,23 +117,18 @@ namespace Sml
                         int32_t targetX = x + kernelX;
 
                         targetX = std::max(targetX, 0);
-                        targetX = std::min(targetX, targetRegion.width - 1);
+                        targetX = std::min(targetX, width - 1);
 
                         targetY = std::max(targetY, 0);
-                        targetY = std::min(targetY, targetRegion.height - 1);
+                        targetY = std::min(targetY, height - 1);
 
-                        normalizedColor += colorToNormalized(src[targetX + targetY * targetRegion.width]) *
+                        normalizedColor += colorToNormalized(srcPixels[targetX + targetY * width]) *
                                            (*kernel)[kernelY + kernelRadius][kernelX + kernelRadius];
                     }
                 }
                 
-                newPixels[x + y * targetRegion.width] = colorFromNormalized(normalizedColor);
+                dstPixels[x + y * width] = colorFromNormalized(normalizedColor);
             }
         }
-
-        Renderer::getInstance().updateTargetPixels(newPixels, &targetRegion);
-
-        delete[] src;
-        delete[] newPixels;
     }
 }

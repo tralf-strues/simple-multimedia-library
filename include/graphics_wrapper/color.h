@@ -81,6 +81,54 @@ namespace Sml
     }
 
     /**
+     * @brief Sets color's red chanel to r.
+     * 
+     * @param color
+     * @param r
+     * @return New color.
+     */
+    static inline Color colorSetR(Color color, uint8_t r)
+    {
+        return (color & ~(0xFF << 24u)) | ((uint32_t) r << 24u);
+    }
+
+    /**
+     * @brief Sets color's green chanel to g.
+     * 
+     * @param color
+     * @param g
+     * @return New color.
+     */
+    static inline Color colorSetG(Color color, uint8_t g)
+    {
+        return (color & ~(0xFF << 16u)) | ((uint32_t) g << 16u);
+    }
+
+    /**
+     * @brief Sets color's blue chanel to b.
+     * 
+     * @param color
+     * @param b
+     * @return New color.
+     */
+    static inline Color colorSetB(Color color, uint8_t b)
+    {
+        return (color & ~(0xFF << 8u)) | ((uint32_t) b << 8u);
+    }
+
+    /**
+     * @brief Sets color's alpha chanel to a.
+     * 
+     * @param color
+     * @param a
+     * @return New color.
+     */
+    static inline Color colorSetA(Color color, uint8_t a)
+    {
+        return (color & ~(0xFF)) | ((uint32_t) a);
+    }
+
+    /**
      * @brief Convert rgba color to normalized floating-point vector.
      * 
      * @param color
