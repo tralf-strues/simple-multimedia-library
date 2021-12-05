@@ -39,11 +39,11 @@ namespace Sml
         destroy();
     }
 
-    Vec2<int32_t> Text::estimateTextDimensions(const char* text) const
+    Vec2i Text::estimateTextDimensions(const char* text) const
     {
         assert(text);
 
-        Vec2<int32_t> dimensions{0, 0};
+        Vec2i dimensions{0, 0};
         TTF_SizeText(getFont().getNativeFont(), text, &dimensions.x, &dimensions.y);
 
         return dimensions;
@@ -103,7 +103,7 @@ namespace Sml
         }
     }
 
-    void Text::render(const Vec2<int32_t>& pos) const
+    void Text::render(const Vec2i& pos) const
     {
         SDL_Rect renderQuad = {pos.x, pos.y, static_cast<int32_t>(m_Width), static_cast<int32_t>(m_Height)};
         

@@ -48,6 +48,8 @@ var hierarchy =
     [ "Sml::Text", "class_sml_1_1_text.html", null ],
     [ "Sml::Texture", "class_sml_1_1_texture.html", null ],
     [ "Sml::Vec2< T >", "struct_sml_1_1_vec2.html", null ],
+    [ "Sml::Vec2< float >", "struct_sml_1_1_vec2.html", null ],
+    [ "Sml::Vec2< int32_t >", "struct_sml_1_1_vec2.html", null ],
     [ "Sml::Vec3< T >", "struct_sml_1_1_vec3.html", null ],
     [ "Sml::Vec4< T >", "struct_sml_1_1_vec4.html", null ],
     [ "Sml::Viewport", "struct_sml_1_1_viewport.html", null ],

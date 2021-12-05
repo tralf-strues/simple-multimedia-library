@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('vec2_8h_source.html',''); initResizabl
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2</a>(<span class="keyword">const</span> T&amp; x, <span class="keyword">const</span> T&amp; y) : x(x), y(y) {}</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U = <span class="keywordtype">float</span>&gt;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;int32_t&gt;</a>(<a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;U&gt;</a> vector) : x(vector.x), y(vector.y) {}</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_class" href="struct_sml_1_1_vec2.html">Vec2&lt;int32_t&gt;</a>(<a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;U&gt;</a> vector) : x(vector.x), y(vector.y) {}</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2</a>&amp; operator+=(<span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2</a>&amp; second)</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
@@ -255,7 +255,10 @@ $(document).ready(function(){initNavTree('vec2_8h_source.html',''); initResizabl
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">return</span> first.x * second.x + </div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            first.y * second.y;</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>}</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keyword">using</span> Vec2i = Vec2&lt;int32_t&gt;;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keyword">using</span> Vec2f = Vec2&lt;float&gt;;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>}</div>
 <div class="ttc" id="afloat__compare_8h_html"><div class="ttname"><a href="float__compare_8h.html">float_compare.h</a></div></div>
 <div class="ttc" id="astruct_sml_1_1_vec2_html"><div class="ttname"><a href="struct_sml_1_1_vec2.html">Sml::Vec2</a></div><div class="ttdef"><b>Definition:</b> <a href="vec2_8h_source.html#l00019">vec2.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

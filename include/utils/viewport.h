@@ -14,17 +14,17 @@ namespace Sml
 {
     struct Viewport
     {
-        Viewport(const Vec2<float>& axesMin, const Vec2<float>& axesMax, const Rectangle<int32_t>& windowArea);
+        Viewport(const Vec2f& axesMin, const Vec2f& axesMax, const Rectangle<int32_t>& windowArea);
 
-        Vec2<float> axesMin;
-        Vec2<float> axesMax;
+        Vec2f axesMin;
+        Vec2f axesMax;
 
         Rectangle<int32_t> windowArea;
 
         float getRelativeWidth()  const;
         float getRelativeHeight() const;
 
-        Vec2<float> toPixels(const Vec2<float>& point) const;
+        Vec2f toPixels(const Vec2f& point) const;
         float       toPixels(float distance) const;
     };
 }

@@ -33,12 +33,12 @@ namespace Sml
         Text(const Font& font, const char* str, Color color = COLOR_BLACK);
         ~Text();
 
-        Vec2<int32_t> estimateTextDimensions(const char* text) const;
+        Vec2i estimateTextDimensions(const char* text) const;
 
         void load();
         void destroy();
 
-        void render(const Vec2<int32_t>& pos) const;
+        void render(const Vec2i& pos) const;
 
         const Font& getFont() const;
         Color getColor() const;

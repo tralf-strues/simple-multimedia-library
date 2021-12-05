@@ -103,22 +103,22 @@ $(document).ready(function(){initNavTree('viewport_8h_source.html',''); initResi
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct_sml_1_1_viewport.html">   15</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_sml_1_1_viewport.html">Viewport</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_struct" href="struct_sml_1_1_viewport.html">Viewport</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;float&gt;</a>&amp; axesMin, <span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;float&gt;</a>&amp; axesMax, <span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_rectangle.html">Rectangle&lt;int32_t&gt;</a>&amp; windowArea);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_struct" href="struct_sml_1_1_viewport.html">Viewport</a>(<span class="keyword">const</span> <a class="code hl_class" href="struct_sml_1_1_vec2.html">Vec2f</a>&amp; axesMin, <span class="keyword">const</span> <a class="code hl_class" href="struct_sml_1_1_vec2.html">Vec2f</a>&amp; axesMax, <span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_rectangle.html">Rectangle&lt;int32_t&gt;</a>&amp; windowArea);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;float&gt;</a> axesMin;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;float&gt;</a> axesMax;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="struct_sml_1_1_vec2.html">Vec2f</a> axesMin;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_class" href="struct_sml_1_1_vec2.html">Vec2f</a> axesMax;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_struct" href="struct_sml_1_1_rectangle.html">Rectangle&lt;int32_t&gt;</a> windowArea;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordtype">float</span> getRelativeWidth()  <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">float</span> getRelativeHeight() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;float&gt;</a> toPixels(<span class="keyword">const</span> <a class="code hl_struct" href="struct_sml_1_1_vec2.html">Vec2&lt;float&gt;</a>&amp; point) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_class" href="struct_sml_1_1_vec2.html">Vec2f</a> toPixels(<span class="keyword">const</span> <a class="code hl_class" href="struct_sml_1_1_vec2.html">Vec2f</a>&amp; point) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">float</span>       toPixels(<span class="keywordtype">float</span> distance) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    };</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
 <div class="ttc" id="astruct_sml_1_1_rectangle_html"><div class="ttname"><a href="struct_sml_1_1_rectangle.html">Sml::Rectangle</a></div><div class="ttdef"><b>Definition:</b> <a href="rectangle_8h_source.html#l00017">rectangle.h:18</a></div></div>
-<div class="ttc" id="astruct_sml_1_1_vec2_html"><div class="ttname"><a href="struct_sml_1_1_vec2.html">Sml::Vec2</a></div><div class="ttdef"><b>Definition:</b> <a href="vec2_8h_source.html#l00019">vec2.h:20</a></div></div>
+<div class="ttc" id="astruct_sml_1_1_vec2_html"><div class="ttname"><a href="struct_sml_1_1_vec2.html">Sml::Vec2&lt; float &gt;</a></div></div>
 <div class="ttc" id="astruct_sml_1_1_viewport_html"><div class="ttname"><a href="struct_sml_1_1_viewport.html">Sml::Viewport</a></div><div class="ttdef"><b>Definition:</b> <a href="viewport_8h_source.html#l00015">viewport.h:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

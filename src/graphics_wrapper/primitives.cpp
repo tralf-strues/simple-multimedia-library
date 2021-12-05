@@ -12,11 +12,11 @@ namespace Sml
 {
     void renderRect(const Rectangle<int32_t>& rect, uint8_t thickness)
     {
-        Vec2<int32_t> upperLeftCorner(rect.pos.x, rect.pos.y);
-        Vec2<int32_t> upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
+        Vec2i upperLeftCorner(rect.pos.x, rect.pos.y);
+        Vec2i upperRightCorner(rect.pos.x + rect.width - 1, rect.pos.y);
         
-        Vec2<int32_t> bottomLeftCorner(rect.pos.x, rect.pos.y + rect.height - 1);
-        Vec2<int32_t> bottomRightCorner(rect.pos.x + rect.width - 1, rect.pos.y + rect.height - 1);
+        Vec2i bottomLeftCorner(rect.pos.x, rect.pos.y + rect.height - 1);
+        Vec2i bottomRightCorner(rect.pos.x + rect.width - 1, rect.pos.y + rect.height - 1);
 
         for (int32_t step = 0; static_cast<uint8_t>(step) < thickness; ++step)
         {
@@ -32,10 +32,10 @@ namespace Sml
             // Right line
             renderLine(upperRightCorner, bottomRightCorner);
 
-            upperLeftCorner   += Vec2<int32_t>{  1,  1 };
-            upperRightCorner  += Vec2<int32_t>{ -1,  1 };
-            bottomLeftCorner  += Vec2<int32_t>{  1, -1 };
-            bottomRightCorner += Vec2<int32_t>{ -1, -1 };
+            upperLeftCorner   += Vec2i{  1,  1 };
+            upperRightCorner  += Vec2i{ -1,  1 };
+            bottomLeftCorner  += Vec2i{  1, -1 };
+            bottomRightCorner += Vec2i{ -1, -1 };
         }
     }
 
@@ -43,8 +43,8 @@ namespace Sml
     {
         for (int32_t row = 0; row < rect.height; ++row)
         {
-            renderLine(Vec2<int32_t>{rect.pos.x, rect.pos.y + row}, 
-                       Vec2<int32_t>{rect.pos.x + rect.width - 1, rect.pos.y + row});
+            renderLine(Vec2i{rect.pos.x, rect.pos.y + row}, 
+                       Vec2i{rect.pos.x + rect.width - 1, rect.pos.y + row});
         }
     }
 
@@ -96,20 +96,20 @@ namespace Sml
 
                 if ((dx * dx + dy * dy) <= (circle.radius * circle.radius))
                 {
-                    renderPoint(Vec2<int32_t>{circle.center.x + dx, circle.center.y + dy});
+                    renderPoint(Vec2i{circle.center.x + dx, circle.center.y + dy});
                 }
             }
         }
     }
 
-    bool intersectInfLines(const InfLine& line1, const InfLine& line2, Vec2<float>* intersection)
+    bool intersectInfLines(const InfLine& line1, const InfLine& line2, Vec2f* intersection)
     {
         assert(intersection);
 
-        const Vec2<float>& firstFrom       = line1.from;
-        const Vec2<float>& secondFrom      = line2.from;
-        const Vec2<float>& firstDirection  = line1.direction;
-        const Vec2<float>& secondDirection = line2.direction;
+        const Vec2f& firstFrom       = line1.from;
+        const Vec2f& secondFrom      = line2.from;
+        const Vec2f& firstDirection  = line1.direction;
+        const Vec2f& secondDirection = line2.direction;
 
         float det = firstDirection.y * secondDirection.x - firstDirection.x * secondDirection.y;
         if (cmpFloat(det, 0) == 0)
@@ -131,12 +131,12 @@ namespace Sml
         float width  = Renderer::getInstance().getTargetWidth();
         float height = Renderer::getInstance().getTargetHeight();
 
-        InfLine topLine    = {Vec2<float>{0,     0     }, Vec2<float>{1, 0}};
-        InfLine bottomLine = {Vec2<float>{0,     height}, Vec2<float>{1, 0}};
-        InfLine rightLine  = {Vec2<float>{width, 0     }, Vec2<float>{0, 1}};
-        InfLine leftLine   = {Vec2<float>{0,     0     }, Vec2<float>{0, 1}};
+        InfLine topLine    = {Vec2f{0,     0     }, Vec2f{1, 0}};
+        InfLine bottomLine = {Vec2f{0,     height}, Vec2f{1, 0}};
+        InfLine rightLine  = {Vec2f{width, 0     }, Vec2f{0, 1}};
+        InfLine leftLine   = {Vec2f{0,     0     }, Vec2f{0, 1}};
 
-        Vec2<float> intersections[4] = {};
+        Vec2f   intersections[4]   = {};
         int32_t intersectionsCount = 0;
 
         if (intersectInfLines(infLine, topLine, &intersections[intersectionsCount]))

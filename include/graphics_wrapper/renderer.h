@@ -198,7 +198,7 @@ namespace Sml
          * 
          * @param pos Position of a point.
          */
-        void renderPoint(const Vec2<int32_t>& pos);
+        void renderPoint(const Vec2i& pos);
 
         /**
          * @brief Render a line from start to end.
@@ -209,7 +209,7 @@ namespace Sml
          * @param start Position of line's start point.
          * @param end   Position of line's end point.
          */
-        void renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end);
+        void renderLine(const Vec2i& start, const Vec2i& end);
 
         /**
          * @brief Render texture to the current rendering target in the region. Scales the
@@ -229,7 +229,7 @@ namespace Sml
          * @param texture 
          * @param pos 
          */
-        void renderTexture(const Texture& texture, const Vec2<int32_t>& pos);
+        void renderTexture(const Texture& texture, const Vec2i& pos);
 
     private:
         static Renderer*   s_Instance;
@@ -271,7 +271,7 @@ namespace Sml
      * 
      * @param pos 
      */
-    void renderPoint(const Vec2<int32_t>& pos);
+    void renderPoint(const Vec2i& pos);
 
     /**
      * @brief See @ref Renderer::renderLine().
@@ -279,7 +279,7 @@ namespace Sml
      * @param start 
      * @param end 
      */
-    void renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end);
+    void renderLine(const Vec2i& start, const Vec2i& end);
 
     /**
      * @brief Render texture to the current rendering target in the region. Scales the
@@ -299,5 +299,5 @@ namespace Sml
      * @param texture 
      * @param pos 
      */
-    void renderTexture(const Texture& texture, const Vec2<int32_t>& pos);
+    void renderTexture(const Texture& texture, const Vec2i& pos);
 }

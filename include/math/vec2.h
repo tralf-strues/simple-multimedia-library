@@ -166,4 +166,7 @@ namespace Sml
         return first.x * second.x + 
             first.y * second.y;
     }
+
+    using Vec2i = Vec2<int32_t>;
+    using Vec2f = Vec2<float>;
 }

@@ -250,12 +250,12 @@ namespace Sml
         SDL_RenderSetClipRect(m_NativeRenderer, nullptr);
     }
 
-    void Renderer::renderPoint(const Vec2<int32_t>& pos)
+    void Renderer::renderPoint(const Vec2i& pos)
     {
         SDL_RenderDrawPoint(m_NativeRenderer, pos.x, pos.y);
     }
 
-    void Renderer::renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end)
+    void Renderer::renderLine(const Vec2i& start, const Vec2i& end)
     {
         SDL_RenderDrawLine(m_NativeRenderer, start.x, start.y, end.x, end.y);
     }
@@ -285,7 +285,7 @@ namespace Sml
         SDL_RenderCopy(m_NativeRenderer, texture.getNativeTexture(), pSourceRect, pTargetRect);
     }
 
-    void Renderer::renderTexture(const Texture& texture, const Vec2<int32_t>& pos)
+    void Renderer::renderTexture(const Texture& texture, const Vec2i& pos)
     {
         Rectangle<int32_t> targetRegion{pos, static_cast<int32_t>(texture.getWidth()),
                                             static_cast<int32_t>(texture.getHeight())};
@@ -293,12 +293,12 @@ namespace Sml
         renderTexture(texture, &targetRegion, nullptr);
     }
 
-    void renderPoint(const Vec2<int32_t>& pos)
+    void renderPoint(const Vec2i& pos)
     {
         Renderer::getInstance().renderPoint(pos);
     }
 
-    void renderLine(const Vec2<int32_t>& start, const Vec2<int32_t>& end)
+    void renderLine(const Vec2i& start, const Vec2i& end)
     {
         Renderer::getInstance().renderLine(start, end);
     }
@@ -310,7 +310,7 @@ namespace Sml
         Renderer::getInstance().renderTexture(source, targetRegion, sourceRegion);
     }
 
-    void renderTexture(const Texture& texture, const Vec2<int32_t>& pos)
+    void renderTexture(const Texture& texture, const Vec2i& pos)
     {
         Renderer::getInstance().renderTexture(texture, pos);
     }

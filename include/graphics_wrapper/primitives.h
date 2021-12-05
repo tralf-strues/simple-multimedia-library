@@ -14,14 +14,14 @@ namespace Sml
 {
     struct Circle
     {
-        Vec2<int32_t> center;
-        int32_t       radius;
+        Vec2i   center;
+        int32_t radius;
     };
 
     struct InfLine
     {
-        Vec2<float> from;
-        Vec2<float> direction;
+        Vec2f from;
+        Vec2f direction;
     };
 
     void renderRect(const Rectangle<int32_t>& rect, uint8_t thickness = 1);
