@@ -10,6 +10,21 @@
 
 namespace Sml
 {
+    void renderLine(const Vec2i& start, const Vec2i& end, uint32_t thickness)
+    {
+        Vec2f dispf(end.x - start.x, end.y - start.y);
+    
+        int32_t lengthSquared = lengthSquare<float>(dispf);
+
+        dispf = normalize<float>(dispf);
+
+        int32_t radius = thickness / 2;
+        for (int32_t step = 0; step * step <= lengthSquared; ++step)
+        {
+            renderCircle(Circle(start + Vec2i(step * dispf.x, step * dispf.y), radius));
+        }
+    }
+
     void renderRect(const Rectangle<int32_t>& rect, uint8_t thickness)
     {
         Vec2i upperLeftCorner(rect.pos.x, rect.pos.y);
