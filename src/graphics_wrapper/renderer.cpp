@@ -100,6 +100,12 @@ namespace Sml
                 SDL_SetRenderDrawBlendMode(getNativeRenderer(), SDL_BLENDMODE_BLEND);
                 break;
             }
+
+            case BlendMode::ADD:
+            {
+                SDL_SetRenderDrawBlendMode(getNativeRenderer(), SDL_BLENDMODE_ADD);
+                break;
+            }
             
             default:
             {

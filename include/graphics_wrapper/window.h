@@ -84,29 +84,6 @@ namespace Sml
          */
         SDL_Window* getNativeWindow() const;
 
-        // /**
-        //  * @param region If nullptr reads the entire surface.
-        //  * 
-        //  * @return Pixels of the window's region surface.
-        //  */
-        // Color* readPixels(const Rectangle<int32_t>* region = nullptr) const;
-
-        // /**
-        //  * @warning The pixel buffer must be of size greater or equal to the size of the region.
-        //  *
-        //  * @param dst    Pixel buffer to read to.
-        //  * @param region If nullptr reads the entire surface.
-        //  */
-        // void readPixelsTo(Color* dst, const Rectangle<int32_t>* region = nullptr) const;
-
-        // /**
-        //  * @brief Updates the window surface's region 
-        //  * 
-        //  * @param src
-        //  * @param region If nullptr update the entire surface.
-        //  */
-        // void updatePixels(const Color* src, const Rectangle<int32_t>* region = nullptr);
-
         /**
          * @brief Update Window's title.
          * 

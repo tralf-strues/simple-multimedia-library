@@ -166,140 +166,62 @@ $(document).ready(function(){initNavTree('window_8cpp_source.html',''); initResi
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        m_Surface = surface;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// Color* Window::readPixels(const Rectangle&lt;int32_t&gt;* region) const</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// {</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">//     int32_t width  = (region != nullptr) ? region-&gt;width  : getWidth();</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment">//     int32_t height = (region != nullptr) ? region-&gt;height : getHeight();</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">//     if (width &lt;= 0 || height &lt;= 0)</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">//     {</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">//         return nullptr;</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">//     }</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">//     Color* pixels = new Color[width * height];</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">//     readPixelsTo(pixels, region);</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">//     return pixels;</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// }</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// void Window::readPixelsTo(Color* dst, const Rectangle&lt;int32_t&gt;* region) const</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">// {</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">//     assert(dst);</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">//     SDL_Surface* surface = SDL_GetWindowSurface(getNativeWindow());</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">//     if (surface == nullptr)</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">//     {</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">//         printf(&quot;%s\n&quot;, SDL_GetError());</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">//     }</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">//     Rectangle&lt;int32_t&gt; realRegion = (region != nullptr) ?</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">//                                     *region :</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">//                                     Rectangle&lt;int32_t&gt;{{0, 0},</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">//                                                        static_cast&lt;int32_t&gt;(getWidth()),</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">//                                                        static_cast&lt;int32_t&gt;(getHeight())};</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment">//     if (region != nullptr)</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">//     {</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">//         for (int32_t row = 0; row &lt; realRegion.height; ++row)</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment">//         {</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">//             Color*       dstStart = dst + realRegion.width * row;</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">//             const Color* srcStart = static_cast&lt;const Color*&gt;(surface-&gt;pixels) +</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">//                                     getWidth() * (realRegion.pos.y + row) + realRegion.pos.x;</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">//             memcpy(dstStart, srcStart, realRegion.width * sizeof(Color));</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">//         }</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">//     }</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="comment">//     else</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">//     {</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">//         memcpy(dst, surface-&gt;pixels, getWidth() * getHeight() * sizeof(Color));</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="comment">//     }</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="comment">// }</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="comment">// void Window::updatePixels(const Color* src, const Rectangle&lt;int32_t&gt;* region)</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment">// {</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">//     SDL_Surface* surface = SDL_GetWindowSurface(getNativeWindow());</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">//     if (surface == nullptr)</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">//     {</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">//         printf(&quot;%s\n&quot;, SDL_GetError());</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="comment">//     }</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="comment">//     Rectangle&lt;int32_t&gt; realRegion = (region != nullptr) ?</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="comment">//                                     *region :</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">//                                     Rectangle&lt;int32_t&gt;{{0, 0},</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment">//                                                        static_cast&lt;int32_t&gt;(getWidth()),</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="comment">//                                                        static_cast&lt;int32_t&gt;(getHeight())};</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="comment">//     if (region != nullptr)</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="comment">//     {</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="comment">//         for (int32_t row = 0; row &lt; realRegion.height; ++row)</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="comment">//         {</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">//             const Color* srcStart     = src + realRegion.width * row;</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment">//             Color*       surfaceStart = static_cast&lt;Color*&gt;(surface-&gt;pixels) +</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment">//                                         getWidth() * (realRegion.pos.y + row) + realRegion.pos.x;</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">//             memcpy(surfaceStart, srcStart, realRegion.width * sizeof(Color));</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="comment">//         }</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">//     }</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="comment">//     else</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="comment">//     {</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="comment">//         memcpy(surface-&gt;pixels, src, getWidth() * getHeight() * sizeof(Color));</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="comment">//     }</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment">// }</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">  158</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Window::updateTitle</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* title)</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        m_Title  = (title == <span class="keyword">nullptr</span>) ? WINDOW_DEFAULT_TITLE : title;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        SDL_SetWindowTitle(m_NativeWindow, m_Title);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">  165</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Window::setBorderless</a>(<span class="keywordtype">bool</span> borderless)</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        SDL_SetWindowBordered(m_NativeWindow, <span class="keyword">static_cast&lt;</span>SDL_bool<span class="keyword">&gt;</span>(!borderless));</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">  170</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Window::resizeWindow</a>(<span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    {</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        assert(width);</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        assert(height);</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">if</span> (m_Surface != <span class="keyword">nullptr</span> &amp;&amp; (m_Width != width || m_Height != height))</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keyword">delete</span> m_Surface;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            m_Surface = <span class="keyword">new</span> <a class="code hl_class" href="class_sml_1_1_texture.html">Texture</a>(width, height);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        }</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        SDL_SetWindowSize(m_NativeWindow, (<span class="keywordtype">int</span>) m_Width, (<span class="keywordtype">int</span>) m_Height);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        m_Width  = width;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        m_Height = height;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> Window::setError(uint32_t error)</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        m_ErrorStatus |= error;</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    }</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">  192</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">initGraphics</a>()</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) == -1)</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        {</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        }</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">if</span> (TTF_Init() == -1)</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        {</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        }</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">  207</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">quitGraphics</a>()</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    {</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        SDL_Quit();</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    }</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">   80</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Window::updateTitle</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* title)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        m_Title  = (title == <span class="keyword">nullptr</span>) ? WINDOW_DEFAULT_TITLE : title;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        SDL_SetWindowTitle(m_NativeWindow, m_Title);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">   87</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Window::setBorderless</a>(<span class="keywordtype">bool</span> borderless)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        SDL_SetWindowBordered(m_NativeWindow, <span class="keyword">static_cast&lt;</span>SDL_bool<span class="keyword">&gt;</span>(!borderless));</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">   92</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Window::resizeWindow</a>(<span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        assert(width);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        assert(height);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">if</span> (m_Surface != <span class="keyword">nullptr</span> &amp;&amp; (m_Width != width || m_Height != height))</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keyword">delete</span> m_Surface;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            m_Surface = <span class="keyword">new</span> <a class="code hl_class" href="class_sml_1_1_texture.html">Texture</a>(width, height);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        SDL_SetWindowSize(m_NativeWindow, (<span class="keywordtype">int</span>) m_Width, (<span class="keywordtype">int</span>) m_Height);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        m_Width  = width;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        m_Height = height;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> Window::setError(uint32_t error)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        m_ErrorStatus |= error;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">  114</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">initGraphics</a>()</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) == -1)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">if</span> (TTF_Init() == -1)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">  129</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="window_8h.html#ac542862487210cb21a6897d4d7406f02">quitGraphics</a>()</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        SDL_Quit();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
 <div class="ttc" id="aclass_sml_1_1_texture_html"><div class="ttname"><a href="class_sml_1_1_texture.html">Sml::Texture</a></div><div class="ttdef"><b>Definition:</b> <a href="texture_8h_source.html#l00019">texture.h:20</a></div></div>
-<div class="ttc" id="aclass_sml_1_1_window_html_a0475625a8ee342412d1e47fba5dabc79"><div class="ttname"><a href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Sml::Window::resizeWindow</a></div><div class="ttdeci">void resizeWindow(size_t width, size_t height)</div><div class="ttdoc">Resize Window.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00170">window.cpp:170</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_window_html_a0475625a8ee342412d1e47fba5dabc79"><div class="ttname"><a href="class_sml_1_1_window.html#a0475625a8ee342412d1e47fba5dabc79">Sml::Window::resizeWindow</a></div><div class="ttdeci">void resizeWindow(size_t width, size_t height)</div><div class="ttdoc">Resize Window.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00092">window.cpp:92</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_a0f96937dd75d66bf1470f23df6be5244"><div class="ttname"><a href="class_sml_1_1_window.html#a0f96937dd75d66bf1470f23df6be5244">Sml::Window::getTitle</a></div><div class="ttdeci">const char * getTitle() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00048">window.cpp:48</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_a52ef563e8fbac854873e77f38d92aabe"><div class="ttname"><a href="class_sml_1_1_window.html#a52ef563e8fbac854873e77f38d92aabe">Sml::Window::getNativeWindow</a></div><div class="ttdeci">SDL_Window * getNativeWindow() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00058">window.cpp:58</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_a6453dc1ccfa084dc155421ba2080f2aa"><div class="ttname"><a href="class_sml_1_1_window.html#a6453dc1ccfa084dc155421ba2080f2aa">Sml::Window::getSurface</a></div><div class="ttdeci">Texture * getSurface() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00063">window.cpp:63</a></div></div>
@@ -307,14 +229,14 @@ $(document).ready(function(){initNavTree('window_8cpp_source.html',''); initResi
 <div class="ttc" id="aclass_sml_1_1_window_html_a8e43bff361ec91918ca01b2c45e5989a"><div class="ttname"><a href="class_sml_1_1_window.html#a8e43bff361ec91918ca01b2c45e5989a">Sml::Window::getError</a></div><div class="ttdeci">uint32_t getError() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00053">window.cpp:53</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_aa2045e97192ba2d2de0549dc9bc81f2f"><div class="ttname"><a href="class_sml_1_1_window.html#aa2045e97192ba2d2de0549dc9bc81f2f">Sml::Window::getWidth</a></div><div class="ttdeci">size_t getWidth() const</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00038">window.cpp:38</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_aa7e243359afdeca32273ef8a564d222a"><div class="ttname"><a href="class_sml_1_1_window.html#aa7e243359afdeca32273ef8a564d222a">Sml::Window::setSurface</a></div><div class="ttdeci">void setSurface(Texture *surface)</div><div class="ttdoc">Set the window's surface texture.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00068">window.cpp:68</a></div></div>
-<div class="ttc" id="aclass_sml_1_1_window_html_aaa18ecca5575c6abb820ddb8da0e991a"><div class="ttname"><a href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Sml::Window::updateTitle</a></div><div class="ttdeci">void updateTitle(const char *title)</div><div class="ttdoc">Update Window's title.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00158">window.cpp:158</a></div></div>
-<div class="ttc" id="aclass_sml_1_1_window_html_ac28ca0142f5e7aa24ca2d21766325bd9"><div class="ttname"><a href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Sml::Window::setBorderless</a></div><div class="ttdeci">void setBorderless(bool borderless=true)</div><div class="ttdoc">Add or remove Window's borders.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00165">window.cpp:165</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_window_html_aaa18ecca5575c6abb820ddb8da0e991a"><div class="ttname"><a href="class_sml_1_1_window.html#aaa18ecca5575c6abb820ddb8da0e991a">Sml::Window::updateTitle</a></div><div class="ttdeci">void updateTitle(const char *title)</div><div class="ttdoc">Update Window's title.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00080">window.cpp:80</a></div></div>
+<div class="ttc" id="aclass_sml_1_1_window_html_ac28ca0142f5e7aa24ca2d21766325bd9"><div class="ttname"><a href="class_sml_1_1_window.html#ac28ca0142f5e7aa24ca2d21766325bd9">Sml::Window::setBorderless</a></div><div class="ttdeci">void setBorderless(bool borderless=true)</div><div class="ttdoc">Add or remove Window's borders.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00087">window.cpp:87</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_ae030e1e5d20ebe46d76f5ac3dc44f537"><div class="ttname"><a href="class_sml_1_1_window.html#ae030e1e5d20ebe46d76f5ac3dc44f537">Sml::Window::~Window</a></div><div class="ttdeci">~Window()</div><div class="ttdoc">Destroy the Window object.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00033">window.cpp:33</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_window_html_ae39e0ae5c99b4029374e95f80fe6a42b"><div class="ttname"><a href="class_sml_1_1_window.html#ae39e0ae5c99b4029374e95f80fe6a42b">Sml::Window::Window</a></div><div class="ttdeci">Window(size_t width, size_t height, const char *title)</div><div class="ttdoc">Construct a new Window object.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00016">window.cpp:16</a></div></div>
 <div class="ttc" id="atexture_8h_html"><div class="ttname"><a href="texture_8h.html">texture.h</a></div><div class="ttdoc">Basic texture management.</div></div>
 <div class="ttc" id="awindow_8h_html"><div class="ttname"><a href="window_8h.html">window.h</a></div></div>
-<div class="ttc" id="awindow_8h_html_ac542862487210cb21a6897d4d7406f02"><div class="ttname"><a href="window_8h.html#ac542862487210cb21a6897d4d7406f02">Sml::quitGraphics</a></div><div class="ttdeci">void quitGraphics()</div><div class="ttdoc">Quit graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00207">window.cpp:207</a></div></div>
-<div class="ttc" id="awindow_8h_html_ade3dd968e0e6c22344557bdf05b3c0c0"><div class="ttname"><a href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">Sml::initGraphics</a></div><div class="ttdeci">bool initGraphics()</div><div class="ttdoc">Initialize graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00192">window.cpp:192</a></div></div>
+<div class="ttc" id="awindow_8h_html_ac542862487210cb21a6897d4d7406f02"><div class="ttname"><a href="window_8h.html#ac542862487210cb21a6897d4d7406f02">Sml::quitGraphics</a></div><div class="ttdeci">void quitGraphics()</div><div class="ttdoc">Quit graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00129">window.cpp:129</a></div></div>
+<div class="ttc" id="awindow_8h_html_ade3dd968e0e6c22344557bdf05b3c0c0"><div class="ttname"><a href="window_8h.html#ade3dd968e0e6c22344557bdf05b3c0c0">Sml::initGraphics</a></div><div class="ttdeci">bool initGraphics()</div><div class="ttdoc">Initialize graphics.</div><div class="ttdef"><b>Definition:</b> <a href="window_8cpp_source.html#l00114">window.cpp:114</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

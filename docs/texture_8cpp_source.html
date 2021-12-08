@@ -175,7 +175,7 @@ $(document).ready(function(){initNavTree('texture_8cpp_source.html',''); initRes
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        SDL_RenderReadPixels(Renderer::getInstance().getNativeRenderer(),</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                             region == <span class="keyword">nullptr</span> ? <span class="keyword">nullptr</span> : &amp;rect,</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                             0,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                             SDL_PIXELFORMAT_RGBA8888,</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                             dst,</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                             (region == <span class="keyword">nullptr</span> ? <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(m_Width) : rect.w) * <span class="keyword">sizeof</span>(Color));</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        </div>
@@ -290,7 +290,7 @@ $(document).ready(function(){initNavTree('texture_8cpp_source.html',''); initRes
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    BufferedTexture::BufferedTexture(Texture&amp; texture)</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        : m_Texture(texture), m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    {</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        m_Texture.readPixelsTo(m_Buffer);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        updateBuffer();</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    BufferedTexture::~BufferedTexture()</div>
@@ -337,22 +337,19 @@ $(document).ready(function(){initNavTree('texture_8cpp_source.html',''); initRes
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">  249</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">BufferedTexture::updateTexture</a>()</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        SDL_UpdateTexture(m_Texture.getNativeTexture(),</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                          <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                          <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(m_Buffer),</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                          m_Texture.getWidth() * <span class="keyword">sizeof</span>(Color));</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    }</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">  257</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">BufferedTexture::updateBuffer</a>()</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    {</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        m_Texture.readPixelsTo(m_Buffer);</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    }</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>}</div>
-<div class="ttc" id="aclass_sml_1_1_buffered_texture_html_a692d0f0287d2e066e1bb2470478e389a"><div class="ttname"><a href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">Sml::BufferedTexture::updateBuffer</a></div><div class="ttdeci">void updateBuffer()</div><div class="ttdoc">Reflect texture's changes (e.g. via Renderer) on the buffer.</div><div class="ttdef"><b>Definition:</b> <a href="texture_8cpp_source.html#l00257">texture.cpp:257</a></div></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        m_Texture.updatePixels(m_Buffer, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    }</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">  254</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">BufferedTexture::updateBuffer</a>()</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        m_Texture.readPixelsTo(m_Buffer);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
+<div class="ttc" id="aclass_sml_1_1_buffered_texture_html_a692d0f0287d2e066e1bb2470478e389a"><div class="ttname"><a href="class_sml_1_1_buffered_texture.html#a692d0f0287d2e066e1bb2470478e389a">Sml::BufferedTexture::updateBuffer</a></div><div class="ttdeci">void updateBuffer()</div><div class="ttdoc">Reflect texture's changes (e.g. via Renderer) on the buffer.</div><div class="ttdef"><b>Definition:</b> <a href="texture_8cpp_source.html#l00254">texture.cpp:254</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_buffered_texture_html_a7bfafde78774d434c24b55b181ce2091"><div class="ttname"><a href="class_sml_1_1_buffered_texture.html#a7bfafde78774d434c24b55b181ce2091">Sml::BufferedTexture::updateTexture</a></div><div class="ttdeci">void updateTexture()</div><div class="ttdoc">Reflect buffer's changes on the texture.</div><div class="ttdef"><b>Definition:</b> <a href="texture_8cpp_source.html#l00249">texture.cpp:249</a></div></div>
 <div class="ttc" id="aclass_sml_1_1_texture_html"><div class="ttname"><a href="class_sml_1_1_texture.html">Sml::Texture</a></div><div class="ttdef"><b>Definition:</b> <a href="texture_8h_source.html#l00019">texture.h:20</a></div></div>
 <div class="ttc" id="arenderer_8h_html"><div class="ttname"><a href="renderer_8h.html">renderer.h</a></div></div>
-<div class="ttc" id="arenderer_8h_html_ae8334f1609164793d9c2926555adf2ec"><div class="ttname"><a href="renderer_8h.html#ae8334f1609164793d9c2926555adf2ec">Sml::renderTexture</a></div><div class="ttdeci">void renderTexture(const Texture &amp;source, const Rectangle&lt; int32_t &gt; *targetRegion, const Rectangle&lt; int32_t &gt; *sourceRegion)</div><div class="ttdoc">Render texture to the current rendering target in the region. Scales the texture if necessary.</div><div class="ttdef"><b>Definition:</b> <a href="renderer_8cpp_source.html#l00306">renderer.cpp:306</a></div></div>
+<div class="ttc" id="arenderer_8h_html_ae8334f1609164793d9c2926555adf2ec"><div class="ttname"><a href="renderer_8h.html#ae8334f1609164793d9c2926555adf2ec">Sml::renderTexture</a></div><div class="ttdeci">void renderTexture(const Texture &amp;source, const Rectangle&lt; int32_t &gt; *targetRegion, const Rectangle&lt; int32_t &gt; *sourceRegion)</div><div class="ttdoc">Render texture to the current rendering target in the region. Scales the texture if necessary.</div><div class="ttdef"><b>Definition:</b> <a href="renderer_8cpp_source.html#l00312">renderer.cpp:312</a></div></div>
 <div class="ttc" id="astruct_sml_1_1_rectangle_html"><div class="ttname"><a href="struct_sml_1_1_rectangle.html">Sml::Rectangle</a></div><div class="ttdef"><b>Definition:</b> <a href="rectangle_8h_source.html#l00017">rectangle.h:18</a></div></div>
 <div class="ttc" id="atexture_8h_html"><div class="ttname"><a href="texture_8h.html">texture.h</a></div><div class="ttdoc">Basic texture management.</div></div>
 </div><!-- fragment --></div><!-- contents -->

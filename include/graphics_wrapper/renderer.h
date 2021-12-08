@@ -29,7 +29,7 @@ namespace Sml
 
         enum class BlendMode
         {
-            NONE, BLEND
+            NONE, BLEND, ADD
         };
 
         static constexpr Texture* WINDOW_TARGET = nullptr;

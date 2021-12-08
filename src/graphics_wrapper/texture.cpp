@@ -86,7 +86,7 @@ namespace Sml
 
         SDL_RenderReadPixels(Renderer::getInstance().getNativeRenderer(),
                              region == nullptr ? nullptr : &rect,
-                             0,
+                             SDL_PIXELFORMAT_RGBA8888,
                              dst,
                              (region == nullptr ? static_cast<int32_t>(m_Width) : rect.w) * sizeof(Color));
         
@@ -201,7 +201,7 @@ namespace Sml
     BufferedTexture::BufferedTexture(Texture& texture)
         : m_Texture(texture), m_Buffer(new Color[m_Texture.getWidth() * m_Texture.getHeight()])
     {
-        m_Texture.readPixelsTo(m_Buffer);
+        updateBuffer();
     }
 
     BufferedTexture::~BufferedTexture()
@@ -248,10 +248,7 @@ namespace Sml
 
     void BufferedTexture::updateTexture()
     {
-        SDL_UpdateTexture(m_Texture.getNativeTexture(),
-                          nullptr,
-                          static_cast<void*>(m_Buffer),
-                          m_Texture.getWidth() * sizeof(Color));
+        m_Texture.updatePixels(m_Buffer, nullptr);
     }
 
     void BufferedTexture::updateBuffer()
