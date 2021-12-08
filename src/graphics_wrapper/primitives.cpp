@@ -21,7 +21,7 @@ namespace Sml
         int32_t radius = thickness / 2;
         for (int32_t step = 0; step * step <= lengthSquared; ++step)
         {
-            renderCircle(Circle(start + Vec2i(step * dispf.x, step * dispf.y), radius));
+            renderFilledCircle(Circle(start + Vec2i(step * dispf.x, step * dispf.y), radius));
         }
     }
 
@@ -65,6 +65,12 @@ namespace Sml
 
     void renderCircle(const Circle& circle)
     {
+        if (circle.radius == 0)
+        {
+            renderPoint(circle.center);
+            return;
+        }
+
         int32_t diameter = 2 * circle.radius;
 
         int32_t x     = (circle.radius - 1);
@@ -102,6 +108,8 @@ namespace Sml
 
     void renderFilledCircle(const Circle& circle)
     {
+        renderPoint(circle.center);
+
         for (int w = 0; w < 2 * circle.radius; w++)
         {
             for (int h = 0; h < 2 * circle.radius; h++)
