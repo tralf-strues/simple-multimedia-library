@@ -61,6 +61,12 @@ namespace Sml
     };
 
     template <typename T>
+    bool operator==(const Vec2<T>& first, const Vec2<T>& second)
+    {
+        return first.x == second.x && first.y == second.y;
+    }
+
+    template <typename T>
     Vec2<T> operator+(const Vec2<T>& first, const Vec2<T>& second)
     {
         Vec2<T> sum(first);

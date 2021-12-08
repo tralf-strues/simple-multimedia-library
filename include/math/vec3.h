@@ -185,4 +185,7 @@ namespace Sml
 
         return product;
     }
+
+    using Vec3i = Vec3<int32_t>;
+    using Vec3f = Vec3<float>;
 }

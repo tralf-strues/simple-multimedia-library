@@ -193,4 +193,7 @@ namespace Sml
 
     //     return product;
     // }
+
+    using Vec4i = Vec4<int32_t>;
+    using Vec4f = Vec4<float>;
 }
