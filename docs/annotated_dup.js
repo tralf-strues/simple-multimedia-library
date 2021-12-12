@@ -4,6 +4,7 @@ var annotated_dup =
       [ "Application", "class_sml_1_1_application.html", null ],
       [ "BufferedTexture", "class_sml_1_1_buffered_texture.html", "class_sml_1_1_buffered_texture" ],
       [ "Circle", "struct_sml_1_1_circle.html", null ],
+      [ "ColorHsv", "struct_sml_1_1_color_hsv.html", "struct_sml_1_1_color_hsv" ],
       [ "Event", "class_sml_1_1_event.html", null ],
       [ "EventDispatchChain", "class_sml_1_1_event_dispatch_chain.html", "class_sml_1_1_event_dispatch_chain" ],
       [ "EventDispatcher", "class_sml_1_1_event_dispatcher.html", "class_sml_1_1_event_dispatcher" ],

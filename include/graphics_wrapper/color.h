@@ -10,10 +10,19 @@
 
 #include <stdint.h>
 #include <SDL.h>
+#include <algorithm>
 #include "../math/vec4.h"
 
 namespace Sml
 {
+    struct ColorHsv
+    {
+        float h = 0; ///< Ranging from 0 to 359 (in degrees)
+        float s = 0; ///< Ranging from 0 to 1
+        float v = 0; ///< Ranging from 0 to 1
+        float a = 0; ///< Ranging from 0 to 1
+    };
+
     typedef uint32_t Color;
 
     static const Color COLOR_TRANSPARENT = 0x00'00'00'00;
@@ -161,6 +170,115 @@ namespace Sml
                          static_cast<uint8_t>(color.y),
                          static_cast<uint8_t>(color.z),
                          static_cast<uint8_t>(color.w));
+    }
+
+    /**
+     * @brief Convert color from HSV to RGB (supporting alpha channel).
+     * 
+     * @param hsv
+     * 
+     * @return Color in rgba. 
+     */
+    static inline Color convertHsvToRgb(const ColorHsv& hsv)
+    {
+        assert(hsv.h >= 0 && hsv.h <= 360);
+        assert(hsv.s >= 0 && hsv.s <= 1);
+        assert(hsv.v >= 0 && hsv.v <= 1);
+        assert(hsv.a >= 0 && hsv.a <= 1);
+
+        float C = hsv.s * hsv.v;
+        float X = C * (1 - fabs(fmod(hsv.h / 60, 2) - 1));
+        float m = hsv.v - C;
+        
+        Vec4f rgb;
+
+        if (hsv.h >= 0 && hsv.h < 60)
+        {
+            rgb = {C, X, 0, hsv.a};
+        }
+        else if (hsv.h >= 60 && hsv.h < 120)
+        {
+            rgb = {X, C, 0, hsv.a};
+        }
+        else if (hsv.h >= 120 && hsv.h < 180)
+        {
+            rgb = {0, C, X, hsv.a};
+        }
+        else if (hsv.h >= 180 && hsv.h < 240)
+        {
+            rgb = {0, X, C, hsv.a};
+        }
+        else if (hsv.h >= 240 && hsv.h < 300)
+        {
+            rgb = {X, 0, C, hsv.a};
+        }
+        else
+        {
+            rgb = {C, 0, X, hsv.a};
+        }
+
+        rgb += {m, m, m, 0};
+
+        return colorFromNormalized(rgb);
+    }
+
+    /**
+     * @brief Convert color from RGB to HSV (supporting alpha channel).
+     * 
+     * @param rgba
+     * 
+     * @return Color in hsv.
+     */
+    static inline ColorHsv convertRgbToHsv(Color rgba)
+    {
+        Vec4f fColor = colorToNormalized(rgba);
+        ColorHsv hsv;
+
+        float cMax = std::max(std::max(fColor.x, fColor.y), fColor.z);
+        float cMin = std::min(std::min(fColor.x, fColor.y), fColor.z);
+        float delta = cMax - cMin;
+        
+        if (delta > 0)
+        {
+            if (cMax == fColor.x)
+            {
+                hsv.h = 60 * (fmod(((fColor.y - fColor.z) / delta), 6));
+            }
+            else if (cMax == fColor.y)
+            {
+                hsv.h = 60 * (((fColor.z - fColor.x) / delta) + 2);
+            }
+            else if (cMax == fColor.z)
+            {
+                hsv.h = 60 * (((fColor.x - fColor.y) / delta) + 4);
+            }
+            
+            if (cMax > 0)
+            {
+                hsv.s = delta / cMax;
+            }
+            else
+            {
+                hsv.s = 0;
+            }
+            
+            hsv.v = cMax;
+        }
+        else
+        {
+            hsv.h = 0;
+            hsv.s = 0;
+            hsv.v = cMax;
+        }
+        
+        if (hsv.h < 0)
+        {
+            hsv.h = 360 + hsv.h;
+        }
+
+        hsv.a = fColor.w;
+
+        return hsv;
     }
 
     /**

@@ -5,6 +5,7 @@ var hierarchy =
     [ "ArrayIterator< T >", "class_array_iterator.html", null ],
     [ "Sml::BufferedTexture", "class_sml_1_1_buffered_texture.html", null ],
     [ "Sml::Circle", "struct_sml_1_1_circle.html", null ],
+    [ "Sml::ColorHsv", "struct_sml_1_1_color_hsv.html", null ],
     [ "DynamicArray< T >", "class_dynamic_array.html", null ],
     [ "Sml::Event", "class_sml_1_1_event.html", [
       [ "Sml::KeyEvent", "class_sml_1_1_key_event.html", [

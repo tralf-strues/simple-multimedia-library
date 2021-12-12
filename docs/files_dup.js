@@ -25,7 +25,7 @@ var files_dup =
       [ "Sml::SystemEventManager", "class_sml_1_1_system_event_manager.html", "class_sml_1_1_system_event_manager" ]
     ] ],
     [ "system_events.h", "system__events_8h.html", "system__events_8h" ],
-    [ "color.h", "color_8h.html", null ],
+    [ "color.h", "color_8h.html", "color_8h" ],
     [ "primitives.h", "primitives_8h.html", "primitives_8h" ],
     [ "renderer.h", "renderer_8h.html", "renderer_8h" ],
     [ "text.h", "text_8h.html", [
