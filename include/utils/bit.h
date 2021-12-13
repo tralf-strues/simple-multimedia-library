@@ -9,3 +9,4 @@
 #pragma once
 
 #define BIT(x) (1 << x)
+#define GET_BIT(number, i) ((number >> i) & 1)
