@@ -179,6 +179,12 @@ namespace Sml
         setTarget(m_TargetTexture);
     }
 
+    void Renderer::pushSetTarget(Texture* targetTexture)
+    {
+        pushTarget();
+        setTarget(targetTexture);
+    }
+
     void Renderer::setTarget(Texture* targetTexture)
     {
         m_TargetTexture = (targetTexture == WINDOW_TARGET) ? m_Window->getSurface() : targetTexture;

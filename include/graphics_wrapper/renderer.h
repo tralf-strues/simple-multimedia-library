@@ -127,6 +127,13 @@ namespace Sml
         void popTarget();
 
         /**
+         * @brief Just a convenience method that combines pushTarget() and setTarget().
+         * 
+         * @param targetTexture If WINDOW_TARGET, then set render target back to window.
+         */
+        void pushSetTarget(Texture* targetTexture);
+
+        /**
          * @brief Set rendering target.
          * 
          * @param targetTexture If WINDOW_TARGET, then set render target back to window.

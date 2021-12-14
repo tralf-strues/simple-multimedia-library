@@ -96,7 +96,8 @@ $(document).ready(function(){initNavTree('class_sml_1_1_renderer.html',''); init
 <div class="dynheader">
 Collaboration diagram for Sml::Renderer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_sml_1_1_renderer__coll__graph.svg" width="207" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_sml_1_1_renderer__coll__graph.svg" width="207" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -145,6 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac746f48dc670de0f440e4dc9f33ce1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d">popTarget</a> ()</td></tr>
 <tr class="memdesc:aac746f48dc670de0f440e4dc9f33ce1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets current rendering target to the one currently on top of stack.  <a href="class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d">More...</a><br /></td></tr>
 <tr class="separator:aac746f48dc670de0f440e4dc9f33ce1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba569858f7e51781359b1cf4d250b6b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#aba569858f7e51781359b1cf4d250b6b8">pushSetTarget</a> (<a class="el" href="class_sml_1_1_texture.html">Texture</a> *targetTexture)</td></tr>
+<tr class="memdesc:aba569858f7e51781359b1cf4d250b6b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Just a convenience method that combines <a class="el" href="class_sml_1_1_renderer.html#aaac44d5ff05b935530c4a051996810fd" title="Push current rendering target to stack.">pushTarget()</a> and <a class="el" href="class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656" title="Set rendering target.">setTarget()</a>.  <a href="class_sml_1_1_renderer.html#aba569858f7e51781359b1cf4d250b6b8">More...</a><br /></td></tr>
+<tr class="separator:aba569858f7e51781359b1cf4d250b6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f22dbb3ecd0b0569d38be3eb0ae656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656">setTarget</a> (<a class="el" href="class_sml_1_1_texture.html">Texture</a> *targetTexture)</td></tr>
 <tr class="memdesc:a98f22dbb3ecd0b0569d38be3eb0ae656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set rendering target.  <a href="class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656">More...</a><br /></td></tr>
 <tr class="separator:a98f22dbb3ecd0b0569d38be3eb0ae656"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -414,7 +418,7 @@ Static Public Attributes</h2></td></tr>
 <p>Get rendering target. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sml_1_1_texture.html">Texture</a> being the current rendering target, or WINDOW_TARGET, if the current rendering target is window. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00189">189</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00195">195</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -434,7 +438,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The current target's height. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00199">199</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00205">205</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -454,7 +458,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The current target's width. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00194">194</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00200">200</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -587,6 +591,34 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aba569858f7e51781359b1cf4d250b6b8" name="aba569858f7e51781359b1cf4d250b6b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba569858f7e51781359b1cf4d250b6b8">&#9670;&nbsp;</a></span>pushSetTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sml::Renderer::pushSetTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sml_1_1_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>targetTexture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Just a convenience method that combines <a class="el" href="class_sml_1_1_renderer.html#aaac44d5ff05b935530c4a051996810fd" title="Push current rendering target to stack.">pushTarget()</a> and <a class="el" href="class_sml_1_1_renderer.html#a98f22dbb3ecd0b0569d38be3eb0ae656" title="Set rendering target.">setTarget()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetTexture</td><td>If WINDOW_TARGET, then set render target back to window. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00182">182</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+
+</div>
+</div>
 <a id="aaac44d5ff05b935530c4a051996810fd" name="aaac44d5ff05b935530c4a051996810fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaac44d5ff05b935530c4a051996810fd">&#9670;&nbsp;</a></span>pushTarget()</h2>
 
@@ -635,7 +667,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Copy of the target's pixel buffer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00204">204</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00210">210</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -675,7 +707,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00223">223</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00229">229</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -715,7 +747,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00264">264</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00270">270</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -744,7 +776,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00259">259</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00265">265</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -790,7 +822,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00269">269</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00275">275</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -829,7 +861,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00294">294</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00300">300</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -850,7 +882,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Disable the current clip region, if any was set using setClipRegion. </p>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00254">254</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00260">260</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -906,7 +938,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00247">247</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00253">253</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -962,7 +994,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00182">182</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00188">188</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>
@@ -1001,7 +1033,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00240">240</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="renderer_8cpp_source.html#l00246">246</a> of file <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a>.</p>
 
 </div>
 </div>

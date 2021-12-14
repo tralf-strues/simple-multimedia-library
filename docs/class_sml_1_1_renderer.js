@@ -12,6 +12,7 @@ var class_sml_1_1_renderer =
     [ "getWindow", "class_sml_1_1_renderer.html#a287d61ce79690e33c7633fb1d84d431c", null ],
     [ "popTarget", "class_sml_1_1_renderer.html#aac746f48dc670de0f440e4dc9f33ce1d", null ],
     [ "present", "class_sml_1_1_renderer.html#a26dfd5ed8084b051d1abea88fae78ce8", null ],
+    [ "pushSetTarget", "class_sml_1_1_renderer.html#aba569858f7e51781359b1cf4d250b6b8", null ],
     [ "pushTarget", "class_sml_1_1_renderer.html#aaac44d5ff05b935530c4a051996810fd", null ],
     [ "readTargetPixels", "class_sml_1_1_renderer.html#a013a99899eeb376990e9812b14c612ad", null ],
     [ "readTargetPixelsTo", "class_sml_1_1_renderer.html#affbd75750b3807aa5e10a38bd26fa44b", null ],
