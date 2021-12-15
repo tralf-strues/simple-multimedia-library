@@ -45,6 +45,8 @@ namespace Sml
                     const Rectangle<int32_t>* targetRegion,
                     const Rectangle<int32_t>* sourceRegion) const;
 
+        Texture* copy() const;
+
         // TODO: implement
         bool writeToBMP(const char* filename) const;
         bool loadFromImage(const char* filename);

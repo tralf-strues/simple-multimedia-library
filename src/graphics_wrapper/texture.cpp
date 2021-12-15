@@ -121,6 +121,14 @@ namespace Sml
         Renderer::getInstance().setTarget(savedTarget);
     }
 
+    Texture* Texture::copy() const
+    {
+        Texture* copy = new Texture(m_Width, m_Height);
+        copyTo(copy, nullptr, nullptr);
+
+        return copy;
+    }
+
     bool Texture::writeToBMP(const char* filename) const
     {
         assert(filename);
