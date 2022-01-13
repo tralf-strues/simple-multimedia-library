@@ -87,11 +87,28 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">simple-multimedia-library </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md__Users_tralf_Dev_simple_multimedia_library_README"></a>The library provides with the following functionality:</p><ol type="1">
+<div class="textblock"><p ><a class="anchor" id="md__Users_tralf_Dev_simple_multimedia_library_README"></a>The library provides the following cross-platform functionality:</p><ol type="1">
+<li><b>Graphics wrapper (⚙️ work-in-progress).</b><ul>
 <li>Creating and managing windows (see <code>Window</code>).</li>
-<li>Simple primitives (like points, lines, rectangles, etc.), texture (see <code>Texture</code>) and text (see <code>Text</code>) rendering.</li>
-<li>Basic 3D math library - vectors (see <code>Vec2&lt;T&gt;</code> and <code>Vec3&lt;T&gt;</code>), matrices (see <code>Mat4&lt;T&gt;</code>), etc.</li>
-<li>Event system.</li>
+<li>Rendering textures, text and primitives (lines, rectangles, circles, etc.) in a state-machine kind of way (see <code>Renderer</code>).</li>
+<li>Loading and writing images.</li>
+</ul>
+</li>
+<li><b>Basic 3D template-based math library (⚙️ work-in-progress).</b><ul>
+<li>Vectors (see <code>Vec2&lt;T&gt;</code> and <code>Vec3&lt;T&gt;</code>) and matrices (see <code>Mat4&lt;T&gt;</code>).</li>
+<li>Image kernels, gaussian blur and sharpening.</li>
+<li>Equation solving.</li>
+</ul>
+</li>
+<li><b>Event system.</b><ul>
+<li>Listener pattern interface.</li>
+<li>Abstract <code>Event</code> class.</li>
+<li>Event dispatching interfaces (see <code>EventDispatcher</code>, <code>EventDispatchChain</code> and <code>EventTarget</code>).</li>
+<li>System events (window, input events, etc.).</li>
+</ul>
+</li>
+<li><b>Application abstraction.</b></li>
+<li><b>Logging system (⚙️ work-in-progress).</b></li>
 </ol>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Installation</h1>

@@ -76,6 +76,24 @@ namespace Sml
         return kernel;
     }
 
+    Kernel* createSharpenKernel()
+    {
+        Kernel* kernel = new Kernel(3);
+        (*kernel)[0][0] = 0;
+        (*kernel)[0][1] = -1;
+        (*kernel)[0][2] = 0;
+
+        (*kernel)[1][0] = -1;
+        (*kernel)[1][1] = 5;
+        (*kernel)[1][2] = -1;
+
+        (*kernel)[2][0] = 0;
+        (*kernel)[2][1] = -1;
+        (*kernel)[2][2] = 0;
+
+        return kernel;
+    }
+
     void applyKernel(const Kernel* kernel, const Rectangle<int32_t>& targetRegion)
     {
         assert(kernel);
